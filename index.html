@@ -4,257 +4,308 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Boda — Romina & Javier · 15 de noviembre de 2025</title>
-  <meta name="description" content="Invitación de boda de Romina Gabriela Laura Rodriguez y Javier Rodrigo Manuel Sarmiento Lopez. Ceremonia, recepción, regalos y confirmación de asistencia." />
+  <meta name="description" content="Invitación de boda: detalles, mapas, video, fotos, regalos y RSVP." />
   <meta name="theme-color" content="#29392F" />
   <meta name="robots" content="noindex,nofollow" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Boda · Romina & Javier · 15/11/2025" />
-  <meta property="og:description" content="Toda la información: ceremonia, recepción, regalos, video, fotos y RSVP." />
+  <meta property="og:description" content="Toda la información: ceremonia, recepción, video, fotos, regalos y RSVP." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="imagenes/IMG-20250712-WA0111.jpg" />
 
-  <!-- Fuentes (consistencia global) -->
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===== PALETA + TIPOGRAFÍA ===== */
+    /* =========================================================
+       1) PALETA / TOKENS
+       ========================================================= */
     :root{
-      --pine:#29392F;       /* verde pino */
-      --olive:#8D8E7C;      /* oliva suave */
-      --champ:#F0DAB8;      /* champagne */
-      --blush:#EFBFBB;      /* blush */
-      --ivory:#F5EDE1;      /* ivory */
-      --ink:#18231b;        /* texto */
-      --muted:#5e6a61;      /* texto tenue */
-      --line:#eee4d4;       /* borde suave */
-      --radius:18px;
-      --shadow:0 8px 24px rgba(0,0,0,.12);
+      /* Principales */
+      --pine:#29392F;
+      --olive:#8D8E7C;
+      --champagne:#F0DAB8;
+      --blush:#EFBFBB;
+      --ivory:#F5EDE1;
+
+      /* Neutrales */
+      --ink:#1E2723;
+      --line:#E9E2D6;
+
+      /* Derivados (usar color-mix en OKLab) */
+      --pine-hover: color-mix(in oklab, var(--pine) 85%, white);
+      --pine-active: color-mix(in oklab, var(--pine) 75%, black);
+      --blush-hover: color-mix(in oklab, var(--blush) 85%, var(--champagne));
+      --olive-hover: color-mix(in oklab, var(--olive), black 10%);
+
+      /* Sombra única */
+      --shadow: 0 6px 20px rgba(0,0,0,.08);
+      --radius: 16px;
     }
+
+    /* =========================================================
+       2) BASE TIPOGRÁFICA / ACCESIBILIDAD
+       ========================================================= */
     *{box-sizing:border-box}
     html,body{margin:0}
     html{scroll-behavior:smooth}
     body{
       background:var(--ivory); color:var(--ink);
-      font-family:Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
+      font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
       line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      font-size: clamp(16px, 1.7vw, 18px);
     }
-    h1,h2,h3{margin:0 0 12px; color:var(--pine)}
-    .serif{font-family:"Playfair Display", ui-serif, Georgia, serif; letter-spacing:.3px}
+
+    h1,h2,h3{margin:0 0 12px; color:var(--pine); letter-spacing:.3px}
+    h1{font-family:"Cormorant Garamond", ui-serif, Georgia, serif; font-weight:700; font-size:clamp(44px,7vw,52px)}
+    h2{font-family:"Cormorant Garamond", ui-serif, Georgia, serif; font-weight:700; font-size:clamp(28px,3.4vw,32px)}
+    h3{font-family:"Cormorant Garamond", ui-serif, Georgia, serif; font-weight:600; font-size:clamp(22px,2.4vw,24px)}
+    p,li,small{letter-spacing:0}
+    a{color:var(--pine); text-decoration:none}
+    a:hover{ text-decoration:underline; text-decoration-color:var(--champagne); text-decoration-thickness:2px; text-underline-offset:3px }
+    a:focus-visible, .btn:focus-visible{ outline:3px solid color-mix(in oklab, var(--champagne), black 10%); outline-offset:3px; border-radius:12px }
+
     .wrap{max-width:1120px; margin:0 auto; padding:32px 20px}
-    a{color:var(--pine); text-underline-offset:2px}
-    .muted{color:var(--muted)}
-    .card{
-      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-      padding:18px; box-shadow:0 1px 0 rgba(0,0,0,.03)
-    }
     .grid{display:grid; gap:18px}
-    @media (min-width:768px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+    @media (min-width:768px){ .cols-2{grid-template-columns:1fr 1fr} }
 
-    /* ===== HERO ===== */
-    header.hero{
-      position:relative; min-height:78vh; display:grid; place-items:center; text-align:center; overflow:hidden;
-      color:#fff; isolation:isolate;
-      background:linear-gradient(180deg, rgba(41,57,47,.58), rgba(41,57,47,.32));
+    /* Chips / etiquetas */
+    .chip{
+      display:inline-block; background:var(--champagne); color:var(--pine);
+      border-radius:9999px; padding:4px 10px; font-size:.95rem; line-height:1; font-weight:500;
     }
-    .hero img.bg{
-      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; filter:saturate(.95);
-      transition:opacity 1s ease;
-    }
-    .hero img.bg:not(.active){opacity:0}
-    .hero .inner{padding:20px}
-    .hero h1.serif{font-size:clamp(36px,7vw,72px)}
-    .date-tile{
-      display:inline-grid; grid-template-columns:auto auto auto; gap:10px; align-items:center;
-      background:rgba(240,218,184,.58); color:#2b2b2b; border-radius:16px; padding:10px 18px; margin-top:12px;
-      font-weight:600; letter-spacing:.3px; border:1px solid rgba(224,206,170,.8);
-      backdrop-filter: blur(4px) saturate(140%); box-shadow:0 2px 12px rgba(41,57,47,.10);
-    }
-    .date-tile .big{font-size:clamp(30px,6vw,46px); font-weight:700}
 
-    /* ===== BOTONES (nueva estética) ===== */
+    /* Tarjetas */
+    .card{
+      background:var(--ivory); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow: var(--shadow);
+    }
+
+    /* =========================================================
+       3) BOTONES
+       ========================================================= */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:12px 18px; border-radius:12px;
-      background:var(--pine); color:#fff;
-      text-decoration:none; font-weight:600;
-      border:1px solid var(--pine);
-      line-height:1; cursor:pointer; user-select:none;
-      transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
-      box-shadow: 0 2px 8px rgba(41,57,47,.16);
+      min-height:44px; padding:12px 20px; border-radius:9999px;
+      font-family: Inter, ui-sans-serif; font-weight:500; letter-spacing:.6px;
+      border:1px solid transparent; cursor:pointer; user-select:none;
+      transition: transform .08s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
+      text-decoration:none;
     }
-    .btn:hover{background:#1e2a22; transform:translateY(-1px);}
-    .btn:active{transform:translateY(0)}
-    .btn:focus-visible{outline:2px solid var(--champ); outline-offset:2px}
-    .btn-secondary{background:var(--champ); color:var(--ink); border-color:var(--champ); box-shadow:0 2px 8px rgba(240,218,184,.35)}
+    .btn:active{ transform: translateY(1px) }
+    .btn[disabled]{ opacity:.45; pointer-events:none }
+
+    /* Primario (CTA) */
+    .btn-primary{ background:var(--pine); color:var(--ivory); border:1.5px solid var(--champagne) }
+    .btn-primary:hover{ background:var(--champagne); color:var(--pine); border-color:var(--pine-hover) }
+    .btn-primary:active{ background:var(--pine-active); color:var(--ivory) }
+
+    /* Secundario (acciones mapa, copias, .ics) */
+    .btn-secondary{ background:var(--blush); color:var(--pine); border:1px solid var(--blush-hover) }
+    .btn-secondary:hover{ background:var(--olive-hover); color:var(--ivory); border-color:var(--olive-hover) }
+
+    /* Grupos de botones */
     .btn-group{display:flex; gap:10px; flex-wrap:wrap}
-    .btn-group .btn{flex:1 1 160px}
-    @media (max-width:520px){ .btn{width:100%} }
+    .btn-group .btn{ flex:1 1 240px }  /* igual ancho en desktop */
+    @media (max-width:520px){ .btn{ width:100% } } /* full width en móvil */
 
-    .countdown{margin-top:8px; font-weight:700; opacity:.98}
-
-    /* ===== NAV ===== */
+    /* =========================================================
+       4) NAV (con iconos; hereda currentColor)
+       ========================================================= */
     nav{
-      position:sticky; top:0; z-index:20; background:#ffffffc8; backdrop-filter:saturate(160%) blur(8px);
-      border-bottom:1px solid var(--line); display:flex; gap:6px; overflow:auto; padding:8px 10px
+      position:sticky; top:0; z-index:20;
+      background:color-mix(in oklab, white 80%, var(--champagne) 20%);
+      backdrop-filter:saturate(160%) blur(8px);
+      border-bottom:1px solid var(--line); display:flex; gap:6px; overflow:auto; padding:8px 10px;
     }
-    .nav-item{display:inline-flex; align-items:center; gap:8px; color:var(--pine); text-decoration:none; padding:8px 12px; border-radius:12px; white-space:nowrap}
-    .nav-item svg{width:18px; height:18px; flex:0 0 auto; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
-    .nav-item:hover{background:#f5efe3}
-    .nav-item.active{background:#f0e8d8; box-shadow:inset 0 0 0 1px #eadfca}
+    .nav-item{ display:inline-flex; align-items:center; gap:8px; color:var(--pine); padding:8px 12px; border-radius:12px; text-decoration:none; white-space:nowrap }
+    .nav-item svg{ width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round }
+    .nav-item:hover{ background: color-mix(in oklab, var(--champagne) 35%, white) }
+    .nav-item.active{ background: color-mix(in oklab, var(--champagne) 50%, white); box-shadow: inset 0 0 0 1px var(--line) }
 
-    /* ===== MAPAS/UBICACIÓN (botones debajo) ===== */
-    .map-embed{position:relative; padding-top:56.25%; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#fff}
-    .map-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
-    .loc-grid{display:block} /* ahora una sola columna para que el mapa sea grande */
+    /* =========================================================
+       5) HERO (fondo con veladura y 1 solo CTA)
+       ========================================================= */
+    header.hero{
+      position:relative; min-height:78vh; display:grid; place-items:center; text-align:center; overflow:hidden; color:#fff; isolation:isolate;
+    }
+    .hero .bg{ position:absolute; inset:0; object-fit:cover; width:100%; height:100%; z-index:-2; transition:opacity 1s ease }
+    .hero .bg:not(.active){ opacity:0 }
+    /* Veladura editorial */
+    header.hero::after{
+      content:""; position:absolute; inset:0; z-index:-1;
+      background: linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--pine), transparent 65%),
+        transparent 15%
+      );
+    }
+    .hero .inner{padding:20px}
+    .countdown{ margin-top:8px; font-weight:700 }
 
-    /* ===== REGALOS ===== */
-    .bank{display:grid; gap:12px}
-    @media (min-width:768px){ .bank{grid-template-columns:1fr 1fr} }
-    .box{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px}
-    .copy.btn.copied{background:#f0f7f0; border-color:#cfe6cf}
+    /* =========================================================
+       6) MAPAS Y ACCIONES
+       ========================================================= */
+    .map-embed{ position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#fff }
+    .map-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0 }
+    .loc-grid{ display:grid; gap:16px }
+    @media (min-width:900px){ .loc-grid{ grid-template-columns: 1.5fr 1fr; align-items:start } }
 
-    /* ===== GALERÍA Y VIDEO ===== */
-    .gallery{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-    .gallery img{width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:#fff}
-    dialog#lightbox{border:none; padding:0; max-width:min(95vw,1100px); background:transparent}
-    dialog#lightbox::backdrop{background:rgba(0,0,0,.6)}
-    .lightbox-img{max-width:95vw; max-height:85vh; border-radius:10px; border:1px solid var(--line)}
-    .video-card video{width:100%; border-radius:14px; border:1px solid var(--line); display:block}
+    /* =========================================================
+       7) GALERÍA / VIDEO
+       ========================================================= */
+    .gallery{ display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) }
+    .gallery img{ width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:#fff; transition: transform .2s ease, box-shadow .2s ease }
+    .gallery img:hover{ transform:scale(1.01); box-shadow: var(--shadow) }
+    dialog#lightbox{ border:none; padding:0; max-width:min(95vw,1100px); background:transparent }
+    dialog#lightbox::backdrop{ background:rgba(0,0,0,.6) }
+    .lightbox-img{ max-width:95vw; max-height:85vh; border-radius:12px; border:1px solid var(--line) }
+    .video-card video{ width:100%; border-radius:12px; border:1px solid var(--line); display:block }
 
-    footer{padding:28px 16px; text-align:center; color:#6a6a6a; border-top:1px solid var(--line)}
-    @media (prefers-reduced-motion: reduce){ .hero img.bg{transition:none} }
+    /* =========================================================
+       8) SECCIONES DESTACADAS (Regalos, RSVP)
+       ========================================================= */
+    .panel{
+      background: color-mix(in oklab, var(--champagne) 20%, white);
+      border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow: var(--shadow);
+    }
+
+    /* =========================================================
+       9) FOOTER OSCURO
+       ========================================================= */
+    footer{ padding:28px 16px; text-align:center; background:var(--pine); color:var(--ivory) }
+    footer a{ color:var(--ivory); text-decoration:underline; text-decoration-color:var(--champagne); text-underline-offset:3px; text-decoration-thickness:2px }
+
+    /* Accesibilidad de movimiento/contraste */
+    @media (prefers-reduced-motion: reduce){
+      .hero .bg{ transition:none } .gallery img:hover{ transform:none; box-shadow:none }
+    }
+    @media (prefers-contrast: more){
+      .card, .panel{ border-width:2px }
+      body{ color: var(--pine-active) }
+    }
   </style>
 </head>
 <body>
-  <!-- HERO -->
-  <header class="hero" id="hero" aria-label="Portada de la invitación">
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="hero" aria-label="Portada">
     <img class="bg active" src="imagenes/IMG-20250712-WA0111.jpg" alt="" fetchpriority="high" />
     <img class="bg" src="imagenes/IMG-20250714-WA0094.jpg" alt="" />
     <div class="inner">
-      <h1 class="serif">Romina & Javier</h1>
-      <div class="date-tile" aria-label="Fecha del evento">
-        <span class="muted">NOV</span>
-        <span class="big">15</span>
-        <span class="muted">2025</span>
-      </div>
-      <p style="margin-top:6px">Dress code: <strong>Elegante</strong></p>
+      <h1>Romina & Javier</h1>
+      <p class="chip">Dress code: Elegante</p>
       <div class="countdown" id="countdown" aria-live="polite"></div>
-
-      <!-- Solo queda Confirmar asistencia -->
-      <div class="btn-group" style="margin-top:14px">
-        <a class="btn" href="#rsvp" aria-label="Confirmar asistencia">Confirmar asistencia</a>
+      <!-- Un solo CTA: RSVP -->
+      <div style="margin-top:14px">
+        <a class="btn btn-primary" href="#rsvp">Confirmar asistencia</a>
       </div>
     </div>
   </header>
 
-  <!-- NAV con iconos -->
-  <nav aria-label="Navegación principal" id="nav">
+  <!-- ================= NAV ================= -->
+  <nav aria-label="Navegación" id="nav">
     <a href="#detalles" class="nav-item" data-section="detalles" title="Detalles">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"/></svg>
-      <span>Detalles</span>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"/></svg> Detalles
     </a>
     <a href="#ceremonia" class="nav-item" data-section="ceremonia" title="Ceremonia">
-      <svg viewBox="0 0 24 24"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg>
-      <span>Ceremonia</span>
+      <svg viewBox="0 0 24 24"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg> Ceremonia
     </a>
     <a href="#recepcion" class="nav-item" data-section="recepcion" title="Recepción">
-      <svg viewBox="0 0 24 24"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12"/></svg>
-      <span>Recepción</span>
+      <svg viewBox="0 0 24 24"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12"/></svg> Recepción
     </a>
     <a href="#video" class="nav-item" data-section="video" title="Video">
-      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 8l4-2v12l-4-2z"/></svg>
-      <span>Video</span>
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 8l4-2v12l-4-2z"/></svg> Video
     </a>
     <a href="#fotos" class="nav-item" data-section="fotos" title="Fotos">
-      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="12" r="2.5"/><path d="M21 10l-4 4"/></svg>
-      <span>Fotos</span>
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="12" r="2.5"/><path d="M21 10l-4 4"/></svg> Fotos
     </a>
     <a href="#regalos" class="nav-item" data-section="regalos" title="Regalos">
-      <svg viewBox="0 0 24 24"><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M2 7h20M12 22V7"/><path d="M12 7H7a2 2 0 0 1 0-4c3 0 5 4 5 4Z"/><path d="M12 7h5a2 2 0 0 0 0-4c-3 0-5 4-5 4Z"/></svg>
-      <span>Regalos</span>
+      <svg viewBox="0 0 24 24"><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M2 7h20M12 22V7"/><path d="M12 7H7a2 2 0 0 1 0-4c3 0 5 4 5 4Z"/><path d="M12 7h5a2 2 0 0 0 0-4c-3 0-5 4-5 4Z"/></svg> Regalos
     </a>
     <a href="#rsvp" class="nav-item" data-section="rsvp" title="RSVP">
-      <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
-      <span>RSVP</span>
+      <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> RSVP
     </a>
   </nav>
 
-  <!-- DETALLES (incluye Guardar fecha) -->
+  <!-- ================= DETALLES ================= -->
   <section id="detalles" class="wrap section">
-    <div class="card grid cols-2">
+    <div class="card cols-2 grid">
       <div>
-        <h2 class="serif">Detalles</h2>
+        <h2>Detalles</h2>
         <p><strong>Novios</strong><br>
           Romina Gabriela Laura Rodriguez<br>
           Javier Rodrigo Manuel Sarmiento Lopez</p>
         <p><strong>Fecha</strong> · 15 de noviembre de 2025</p>
-        <p><strong>Dress code</strong> · Elegante</p>
-        <div class="btn-group" style="margin-top:8px">
-          <a class="btn btn-secondary" id="addCalDetails" download="Boda-Romina-Javier.ics" href="">Guardar la fecha (.ics)</a>
+        <div class="btn-group" style="margin:10px 0 6px">
+          <!-- Guardar la fecha — ÚNICO LUGAR -->
+          <a class="btn btn-secondary" id="addCal" download="Boda-Romina-Javier.ics" href="">Guardar la fecha (.ics)</a>
         </div>
-        <p class="muted" style="margin-top:8px">Hemos reservado pases para ti. ¡Te esperamos!</p>
+        <p class="chip" style="margin-top:6px">Dress code: Elegante</p>
+        <p style="margin-top:8px" class="muted">Hemos reservado pases para ti. ¡Te esperamos!</p>
       </div>
       <div>
         <h3 class="muted" style="margin-bottom:8px">Itinerario</h3>
         <ul class="muted" style="margin-top:6px">
-          <li><strong>12:00 p.m.</strong> — Inicio de la ceremonia</li>
-          <li><strong>Recepción</strong> — posterior a la ceremonia</li>
+          <li><span style="color:var(--olive)">•</span> <strong>12:00 p.m.</strong> — Inicio de la ceremonia</li>
+          <li><span style="color:var(--olive)">•</span> <strong>Recepción</strong> — posterior a la ceremonia</li>
         </ul>
-        <div class="muted" style="font-size:14px">Sugerimos llegar con 15–20 minutos de anticipación.</div>
       </div>
     </div>
   </section>
 
-  <!-- CEREMONIA -->
+  <!-- ================= CEREMONIA ================= -->
   <section id="ceremonia" class="wrap section">
     <div class="card">
-      <h2 class="serif">Ceremonia</h2>
+      <h2>Ceremonia</h2>
       <p><strong>Iglesia</strong> · Parroquia Nuestra Señora del Carmen</p>
       <p><strong>Dirección</strong><br>Juan de la Fuente, Miraflores 15047, Perú</p>
 
-      <div class="loc-grid" style="margin-top:10px">
+      <div class="loc-grid" style="margin-top:12px">
         <div class="map-embed" aria-label="Mapa de la iglesia">
           <iframe loading="lazy" allowfullscreen
             src="https://maps.google.com/maps?q=Juan%20de%20la%20Fuente,%20Miraflores%2015047,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
           </iframe>
         </div>
-        <div class="btn-group" style="margin-top:10px">
-          <a class="btn copy" data-copy="Juan de la Fuente, Miraflores 15047, Perú">Copiar dirección</a>
-          <a class="btn" target="_blank" rel="noopener"
-            href="https://www.google.com/maps/dir/?api=1&destination=Juan%20de%20la%20Fuente%2C%20Miraflores%2015047%2C%20Per%C3%BA">Cómo llegar</a>
+        <div>
+          <div class="btn-group">
+            <a class="btn btn-secondary copy" data-copy="Juan de la Fuente, Miraflores 15047, Perú">Copiar dirección</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/dir/?api=1&destination=Juan%20de%20la%20Fuente%2C%20Miraflores%2015047%2C%20Per%C3%BA">Cómo llegar</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RECEPCIÓN -->
+  <!-- ================= RECEPCIÓN ================= -->
   <section id="recepcion" class="wrap section">
     <div class="card">
-      <h2 class="serif">Recepción</h2>
+      <h2>Recepción</h2>
       <p><strong>Dirección</strong><br>Av. Club Golf Los Incas 222, Surco</p>
 
-      <div class="loc-grid" style="margin-top:10px">
+      <div class="loc-grid" style="margin-top:12px">
         <div class="map-embed" aria-label="Mapa de la recepción">
           <iframe loading="lazy" allowfullscreen
             src="https://maps.google.com/maps?q=Av.%20Club%20Golf%20Los%20Incas%20222,%20Surco,%20Lima,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
           </iframe>
         </div>
-        <div class="btn-group" style="margin-top:10px">
-          <a class="btn copy" data-copy="Av. Club Golf Los Incas 222, Surco">Copiar dirección</a>
-          <a class="btn" target="_blank" rel="noopener"
-            href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Club%20Golf%20Los%20Incas%20222%2C%20Surco%2C%20Lima%2C%20Per%C3%BA">Cómo llegar</a>
+        <div>
+          <div class="btn-group">
+            <a class="btn btn-secondary copy" data-copy="Av. Club Golf Los Incas 222, Surco">Copiar dirección</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Club%20Golf%20Los%20Incas%20222%2C%20Surco%2C%20Lima%2C%20Per%C3%BA">Cómo llegar</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VIDEO -->
+  <!-- ================= VIDEO ================= -->
   <section id="video" class="wrap section">
     <div class="card video-card">
-      <h2 class="serif">Video</h2>
+      <h2>Video</h2>
       <video controls playsinline preload="metadata" poster="imagenes/IMG-20250712-WA0111.jpg">
         <source src="media/video.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
@@ -263,10 +314,10 @@
     </div>
   </section>
 
-  <!-- FOTOS -->
+  <!-- ================= FOTOS ================= -->
   <section id="fotos" class="wrap section">
-    <h2 class="serif">Fotos</h2>
-    <div class="gallery" aria-label="Galería de fotos">
+    <h2>Fotos</h2>
+    <div class="gallery" aria-label="Galería">
       <img src="imagenes/IMG-20250712-WA0111.jpg" alt="Romina y Javier" loading="lazy" decoding="async">
       <img src="imagenes/IMG-20250714-WA0094.jpg" alt="Sesión de pareja" loading="lazy" decoding="async">
       <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.24_caaa55f7.jpg" alt="Feliz momento juntos" loading="lazy" decoding="async">
@@ -274,35 +325,37 @@
     </div>
   </section>
 
-  <!-- REGALOS -->
+  <!-- ================= REGALOS ================= -->
   <section id="regalos" class="wrap section">
-    <div class="card">
-      <h2 class="serif">Cuenta para regalos</h2>
-      <p class="muted">Nos sentimos bendecidos de tenerte en nuestra vida y poder compartir este día tan especial contigo. Si consideras hacernos un obsequio, nuestras opciones son:</p>
-      <div class="bank" style="margin-top:10px">
-        <div class="box">
-          <h3 style="margin:0 0 6px">Interbank — <span class="muted">DÓLARES</span></h3>
-          <p style="margin:0"><strong>Cuenta</strong> · <span class="copy btn" data-copy="898 3184906814">898 3184906814</span></p>
-          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy btn" data-copy="00389801318490681446">00389801318490681446</span></p>
+    <div class="panel">
+      <h2>Cuenta para regalos</h2>
+      <p class="muted">Si consideras hacernos un obsequio, nuestras opciones son:</p>
+      <div class="grid cols-2" style="margin-top:10px">
+        <div class="card">
+          <h3>Interbank — <span class="muted">DÓLARES</span></h3>
+          <p style="margin:6px 0"><strong>Cuenta</strong> · <span class="copy btn btn-secondary" data-copy="898 3184906814">898 3184906814</span></p>
+          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy btn btn-secondary" data-copy="00389801318490681446">00389801318490681446</span></p>
         </div>
-        <div class="box">
-          <h3 style="margin:0 0 6px">Interbank — <span class="muted">SOLES</span></h3>
-          <p style="margin:0"><strong>Cuenta</strong> · <span class="copy btn" data-copy="200 3122648627">200 3122648627</span></p>
-          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy btn" data-copy="00320001312264862735">00320001312264862735</span></p>
+        <div class="card">
+          <h3>Interbank — <span class="muted">SOLES</span></h3>
+          <p style="margin:6px 0"><strong>Cuenta</strong> · <span class="copy btn btn-secondary" data-copy="200 3122648627">200 3122648627</span></p>
+          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy btn btn-secondary" data-copy="00320001312264862735">00320001312264862735</span></p>
         </div>
       </div>
       <p class="muted" style="margin-top:10px">A nombre de <strong>Javier Sarmiento</strong>.</p>
     </div>
   </section>
 
-  <!-- RSVP -->
+  <!-- ================= RSVP ================= -->
   <section id="rsvp" class="wrap section">
-    <div class="card">
-      <h2 class="serif">Confirmar asistencia (RSVP)</h2>
+    <div class="panel">
+      <h2>Confirmar asistencia (RSVP)</h2>
       <p>Por favor confirma tu asistencia.</p>
       <div class="btn-group" style="margin-top:10px">
-        <a class="btn" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a>
-        <a class="btn" href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+        <!-- Reemplaza con tu Google Form -->
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a>
+        <!-- Reemplaza 51XXXXXXXXX por tu número -->
+        <a class="btn btn-secondary" href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
       </div>
     </div>
   </section>
@@ -311,7 +364,7 @@
     Hecho con ❤️ por Romina & Javier · <a href="#rsvp">RSVP</a>
   </footer>
 
-  <!-- JSON-LD del evento -->
+  <!-- JSON-LD Evento -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -339,32 +392,24 @@
   </script>
 
   <script>
-    // Crossfade del hero
-    const heroImgs = Array.from(document.querySelectorAll('.hero img.bg'));
+    /* Crossfade simple del hero */
+    const heroImgs = Array.from(document.querySelectorAll('.hero .bg'));
     let hi = 0;
-    setInterval(()=>{
-      heroImgs[hi].classList.remove('active');
-      hi = (hi + 1) % heroImgs.length;
-      heroImgs[hi].classList.add('active');
-    }, 6000);
+    setInterval(()=>{ heroImgs[hi].classList.remove('active'); hi=(hi+1)%heroImgs.length; heroImgs[hi].classList.add('active'); }, 6000);
 
-    // Contador con meses/días/horas/min/seg (oculta unidades en 0)
+    /* CountDown con meses + segundos; oculta unidades = 0 */
     const countdownEl = document.getElementById('countdown');
-    const target = new Date('2025-11-15T12:00:00-05:00'); // Lima
+    const target = new Date('2025-11-15T12:00:00-05:00');
     function addMonths(base, m){
       const y = base.getFullYear(), mon = base.getMonth()+m, d = base.getDate();
-      const lastDayTarget = new Date(y, mon+1, 0).getDate();
-      return new Date(y, mon, Math.min(d, lastDayTarget), base.getHours(), base.getMinutes(), base.getSeconds(), base.getMilliseconds());
+      const last = new Date(y, mon+1, 0).getDate();
+      return new Date(y, mon, Math.min(d,last), base.getHours(), base.getMinutes(), base.getSeconds(), base.getMilliseconds());
     }
     function diffWithMonths(from, to){
       if (from >= to) return {months:0, days:0, hours:0, minutes:0, seconds:0};
-      let months = 0;
-      let cursor = new Date(from);
-      while (true){
-        const next = addMonths(cursor, 1);
-        if (next <= to){ months++; cursor = next; } else break;
-      }
-      const ms = to - cursor;
+      let months = 0, cur = new Date(from);
+      while(true){ const nxt = addMonths(cur,1); if(nxt<=to){ months++; cur=nxt; } else break; }
+      const ms = to - cur;
       const days = Math.floor(ms/86400000);
       const hours = Math.floor((ms%86400000)/3600000);
       const minutes = Math.floor((ms%3600000)/60000);
@@ -385,41 +430,31 @@
     }
     tick(); setInterval(tick, 1000);
 
-    // Copiar al portapapeles (direcciones y cuentas)
+    /* Copiar al portapapeles */
     document.querySelectorAll('.copy').forEach(el=>{
       el.addEventListener('click', async ()=>{
         const text = el.getAttribute('data-copy') || el.textContent.trim();
-        try {
+        try{
           await navigator.clipboard.writeText(text);
-          el.classList.add('copied');
-          const old = el.textContent;
-          el.textContent = '¡Copiado!';
-          setTimeout(()=>{ el.textContent = old; el.classList.remove('copied'); }, 1600);
-        } catch(e){}
+          const old = el.textContent; el.textContent='¡Copiado!'; setTimeout(()=>{ el.textContent=old; }, 1400);
+        }catch(e){}
       });
     });
 
-    // Enlace .ics "Guardar la fecha" (solo en Detalles)
+    /* Enlace .ics (evento conjunto) */
     const ics = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//RominaJavier//Boda//ES',
-      'BEGIN:VEVENT',
-      'UID:boda-romina-javier-20251115',
-      'DTSTAMP:20250101T120000Z',
+      'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//RominaJavier//Boda//ES',
+      'BEGIN:VEVENT','UID:boda-romina-javier-20251115','DTSTAMP:20250101T120000Z',
       'DTSTART:20251115T120000',
       'SUMMARY:Boda de Romina & Javier',
       'LOCATION:Parroquia Nuestra Señora del Carmen, Juan de la Fuente, Miraflores 15047, Perú',
       'DESCRIPTION:Ceremonia 12:00 p.m. — Recepción: Av. Club Golf Los Incas 222, Surco. Dress code: Elegante.',
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].join('\r\n');
-    const addCalDetails = document.getElementById('addCalDetails');
-    if (addCalDetails){
-      addCalDetails.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
-    }
+      'END:VEVENT','END:VCALENDAR'
+    ].join('\\r\\n');
+    const addCal = document.getElementById('addCal');
+    addCal.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
 
-    // Lightbox simple para Fotos
+    /* Lightbox para Fotos */
     const dlg = document.createElement('dialog'); dlg.id='lightbox';
     dlg.innerHTML = '<img class="lightbox-img" alt=""><form method="dialog"><button style="display:none">x</button></form>';
     document.body.appendChild(dlg);
@@ -429,7 +464,7 @@
     });
     dlg.addEventListener('click', e=>{ if(e.target === dlg) dlg.close(); });
 
-    // Nav activa según scroll
+    /* Nav activa on scroll */
     const nav = document.getElementById('nav');
     const links = Array.from(nav.querySelectorAll('.nav-item'));
     const idToLink = Object.fromEntries(links.map(a=>[a.dataset.section, a]));
@@ -437,12 +472,12 @@
       entries.forEach(entry=>{
         if (entry.isIntersecting){
           links.forEach(l=>l.classList.remove('active'));
-          const id = entry.target.id; idToLink[id]?.classList.add('active');
+          idToLink[entry.target.id]?.classList.add('active');
         }
       });
-    }, {rootMargin:'-50% 0px -45% 0px', threshold:0});
+    }, {rootMargin:'-50% 0px -45% 0px'});
     ['detalles','ceremonia','recepcion','video','fotos','regalos','rsvp'].forEach(id=>{
-      const el = document.getElementById(id); if(el) obs.observe(el);
+      const el=document.getElementById(id); if(el) obs.observe(el);
     });
   </script>
 </body>
