@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mi sitio público</title>
+  <meta name="description" content="Sitio web público gratuito con hosting estático." />
+  <meta property="og:title" content="Mi sitio público" />
+  <meta property="og:description" content="Publicado gratis con hosting estático." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root { --bg:#0b1b2b; --card:#10243a; --text:#e6edf3; --muted:#9fb3c8; --acc:#7ee787; }
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0b1b2b,#09121d);color:var(--text)}
+    header{padding:56px 24px;text-align:center}
+    h1{margin:0 0 12px;font-size:clamp(28px,4.5vw,44px)}
+    p{margin:0 auto;max-width:720px;line-height:1.6;color:var(--muted)}
+    .btn{display:inline-block;margin-top:20px;padding:12px 18px;border-radius:12px;background:var(--acc);color:#081a11;text-decoration:none;font-weight:700}
+    main{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding:24px;max-width:1100px;margin:0 auto}
+    .card{background:var(--card);border:1px solid #17324d;border-radius:16px;padding:18px}
+    .card h3{margin:0 0 8px}
+    footer{padding:24px;text-align:center;color:var(--muted);border-top:1px solid #17324d}
+    a{color:#7aa7ff}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¡Hola, mundo! 🌎</h1>
+    <p>Esta es una web estática publicada gratis. Edita este archivo <code>index.html</code> para cambiar contenido, colores y secciones.</p>
+    <a class="btn" href="#contacto">Contáctame</a>
+  </header>
+
+  <main>
+    <section class="card">
+      <h3>Rápido</h3>
+      <p>Sube un archivo y tu web queda pública en minutos.</p>
+    </section>
+    <section class="card">
+      <h3>Seguro</h3>
+      <p>HTTPS automático y sin servidores que mantener.</p>
+    </section>
+    <section class="card">
+      <h3>Escalable</h3>
+      <p>Agrega más páginas creando archivos <code>.html</code> o una carpeta <code>/blog</code>.</p>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    Hecho con ❤️ · <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a>
+  </footer>
+</body>
+</html>
