@@ -10,51 +10,53 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Boda · Romina & Javier · 15/11/2025" />
-  <meta property="og:description" content="Toda la información: ceremonia, recepción, regalos y RSVP." />
+  <meta property="og:description" content="Toda la información: ceremonia, recepción, regalos, video, fotos y RSVP." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="imagenes/IMG-20250712-WA0111.jpg" />
 
-  <!-- Fuentes -->
+  <!-- Fuentes (consistencia global) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
+    /* ===== PALETA + TIPOGRAFÍA ===== */
     :root{
-      --pine:#29392F; --olive:#8D8E7C; --champ:#F0DAB8; --blush:#EFBFBB; --ivory:#F5EDE1;
-      --ink:#18231b; --muted:#5e6a61; --paper:#FFFFFF; --line:#eee4d4; --shadow:0 8px 24px rgba(0,0,0,.12);
+      --pine:#29392F;       /* verde pino */
+      --olive:#8D8E7C;      /* oliva suave */
+      --champ:#F0DAB8;      /* champagne */
+      --blush:#EFBFBB;      /* blush */
+      --ivory:#F5EDE1;      /* ivory */
+      --ink:#18231b;        /* texto */
+      --muted:#5e6a61;      /* texto tenue */
+      --line:#eee4d4;       /* borde suave */
       --radius:18px;
+      --shadow:0 8px 24px rgba(0,0,0,.12);
     }
     *{box-sizing:border-box}
     html,body{margin:0}
     html{scroll-behavior:smooth}
     body{
-      background:var(--ivory);
-      color:var(--ink);
+      background:var(--ivory); color:var(--ink);
       font-family:Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
       line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
+    h1,h2,h3{margin:0 0 12px; color:var(--pine)}
     .serif{font-family:"Playfair Display", ui-serif, Georgia, serif; letter-spacing:.3px}
     .wrap{max-width:1120px; margin:0 auto; padding:32px 20px}
-    h1,h2,h3{margin:0 0 12px; color:var(--pine)}
-    h1{font-size:clamp(36px,7vw,72px)}
-    h2{font-size:clamp(22px,3.2vw,34px)}
-    h3{font-size:clamp(18px,2.4vw,22px); color:#2a3a31}
-    p{margin:0 0 10px}
-    a{color:#2b4a3a; text-underline-offset:2px}
+    a{color:var(--pine); text-underline-offset:2px}
     .muted{color:var(--muted)}
     .card{
-      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+      background:#fff; border:1px solid var(--line); border-radius:var(--radius);
       padding:18px; box-shadow:0 1px 0 rgba(0,0,0,.03)
     }
     .grid{display:grid; gap:18px}
     @media (min-width:768px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
 
-    /* ================= HERO ================= */
+    /* ===== HERO ===== */
     header.hero{
       position:relative; min-height:78vh; display:grid; place-items:center; text-align:center; overflow:hidden;
       color:#fff; isolation:isolate;
-      /* overlay más sutil */
       background:linear-gradient(180deg, rgba(41,57,47,.58), rgba(41,57,47,.32));
     }
     .hero img.bg{
@@ -63,43 +65,59 @@
     }
     .hero img.bg:not(.active){opacity:0}
     .hero .inner{padding:20px}
-    /* Fecha: más grande y más transparente + blur suave */
+    .hero h1.serif{font-size:clamp(36px,7vw,72px)}
+    /* Fecha: más grande y ligera (consistente con champagne) */
     .date-tile{
       display:inline-grid; grid-template-columns:auto auto auto; gap:10px; align-items:center;
-      background:rgba(240,218,184,.62); color:#2b2b2b; border-radius:16px; padding:10px 18px; margin-top:12px;
+      background:rgba(240,218,184,.58); color:#2b2b2b; border-radius:16px; padding:10px 18px; margin-top:12px;
       font-weight:600; letter-spacing:.3px; border:1px solid rgba(224,206,170,.8);
-      backdrop-filter: blur(4px) saturate(140%);
-      box-shadow:0 2px 12px rgba(41,57,47,.10);
+      backdrop-filter: blur(4px) saturate(140%); box-shadow:0 2px 12px rgba(41,57,47,.10);
     }
     .date-tile .big{font-size:clamp(30px,6vw,46px); font-weight:700}
-    .cta{
-      display:inline-flex; align-items:center; gap:8px; margin-top:16px;
-      padding:12px 18px; border-radius:12px; background:#fff; color:#1b1b1b; text-decoration:none; font-weight:700; border:1px solid #e9e1cf;
+
+    /* Botones unificados: misma tipografía/colores/tamaños */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 18px; border-radius:12px; background:#fff; color:#1b1b1b;
+      text-decoration:none; font-weight:700; border:1px solid #e9e1cf;
+      line-height:1; cursor:pointer; user-select:none;
     }
+    .btn:focus-visible{outline:2px solid #c9b892; outline-offset:2px}
+    .btn-secondary{background:#fff; border-color:#e9e1cf}
+    .btn-group{display:flex; gap:10px; flex-wrap:wrap}
+    .btn-group .btn{flex:1 1 160px}        /* Igual tamaño en desktop */
+    @media (max-width:520px){ .btn{width:100%} } /* y 100% en móvil */
+
     .countdown{margin-top:8px; font-weight:700; opacity:.98}
 
-    /* ================= NAV con iconos ================= */
+    /* ===== NAV con iconos (heredan currentColor) ===== */
     nav{
       position:sticky; top:0; z-index:20; background:#ffffffc8; backdrop-filter:saturate(160%) blur(8px);
       border-bottom:1px solid var(--line); display:flex; gap:6px; overflow:auto; padding:8px 10px
     }
-    .nav-item{display:inline-flex; align-items:center; gap:8px; color:#213227; text-decoration:none; padding:8px 12px; border-radius:12px; white-space:nowrap}
-    .nav-item svg{width:18px; height:18px; flex:0 0 auto}
+    .nav-item{display:inline-flex; align-items:center; gap:8px; color:var(--pine); text-decoration:none; padding:8px 12px; border-radius:12px; white-space:nowrap}
+    .nav-item svg{width:18px; height:18px; flex:0 0 auto; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
     .nav-item:hover{background:#f5efe3}
     .nav-item.active{background:#f0e8d8; box-shadow:inset 0 0 0 1px #eadfca}
 
-    /* ================= MAPS ================= */
+    /* ===== MAPAS/UBICACIÓN ===== */
     .map-embed{position:relative; padding-top:56.25%; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#fff}
     .map-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+    .loc-grid{display:grid; gap:16px}
+    @media (min-width:900px){ .loc-grid{grid-template-columns:1.5fr 1fr; align-items:start} }
 
-    /* ================= GIFTS ================= */
+    /* ===== REGALOS ===== */
     .bank{display:grid; gap:12px}
     @media (min-width:768px){ .bank{grid-template-columns:1fr 1fr} }
     .box{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px}
-    .copy{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:10px; border:1px solid #e7dcc5; background:#fff; cursor:pointer}
-    .copied{background:#f0f7f0; border-color:#cfe6cf}
+    .copy.btn.copied{background:#f0f7f0; border-color:#cfe6cf}
 
-    /* ================= VIDEO ================= */
+    /* ===== GALERÍA Y VIDEO ===== */
+    .gallery{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+    .gallery img{width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:#fff}
+    dialog#lightbox{border:none; padding:0; max-width:min(95vw,1100px); background:transparent}
+    dialog#lightbox::backdrop{background:rgba(0,0,0,.6)}
+    .lightbox-img{max-width:95vw; max-height:85vh; border-radius:10px; border:1px solid var(--line)}
     .video-card video{width:100%; border-radius:14px; border:1px solid var(--line); display:block}
 
     footer{padding:28px 16px; text-align:center; color:#6a6a6a; border-top:1px solid var(--line)}
@@ -109,7 +127,6 @@
 <body>
   <!-- HERO -->
   <header class="hero" id="hero" aria-label="Portada de la invitación">
-    <!-- Fondo con crossfade suave -->
     <img class="bg active" src="imagenes/IMG-20250712-WA0111.jpg" alt="" fetchpriority="high" />
     <img class="bg" src="imagenes/IMG-20250714-WA0094.jpg" alt="" />
     <div class="inner">
@@ -121,45 +138,47 @@
       </div>
       <p style="margin-top:6px">Dress code: <strong>Elegante</strong></p>
       <div class="countdown" id="countdown" aria-live="polite"></div>
-      <a class="cta" href="#rsvp" aria-label="Confirmar asistencia">Confirmar asistencia</a>
+
+      <div class="btn-group" style="margin-top:14px">
+        <a class="btn btn-secondary" id="addCalHero" download="Boda-Romina-Javier.ics" href="">Guardar la fecha (.ics)</a>
+        <a class="btn" href="#rsvp" aria-label="Confirmar asistencia">Confirmar asistencia</a>
+      </div>
     </div>
   </header>
 
-  <!-- NAV con iconos (sin “sellos” redundantes) -->
+  <!-- NAV con iconos -->
   <nav aria-label="Navegación principal" id="nav">
     <a href="#detalles" class="nav-item" data-section="detalles" title="Detalles">
-      <!-- info -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"/></svg>
       <span>Detalles</span>
     </a>
     <a href="#ceremonia" class="nav-item" data-section="ceremonia" title="Ceremonia">
-      <!-- iglesia -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg>
       <span>Ceremonia</span>
     </a>
     <a href="#recepcion" class="nav-item" data-section="recepcion" title="Recepción">
-      <!-- copas -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12"/></svg>
       <span>Recepción</span>
     </a>
     <a href="#video" class="nav-item" data-section="video" title="Video">
-      <!-- video -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 8l4-2v12l-4-2z"/><path d="M10 12l-2 1.5V10.5L10 12z"/></svg>
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 8l4-2v12l-4-2z"/></svg>
       <span>Video</span>
     </a>
+    <a href="#fotos" class="nav-item" data-section="fotos" title="Fotos">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="12" r="2.5"/><path d="M21 10l-4 4"/></svg>
+      <span>Fotos</span>
+    </a>
     <a href="#regalos" class="nav-item" data-section="regalos" title="Regalos">
-      <!-- regalo -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M2 7h20M12 22V7"/><path d="M12 7H7a2 2 0 0 1 0-4c3 0 5 4 5 4Z"/><path d="M12 7h5a2 2 0 0 0 0-4c-3 0-5 4-5 4Z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M2 7h20M12 22V7"/><path d="M12 7H7a2 2 0 0 1 0-4c3 0 5 4 5 4Z"/><path d="M12 7h5a2 2 0 0 0 0-4c-3 0-5 4-5 4Z"/></svg>
       <span>Regalos</span>
     </a>
     <a href="#rsvp" class="nav-item" data-section="rsvp" title="RSVP">
-      <!-- check -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
       <span>RSVP</span>
     </a>
   </nav>
 
-  <!-- DETALLES -->
+  <!-- DETALLES (incluye Guardar fecha conjunto) -->
   <section id="detalles" class="wrap section">
     <div class="card grid cols-2">
       <div>
@@ -169,6 +188,9 @@
           Javier Rodrigo Manuel Sarmiento Lopez</p>
         <p><strong>Fecha</strong> · 15 de noviembre de 2025</p>
         <p><strong>Dress code</strong> · Elegante</p>
+        <div class="btn-group" style="margin-top:8px">
+          <a class="btn btn-secondary" id="addCalDetails" download="Boda-Romina-Javier.ics" href="">Guardar la fecha (.ics)</a>
+        </div>
         <p class="muted" style="margin-top:8px">Hemos reservado pases para ti. ¡Te esperamos!</p>
       </div>
       <div>
@@ -188,22 +210,18 @@
       <h2 class="serif">Ceremonia</h2>
       <p><strong>Iglesia</strong> · Parroquia Nuestra Señora del Carmen</p>
       <p><strong>Dirección</strong><br>Juan de la Fuente, Miraflores 15047, Perú</p>
-      <div class="grid cols-2" style="margin-top:10px">
+      <div class="loc-grid" style="margin-top:10px">
         <div class="map-embed" aria-label="Mapa de la iglesia">
           <iframe loading="lazy" allowfullscreen
             src="https://maps.google.com/maps?q=Juan%20de%20la%20Fuente,%20Miraflores%2015047,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
           </iframe>
         </div>
         <div>
-          <p><a class="copy" data-copy="Juan de la Fuente, Miraflores 15047, Perú">Copiar dirección</a></p>
-          <p style="margin-top:8px">
-            <a class="cta" target="_blank" rel="noopener"
+          <div class="btn-group">
+            <a class="btn copy" data-copy="Juan de la Fuente, Miraflores 15047, Perú">Copiar dirección</a>
+            <a class="btn" target="_blank" rel="noopener"
               href="https://www.google.com/maps/dir/?api=1&destination=Juan%20de%20la%20Fuente%2C%20Miraflores%2015047%2C%20Per%C3%BA">Cómo llegar</a>
-          </p>
-          <p style="margin-top:10px">
-            <a class="cta" id="addCal" download="Boda-Romina-Javier.ics"
-               href="">Guardar la fecha (.ics)</a>
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -214,24 +232,24 @@
     <div class="card">
       <h2 class="serif">Recepción</h2>
       <p><strong>Dirección</strong><br>Av. Club Golf Los Incas 222, Surco</p>
-      <div class="grid cols-2" style="margin-top:10px">
+      <div class="loc-grid" style="margin-top:10px">
         <div class="map-embed" aria-label="Mapa de la recepción">
           <iframe loading="lazy" allowfullscreen
             src="https://maps.google.com/maps?q=Av.%20Club%20Golf%20Los%20Incas%20222,%20Surco,%20Lima,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
           </iframe>
         </div>
         <div>
-          <p><a class="copy" data-copy="Av. Club Golf Los Incas 222, Surco">Copiar dirección</a></p>
-          <p style="margin-top:8px">
-            <a class="cta" target="_blank" rel="noopener"
-               href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Club%20Golf%20Los%20Incas%20222%2C%20Surco%2C%20Lima%2C%20Per%C3%BA">Cómo llegar</a>
-          </p>
+          <div class="btn-group">
+            <a class="btn copy" data-copy="Av. Club Golf Los Incas 222, Surco">Copiar dirección</a>
+            <a class="btn" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Club%20Golf%20Los%20Incas%20222%2C%20Surco%2C%20Lima%2C%20Per%C3%BA">Cómo llegar</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VIDEO (sustituye la galería de fotos) -->
+  <!-- VIDEO -->
   <section id="video" class="wrap section">
     <div class="card video-card">
       <h2 class="serif">Video</h2>
@@ -240,7 +258,18 @@
         <source src="media/video.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
       </video>
-      <p class="muted">Sugerido: 15–30 segundos, formato MP4 (H.264), 1080p y peso &lt; 20&nbsp;MB para buena carga en móviles.</p>
+      <p class="muted">Sugerido: 15–30 segundos, MP4 (H.264), 1080p, &lt; 20&nbsp;MB.</p>
+    </div>
+  </section>
+
+  <!-- FOTOS -->
+  <section id="fotos" class="wrap section">
+    <h2 class="serif">Fotos</h2>
+    <div class="gallery" aria-label="Galería de fotos">
+      <img src="imagenes/IMG-20250712-WA0111.jpg" alt="Romina y Javier" loading="lazy" decoding="async">
+      <img src="imagenes/IMG-20250714-WA0094.jpg" alt="Sesión de pareja" loading="lazy" decoding="async">
+      <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.24_caaa55f7.jpg" alt="Feliz momento juntos" loading="lazy" decoding="async">
+      <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.43_82f709c3.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -252,13 +281,13 @@
       <div class="bank" style="margin-top:10px">
         <div class="box">
           <h3 style="margin:0 0 6px">Interbank — <span class="muted">DÓLARES</span></h3>
-          <p style="margin:0"><strong>Cuenta</strong> · <span class="copy" data-copy="898 3184906814">898 3184906814</span></p>
-          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy" data-copy="00389801318490681446">00389801318490681446</span></p>
+          <p style="margin:0"><strong>Cuenta</strong> · <span class="copy btn" data-copy="898 3184906814">898 3184906814</span></p>
+          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy btn" data-copy="00389801318490681446">00389801318490681446</span></p>
         </div>
         <div class="box">
           <h3 style="margin:0 0 6px">Interbank — <span class="muted">SOLES</span></h3>
-          <p style="margin:0"><strong>Cuenta</strong> · <span class="copy" data-copy="200 3122648627">200 3122648627</span></p>
-          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy" data-copy="00320001312264862735">00320001312264862735</span></p>
+          <p style="margin:0"><strong>Cuenta</strong> · <span class="copy btn" data-copy="200 3122648627">200 3122648627</span></p>
+          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy btn" data-copy="00320001312264862735">00320001312264862735</span></p>
         </div>
       </div>
       <p class="muted" style="margin-top:10px">A nombre de <strong>Javier Sarmiento</strong>.</p>
@@ -270,11 +299,11 @@
     <div class="card">
       <h2 class="serif">Confirmar asistencia (RSVP)</h2>
       <p>Por favor confirma tu asistencia.</p>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+      <div class="btn-group" style="margin-top:10px">
         <!-- Reemplaza con tu Google Form -->
-        <a class="cta" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a>
+        <a class="btn" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a>
         <!-- Reemplaza 51XXXXXXXXX por tu número -->
-        <a class="cta" href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+        <a class="btn" href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
       </div>
     </div>
   </section>
@@ -283,7 +312,7 @@
     Hecho con ❤️ por Romina & Javier · <a href="#rsvp">RSVP</a>
   </footer>
 
-  <!-- JSON-LD de evento (SEO) -->
+  <!-- JSON-LD del evento (único, conjunto) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -320,7 +349,7 @@
       heroImgs[hi].classList.add('active');
     }, 6000);
 
-    // ================= Contador (con meses y segundos, oculta unidades en 0) =================
+    // Contador: meses, días, horas, minutos, segundos (oculta unidades en 0)
     const countdownEl = document.getElementById('countdown');
     const target = new Date('2025-11-15T12:00:00-05:00'); // Lima
     function addMonths(base, m){
@@ -357,7 +386,7 @@
     }
     tick(); setInterval(tick, 1000);
 
-    // Copiar al portapapeles (direcciones y cuentas)
+    // Copiar al portapapeles (direcciones y cuentas) — con estilo unificado .btn
     document.querySelectorAll('.copy').forEach(el=>{
       el.addEventListener('click', async ()=>{
         const text = el.getAttribute('data-copy') || el.textContent.trim();
@@ -371,7 +400,7 @@
       });
     });
 
-    // Enlace .ics "Guardar la fecha"
+    // Enlace .ics "Guardar la fecha" (único evento conjunto)
     const ics = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
@@ -382,12 +411,25 @@
       'DTSTART:20251115T120000',
       'SUMMARY:Boda de Romina & Javier',
       'LOCATION:Parroquia Nuestra Señora del Carmen, Juan de la Fuente, Miraflores 15047, Perú',
-      'DESCRIPTION:Dress code: Elegante. Recepción: Av. Club Golf Los Incas 222, Surco.',
+      'DESCRIPTION:Ceremonia 12:00 p.m. — Recepción: Av. Club Golf Los Incas 222, Surco. Dress code: Elegante.',
       'END:VEVENT',
       'END:VCALENDAR'
     ].join('\\r\\n');
-    const addCal = document.getElementById('addCal');
-    addCal.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+    const addCalHero = document.getElementById('addCalHero');
+    const addCalDetails = document.getElementById('addCalDetails');
+    [addCalHero, addCalDetails].forEach(a=>{
+      a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+    });
+
+    // Lightbox simple para Fotos
+    const dlg = document.createElement('dialog'); dlg.id='lightbox';
+    dlg.innerHTML = '<img class="lightbox-img" alt=""><form method="dialog"><button style="display:none">x</button></form>';
+    document.body.appendChild(dlg);
+    const lbImg = dlg.querySelector('.lightbox-img');
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click', ()=>{ lbImg.src = img.src; lbImg.alt = img.alt; dlg.showModal(); });
+    });
+    dlg.addEventListener('click', e=>{ if(e.target === dlg) dlg.close(); });
 
     // Nav activa según scroll
     const nav = document.getElementById('nav');
@@ -401,7 +443,7 @@
         }
       });
     }, {rootMargin:'-50% 0px -45% 0px', threshold:0});
-    ['detalles','ceremonia','recepcion','video','regalos','rsvp'].forEach(id=>{
+    ['detalles','ceremonia','recepcion','video','fotos','regalos','rsvp'].forEach(id=>{
       const el = document.getElementById(id); if(el) obs.observe(el);
     });
   </script>
