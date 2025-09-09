@@ -3,181 +3,284 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invitación de Boda — Romina & Javier</title>
-  <meta name="description" content="Invitación de boda con detalles, mapas, galería, regalos y RSVP." />
+  <title>Boda — Romina & Javier · 15 de noviembre de 2025</title>
+  <meta name="description" content="Invitación de boda de Romina Gabriela Laura Rodriguez y Javier Rodrigo Manuel Sarmiento Lopez. Ceremonia, recepción, regalos y confirmación de asistencia." />
   <meta name="theme-color" content="#29392F" />
+  <meta name="robots" content="noindex,nofollow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Boda · Romina & Javier · 15/11/2025" />
+  <meta property="og:description" content="Toda la información: ceremonia, recepción, dress code, regalos y RSVP." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="imagenes/IMG-20250712-WA0111.jpg" />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root{
       --pine:#29392F; --olive:#8D8E7C; --champ:#F0DAB8; --blush:#EFBFBB; --ivory:#F5EDE1;
-      --ink:#17211A; --muted:#556158;
+      --ink:#17211A; --muted:#5e6a61; --paper:#FFFFFF; --line:#eee4d4;
+      --radius:18px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Arial}
-    body{background:var(--ivory); color:var(--ink)}
-    a{color:#2b4a3a}
-    .wrap{max-width:1100px; margin:0 auto; padding:32px 20px}
-    h2{font-size:clamp(22px,3.6vw,34px); margin:0 0 14px; color:var(--pine)}
-    .card{background:#fff; border:1px solid #efe7d6; border-radius:18px; padding:18px; box-shadow:0 1px 0 rgba(0,0,0,.03)}
-    .grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    html,body{margin:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--ivory);
+      color:var(--ink);
+      font-family:Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
+      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .serif{font-family:"Playfair Display", ui-serif, Georgia, serif; letter-spacing:.3px}
+    .wrap{max-width:1120px; margin:0 auto; padding:32px 20px}
+    h1,h2,h3{margin:0 0 12px; color:var(--pine)}
+    h1{font-size:clamp(36px,7vw,72px)}
+    h2{font-size:clamp(22px,3.2vw,34px)}
+    h3{font-size:clamp(18px,2.4vw,22px); color:#2a3a31}
+    p{margin:0 0 10px}
+    a{color:#2b4a3a; text-underline-offset:2px}
     .muted{color:var(--muted)}
-    .note{font-size:14px; color:#7a7a7a}
-
-    /* Hero slideshow */
+    .card{
+      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+      padding:18px; box-shadow:0 1px 0 rgba(0,0,0,.03)
+    }
+    .grid{display:grid; gap:18px}
+    @media (min-width:768px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+    /* HERO */
     header.hero{
-      min-height:80vh; display:grid; place-items:center; text-align:center; color:#fff; position:relative; overflow:hidden;
-      background:linear-gradient(180deg, rgba(41,57,47,.85), rgba(41,57,47,.55));
+      position:relative; min-height:78vh; display:grid; place-items:center; text-align:center; overflow:hidden;
+      color:#fff; isolation:isolate;
+      background:linear-gradient(180deg, rgba(41,57,47,.76), rgba(41,57,47,.45));
     }
-    .hero::before{
-      content:""; position:absolute; inset:0; z-index:-1;
-      background: url('imagenes/IMG-20250712-WA0111.jpg') center/cover no-repeat;
-      transition: opacity .8s ease, background-image 0s linear .8s;
-      opacity:1;
+    .hero img.bg{
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; filter:saturate(.95);
+      transition:opacity 1s ease;
     }
-    .hero h1{font-size:clamp(34px,6.6vw,80px); margin:0 0 6px}
-    .hero p{margin:6px 0 0}
-    .cta{display:inline-block; margin-top:18px; padding:12px 18px; border-radius:12px; background:#fff; color:#1b1b1b; text-decoration:none; font-weight:800}
+    .hero img.bg:not(.active){opacity:0}
+    .hero .inner{padding:20px}
+    .date-tile{
+      display:inline-grid; grid-template-columns:auto auto auto; gap:10px; align-items:center;
+      background:rgba(240,218,184,.94); color:#2b2b2b; border-radius:14px; padding:8px 14px; margin-top:10px;
+      font-weight:600; letter-spacing:.3px
+    }
+    .date-tile .big{font-size:clamp(26px,5.5vw,40px); font-weight:700}
+    .cta{
+      display:inline-flex; align-items:center; gap:8px; margin-top:16px;
+      padding:12px 18px; border-radius:12px; background:#fff; color:#1b1b1b; text-decoration:none; font-weight:700; border:1px solid #e9e1cf;
+    }
+    .countdown{margin-top:8px; font-weight:600; opacity:.95}
 
-    /* Sticky nav */
-    nav{position:sticky; top:0; z-index:20; background:#ffffffc8; backdrop-filter:saturate(160%) blur(8px);
-        border-bottom:1px solid #eee4d4; display:flex; gap:10px; overflow:auto; padding:10px 16px}
-    nav a{color:#213227; text-decoration:none; padding:8px 12px; border-radius:10px}
+    /* NAV */
+    nav{
+      position:sticky; top:0; z-index:20; background:#ffffffc8; backdrop-filter:saturate(160%) blur(8px);
+      border-bottom:1px solid var(--line); display:flex; gap:10px; overflow:auto; padding:10px 16px
+    }
+    nav a{color:#213227; text-decoration:none; padding:8px 12px; border-radius:10px; white-space:nowrap}
     nav a:hover{background:#f5efe3}
 
-    /* Maps */
-    .map-embed{position:relative; padding-top:56.25%; border-radius:14px; overflow:hidden; border:1px solid #efe7d6; background:#fff}
+    /* SELLITOS */
+    .seals{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px}
+    .seal{
+      --size:70px;
+      width:var(--size); height:var(--size); border-radius:999px;
+      background: radial-gradient(65% 65% at 30% 30%, #fff8ea 0%, var(--champ) 100%);
+      border:2px solid #d9c39d; box-shadow:0 2px 0 rgba(0,0,0,.06), inset 0 2px 6px rgba(0,0,0,.07);
+      display:grid; place-items:center; text-align:center; cursor:pointer; user-select:none;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .seal:hover{transform:translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,.10), inset 0 2px 6px rgba(0,0,0,.08)}
+    .seal span{font-size:12px; font-weight:700; color:#3a3226}
+    .seal svg{width:26px; height:26px; display:block}
+
+    /* BLOQUES */
+    .section{padding:28px 0}
+    .map-embed{position:relative; padding-top:56.25%; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#fff}
     .map-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
 
-    /* Gallery */
+    /* REGALOS */
+    .bank{display:grid; gap:12px}
+    @media (min-width:768px){ .bank{grid-template-columns:1fr 1fr} }
+    .box{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px}
+    .copy{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:10px; border:1px solid #e7dcc5; background:#fff; cursor:pointer}
+    .copied{background:#f0f7f0; border-color:#cfe6cf}
+
+    /* GALERÍA */
     .gallery{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-    .gallery img{width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid #efe7d6; background:#fff}
+    .gallery img{width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:#fff}
+    .gallery img[loading="lazy"]{opacity:.98}
+    dialog#lightbox{border:none; padding:0; max-width:min(95vw,1100px); background:transparent}
+    dialog#lightbox::backdrop{background:rgba(0,0,0,.6)}
+    .lightbox-img{max-width:95vw; max-height:85vh; border-radius:10px; border:1px solid var(--line)}
 
-    /* Gifts with soft background */
-    .section-bg{position:relative; isolation:isolate; padding:60px 0;}
-    .section-bg::before{
-      content:""; position:absolute; inset:0; z-index:-1;
-      background: linear-gradient(180deg, rgba(245,237,225,.90), rgba(245,237,225,.94)), var(--bg) center/cover no-repeat;
-      filter: saturate(.95);
-    }
-    .gift{border-left:6px solid var(--champ); padding-left:12px}
-    .bank{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .bank .box{background:#fff; border:1px solid #efe7d6; border-radius:12px; padding:14px}
-
-    /* Palette */
+    /* PALETA */
     .swatches{display:flex; gap:10px; flex-wrap:wrap}
-    .swatch{flex:1 1 130px; border-radius:12px; padding:10px; border:1px solid #efe7d6}
+    .swatch{flex:1 1 130px; border-radius:12px; padding:10px; border:1px solid var(--line)}
     .swatch .color{height:46px; border-radius:8px; margin-bottom:8px}
-    .swatch small{color:#555}
 
-    footer{padding:28px 16px; text-align:center; color:#6a6a6a; border-top:1px solid #efe7d6}
+    footer{padding:28px 16px; text-align:center; color:#6a6a6a; border-top:1px solid var(--line)}
+    @media (prefers-reduced-motion: reduce){ .hero img.bg{transition:none} .seal{transition:none} }
   </style>
 </head>
 <body>
-  <header class="hero" id="hero">
-    <div>
-      <h1>Romina & Javier</h1>
-      <p>Invitación de Boda · 15 de noviembre · Dress code: Elegante</p>
-      <a class="cta" href="#rsvp">Confirmar asistencia</a>
+  <!-- HERO -->
+  <header class="hero" id="hero" aria-label="Portada de la invitación">
+    <!-- Fondo con crossfade suave -->
+    <img class="bg active" src="imagenes/IMG-20250712-WA0111.jpg" alt="" fetchpriority="high" />
+    <img class="bg" src="imagenes/IMG-20250714-WA0094.jpg" alt="" />
+    <div class="inner">
+      <h1 class="serif">Romina & Javier</h1>
+      <div class="date-tile" aria-label="Fecha del evento">
+        <span class="muted">NOV</span>
+        <span class="big">15</span>
+        <span class="muted">2025</span>
+      </div>
+      <p style="margin-top:6px">Dress code: <strong>Elegante</strong></p>
+      <div class="countdown" id="countdown" aria-live="polite"></div>
+
+      <a class="cta" href="#rsvp" aria-label="Confirmar asistencia">Confirmar asistencia</a>
+
+      <!-- Sellos inspirados en PDF -->
+      <div class="seals" style="margin-top:18px">
+        <a class="seal" href="#ceremonia" aria-label="Ir a ceremonia" title="Ceremonia">
+          <!-- ícono iglesia -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5a4a33" stroke-width="1.6"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg>
+          <span>Ceremonia</span>
+        </a>
+        <a class="seal" href="#recepcion" aria-label="Ir a recepción" title="Recepción">
+          <!-- ícono copas -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5a4a33" stroke-width="1.6"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12"/></svg>
+          <span>Recepción</span>
+        </a>
+        <a class="seal" href="#rsvp" aria-label="Ir a asistencia" title="Asistencia">
+          <!-- ícono check -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5a4a33" stroke-width="1.6"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>RSVP</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <nav>
+  <!-- NAV -->
+  <nav aria-label="Navegación principal">
     <a href="#detalles">Detalles</a>
-    <a href="#ubicaciones">Ubicaciones</a>
+    <a href="#ceremonia">Ceremonia</a>
+    <a href="#recepcion">Recepción</a>
     <a href="#galeria">Fotos</a>
     <a href="#regalos">Regalos</a>
     <a href="#paleta">Paleta</a>
     <a href="#rsvp">RSVP</a>
   </nav>
 
-  <section id="detalles" class="wrap">
-    <div class="card">
-      <h2>Detalles</h2>
-      <div class="grid">
-        <div>
-          <p><strong>Novios:</strong><br>Romina Gabriela Laura Rodriguez<br>Javier Rodrigo Manuel Sarmiento Lopez</p>
-          <p><strong>Fecha:</strong> 15 de noviembre</p>
-          <p><strong>Iglesia:</strong> Parroquia Nuestra Señora del Carmen</p>
-          <p><strong>Dirección de la iglesia:</strong><br>Juan de la Fuente, Miraflores 15047, Perú</p>
-          <p><strong>Recepción:</strong><br>Av. Club Golf Los Incas 222, Surco</p>
-          <p><strong>Dress code:</strong> Elegante</p>
-        </div>
-        <div>
-          <h3 class="muted" style="margin:0 0 8px;">Itinerario sugerido</h3>
-          <ul class="muted" style="margin-top:6px">
-            <li>4:30 p.m. — Llegada y acomodo</li>
-            <li>5:00 p.m. — Ceremonia</li>
-            <li>7:30 p.m. — Recepción y brindis</li>
-            <li>8:30 p.m. — Cena</li>
-            <li>10:00 p.m. — Baile 🎉</li>
-          </ul>
-          <div class="note">Sugerimos llegar con 15–20 minutos de anticipación.</div>
-        </div>
+  <!-- DETALLES -->
+  <section id="detalles" class="wrap section">
+    <div class="card grid cols-2">
+      <div>
+        <h2 class="serif">Detalles</h2>
+        <p><strong>Novios</strong><br>
+          Romina Gabriela Laura Rodriguez<br>
+          Javier Rodrigo Manuel Sarmiento Lopez</p>
+        <p><strong>Fecha</strong> · 15 de noviembre de 2025</p>
+        <p><strong>Dress code</strong> · Elegante</p>
+        <p class="muted" style="margin-top:8px">Hemos reservado pases para ti. ¡Te esperamos!</p>
+      </div>
+      <div>
+        <h3 class="muted" style="margin-bottom:8px">Itinerario</h3>
+        <ul class="muted" style="margin-top:6px">
+          <li><strong>12:00 p.m.</strong> — Inicio de la ceremonia</li>
+          <li><strong>Recepción</strong> — posterior a la ceremonia</li>
+        </ul>
+        <div class="muted" style="font-size:14px">Sugerimos llegar con 15–20 minutos de anticipación.</div>
       </div>
     </div>
   </section>
 
-  <section id="ubicaciones" class="wrap">
-    <h2>Ubicaciones</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Iglesia — Parroquia Nuestra Señora del Carmen</h3>
-        <p class="muted">Dirección: Juan de la Fuente, Miraflores 15047, Perú. 
-        <a target="_blank" rel="noopener" href="https://maps.google.com/?q=Juan%20de%20la%20Fuente,%20Miraflores%2015047,%20Per%C3%BA">Abrir en Google Maps</a></p>
-        <div class="map-embed">
+  <!-- CEREMONIA -->
+  <section id="ceremonia" class="wrap section">
+    <div class="card">
+      <h2 class="serif">Ceremonia</h2>
+      <p><strong>Iglesia</strong> · Parroquia Nuestra Señora del Carmen</p>
+      <p><strong>Dirección</strong><br>Juan de la Fuente, Miraflores 15047, Perú</p>
+      <div class="grid cols-2" style="margin-top:10px">
+        <div class="map-embed" aria-label="Mapa de la iglesia">
           <iframe loading="lazy" allowfullscreen
             src="https://maps.google.com/maps?q=Juan%20de%20la%20Fuente,%20Miraflores%2015047,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
           </iframe>
         </div>
+        <div>
+          <p><a class="copy" data-copy="Juan de la Fuente, Miraflores 15047, Perú">Copiar dirección</a></p>
+          <p style="margin-top:8px">
+            <a class="cta" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/dir/?api=1&destination=Juan%20de%20la%20Fuente%2C%20Miraflores%2015047%2C%20Per%C3%BA">Cómo llegar</a>
+          </p>
+          <p style="margin-top:10px">
+            <a class="cta" id="addCal" download="Boda-Romina-Javier.ics"
+               href="">Guardar la fecha (.ics)</a>
+          </p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Recepción — Av. Club Golf Los Incas 222, Surco</h3>
-        <p class="muted">Dirección: Av. Club Golf Los Incas 222, Surco. 
-        <a target="_blank" rel="noopener" href="https://maps.google.com/?q=Av.%20Club%20Golf%20Los%20Incas%20222,%20Surco,%20Lima,%20Per%C3%BA">Abrir en Google Maps</a></p>
-        <div class="map-embed">
+    </div>
+  </section>
+
+  <!-- RECEPCIÓN -->
+  <section id="recepcion" class="wrap section">
+    <div class="card">
+      <h2 class="serif">Recepción</h2>
+      <p><strong>Dirección</strong><br>Av. Club Golf Los Incas 222, Surco</p>
+      <div class="grid cols-2" style="margin-top:10px">
+        <div class="map-embed" aria-label="Mapa de la recepción">
           <iframe loading="lazy" allowfullscreen
             src="https://maps.google.com/maps?q=Av.%20Club%20Golf%20Los%20Incas%20222,%20Surco,%20Lima,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
           </iframe>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="galeria" class="wrap">
-    <h2>Fotos</h2>
-    <div class="gallery">
-      <img src="imagenes/IMG-20250712-WA0111.jpg" alt="Foto 1">
-      <img src="imagenes/IMG-20250714-WA0094.jpg" alt="Foto 2">
-      <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.24_caaa55f7.jpg" alt="Foto 3">
-      <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.43_82f709c3.jpg" alt="Foto 4">
-    </div>
-  </section>
-
-  <section id="regalos" class="section-bg" style="--bg: url('imagenes/IMG-20250714-WA0094.jpg')">
-    <div class="wrap">
-      <div class="card gift">
-        <h2>Cuenta para regalos</h2>
-        <p class="muted">Nos sentimos bendecidos de tenerte en nuestra vida y poder compartir este día tan especial contigo. 
-        Si consideras hacernos un obsequio, nuestras opciones son:</p>
-        <div class="bank">
-          <div class="box">
-            <h3 style="margin:0 0 6px">Interbank — <span class="muted">DÓLARES</span></h3>
-            <p style="margin:0"><strong>Cuenta</strong> | 898 3184906814</p>
-            <p style="margin:6px 0"><strong>CCI</strong> | 00389801318490681446</p>
-          </div>
-          <div class="box">
-            <h3 style="margin:0 0 6px">Interbank — <span class="muted">SOLES</span></h3>
-            <p style="margin:0"><strong>Cuenta</strong> | 200 3122648627</p>
-            <p style="margin:6px 0"><strong>CCI</strong> | 00320001312264862735</p>
-          </div>
+        <div>
+          <p><a class="copy" data-copy="Av. Club Golf Los Incas 222, Surco">Copiar dirección</a></p>
+          <p style="margin-top:8px">
+            <a class="cta" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Club%20Golf%20Los%20Incas%20222%2C%20Surco%2C%20Lima%2C%20Per%C3%BA">Cómo llegar</a>
+          </p>
         </div>
-        <p class="muted" style="margin-top:10px">A nombre de <strong>Javier Sarmiento</strong>.</p>
       </div>
     </div>
   </section>
 
-  <section id="paleta" class="wrap">
-    <h2>Paleta de colores</h2>
+  <!-- REGALOS -->
+  <section id="regalos" class="wrap section">
+    <div class="card">
+      <h2 class="serif">Cuenta para regalos</h2>
+      <p class="muted">Nos sentimos bendecidos de tenerte en nuestra vida y poder compartir este día tan especial contigo. Si consideras hacernos un obsequio, nuestras opciones son:</p>
+      <div class="bank" style="margin-top:10px">
+        <div class="box">
+          <h3 style="margin:0 0 6px">Interbank — <span class="muted">DÓLARES</span></h3>
+          <p style="margin:0"><strong>Cuenta</strong> · <span class="copy" data-copy="898 3184906814">898 3184906814</span></p>
+          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy" data-copy="00389801318490681446">00389801318490681446</span></p>
+        </div>
+        <div class="box">
+          <h3 style="margin:0 0 6px">Interbank — <span class="muted">SOLES</span></h3>
+          <p style="margin:0"><strong>Cuenta</strong> · <span class="copy" data-copy="200 3122648627">200 3122648627</span></p>
+          <p style="margin:6px 0"><strong>CCI</strong> · <span class="copy" data-copy="00320001312264862735">00320001312264862735</span></p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:10px">A nombre de <strong>Javier Sarmiento</strong>.</p>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria" class="wrap section">
+    <h2 class="serif">Fotos</h2>
+    <div class="gallery" aria-label="Galería de fotos">
+      <img src="imagenes/IMG-20250712-WA0111.jpg" alt="Romina y Javier" loading="lazy" decoding="async">
+      <img src="imagenes/IMG-20250714-WA0094.jpg" alt="Sesión de pareja" loading="lazy" decoding="async">
+      <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.24_caaa55f7.jpg" alt="Feliz momento juntos" loading="lazy" decoding="async">
+      <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.43_82f709c3.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- PALETA -->
+  <section id="paleta" class="wrap section">
+    <h2 class="serif">Paleta de colores</h2>
     <div class="swatches">
       <div class="swatch"><div class="color" style="background:#29392F"></div><strong>#29392F</strong><br><small>Verde pino profundo</small></div>
       <div class="swatch"><div class="color" style="background:#8D8E7C"></div><strong>#8D8E7C</strong><br><small>Verde oliva suave</small></div>
@@ -187,12 +290,17 @@
     </div>
   </section>
 
-  <section id="rsvp" class="wrap">
-    <h2>Confirmar asistencia (RSVP)</h2>
+  <!-- RSVP -->
+  <section id="rsvp" class="wrap section">
     <div class="card">
-      <p>Por favor confirma tu asistencia. (Agrega aquí tu Google Form o número de WhatsApp).</p>
-      <!-- <a class="cta" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a> -->
-      <!-- <a class="cta" href="https://wa.me/51TU_NUMERO?text=Confirmo%20mi%20asistencia%20a%20la%20boda" target="_blank" rel="noopener">Confirmar por WhatsApp</a> -->
+      <h2 class="serif">Confirmar asistencia (RSVP)</h2>
+      <p>Por favor confirma tu asistencia.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+        <!-- Reemplaza con tu Google Form -->
+        <a class="cta" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a>
+        <!-- Reemplaza 51XXXXXXXXX por tu número -->
+        <a class="cta" href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+      </div>
     </div>
   </section>
 
@@ -200,63 +308,97 @@
     Hecho con ❤️ por Romina & Javier · <a href="#rsvp">RSVP</a>
   </footer>
 
+  <!-- JSON-LD de evento (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Boda de Romina & Javier",
+    "startDate": "2025-11-15T12:00:00-05:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": [{
+      "@type": "Place",
+      "name": "Parroquia Nuestra Señora del Carmen",
+      "address": "Juan de la Fuente, Miraflores 15047, Perú"
+    },{
+      "@type": "Place",
+      "name": "Recepción",
+      "address": "Av. Club Golf Los Incas 222, Surco"
+    }],
+    "image": [
+      "imagenes/IMG-20250712-WA0111.jpg",
+      "imagenes/IMG-20250714-WA0094.jpg"
+    ],
+    "description": "Invitación de boda. Dress code: Elegante.",
+    "isAccessibleForFree": true
+  }
+  </script>
+
   <script>
-    // Scroll suave
-    document.querySelectorAll('nav a').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const href=a.getAttribute('href'); if(href?.startsWith('#')){e.preventDefault();document.querySelector(href)?.scrollIntoView({behavior:'smooth'});}
+    // Crossfade del hero
+    const heroImgs = Array.from(document.querySelectorAll('.hero img.bg'));
+    let hi = 0;
+    setInterval(()=>{
+      heroImgs[hi].classList.remove('active');
+      hi = (hi + 1) % heroImgs.length;
+      heroImgs[hi].classList.add('active');
+    }, 6000);
+
+    // Countdown a la ceremonia (15 nov 2025 12:00 -05:00 Lima)
+    const countdownEl = document.getElementById('countdown');
+    const target = new Date('2025-11-15T12:00:00-05:00').getTime();
+    function tick(){
+      const now = Date.now();
+      const diff = Math.max(0, target - now);
+      const d = Math.floor(diff/86400000);
+      const h = Math.floor((diff%86400000)/3600000);
+      const m = Math.floor((diff%3600000)/60000);
+      countdownEl.textContent = diff>0 ? `Faltan ${d}d ${h}h ${m}m` : '¡Hoy es el gran día!';
+    }
+    tick(); setInterval(tick, 60000);
+
+    // Copiar al portapapeles (direcciones y cuentas)
+    document.querySelectorAll('.copy').forEach(el=>{
+      el.addEventListener('click', async ()=>{
+        const text = el.getAttribute('data-copy') || el.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          el.classList.add('copied');
+          const old = el.textContent;
+          el.textContent = '¡Copiado!';
+          setTimeout(()=>{ el.textContent = old; el.classList.remove('copied'); }, 1600);
+        } catch(e){}
       });
     });
 
-    // Slideshow para el héroe (crossfade suave usando ::before)
-    const hero = document.querySelector('header.hero');
-    const imgs = ['imagenes/IMG-20250712-WA0111.jpg', 'imagenes/IMG-20250714-WA0094.jpg', 'imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.24_caaa55f7.jpg', 'imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.43_82f709c3.jpg'];
-    let i = 0;
-    function swap() {
-      i = (i + 1) % imgs.length;
-      const layer = hero;
-      // Disminuye la opacidad, cambia la imagen y vuelve a aparecer
-      layer.style.setProperty('--next', 'url(' + imgs[i] + ')');
-      layer.style.opacity = 0.98; // pequeño toque anti-parpadeo
-      const before = getComputedStyle(layer,'::before');
-      // hack: forzamos el cambio modificando directamente el estilo del pseudo con CSS text
-      layer.style.setProperty('--bg', 'url(' + imgs[i] + ')');
-      layer.style.setProperty('--switch','1');
-      // Fallback: actualizamos background mediante JS directo
-      layer.style.setProperty('--switch','0');
-      layer.style.setProperty('--bg','url(' + imgs[i] + ')');
-      hero.style.setProperty('--dummy', Math.random()); // reflow
-      hero.style.setProperty('--dummy2', Math.random());
-      hero.style.setProperty('--dummy3', Math.random());
-      hero.style.setProperty('--dummy4', Math.random());
-      // Alternativa: cambiar la imagen del ::before a través de style attribute
-      hero.style.setProperty('--image-url', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image2', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image3', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image4', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image5', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image6', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image7', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image8', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image9', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--image10', 'url(' + imgs[i] + ')');
-      // Más robusto: cambiamos inline background del pseudo a través de una capa real:
-      hero.style.setProperty('--current-bg', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--current', 'url(' + imgs[i] + ')');
-      hero.style.setProperty('--current2', 'url(' + imgs[i] + ')');
-      // fallback definitivo: cambiamos el style del ::before mediante CSS text en <style> dinámico:
-      if (!window._heroStyle) {
-        window._heroStyle = document.createElement('style');
-        document.head.appendChild(window._heroStyle);
-      }
-      window._heroStyle.textContent = "header.hero::before{background-image:url('" + imgs[i] + "');}";
-    }
-    // Inicial
-    window._heroStyle = document.createElement('style');
-    window._heroStyle.textContent = "header.hero::before{background-image:url('imagenes/IMG-20250712-WA0111.jpg');}";
-    document.head.appendChild(window._heroStyle);
-    setInterval(swap, 6000);
+    // Lightbox simple
+    const dlg = document.createElement('dialog'); dlg.id='lightbox';
+    dlg.innerHTML = '<img class="lightbox-img" alt=""><form method="dialog"><button style="display:none">x</button></form>';
+    document.body.appendChild(dlg);
+    const lbImg = dlg.querySelector('.lightbox-img');
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click', ()=>{ lbImg.src = img.src; lbImg.alt = img.alt; dlg.showModal(); });
+    });
+    dlg.addEventListener('click', e=>{ if(e.target === dlg) dlg.close(); });
+
+    // Enlace .ics "Guardar la fecha"
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//RominaJavier//Boda//ES',
+      'BEGIN:VEVENT',
+      'UID:boda-romina-javier-20251115',
+      'DTSTAMP:20250101T120000Z',
+      'DTSTART:20251115T120000',
+      'SUMMARY:Boda de Romina & Javier',
+      'LOCATION:Parroquia Nuestra Señora del Carmen, Juan de la Fuente, Miraflores 15047, Perú',
+      'DESCRIPTION:Dress code: Elegante. Recepción: Av. Club Golf Los Incas 222, Surco.',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\\r\\n');
+    const addCal = document.getElementById('addCal');
+    addCal.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
   </script>
 </body>
 </html>
