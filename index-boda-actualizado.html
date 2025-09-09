@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación de Boda — Romina & Javier</title>
+  <meta name="description" content="Invitación de boda con detalles, mapas, galería, regalos y RSVP." />
+  <meta name="theme-color" content="#29392F" />
+  <style>
+    :root{
+      --pine:#29392F; --olive:#8D8E7C; --champ:#F0DAB8; --blush:#EFBFBB; --ivory:#F5EDE1;
+      --ink:#17211A; --muted:#556158;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Arial}
+    body{background:var(--ivory); color:var(--ink)}
+    a{color:#2b4a3a}
+    .wrap{max-width:1100px; margin:0 auto; padding:32px 20px}
+    h2{font-size:clamp(22px,3.6vw,34px); margin:0 0 14px; color:var(--pine)}
+    .card{background:#fff; border:1px solid #efe7d6; border-radius:18px; padding:18px; box-shadow:0 1px 0 rgba(0,0,0,.03)}
+    .grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .muted{color:var(--muted)}
+    .note{font-size:14px; color:#7a7a7a}
+
+    /* Hero */
+    header.hero{min-height:54vh; display:grid; place-items:center; text-align:center; color:#fff; background:#29392F}
+    .hero h1{font-size:clamp(34px,6.6vw,80px); margin:0 0 6px}
+    .hero p{margin:6px 0 0}
+    .cta{display:inline-block; margin-top:18px; padding:12px 18px; border-radius:12px; background:#fff; color:#1b1b1b; text-decoration:none; font-weight:800}
+
+    /* Sticky nav */
+    nav{position:sticky; top:0; z-index:20; background:#ffffffc8; backdrop-filter:saturate(160%) blur(8px);
+        border-bottom:1px solid #eee4d4; display:flex; gap:10px; overflow:auto; padding:10px 16px}
+    nav a{color:#213227; text-decoration:none; padding:8px 12px; border-radius:10px}
+    nav a:hover{background:#f5efe3}
+
+    /* Maps */
+    .map-embed{position:relative; padding-top:56.25%; border-radius:14px; overflow:hidden; border:1px solid #efe7d6; background:#fff}
+    .map-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+
+    /* Gallery */
+    .gallery{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+    .gallery img{width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid #efe7d6; background:#fff}
+
+    /* Gifts */
+    .gift{border-left:6px solid var(--champ); padding-left:12px}
+    .bank{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .bank .box{background:#fff; border:1px solid #efe7d6; border-radius:12px; padding:14px}
+
+    /* Palette */
+    .swatches{display:flex; gap:10px; flex-wrap:wrap}
+    .swatch{flex:1 1 130px; border-radius:12px; padding:10px; border:1px solid #efe7d6}
+    .swatch .color{height:46px; border-radius:8px; margin-bottom:8px}
+    .swatch small{color:#555}
+
+    footer{padding:28px 16px; text-align:center; color:#6a6a6a; border-top:1px solid #efe7d6}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <h1>Romina & Javier</h1>
+      <p>Invitación de Boda · 15 de noviembre · Dress code: Elegante</p>
+      <a class="cta" href="#rsvp">Confirmar asistencia</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#detalles">Detalles</a>
+    <a href="#ubicaciones">Ubicaciones</a>
+    <a href="#galeria">Fotos</a>
+    <a href="#regalos">Regalos</a>
+    <a href="#paleta">Paleta</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+
+  <section id="detalles" class="wrap">
+    <div class="card">
+      <h2>Detalles</h2>
+      <div class="grid">
+        <div>
+          <p><strong>Novios:</strong><br>Romina Gabriela Laura Rodriguez<br>Javier Rodrigo Manuel Sarmiento Lopez</p>
+          <p><strong>Fecha:</strong> 15 de noviembre</p>
+          <p><strong>Iglesia:</strong> Parroquia Nuestra Señora del Carmen</p>
+          <p><strong>Dirección de la iglesia:</strong><br>Juan de la Fuente, Miraflores 15047, Perú</p>
+          <p><strong>Recepción:</strong><br>Av. Club Golf Los Incas 222, Surco</p>
+          <p><strong>Dress code:</strong> Elegante</p>
+        </div>
+        <div>
+          <h3 class="muted" style="margin:0 0 8px;">Itinerario sugerido</h3>
+          <ul class="muted" style="margin-top:6px">
+            <li>4:30 p.m. — Llegada y acomodo</li>
+            <li>5:00 p.m. — Ceremonia</li>
+            <li>7:30 p.m. — Recepción y brindis</li>
+            <li>8:30 p.m. — Cena</li>
+            <li>10:00 p.m. — Baile 🎉</li>
+          </ul>
+          <div class="note">Sugerimos llegar con 15–20 minutos de anticipación.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ubicaciones" class="wrap">
+    <h2>Ubicaciones</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Iglesia — Parroquia Nuestra Señora del Carmen</h3>
+        <p class="muted">Dirección: Juan de la Fuente, Miraflores 15047, Perú. 
+        <a target="_blank" rel="noopener" href="https://maps.google.com/?q=Juan%20de%20la%20Fuente,%20Miraflores%2015047,%20Per%C3%BA">Abrir en Google Maps</a></p>
+        <div class="map-embed">
+          <iframe loading="lazy" allowfullscreen
+            src="https://maps.google.com/maps?q=Juan%20de%20la%20Fuente,%20Miraflores%2015047,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
+          </iframe>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Recepción — Av. Club Golf Los Incas 222, Surco</h3>
+        <p class="muted">Dirección: Av. Club Golf Los Incas 222, Surco. 
+        <a target="_blank" rel="noopener" href="https://maps.google.com/?q=Av.%20Club%20Golf%20Los%20Incas%20222,%20Surco,%20Lima,%20Per%C3%BA">Abrir en Google Maps</a></p>
+        <div class="map-embed">
+          <iframe loading="lazy" allowfullscreen
+            src="https://maps.google.com/maps?q=Av.%20Club%20Golf%20Los%20Incas%20222,%20Surco,%20Lima,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria" class="wrap">
+    <h2>Galería</h2>
+    <div class="gallery">
+      <img src="https://raw.githubusercontent.com/Javiersl26/boda-romina-javier-/main/imagenes/IMG-20250712-WA0111.jpg" alt="Foto 1">
+      <img src="https://raw.githubusercontent.com/Javiersl26/boda-romina-javier-/main/imagenes/IMG-20250714-WA0094.jpg" alt="Foto 2">
+      <img src="https://raw.githubusercontent.com/Javiersl26/boda-romina-javier-/main/imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.24_caaa55f7.jpg" alt="Foto 3">
+      <img src="https://raw.githubusercontent.com/Javiersl26/boda-romina-javier-/main/imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.43_82f709c3.jpg" alt="Foto 4">
+    </div>
+  </section>
+
+  <section id="regalos" class="wrap">
+    <div class="card gift">
+      <h2>Cuenta para regalos</h2>
+      <p class="muted">Nos sentimos bendecidos de tenerte en nuestra vida y poder compartir este día tan especial contigo. 
+      Si consideras hacernos un obsequio, nuestras opciones son:</p>
+      <div class="bank">
+        <div class="box">
+          <h3 style="margin:0 0 6px">Interbank — <span class="muted">DÓLARES</span></h3>
+          <p style="margin:0"><strong>Cuenta</strong> | 898 3184906814</p>
+          <p style="margin:6px 0"><strong>CCI</strong> | 00389801318490681446</p>
+        </div>
+        <div class="box">
+          <h3 style="margin:0 0 6px">Interbank — <span class="muted">SOLES</span></h3>
+          <p style="margin:0"><strong>Cuenta</strong> | 200 3122648627</p>
+          <p style="margin:6px 0"><strong>CCI</strong> | 00320001312264862735</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:10px">A nombre de <strong>Javier Sarmiento</strong>.</p>
+    </div>
+  </section>
+
+  <section id="paleta" class="wrap">
+    <h2>Paleta de colores</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="color" style="background:#29392F"></div><strong>#29392F</strong><br><small>Verde pino profundo</small></div>
+      <div class="swatch"><div class="color" style="background:#8D8E7C"></div><strong>#8D8E7C</strong><br><small>Verde oliva suave</small></div>
+      <div class="swatch"><div class="color" style="background:#F0DAB8"></div><strong>#F0DAB8</strong><br><small>Champagne marfil-dorado</small></div>
+      <div class="swatch"><div class="color" style="background:#EFBFBB"></div><strong>#EFBFBB</strong><br><small>Blush empolvado</small></div>
+      <div class="swatch"><div class="color" style="background:#F5EDE1"></div><strong>#F5EDE1</strong><br><small>Ivory cálido</small></div>
+    </div>
+  </section>
+
+  <section id="rsvp" class="wrap">
+    <h2>Confirmar asistencia (RSVP)</h2>
+    <div class="card">
+      <p>Por favor confirma tu asistencia. (Agrega aquí tu Google Form o número de WhatsApp).</p>
+      <!-- Ejemplos (reemplazar): -->
+      <!-- <a class="cta" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a> -->
+      <!-- <a class="cta" href="https://wa.me/51TU_NUMERO?text=Confirmo%20mi%20asistencia%20a%20la%20boda" target="_blank" rel="noopener">Confirmar por WhatsApp</a> -->
+    </div>
+  </section>
+
+  <footer>
+    Hecho con ❤️ por Romina & Javier · <a href="#rsvp">RSVP</a>
+  </footer>
+
+  <script>
+    // Scroll suave
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href=a.getAttribute('href'); if(href?.startsWith('#')){e.preventDefault();document.querySelector(href)?.scrollIntoView({behavior:'smooth'});}
+      });
+    });
+  </script>
+</body>
+</html>
