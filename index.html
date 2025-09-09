@@ -10,7 +10,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Boda · Romina & Javier · 15/11/2025" />
-  <meta property="og:description" content="Toda la información: ceremonia, recepción, dress code, regalos y RSVP." />
+  <meta property="og:description" content="Toda la información: ceremonia, recepción, regalos y RSVP." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="imagenes/IMG-20250712-WA0111.jpg" />
 
@@ -22,7 +22,7 @@
   <style>
     :root{
       --pine:#29392F; --olive:#8D8E7C; --champ:#F0DAB8; --blush:#EFBFBB; --ivory:#F5EDE1;
-      --ink:#17211A; --muted:#5e6a61; --paper:#FFFFFF; --line:#eee4d4;
+      --ink:#18231b; --muted:#5e6a61; --paper:#FFFFFF; --line:#eee4d4; --shadow:0 8px 24px rgba(0,0,0,.12);
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -49,11 +49,13 @@
     }
     .grid{display:grid; gap:18px}
     @media (min-width:768px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
-    /* HERO */
+
+    /* ================= HERO ================= */
     header.hero{
       position:relative; min-height:78vh; display:grid; place-items:center; text-align:center; overflow:hidden;
       color:#fff; isolation:isolate;
-      background:linear-gradient(180deg, rgba(41,57,47,.76), rgba(41,57,47,.45));
+      /* overlay más sutil */
+      background:linear-gradient(180deg, rgba(41,57,47,.58), rgba(41,57,47,.32));
     }
     .hero img.bg{
       position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; filter:saturate(.95);
@@ -61,67 +63,47 @@
     }
     .hero img.bg:not(.active){opacity:0}
     .hero .inner{padding:20px}
+    /* Fecha: más grande y más transparente + blur suave */
     .date-tile{
       display:inline-grid; grid-template-columns:auto auto auto; gap:10px; align-items:center;
-      background:rgba(240,218,184,.94); color:#2b2b2b; border-radius:14px; padding:8px 14px; margin-top:10px;
-      font-weight:600; letter-spacing:.3px
+      background:rgba(240,218,184,.62); color:#2b2b2b; border-radius:16px; padding:10px 18px; margin-top:12px;
+      font-weight:600; letter-spacing:.3px; border:1px solid rgba(224,206,170,.8);
+      backdrop-filter: blur(4px) saturate(140%);
+      box-shadow:0 2px 12px rgba(41,57,47,.10);
     }
-    .date-tile .big{font-size:clamp(26px,5.5vw,40px); font-weight:700}
+    .date-tile .big{font-size:clamp(30px,6vw,46px); font-weight:700}
     .cta{
       display:inline-flex; align-items:center; gap:8px; margin-top:16px;
       padding:12px 18px; border-radius:12px; background:#fff; color:#1b1b1b; text-decoration:none; font-weight:700; border:1px solid #e9e1cf;
     }
-    .countdown{margin-top:8px; font-weight:600; opacity:.95}
+    .countdown{margin-top:8px; font-weight:700; opacity:.98}
 
-    /* NAV */
+    /* ================= NAV con iconos ================= */
     nav{
       position:sticky; top:0; z-index:20; background:#ffffffc8; backdrop-filter:saturate(160%) blur(8px);
-      border-bottom:1px solid var(--line); display:flex; gap:10px; overflow:auto; padding:10px 16px
+      border-bottom:1px solid var(--line); display:flex; gap:6px; overflow:auto; padding:8px 10px
     }
-    nav a{color:#213227; text-decoration:none; padding:8px 12px; border-radius:10px; white-space:nowrap}
-    nav a:hover{background:#f5efe3}
+    .nav-item{display:inline-flex; align-items:center; gap:8px; color:#213227; text-decoration:none; padding:8px 12px; border-radius:12px; white-space:nowrap}
+    .nav-item svg{width:18px; height:18px; flex:0 0 auto}
+    .nav-item:hover{background:#f5efe3}
+    .nav-item.active{background:#f0e8d8; box-shadow:inset 0 0 0 1px #eadfca}
 
-    /* SELLITOS */
-    .seals{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px}
-    .seal{
-      --size:70px;
-      width:var(--size); height:var(--size); border-radius:999px;
-      background: radial-gradient(65% 65% at 30% 30%, #fff8ea 0%, var(--champ) 100%);
-      border:2px solid #d9c39d; box-shadow:0 2px 0 rgba(0,0,0,.06), inset 0 2px 6px rgba(0,0,0,.07);
-      display:grid; place-items:center; text-align:center; cursor:pointer; user-select:none;
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .seal:hover{transform:translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,.10), inset 0 2px 6px rgba(0,0,0,.08)}
-    .seal span{font-size:12px; font-weight:700; color:#3a3226}
-    .seal svg{width:26px; height:26px; display:block}
-
-    /* BLOQUES */
-    .section{padding:28px 0}
+    /* ================= MAPS ================= */
     .map-embed{position:relative; padding-top:56.25%; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#fff}
     .map-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
 
-    /* REGALOS */
+    /* ================= GIFTS ================= */
     .bank{display:grid; gap:12px}
     @media (min-width:768px){ .bank{grid-template-columns:1fr 1fr} }
     .box{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px}
     .copy{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:10px; border:1px solid #e7dcc5; background:#fff; cursor:pointer}
     .copied{background:#f0f7f0; border-color:#cfe6cf}
 
-    /* GALERÍA */
-    .gallery{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-    .gallery img{width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:#fff}
-    .gallery img[loading="lazy"]{opacity:.98}
-    dialog#lightbox{border:none; padding:0; max-width:min(95vw,1100px); background:transparent}
-    dialog#lightbox::backdrop{background:rgba(0,0,0,.6)}
-    .lightbox-img{max-width:95vw; max-height:85vh; border-radius:10px; border:1px solid var(--line)}
-
-    /* PALETA */
-    .swatches{display:flex; gap:10px; flex-wrap:wrap}
-    .swatch{flex:1 1 130px; border-radius:12px; padding:10px; border:1px solid var(--line)}
-    .swatch .color{height:46px; border-radius:8px; margin-bottom:8px}
+    /* ================= VIDEO ================= */
+    .video-card video{width:100%; border-radius:14px; border:1px solid var(--line); display:block}
 
     footer{padding:28px 16px; text-align:center; color:#6a6a6a; border-top:1px solid var(--line)}
-    @media (prefers-reduced-motion: reduce){ .hero img.bg{transition:none} .seal{transition:none} }
+    @media (prefers-reduced-motion: reduce){ .hero img.bg{transition:none} }
   </style>
 </head>
 <body>
@@ -139,39 +121,42 @@
       </div>
       <p style="margin-top:6px">Dress code: <strong>Elegante</strong></p>
       <div class="countdown" id="countdown" aria-live="polite"></div>
-
       <a class="cta" href="#rsvp" aria-label="Confirmar asistencia">Confirmar asistencia</a>
-
-      <!-- Sellos inspirados en PDF -->
-      <div class="seals" style="margin-top:18px">
-        <a class="seal" href="#ceremonia" aria-label="Ir a ceremonia" title="Ceremonia">
-          <!-- ícono iglesia -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="#5a4a33" stroke-width="1.6"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg>
-          <span>Ceremonia</span>
-        </a>
-        <a class="seal" href="#recepcion" aria-label="Ir a recepción" title="Recepción">
-          <!-- ícono copas -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="#5a4a33" stroke-width="1.6"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12"/></svg>
-          <span>Recepción</span>
-        </a>
-        <a class="seal" href="#rsvp" aria-label="Ir a asistencia" title="Asistencia">
-          <!-- ícono check -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="#5a4a33" stroke-width="1.6"><path d="M20 6 9 17l-5-5"/></svg>
-          <span>RSVP</span>
-        </a>
-      </div>
     </div>
   </header>
 
-  <!-- NAV -->
-  <nav aria-label="Navegación principal">
-    <a href="#detalles">Detalles</a>
-    <a href="#ceremonia">Ceremonia</a>
-    <a href="#recepcion">Recepción</a>
-    <a href="#galeria">Fotos</a>
-    <a href="#regalos">Regalos</a>
-    <a href="#paleta">Paleta</a>
-    <a href="#rsvp">RSVP</a>
+  <!-- NAV con iconos (sin “sellos” redundantes) -->
+  <nav aria-label="Navegación principal" id="nav">
+    <a href="#detalles" class="nav-item" data-section="detalles" title="Detalles">
+      <!-- info -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"/></svg>
+      <span>Detalles</span>
+    </a>
+    <a href="#ceremonia" class="nav-item" data-section="ceremonia" title="Ceremonia">
+      <!-- iglesia -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg>
+      <span>Ceremonia</span>
+    </a>
+    <a href="#recepcion" class="nav-item" data-section="recepcion" title="Recepción">
+      <!-- copas -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12"/></svg>
+      <span>Recepción</span>
+    </a>
+    <a href="#video" class="nav-item" data-section="video" title="Video">
+      <!-- video -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M17 8l4-2v12l-4-2z"/><path d="M10 12l-2 1.5V10.5L10 12z"/></svg>
+      <span>Video</span>
+    </a>
+    <a href="#regalos" class="nav-item" data-section="regalos" title="Regalos">
+      <!-- regalo -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M2 7h20M12 22V7"/><path d="M12 7H7a2 2 0 0 1 0-4c3 0 5 4 5 4Z"/><path d="M12 7h5a2 2 0 0 0 0-4c-3 0-5 4-5 4Z"/></svg>
+      <span>Regalos</span>
+    </a>
+    <a href="#rsvp" class="nav-item" data-section="rsvp" title="RSVP">
+      <!-- check -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2b3b31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      <span>RSVP</span>
+    </a>
   </nav>
 
   <!-- DETALLES -->
@@ -246,6 +231,19 @@
     </div>
   </section>
 
+  <!-- VIDEO (sustituye la galería de fotos) -->
+  <section id="video" class="wrap section">
+    <div class="card video-card">
+      <h2 class="serif">Video</h2>
+      <video controls playsinline preload="metadata" poster="imagenes/IMG-20250712-WA0111.jpg">
+        <!-- Reemplaza con tu archivo real -->
+        <source src="media/video.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+      <p class="muted">Sugerido: 15–30 segundos, formato MP4 (H.264), 1080p y peso &lt; 20&nbsp;MB para buena carga en móviles.</p>
+    </div>
+  </section>
+
   <!-- REGALOS -->
   <section id="regalos" class="wrap section">
     <div class="card">
@@ -264,29 +262,6 @@
         </div>
       </div>
       <p class="muted" style="margin-top:10px">A nombre de <strong>Javier Sarmiento</strong>.</p>
-    </div>
-  </section>
-
-  <!-- GALERÍA -->
-  <section id="galeria" class="wrap section">
-    <h2 class="serif">Fotos</h2>
-    <div class="gallery" aria-label="Galería de fotos">
-      <img src="imagenes/IMG-20250712-WA0111.jpg" alt="Romina y Javier" loading="lazy" decoding="async">
-      <img src="imagenes/IMG-20250714-WA0094.jpg" alt="Sesión de pareja" loading="lazy" decoding="async">
-      <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.24_caaa55f7.jpg" alt="Feliz momento juntos" loading="lazy" decoding="async">
-      <img src="imagenes/Imagen%20de%20WhatsApp%202025-08-29%20a%20las%2019.21.43_82f709c3.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
-    </div>
-  </section>
-
-  <!-- PALETA -->
-  <section id="paleta" class="wrap section">
-    <h2 class="serif">Paleta de colores</h2>
-    <div class="swatches">
-      <div class="swatch"><div class="color" style="background:#29392F"></div><strong>#29392F</strong><br><small>Verde pino profundo</small></div>
-      <div class="swatch"><div class="color" style="background:#8D8E7C"></div><strong>#8D8E7C</strong><br><small>Verde oliva suave</small></div>
-      <div class="swatch"><div class="color" style="background:#F0DAB8"></div><strong>#F0DAB8</strong><br><small>Champagne marfil-dorado</small></div>
-      <div class="swatch"><div class="color" style="background:#EFBFBB"></div><strong>#EFBFBB</strong><br><small>Blush empolvado</small></div>
-      <div class="swatch"><div class="color" style="background:#F5EDE1"></div><strong>#F5EDE1</strong><br><small>Ivory cálido</small></div>
     </div>
   </section>
 
@@ -345,18 +320,42 @@
       heroImgs[hi].classList.add('active');
     }, 6000);
 
-    // Countdown a la ceremonia (15 nov 2025 12:00 -05:00 Lima)
+    // ================= Contador (con meses y segundos, oculta unidades en 0) =================
     const countdownEl = document.getElementById('countdown');
-    const target = new Date('2025-11-15T12:00:00-05:00').getTime();
-    function tick(){
-      const now = Date.now();
-      const diff = Math.max(0, target - now);
-      const d = Math.floor(diff/86400000);
-      const h = Math.floor((diff%86400000)/3600000);
-      const m = Math.floor((diff%3600000)/60000);
-      countdownEl.textContent = diff>0 ? `Faltan ${d}d ${h}h ${m}m` : '¡Hoy es el gran día!';
+    const target = new Date('2025-11-15T12:00:00-05:00'); // Lima
+    function addMonths(base, m){
+      const y = base.getFullYear(), mon = base.getMonth()+m, d = base.getDate();
+      const lastDayTarget = new Date(y, mon+1, 0).getDate();
+      return new Date(y, mon, Math.min(d, lastDayTarget), base.getHours(), base.getMinutes(), base.getSeconds(), base.getMilliseconds());
     }
-    tick(); setInterval(tick, 60000);
+    function diffWithMonths(from, to){
+      if (from >= to) return {months:0, days:0, hours:0, minutes:0, seconds:0};
+      let months = 0;
+      let cursor = new Date(from);
+      while (true){
+        const next = addMonths(cursor, 1);
+        if (next <= to){ months++; cursor = next; } else break;
+      }
+      const ms = to - cursor;
+      const days = Math.floor(ms/86400000);
+      const hours = Math.floor((ms%86400000)/3600000);
+      const minutes = Math.floor((ms%3600000)/60000);
+      const seconds = Math.floor((ms%60000)/1000);
+      return {months, days, hours, minutes, seconds};
+    }
+    function tick(){
+      const now = new Date();
+      const c = diffWithMonths(now, target);
+      if (now >= target){ countdownEl.textContent = '¡Hoy es el gran día!'; return; }
+      const parts = [];
+      if (c.months) parts.push(`${c.months} ${c.months===1?'mes':'meses'}`);
+      if (c.days) parts.push(`${c.days}d`);
+      if (c.hours) parts.push(`${c.hours}h`);
+      if (c.minutes) parts.push(`${c.minutes}m`);
+      if (c.seconds) parts.push(`${c.seconds}s`);
+      countdownEl.textContent = parts.length ? `Faltan ${parts.join(' ')}` : '';
+    }
+    tick(); setInterval(tick, 1000);
 
     // Copiar al portapapeles (direcciones y cuentas)
     document.querySelectorAll('.copy').forEach(el=>{
@@ -371,16 +370,6 @@
         } catch(e){}
       });
     });
-
-    // Lightbox simple
-    const dlg = document.createElement('dialog'); dlg.id='lightbox';
-    dlg.innerHTML = '<img class="lightbox-img" alt=""><form method="dialog"><button style="display:none">x</button></form>';
-    document.body.appendChild(dlg);
-    const lbImg = dlg.querySelector('.lightbox-img');
-    document.querySelectorAll('.gallery img').forEach(img=>{
-      img.addEventListener('click', ()=>{ lbImg.src = img.src; lbImg.alt = img.alt; dlg.showModal(); });
-    });
-    dlg.addEventListener('click', e=>{ if(e.target === dlg) dlg.close(); });
 
     // Enlace .ics "Guardar la fecha"
     const ics = [
@@ -399,6 +388,22 @@
     ].join('\\r\\n');
     const addCal = document.getElementById('addCal');
     addCal.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+
+    // Nav activa según scroll
+    const nav = document.getElementById('nav');
+    const links = Array.from(nav.querySelectorAll('.nav-item'));
+    const idToLink = Object.fromEntries(links.map(a=>[a.dataset.section, a]));
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if (entry.isIntersecting){
+          links.forEach(l=>l.classList.remove('active'));
+          const id = entry.target.id; idToLink[id]?.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-50% 0px -45% 0px', threshold:0});
+    ['detalles','ceremonia','recepcion','video','regalos','rsvp'].forEach(id=>{
+      const el = document.getElementById(id); if(el) obs.observe(el);
+    });
   </script>
 </body>
 </html>
