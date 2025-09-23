@@ -51,6 +51,7 @@
       --radius:16px;
       --shadow:0 6px 20px rgba(0,0,0,.08);
       --surface-fallback:#F5EDE1; /* igual a nav “ivory” claro */
+      --section-bg-fallback:#F3E8D9; /* punto medio fijo */
     }
     @supports (color: color-mix(in oklab, white, black)){
       :root{
@@ -58,6 +59,8 @@
         --surface: color-mix(in oklab, white 80%, var(--champagne) 20%);
         /* versión translúcida para las cajitas del hero */
         --surface-hero: color-mix(in oklab, var(--surface) 30%, transparent); /* ≈ opacidad .30 */
+        /* “punto medio” entre ivory y champagne */
+        --section-bg: color-mix(in oklab, var(--ivory) 60%, var(--champagne) 40%);
       }
     }
 
@@ -65,9 +68,14 @@
     html,body{margin:0}
     html{scroll-behavior:smooth}
     body{
-      background:var(--ivory); color:var(--ink);
+      /* Imagen de textura aplicada a todo el fondo */
+      background: url('assets/ui/textura-fondo.png') center/cover repeat;
+      color: var(--ink);
+
       font-family:Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
-      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      line-height:1.6; 
+      -webkit-font-smoothing:antialiased; 
+      text-rendering:optimizeLegibility;
       font-size:clamp(16px,1.7vw,18px);
     }
 
@@ -93,6 +101,35 @@
     a:focus-visible, .btn:focus-visible{ outline:3px solid color-mix(in oklab, var(--champagne), black 10%); outline-offset:3px; border-radius:12px }
 
     .wrap{max-width:1120px; margin:0 auto; padding:32px 20px}
+
+    /* Fondo UNIFICADO para todas las secciones */
+    .wrap.section{
+      background: rgba(245,237,225,0.82); /* tono claro semitransparente */
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 24px 20px; /* ya contiene relleno propio */
+    }
+
+    /* Quita la segunda “capa” si la sección sólo tiene UNA tarjeta “envolviendo todo”.
+       Así el fondo visible es el de la sección, no una tarjeta interior. */
+    .wrap.section > .card:only-child,
+    .wrap.section > .panel:only-child,
+    .wrap.section > .wish-panel:only-child{
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    /* Caso específico de Buenos deseos (tu HTML tiene 1 solo .wish-panel en la sección) */
+    #deseos.wrap.section > .wish-panel{
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+
     .grid{display:grid; gap:18px}
     @media (min-width:768px){ .cols-2{grid-template-columns:1fr 1fr} }
 
@@ -106,7 +143,8 @@
     .card,
     .panel,
     .wish-panel{
-      background: var(--surface, var(--surface-fallback));
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(3px);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:18px;
@@ -229,10 +267,12 @@
     .lightbox-img{ max-width:95vw; max-height:85vh; border-radius:12px; border:1px solid var(--line) }
 
     /* Paneles destacados (Regalos / RSVP) con fallback */
+    /*
     .panel{ background:#F6EAD4; border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow) }
     @supports (color: color-mix(in oklab, white, black)){
       .panel{ background:color-mix(in oklab, var(--champagne) 20%, white) }
     }
+    */
 
     /* Footer oscuro */
     footer{ padding:28px 16px; text-align:center; background:var(--pine); color:#F5F5F5 }
@@ -608,7 +648,7 @@
       display:flex; align-items:center; gap:14px;
       padding:14px 16px; margin:10px 0;
       border-radius:18px; border:1.5px solid var(--line);
-      background:var(--ivory);      /* <— mismo fondo que la tarjeta */
+      background: transparent; /* antes: var(--surface, var(--surface-fallback)) */
       box-shadow:none;              /* fuera la sombra blanca */
     }
 
@@ -688,11 +728,42 @@
 
     .frase-inicial{
       font-family: 'Parisienne', cursive;
-      font-weight: 600; 
+      font-weight: 400; 
       font-size: clamp(22px, 2.6vw, 28px); /* un poco más grande para resaltar */
       line-height: 1.4;
       color: var(--pine);
       margin: 6px 0 0;
+    }
+
+    /* ===== Nuestros padres ===== */
+    .padres{
+      text-align:center;
+    }
+    .padres h2{
+      font-family: 'Parisienne', cursive;  /* misma fuente que la frase */
+      font-weight: 600;                    /* “negrita” suave */
+      font-size: clamp(30px, 4.8vw, 40px);
+      color: var(--pine);
+      margin: 0 0 14px;
+    }
+    .padres .grid{
+      gap: 12px;
+    }
+    .padres .bloque{
+      background: var(--surface, var(--surface-fallback));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .padres h3{
+      font-family: 'Parisienne', cursive;
+      font-weight: 600;
+      font-size: clamp(22px, 3.4vw, 26px);
+      color: var(--pine);
+      margin: 0 0 8px;
+    }
+    .padres p{
+      margin: 4px 0;
     }
 
     /* iconografía consistente (si conservas tus inline svgs) */
@@ -703,6 +774,79 @@
     /* opcional: borde sutil cuando se desplaza la lista */
     .wish-list::-webkit-scrollbar{ width:10px }
     .wish-list::-webkit-scrollbar-thumb{ background: #e4dccb; border-radius:12px; border:2px solid #faf7f0 }
+
+    /* ============================
+       UNIFICACIÓN DE FONDOS (v1)
+       ============================ */
+
+    /* Paleta unificada (mismo tono + mismas alfas en todas las secciones) */
+    :root{
+      /* Fondo de sección (sobre la textura) */
+      --section-bg-unified: rgba(243, 232, 217, 0.85);  /* marfil cálido 85% */
+      /* Fondo de tarjetitas internas */
+      --card-bg-unified:    rgba(255, 255, 255, 0.92);  /* blanco 92% */
+      --card-border-unified: 1px solid var(--line);
+      --card-radius-unified: 18px;
+    }
+
+    /* 1) TODAS las secciones comparten el mismo fondo (nivel 1) */
+    .wrap.section{
+      background: var(--section-bg-unified);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      /* padding ya lo tenías */
+    }
+
+    /* 2) TODAS las tarjetitas comparten el mismo fondo (nivel 2) */
+    .card,
+    .panel,
+    .wish-panel,
+    .padres .bloque,      /* bloques internos de “Nuestros padres” */
+    #detalles .icon-row,  /* filas de Detalles */
+    #ceremonia .info-item,
+    #recepcion .info-item {
+      background: var(--card-bg-unified);
+      border: var(--card-border-unified);
+      border-radius: var(--card-radius-unified);
+      box-shadow: var(--shadow);
+    }
+
+    /* 3) Anular reglas que dejaban “transparent” cuando había 1 sola tarjeta
+       (queremos que igual tenga el color unificado de tarjetita) */
+    .wrap.section > .card:only-child,
+    .wrap.section > .panel:only-child,
+    .wrap.section > .wish-panel:only-child,
+    #deseos.wrap.section > .wish-panel{
+      background: var(--card-bg-unified);
+      border: var(--card-border-unified);
+      box-shadow: var(--shadow);
+      padding: 18px; /* restaura padding de tarjeta */
+    }
+
+    /* 4) Opcional: micro-consistencia visual entre filas consecutivas */
+    #detalles .icon-row + .icon-row,
+    #ceremonia .info-item + .info-item,
+    #recepcion .info-item + .info-item{
+      margin-top: 10px;
+    }
+
+    /* 5) Si alguna “fila” tenía estilos previos que forzaban transparencia,
+       nos aseguramos de que no la sobre-escriban */
+    #detalles .icon-row,
+    #ceremonia .info-item,
+    #recepcion .info-item{
+      background-clip: padding-box; /* contorno limpio */
+    }
+
+    /* 6) (Opcional) Si quieres un sutil glass effect consistente:
+       Descomenta la siguiente línea; mantiene mismas alfas, sólo difumina la textura debajo. */
+    /*
+    .card, .panel, .wish-panel, .padres .bloque, 
+    #detalles .icon-row, #ceremonia .info-item, #recepcion .info-item{
+      backdrop-filter: blur(3px);
+    }
+    */
   </style>
 </head>
 <body>
@@ -791,6 +935,24 @@
     </div>
   </section>
 
+  <section id="padres" class="wrap section padres">
+    <div class="card">
+      <h2>Nuestros padres</h2>
+      <div class="grid cols-2">
+        <div class="bloque">
+          <h3>Padres de la novia</h3>
+          <p>Luis Richard Laura Carlos</p>
+          <p>Maria Luz Rodriguez Matos</p>
+        </div>
+        <div class="bloque">
+          <h3>Padres del novio</h3>
+          <p>Martin Aldo Sarmiento Carreño</p>
+          <p>Miriam Rosa Lopez Villa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= DETALLES (incluye Guardar fecha) ================= -->
   <section id="detalles" class="wrap section">
     <div class="card">
@@ -843,13 +1005,6 @@
           </div>
         </div>
 
-        <!-- Mensaje (después del dress code) -->
-        <p class="muted" style="margin:8px 0 10px">Hemos reservado pases para ti. ¡Te esperamos!</p>
-
-        <!-- Botón .ics (queda abajo) -->
-        <div class="btn-group" style="margin:6px 0 6px">
-          <a class="btn btn-secondary" id="addCal" download="Boda-Romina-Javier.ics" href="" rel="noopener">Guardar la fecha (.ics)</a>
-        </div>
       </div>
     </div>
   </section>
@@ -857,6 +1012,10 @@
   <section id="itinerario" class="wrap section">
     <div class="card">
       <h2>Itinerario</h2>
+      <p class="muted" style="margin:0 0 10px">Hemos reservado pases para ti. ¡Te esperamos!</p>
+      <div class="btn-group" style="margin:6px 0 14px">
+        <a class="btn btn-secondary" id="addCal" download="Boda-Romina-Javier.ics" href="" rel="noopener">Guardar la fecha (.ics)</a>
+      </div>
       <ul class="itinerary">
         <li>
           <span class="dot" aria-hidden="true">
@@ -943,16 +1102,6 @@
       <h2>Recepción</h2>
 
       <div class="info-list" aria-label="Información de la recepción">
-        <div class="info-item">
-          <span class="info-badge" aria-hidden="true">
-            <!-- copa/banquete -->
-            <svg viewBox="0 0 24 24"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Z"/><path d="M12 11v9"/><path d="M7 20h10"/></svg>
-          </span>
-          <div>
-            <span class="info-title">Almuerzo 2:00 p. m. · Fiesta 4:00 p. m.</span>
-            <span class="info-sub">Programa de la recepción</span>
-          </div>
-        </div>
 
         <div class="info-item">
           <span class="info-badge" aria-hidden="true">
@@ -983,27 +1132,28 @@
 
   <!-- ================= RECUERDOS (video + fotos) ================= -->
   <section id="galeria" class="wrap section">
-    <h2>Galería</h2>
+    <div class="card">
+      <h2>Galería</h2>
 
-    <!-- Video (opcional) -->
-    <div class="card video-card" style="margin-bottom:18px">
-      <video controls playsinline preload="metadata" poster="assets/gallery/Faro Juntos.jpg">
-        <source src="media/video.mp4" type="video/mp4">
-        Tu navegador no soporta video HTML5.
-      </video>
-      <!-- Nota técnica (oculta). Para verla en local añade data-debug="1" al <body> -->
-      <p class="muted dev-note" hidden>Sugerido: 15–30 segundos, MP4 (H.264), 1080p, &lt; 20&nbsp;MB.</p>
-    </div>
+      <!-- Video (opcional) -->
+      <div class="video-card" style="margin-bottom:18px">
+        <video controls playsinline preload="metadata" poster="assets/gallery/Faro Juntos.jpg">
+          <source src="media/video.mp4" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+        <p class="muted dev-note" hidden>Sugerido: 15–30 segundos, MP4 (H.24), 1080p, &lt; 20&nbsp;MB.</p>
+      </div>
 
-    <!-- Galería -->
-    <div class="gallery" aria-label="Galería">
-      <img src="assets/gallery/Parque.jpg" alt="Romina y Javier" loading="lazy" decoding="async">
-      <img src="assets/gallery/Parque 2.jpg" alt="Sesión de pareja" loading="lazy" decoding="async">
-      <img src="assets/gallery/Playa Lima.jpg" alt="Feliz momento juntos" loading="lazy" decoding="async">
-      <img src="assets/gallery/Escalera.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
-      <img src="assets/gallery/Disney.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
-      <img src="assets/gallery/Faro Juntos.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
-      <img src="assets/gallery/Faro Mirandonos.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
+      <!-- Galería -->
+      <div class="gallery" aria-label="Galería">
+        <img src="assets/gallery/Parque.jpg" alt="Romina y Javier" loading="lazy" decoding="async">
+        <img src="assets/gallery/Parque 2.jpg" alt="Sesión de pareja" loading="lazy" decoding="async">
+        <img src="assets/gallery/Playa Lima.jpg" alt="Feliz momento juntos" loading="lazy" decoding="async">
+        <img src="assets/gallery/Escalera.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
+        <img src="assets/gallery/Disney.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
+        <img src="assets/gallery/Faro Juntos.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
+        <img src="assets/gallery/Faro Mirandonos.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
+      </div>
     </div>
   </section>
 
@@ -1071,9 +1221,7 @@
           <button class="btn btn-primary" type="submit">Enviar</button>
           <button class="btn btn-secondary" type="reset">Limpiar</button>
         </div>
-        <p class="muted" style="text-align:center;margin:0">
-          Se publica al instante. Si no hay internet, se guarda en este dispositivo y se sincroniza después.
-        </p>
+        <!-- DEV NOTE: Se publica al instante. Si no hay internet, se guarda local (LS) y se sincroniza después. -->
       </form>
     </div>
   </section>
@@ -1163,7 +1311,7 @@
       if (c.hours) parts.push(`${c.hours}h`);
       if (c.minutes) parts.push(`${c.minutes}m`);
       if (c.seconds) parts.push(`${c.seconds}s`);
-      countdownEl.textContent = parts.length ? `Faltan ${parts.join(' ')}` : '';
+      countdownEl.textContent = parts.length ? `Faltan ${parts.join(' ')` : '';
     } */
     function tick(){
       const now = new Date();
