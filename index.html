@@ -26,8 +26,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- (Mantenemos Inter + Cormorant del refactor editorial) -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
@@ -50,6 +50,15 @@
 
       --radius:16px;
       --shadow:0 6px 20px rgba(0,0,0,.08);
+      --surface-fallback:#F5EDE1; /* igual a nav “ivory” claro */
+    }
+    @supports (color: color-mix(in oklab, white, black)){
+      :root{
+        /* barra/nav y secciones ligeramente aclaradas */
+        --surface: color-mix(in oklab, white 80%, var(--champagne) 20%);
+        /* versión translúcida para las cajitas del hero */
+        --surface-hero: color-mix(in oklab, var(--surface) 30%, transparent); /* ≈ opacidad .30 */
+      }
     }
 
     *{box-sizing:border-box}
@@ -68,6 +77,17 @@
     h2{font-family:"Cormorant Garamond", ui-serif, Georgia, serif; font-weight:700; font-size:clamp(28px,3.4vw,32px)}
     h3{font-family:"Cormorant Garamond", ui-serif, Georgia, serif; font-weight:600; font-size:clamp(22px,2.4vw,24px)}
 
+    .section h2,
+    .wrap > h2,
+    #detalles h2,#itinerario h2,#ceremonia h2,#recepcion h2,#galeria h2,#regalos h2,#deseos h2,#rsvp h2{
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      font-size: clamp(38px,6vw,54px);
+      letter-spacing: 0;
+      color: var(--pine);
+      margin-bottom: 12px;
+    }
+
     a{color:var(--pine); text-decoration:none}
     a:hover{ text-decoration:underline; text-decoration-color:var(--champagne); text-decoration-thickness:2px; text-underline-offset:3px }
     a:focus-visible, .btn:focus-visible{ outline:3px solid color-mix(in oklab, var(--champagne), black 10%); outline-offset:3px; border-radius:12px }
@@ -82,9 +102,15 @@
       border-radius:9999px; padding:4px 10px; font-size:.95rem; line-height:1; font-weight:500;
     }
 
-    /* Tarjetas */
-    .card{
-      background:var(--ivory); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+    /* TODAS las tarjetas/paneles con el mismo fondo */
+    .card,
+    .panel,
+    .wish-panel{
+      background: var(--surface, var(--surface-fallback));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
     }
 
     /* =========================================================
@@ -120,15 +146,13 @@
     /* =========================================================
        NAV (con iconos decorativos aria-hidden)
        ========================================================= */
+    /* NAV con el mismo fondo “surface” */
     nav{
-      background:#F5EDE1; /* Fallback */
+      background: var(--surface, var(--surface-fallback));
       position:sticky; top:0; z-index:20;
-      border-bottom:1px solid var(--line); display:flex; gap:6px; overflow:auto; padding:8px 10px;
+      border-bottom:1px solid var(--line);
+      display:flex; gap:6px; overflow:auto; padding:8px 10px;
       backdrop-filter:saturate(160%) blur(8px);
-    }
-    /* Versión con color-mix cuando está disponible */
-    @supports (color: color-mix(in oklab, white, black)){
-      nav{ background:color-mix(in oklab, white 80%, var(--champagne) 20%) }
     }
     .nav-item{ display:inline-flex; align-items:center; gap:8px; color:var(--pine); padding:8px 12px; border-radius:12px; text-decoration:none; white-space:nowrap }
     .nav-item svg{ width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round }
@@ -155,11 +179,14 @@
       align-items:center;          /* centra horizontalmente */
     }
 
-    /* Caja del nombre (ajusta opacidad aquí) */
+    /* Nombre en el hero — misma base, muy translúcida */
     .title-wrap{
-      display:block;               /* para que no intente ir en línea con la fecha */
-      background: rgba(245,237,225,.45); /* ivory translúcido */
-      border-radius:14px; padding:8px 14px;
+      display:block;
+      background: var(--surface-hero, rgba(245,237,225,.20));
+      border:1px solid rgba(228,215,189,.55);
+      border-radius:14px;
+      padding:8px 14px;
+      box-shadow:0 2px 12px rgba(41,57,47,.10);
       backdrop-filter:saturate(120%) blur(2px);
     }
 
@@ -168,12 +195,18 @@
     
     .date-tile{
       display:inline-grid; grid-template-columns:auto auto auto; gap:10px; align-items:center;
-      background:rgba(240,218,184,.45); color:#2b2b2b; border-radius:16px; padding:10px 18px;
-      font-weight:600; letter-spacing:.3px; border:1px solid rgba(224,206,170,.8);
+      background: var(--surface-hero, rgba(245,237,225,.20));
+      color:#1f1f1f;
+      border:1px solid rgba(228,215,189,.55);
+      border-radius:16px; padding:10px 18px;
+      font-weight:600; letter-spacing:.3px;
       box-shadow:0 2px 12px rgba(41,57,47,.10);
     }
     .date-tile .big{font-size:clamp(30px,6vw,46px); font-weight:700}
     .countdown{ font-weight:700 }
+
+    /* legibilidad sutil */
+    .hero .title-wrap h1, .date-tile{ text-shadow: 0 1px 2px rgba(0,0,0,.08); }
 
     /* =========================================================
        MAPAS + ACCIONES (1 columna siempre)
@@ -653,6 +686,15 @@
     .wish-form .row{ display:flex; align-items:center; gap:10px; }
     .wish-form .char{ margin-left:auto; font-size:.9rem; color:#6b6b4b }
 
+    .frase-inicial{
+      font-family: 'Parisienne', cursive;
+      font-weight: 600; 
+      font-size: clamp(22px, 2.6vw, 28px); /* un poco más grande para resaltar */
+      line-height: 1.4;
+      color: var(--pine);
+      margin: 6px 0 0;
+    }
+
     /* iconografía consistente (si conservas tus inline svgs) */
     .nav-item svg, .icon-badge svg, .info-badge svg, .itinerary .dot svg{
       stroke-linecap:round; stroke-linejoin:round; stroke-width:1.8;
@@ -709,9 +751,6 @@
       
     
       <div class="countdown" id="countdown" aria-live="polite"></div>
-      <div>
-        <a class="btn btn-primary" href="#rsvp" rel="noopener">Confirmar asistencia</a>
-      </div>
     </div>
   </header>
 
@@ -719,6 +758,9 @@
   <nav aria-label="Navegación" id="nav">
     <a href="#detalles" class="nav-item" data-section="detalles" title="Detalles">
       <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"/></svg> Detalles
+    </a>
+    <a href="#itinerario" class="nav-item" data-section="itinerario" title="Itinerario">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Itinerario
     </a>
     <a href="#ceremonia" class="nav-item" data-section="ceremonia" title="Ceremonia">
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg> Ceremonia
@@ -735,14 +777,23 @@
     <a href="#deseos" class="nav-item" data-section="deseos" title="Buenos Deseos">
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5c3.5-4 10 1 0 9C2 6 8.5 1 12 5Z"/></svg> Buenos Deseos
     </a>
-    <a href="#rsvp" class="nav-item" data-section="rsvp" title="RSVP">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> RSVP
+    <a href="#rsvp" class="nav-item" data-section="rsvp" title="Asistencia">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Asistencia
     </a>
   </nav>
 
+  <section id="frase" class="wrap section">
+    <div class="card" style="text-align:center">
+      <p class="frase-inicial">
+        “Después de un hermoso camino juntos, el momento de celebrar lo que el tiempo ha construido ha llegado.
+        ¡Acompáñanos a dar el siguiente paso en nuestra historia!”
+      </p>
+    </div>
+  </section>
+
   <!-- ================= DETALLES (incluye Guardar fecha) ================= -->
   <section id="detalles" class="wrap section">
-    <div class="card cols-2 grid">
+    <div class="card">
       <div>
         <h2>Detalles</h2>
 
@@ -800,42 +851,45 @@
           <a class="btn btn-secondary" id="addCal" download="Boda-Romina-Javier.ics" href="" rel="noopener">Guardar la fecha (.ics)</a>
         </div>
       </div>
-      <div>
-        <h3 class="muted" style="margin-bottom:8px">Itinerario</h3>
-        <ul class="itinerary">
-          <li>
-            <span class="dot" aria-hidden="true">
-              <!-- iglesia -->
-              <svg viewBox="0 0 24 24">
-                <path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"></path>
-              </svg>
-            </span>
-            <span class="label"><strong>11:30 a. m.</strong> — Ceremonia religiosa</span>
-          </li>
-          <li>
-            <span class="dot" aria-hidden="true">
-              <!-- cubiertos -->
-              <svg viewBox="0 0 24 24">
-                <path d="M4 3v8a2 2 0 0 0 2 2v8"></path>
-                <path d="M10 3v6"></path>
-                <path d="M20 3c0 4-3 5-3 9v9"></path>
-              </svg>
-            </span>
-            <span class="label"><strong>2:00 p. m.</strong> — Almuerzo</span>
-          </li>
-          <li>
-            <span class="dot" aria-hidden="true">
-              <!-- música -->
-              <svg viewBox="0 0 24 24">
-                <path d="M9 18V5l12-2v13"></path>
-                <circle cx="6" cy="18" r="3"></circle>
-                <circle cx="18" cy="16" r="3"></circle>
-              </svg>
-            </span>
-            <span class="label"><strong>4:00 p. m.</strong> — Fiesta</span>
-          </li>
-        </ul>
-      </div>
+    </div>
+  </section>
+
+  <section id="itinerario" class="wrap section">
+    <div class="card">
+      <h2>Itinerario</h2>
+      <ul class="itinerary">
+        <li>
+          <span class="dot" aria-hidden="true">
+            <!-- iglesia -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"></path>
+            </svg>
+          </span>
+          <span class="label"><strong>11:30 a. m.</strong> — Ceremonia religiosa</span>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true">
+            <!-- cubiertos -->
+            <svg viewBox="0 0 24 24">
+              <path d="M4 3v8a2 2 0 0 0 2 2v8"></path>
+              <path d="M10 3v6"></path>
+              <path d="M20 3c0 4-3 5-3 9v9"></path>
+            </svg>
+          </span>
+          <span class="label"><strong>2:00 p. m.</strong> — Almuerzo</span>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true">
+            <!-- música -->
+            <svg viewBox="0 0 24 24">
+              <path d="M9 18V5l12-2v13"></path>
+              <circle cx="6" cy="18" r="3"></circle>
+              <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+          </span>
+          <span class="label"><strong>4:00 p. m.</strong> — Fiesta</span>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -1027,7 +1081,7 @@
   <!-- ================= RSVP ================= -->
   <section id="rsvp" class="wrap section">
     <div class="card">
-      <h2>Confirmar asistencia (RSVP)</h2>
+      <h2>Asistencia</h2>
       <p>Por favor confirma tu asistencia.</p>
       <div class="btn-group" style="margin-top:10px">
         <a class="btn btn-primary" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a>
@@ -1041,7 +1095,7 @@
   </section>
 
   <footer>
-    Hecho con ❤️ por Romina & Javier · <a href="#rsvp">RSVP</a>
+    Hecho con ❤️ por Romina & Javier · <a href="#rsvp">Asistencia</a>
   </footer>
 
   <!-- JSON-LD Evento (conjunto) -->
@@ -1215,7 +1269,7 @@
       });
     }, {rootMargin:'-50% 0px -45% 0px'});
 
-    ['detalles','ceremonia','recepcion','galeria','regalos','deseos','rsvp'].forEach(id=>{
+    ['detalles','itinerario','ceremonia','recepcion','galeria','regalos','deseos','rsvp'].forEach(id=>{
       const el=document.getElementById(id); if(el) obs.observe(el);
     });
 
