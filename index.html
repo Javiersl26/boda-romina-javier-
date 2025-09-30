@@ -13,11 +13,11 @@
   <meta property="og:description" content="Toda la información: ceremonia, recepción, regalos, recuerdos y RSVP." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://javiersl26.github.io/" />
-  <meta property="og:image" content="assets/gallery/Faro Juntos.jpg" />
+  <meta property="og:image" content="assets/gallery/1_Parque_juntos.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Boda · Romina & Javier · 15/11/2025" />
   <meta name="twitter:description" content="Detalles, mapas, regalos, recuerdos y RSVP." />
-  <meta name="twitter:image" content="assets/gallery/Faro Juntos.jpg" />
+  <meta name="twitter:image" content="assets/gallery/1_Parque_juntos.jpg" />
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -161,6 +161,9 @@
       border:1px solid transparent; cursor:pointer; user-select:none;
       transition: transform .08s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
       text-decoration:none;
+      font-size:clamp(15px,1.5vw,16px);
+      line-height:1.1;
+      text-transform:none;
     }
     .btn:active{ transform: translateY(1px) }
     .btn[disabled]{ opacity:.45; pointer-events:none }
@@ -200,8 +203,8 @@
     /* =========================================================
        HERO (veladura + caja translúcida del título)
        ========================================================= */
-    header.hero{ position:relative; min-height:78vh; display:grid; place-items:center; text-align:center; overflow:hidden; color:#fff; isolation:isolate }
-    .hero .bg{ position:absolute; inset:0; object-fit:cover; width:100%; height:100%; z-index:-2; transition:opacity 1s ease }
+    header.hero{ position:relative; min-height:78vh; display:grid; place-items:start center; text-align:center; overflow:hidden; color:#fff; isolation:isolate; padding-top:clamp(120px,22vh,260px); padding-bottom:clamp(40px,12vh,140px) }
+    .hero .bg{ position:absolute; inset:0; object-fit:cover; object-position:center 25%; width:100%; height:100%; z-index:-2; transition:opacity 1s ease }
     .hero .bg:not(.active){ opacity:0 }
     header.hero::after{
       content:""; position:absolute; inset:0; z-index:-1;
@@ -331,7 +334,7 @@
     .envelope-body{
       position:absolute; inset:0; z-index:1; border-radius:18px;
       background:
-        url('assets/ui/textura-carta-champagne-2048.png') center/cover no-repeat,
+        url('assets/ui/textura-fondo.png') center/cover no-repeat,
         linear-gradient(180deg,#f7efe0 0%,#efe3cc 100%),
         #efe3cc;
       background-blend-mode:multiply,normal,normal;
@@ -370,7 +373,7 @@
       border-radius: 18px;
       /* Fallback de color + textura (si la imagen falla, igual se ve) */
       background:
-        url('assets/ui/textura-carta-champagne-2048.png') center/cover no-repeat,
+        url('assets/ui/textura-fondo.png') center/cover no-repeat,
         linear-gradient(180deg, #f7efe0 0%, #efe3cc 100%),
         #efe3cc; /* <- respaldo sólido */
       background-blend-mode: multiply, normal, normal;
@@ -393,7 +396,7 @@
     .envelope-flap{
       position:absolute; left:0; right:0; top:0; height:60%; z-index:4;   /* antes: 56% */
       background:
-        url('assets/ui/textura-carta-champagne-2048.png') bottom/cover no-repeat,
+        url('assets/ui/textura-fondo.png') bottom/cover no-repeat,
         linear-gradient(180deg,#f3e8d6 0%,#e9dcc4 100%), #e9dcc4;
       background-blend-mode:multiply,normal,normal;
       clip-path: polygon(0 0,100% 0,50% 100%);
@@ -415,7 +418,7 @@
     .envelope-pocket{
       position:absolute; inset:24% 0 0 0; z-index:3;                    /* antes: 22% */
       background:
-        url('assets/ui/textura-carta-champagne-2048.png') center/cover no-repeat,
+        url('assets/ui/textura-fondo.png') center/cover no-repeat,
         linear-gradient(180deg,#f3e8d6 0%,#e9dcc4 100%), #e9dcc4;
       background-blend-mode:multiply,normal,normal;
       border-bottom-left-radius:18px; border-bottom-right-radius:18px;
@@ -479,11 +482,11 @@
       transform-origin: 50% 50%;
     }
 
-    /* Capa de GRIETA (sprite 6x1) — 6 frames horizontales */
+    /* Capa de GRIETA (sprite 6x1) sin imagen; agrega el sprite si deseas reactivar el efecto */
     .wax-seal .seal-crack{
       position:absolute; inset:-18px;           /* un poco más grande que el sello */
-      background: url('assets/ui/seal-crack-sprite.png') left center / 600% 100% no-repeat;
-      /* Guía: un PNG de 6 cuadros, cada cuadro ~256x256/512x512, fondo transparente */
+      background: none;
+      /* Guia: agrega aqui un PNG de 6 cuadros si quieres devolver el crack animado */
       opacity: 0; pointer-events:none;
       mix-blend-mode: multiply;                  /* la grieta se integra al relieve */
     }
@@ -728,7 +731,7 @@
 
     .frase-inicial{
       font-family: 'Parisienne', cursive;
-      font-weight: 400; 
+      font-weight: 500; 
       font-size: clamp(22px, 2.6vw, 28px); /* un poco más grande para resaltar */
       line-height: 1.4;
       color: var(--pine);
@@ -872,13 +875,18 @@
 
   <!-- Tooltip de instrucción -->
   <button class="splash-cta" type="button" aria-label="Abrir invitación">
-    <span class="hand" aria-hidden="true">👉</span> Haz clic para abrir tu invitación
+
+    <span class="hand" aria-hidden="true">&#x1F449;</span> Haz clic para abrir tu invitación
+
   </button>
 </div>
   <!-- ================= HERO ================= -->
   <header class="hero" id="hero" aria-label="Portada">
-    <img class="bg active" src="assets/gallery/Faro Juntos.jpg" alt="" width="1600" height="1066" decoding="async" fetchpriority="high" />
-    <img class="bg" src="assets/gallery/Faro Mirandonos.jpg" alt="" width="1600" height="1066" decoding="async" />
+
+    <img class="bg active" src="assets/gallery/1_Parque_juntos.jpg" alt="" width="1600" height="1066" decoding="async" fetchpriority="high" />
+    <img class="bg" src="assets/gallery/2_Faro_Mirandonos.jpg" alt="" width="1600" height="1066" decoding="async" />
+    <img class="bg" src="assets/gallery/3_DSC6928.jpg" alt="" width="1600" height="1066" decoding="async" />
+    <img class="bg" src="assets/gallery/4_Juntos_Playa.jpg" alt="" width="1600" height="1066" decoding="async" />
     <div class="inner">
       <!-- Título con caja translúcida (sin chip dress code) -->
       <div class="title-wrap">
@@ -926,8 +934,8 @@
   <section id="frase" class="wrap section">
     <div class="card" style="text-align:center">
       <p class="frase-inicial">
-        “Después de un hermoso camino juntos, el momento de celebrar lo que el tiempo ha construido ha llegado.
-        ¡Acompáñanos a dar el siguiente paso en nuestra historia!”
+        Después de un hermoso camino juntos, el momento de celebrar lo que el tiempo ha construido ha llegado.
+        ¡Acompáñanos a dar el siguiente paso en nuestra historia!
       </p>
     </div>
   </section>
@@ -968,7 +976,7 @@
           </span>
           <div class="icon-block">
             <span class="line-strong">Romina Gabriela Laura Rodriguez</span>
-            <span class="line-muted">Javier Rodrigo Manuel Sarmiento Lopez</span>
+            <span class="line-strong">Javier Rodrigo M. Sarmiento Lopez</span>
           </div>
         </div>
 
@@ -1134,7 +1142,7 @@
 
       <!-- Video (opcional) -->
       <div class="video-card" style="margin-bottom:18px">
-        <video controls playsinline preload="metadata" poster="assets/gallery/Faro Juntos.jpg">
+        <video controls playsinline preload="metadata" poster="assets/gallery/1_Parque_juntos.jpg">
           <source src="media/video.mp4" type="video/mp4">
           Tu navegador no soporta video HTML5.
         </video>
@@ -1143,13 +1151,26 @@
 
       <!-- Galería -->
       <div class="gallery" aria-label="Galería">
-        <img src="assets/gallery/Parque.jpg" alt="Romina y Javier" loading="lazy" decoding="async">
-        <img src="assets/gallery/Parque 2.jpg" alt="Sesión de pareja" loading="lazy" decoding="async">
-        <img src="assets/gallery/Playa Lima.jpg" alt="Feliz momento juntos" loading="lazy" decoding="async">
-        <img src="assets/gallery/Escalera.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
-        <img src="assets/gallery/Disney.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
-        <img src="assets/gallery/Faro Juntos.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
-        <img src="assets/gallery/Faro Mirandonos.jpg" alt="Recuerdo especial" loading="lazy" decoding="async">
+        <img src="assets/gallery/1_Parque_juntos.jpg" alt="Paseo en el parque juntos" loading="lazy" decoding="async">
+        <img src="assets/gallery/2_Faro_Mirandonos.jpg" alt="Mirándonos junto al faro" loading="lazy" decoding="async">
+        <img src="assets/gallery/3_DSC6928.jpg" alt="Abrazados durante la sesión" loading="lazy" decoding="async">
+        <img src="assets/gallery/4_Juntos_Playa.jpg" alt="Juntos en la playa" loading="lazy" decoding="async">
+        <img src="assets/gallery/Anillo.jpg" alt="Nuestros anillos" loading="lazy" decoding="async">
+        <img src="assets/gallery/Bosque_Caminando.jpg" alt="Caminando en el bosque" loading="lazy" decoding="async">
+        <img src="assets/gallery/Disney.jpg" alt="Recuerdo en Disney" loading="lazy" decoding="async">
+        <img src="assets/gallery/Escalera Fix.png" alt="Encuentro en la escalera" loading="lazy" decoding="async">
+        <img src="assets/gallery/Faro_Juntos.jpg" alt="Recuerdo juntos en el faro" loading="lazy" decoding="async">
+        <img src="assets/gallery/Huaca.jpg" alt="Abrazados en la huaca" loading="lazy" decoding="async">
+        <img src="assets/gallery/Huaca_Escalera.jpg" alt="Escalera en la huaca" loading="lazy" decoding="async">
+        <img src="assets/gallery/Mirador_Cerca.jpg" alt="Mirador con nosotros cerca" loading="lazy" decoding="async">
+        <img src="assets/gallery/Mirador_Medio.jpg" alt="Vista desde el mirador" loading="lazy" decoding="async">
+        <img src="assets/gallery/Playa_Cerca.jpg" alt="Sonrisas en la playa" loading="lazy" decoding="async">
+        <img src="assets/gallery/Playa_Espalda.jpg" alt="Mirando el mar de espaldas" loading="lazy" decoding="async">
+        <img src="assets/gallery/Playa_Lejos.jpg" alt="Postal playera a lo lejos" loading="lazy" decoding="async">
+        <img src="assets/gallery/Pozo_BN.jpg" alt="Pozo en blanco y negro" loading="lazy" decoding="async">
+        <img src="assets/gallery/Puente_Cerca.jpg" alt="Puente a la vista cercana" loading="lazy" decoding="async">
+        <img src="assets/gallery/Puente_Cruce_2.jpg" alt="Cruzando el puente" loading="lazy" decoding="async">
+        <img src="assets/gallery/Puente_Medio.jpg" alt="Encuentro en el puente" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -1204,7 +1225,7 @@
 
       <!-- Lista colapsable -->
       <div id="wishList" class="wish-list" hidden>
-        <div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 💛</div>
+        <div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉</div>
       </div>
 
       <!-- Formulario -->
@@ -1240,7 +1261,7 @@
   </section>
 
   <footer>
-    Hecho con ❤️ por Romina & Javier · <a href="#rsvp">Asistencia</a>
+    Hecho con &#10084; por Romina & Javier · <a href="#rsvp">Asistencia</a>
   </footer>
 
   <!-- JSON-LD Evento (conjunto) -->
@@ -1262,8 +1283,9 @@
       "address": "Av. Club Golf Los Incas 222, Surco"
     }],
     "image": [
-      "assets/gallery/Faro Juntos.jpg",
-      "assets/gallery/Faro Mirandonos.jpg"
+      "assets/gallery/1_Parque_juntos.jpg",
+      "assets/gallery/2_Faro_Mirandonos.jpg",
+      "assets/gallery/3_DSC6928.jpg"
     ],
     "description": "Invitación de boda. Dress code: Elegante.",
     "isAccessibleForFree": true
@@ -1509,7 +1531,7 @@ document.addEventListener('keydown', onKey);
     function render(data){
       if(!listEl) return;
       if(!data?.length){
-        listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 💛</div>`;
+        listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉</div>`;
         updateCount(0);
         return;
       }
@@ -1601,7 +1623,7 @@ document.addEventListener('keydown', onKey);
     form?.addEventListener('submit', async (e)=>{
       e.preventDefault();
       const t = Date.now();
-      if(t - lastSubmit < 8000){ showToast('Dale unos segundos antes de enviar otro 💛'); return; }
+      if(t - lastSubmit < 8000){ showToast('Dale unos segundos antes de enviar otro ⏳'); return; }
       const name = (nameEl.value||'').trim().slice(0,60) || 'Anónimo';
       const msg  = (msgEl.value||'').trim().slice(0,500);
       if(!msg){ msgEl.focus(); showToast('Escribe tu mensaje'); return; }
@@ -1639,3 +1661,4 @@ document.addEventListener('keydown', onKey);
   </script>
 </body>
 </html>
+
