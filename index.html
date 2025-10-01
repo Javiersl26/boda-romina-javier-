@@ -1415,10 +1415,46 @@
     dlg.innerHTML = '<img class="lightbox-img" alt=""><form method="dialog"><button style="display:none">x</button></form>';
     document.body.appendChild(dlg);
     const lbImg = dlg.querySelector('.lightbox-img');
-    document.querySelectorAll('.gallery img').forEach(img=>{
-      img.addEventListener('click', ()=>{ lbImg.src = img.src; lbImg.alt = img.alt; dlg.showModal(); });
+    const galleryImages = Array.from(document.querySelectorAll('.gallery img'));
+    let currentImageIndex = -1;
+    function showLightboxImage(index){
+      if(!galleryImages.length) return;
+      currentImageIndex = (index + galleryImages.length) % galleryImages.length;
+      const active = galleryImages[currentImageIndex];
+      lbImg.src = active.src;
+      lbImg.alt = active.alt || '';
+    }
+    function openLightbox(index){
+      if(!galleryImages.length) return;
+      showLightboxImage(index);
+      if(typeof dlg.showModal === 'function' && !dlg.open){ dlg.showModal(); }
+    }
+    function showNext(delta){
+      if(currentImageIndex < 0) return;
+      showLightboxImage(currentImageIndex + delta);
+    }
+    galleryImages.forEach((img, idx)=>{
+      img.addEventListener('click', ()=> openLightbox(idx));
     });
+    let touchStartX = null;
+    const TOUCH_THRESHOLD = 40;
+    lbImg.addEventListener('touchstart', (e)=>{
+      if(e.touches.length){ touchStartX = e.touches[0].clientX; }
+    }, { passive: true });
+    lbImg.addEventListener('touchend', (e)=>{
+      if(touchStartX === null || !e.changedTouches.length) return;
+      const deltaX = e.changedTouches[0].clientX - touchStartX;
+      if(Math.abs(deltaX) > TOUCH_THRESHOLD){
+        showNext(deltaX > 0 ? -1 : 1);
+      }
+      touchStartX = null;
+    });
+    lbImg.addEventListener('touchcancel', ()=>{ touchStartX = null; });
     dlg.addEventListener('click', e=>{ if(e.target === dlg) dlg.close(); });
+    dlg.addEventListener('keydown', e=>{
+      if(e.key === 'ArrowRight'){ e.preventDefault(); showNext(1); }
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); showNext(-1); }
+    });
 
     /* Nav activa on scroll + aria-current="page" */
     const nav = document.getElementById('nav');
