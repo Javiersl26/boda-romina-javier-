@@ -1249,9 +1249,10 @@
     <div class="card">
       <h2>Asistencia</h2>
       <p>Por favor confirma tu asistencia.</p>
+      <p class="muted">Si necesitas coordinar detalles, nuestra wedding planner controla las asistencias en <a href="tel:+51941496288">+51 941 496 288</a>.</p>
       <div class="btn-group" style="margin-top:10px">
         <a class="btn btn-primary" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a>
-        <a class="btn btn-secondary" href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+        <a class="btn btn-secondary" href="https://wa.me/51941496288?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
       </div>
       <div class="btn-group" style="margin-top:10px">
         <button type="button" class="btn btn-primary" id="rsvpYes">Asistiré</button>
@@ -1541,7 +1542,7 @@ document.addEventListener('keydown', onKey);
 
   /* ==== Buenos Deseos – versión limpia con fallback local ==== */
   (() => {
-    const API_URL = 'https://SCRIPT_ID.apps-script.googleusercontent.com/exec'; // pega tu /exec; deja '' si aún no lo tienes
+    const API_URL = 'https://script.google.com/macros/s/AKfycbz0CWB3g7WAWLJCmYyT_FMUgTf_gWrn4ix8V-wlyidu9QnELYsknbyZHbSDQRoogR_ZRQ/exec';
     const USE_REMOTE = !!API_URL;
     const LS_KEY = 'buenos_deseos_v2';
 
@@ -1622,7 +1623,7 @@ document.addEventListener('keydown', onKey);
         try{
           const r = await fetch(API_URL, {
             method:'POST',
-            headers:{ 'Content-Type':'application/json' },
+            headers:{ 'Content-Type':'text/plain;charset=utf-8' },
             body: JSON.stringify(item)
           });
           if(!r.ok) throw 0;
@@ -1681,7 +1682,7 @@ document.addEventListener('keydown', onKey);
   (function(){
     const yes  = document.getElementById('rsvpYes');
     const no   = document.getElementById('rsvpNo');
-    const base = 'https://wa.me/51XXXXXXXXX';
+    const base = 'https://wa.me/51941496288';
     const fecha = '15/11/2025';
     function openWA(txt){
       const url = `${base}?text=${encodeURIComponent(txt)}`;
@@ -1697,4 +1698,3 @@ document.addEventListener('keydown', onKey);
   </script>
 </body>
 </html>
-
