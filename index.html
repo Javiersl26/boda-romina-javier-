@@ -4238,7 +4238,7 @@
         function normalizeMessage(raw, options = {}) {
           const baseTs = Number(raw?.ts);
           const ts = Number.isFinite(baseTs) && baseTs > 0 ? baseTs : Date.now();
-          const name = (raw?.name || "").toString().trim().slice(0, 99) || "Anónimo";
+          const name = (raw?.name || "").toString().trim().slice(0, 99) || "An\u00F3nimo";
           const msg = (raw?.msg || "").toString().trim().slice(0, 500);
 
           return {
@@ -4295,7 +4295,7 @@
           updateCount(total);
 
           if (!entries.length) {
-            listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! ✨</div>`;
+            listEl.innerHTML = `<div class="wish-empty">A\u00FAn no hay mensajes. \u00A1S\u00E9 el primero en dejar uno! \u2728</div>`;
             pendingHighlight = null;
             return;
           }
@@ -4462,9 +4462,6 @@
                 mode: "cors",
                 cache: "no-store",
                 credentials: "omit",
-                headers: {
-                  "Content-Type": "application/json",
-                },
                 body: JSON.stringify(baseItem),
               });
 
@@ -4524,9 +4521,6 @@
                 mode: "cors",
                 cache: "no-store",
                 credentials: "omit",
-                headers: {
-                  "Content-Type": "application/json",
-                },
                 body: JSON.stringify({ ts: entry.ts, name: entry.name, msg: entry.msg }),
               });
 
@@ -4636,7 +4630,7 @@
           }
 
           const rawName = (nameEl.value || "").trim();
-          const name = rawName ? rawName.slice(0, 99) : "Anónimo";
+          const name = rawName ? rawName.slice(0, 99) : "An\u00F3nimo";
           const msg = (msgEl.value || "").trim().slice(0, 500);
 
           if (!msg) {
