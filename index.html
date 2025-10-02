@@ -3356,7 +3356,7 @@
 
         <div id="wishList" class="wish-list">
           <div class="wish-empty">
-            Aún no hay mensajes. ¡Sé el primero en dejar uno! ?
+            Aún no hay mensajes. ¡Sé el primero en dejar uno! ✨
           </div>
         </div>
 
@@ -4125,6 +4125,10 @@
         const USE_REMOTE = !!API_URL && window.location.protocol !== "file:";
 
         const LS_KEY = "buenos_deseos_v2";
+        if (window.location.search.includes("clearWishes=1")) {
+          localStorage.removeItem(LS_KEY);
+        }
+
 
         const listEl = document.getElementById("wishList");
 
@@ -4269,7 +4273,7 @@
           if (!listEl) return;
 
           if (!data?.length) {
-            listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! ?</div>`;
+            listEl.innerHTML = `<div class="wish-empty">A\u00FAn no hay mensajes. \u00A1S\u00E9 el primero en dejar uno! \u2728</div>`;
 
             updateCount(0);
 
@@ -4282,7 +4286,7 @@
             .map((w) => {
               const ts = Number(w.ts) || Date.now();
 
-              const name = (w.name || "Anónimo").trim() || "Anónimo";
+              const name = (w.name || "An\u00F3nimo").trim() || "An\u00F3nimo";
 
               const msg = (w.msg || "").trim();
 
@@ -4305,7 +4309,6 @@
               const initials = initialsFor(name);
 
               return `
-
 
 
             <div class="wish-item" data-ts="${ts}">
@@ -4377,9 +4380,7 @@
           updateCount(data.length);
 
           if (pendingHighlight) {
-            const target = listEl.querySelector(
-              `[data-ts="${pendingHighlight}"]`,
-            );
+            const target = listEl.querySelector(`[data-ts="${pendingHighlight}"]`);
 
             if (target) {
               target.classList.add("wish-highlight");
@@ -4392,7 +4393,6 @@
             pendingHighlight = null;
           }
         }
-
         async function fetchAll() {
           if (isFetching) {
             queuedFetch = true;
@@ -4405,15 +4405,21 @@
           try {
             if (USE_REMOTE) {
               try {
-                const r = await fetch(API_URL, {
+                const response = await fetch(API_URL, {
                   method: "GET",
                   mode: "cors",
-                  headers: { Accept: "application/json" },
+                  cache: "no-store",
+                  credentials: "omit",
+                  headers: {
+                    Accept: "application/json",
+                  },
                 });
 
-                if (!r.ok) throw 0;
+                if (!response.ok) {
+                  throw new Error("Fetch GET failed");
+                }
 
-                const data = await r.json();
+                const data = await response.json().catch(() => []);
 
                 const sorted = (Array.isArray(data) ? data : [])
                   .sort((a, b) => (b.ts || 0) - (a.ts || 0))
@@ -4421,10 +4427,9 @@
 
                 render(sorted);
 
-                lsSet(sorted);
-
                 return true;
-              } catch (_) {
+              } catch (err) {
+                console.error("[fetchAll]", err);
                 const local = lsGet().sort((a, b) => (b.ts || 0) - (a.ts || 0));
 
                 render(local);
@@ -4433,7 +4438,9 @@
               }
             }
 
-            render(lsGet().sort((a, b) => (b.ts || 0) - (a.ts || 0)));
+            const fallback = lsGet().sort((a, b) => (b.ts || 0) - (a.ts || 0));
+
+            render(fallback);
 
             return false;
           } finally {
@@ -4456,42 +4463,87 @@
 
           pendingHighlight = ts;
 
-          const current = lsGet();
-          current.unshift(item);
-          lsSet(current);
-          render(current);
-
           if (USE_REMOTE) {
             try {
-              const r = await fetch(API_URL, {
+              const response = await fetch(API_URL, {
                 method: "POST",
-
                 mode: "cors",
+                cache: "no-store",
+                credentials: "omit",
                 headers: {
                   "Content-Type": "application/json",
-                  Accept: "application/json",
                 },
-
                 body: JSON.stringify(item),
               });
 
-              if (!r.ok) throw 0;
+              const data = await response.json().catch(() => ({}));
 
-              setTimeout(() => {
-                fetchAll();
-              }, 900);
+              if (!response.ok || data?.ok !== true) {
+                throw new Error("Remote rejected");
+              }
 
               return { ok: true, ts, synced: true };
-            } catch (_) {
-              return { ok: true, ts, synced: false };
+            } catch (err) {
+              console.error("[sendOne] remote", err);
+              const queue = lsGet();
+              queue.unshift(item);
+              lsSet(queue);
+              render(queue);
+              return { ok: true, ts, synced: false, local: true };
             }
           }
+
+          const queue = lsGet();
+          queue.unshift(item);
+          lsSet(queue);
+          render(queue);
 
           return { ok: true, ts, local: true };
         }
 
+
+        async function flushLocalQueue() {
+          if (!USE_REMOTE) {
+            return;
+          }
+
+          const queued = lsGet();
+
+          if (!queued.length) {
+            return;
+          }
+
+          const remaining = [];
+
+          for (const entry of queued.slice().reverse()) {
+            try {
+              const response = await fetch(API_URL, {
+                method: "POST",
+                mode: "cors",
+                cache: "no-store",
+                credentials: "omit",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(entry),
+              });
+
+              const data = await response.json().catch(() => ({}));
+
+              if (!response.ok || data?.ok !== true) {
+                throw new Error("Sync failed");
+              }
+            } catch (err) {
+              console.error("[flushLocalQueue]", err);
+              remaining.unshift(entry);
+            }
+          }
+
+          lsSet(remaining);
+        }
+
         function showThanks(name, ts, message) {
-          const displayName = name || "Anónimo";
+          const displayName = name || "An\u00F3nimo";
 
           const emoji = emojiFor(displayName, ts);
 
@@ -4500,15 +4552,14 @@
           if (!thanksDialog || typeof thanksDialog.showModal !== "function") {
             const extra = msgText ? "\n\n" + msgText : "";
 
-            alert(emoji + " ¡Gracias, " + displayName + "!" + extra);
+            alert(`${emoji} \u00A1Gracias, ${displayName}!${extra}`);
 
             return;
           }
 
           thanksEmoji.textContent = emoji;
 
-          thanksText.textContent =
-            "Tu mensaje ya está con nosotros, " + displayName + "!";
+          thanksText.textContent = `Tu mensaje ya est\u00E1 con nosotros, ${displayName}!`;
 
           if (thanksUserMsg) {
             if (msgText) {
@@ -4596,7 +4647,7 @@
           const now = Date.now();
 
           if (now - lastSubmit < 6000) {
-            showToast("Dale unos segundos antes de enviar otro 💌");
+            showToast('Dale unos segundos antes de enviar otro 💌');
             return;
           }
 
@@ -4608,7 +4659,7 @@
 
           if (!msg) {
             msgEl.focus();
-            showToast("Escribe tu mensaje");
+            showToast('Escribe tu mensaje');
             return;
           }
 
@@ -4627,7 +4678,7 @@
 
             submitBtn.setAttribute("aria-busy", "true");
 
-            submitBtn.textContent = "Enviando…";
+            submitBtn.textContent = 'Enviando…';
           }
 
           resetBtn?.setAttribute("disabled", "disabled");
@@ -4641,9 +4692,21 @@
 
             updateChar();
 
-            showThanks(name, result?.ts ?? Date.now(), msg);
-          } catch (_) {
-            showToast("No se pudo guardar el mensaje, inténtalo otra vez.");
+            if (result?.synced) {
+              await fetchAll();
+              showThanks(name, result.ts ?? Date.now(), msg);
+              showToast('¡Gracias! Hemos registrado tu mensaje.');
+            } else if (result?.local) {
+              showThanks(name, result.ts ?? Date.now(), msg);
+              showToast('Guardado sin conexión. Se enviará cuando vuelva la señal.');
+            } else if (result?.ok) {
+              showThanks(name, result.ts ?? Date.now(), msg);
+            } else {
+              showToast('No se pudo guardar el mensaje, inténtalo otra vez.');
+            }
+          } catch (err) {
+            console.error('[wishForm] submit', err);
+            showToast('No se pudo guardar el mensaje, inténtalo otra vez.');
           } finally {
             isSending = false;
 
@@ -4663,13 +4726,30 @@
           setTimeout(updateChar, 0);
         });
 
-        fetchAll();
+        const init = async () => {
+          if (USE_REMOTE) {
+            try {
+              await flushLocalQueue();
+            } catch (err) {
+              console.error('[init] flushLocalQueue', err);
+            }
+          }
 
-        if (USE_REMOTE) {
-          setInterval(() => {
-            fetchAll();
-          }, AUTO_REFRESH_MS);
-        }
+          await fetchAll();
+
+          if (USE_REMOTE) {
+            setInterval(async () => {
+              try {
+                await flushLocalQueue();
+              } catch (err) {
+                console.error('[init] flushLocalQueue interval', err);
+              }
+              await fetchAll();
+            }, AUTO_REFRESH_MS);
+          }
+        };
+
+        init();
       })();
       /* Música de fondo */
       const bgMusic = document.getElementById("bgMusic");
