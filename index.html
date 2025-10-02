@@ -136,7 +136,7 @@
             in oklab,
             var(--surface) 30%,
             transparent
-          ); /* ≈ opacidad .30 */
+          ); /* ˜ opacidad .30 */
 
           /* “punto medio” entre ivory y champagne */
 
@@ -727,6 +727,12 @@
         transition:
           transform 0.2s ease,
           box-shadow 0.2s ease;
+      }
+
+      @media (max-width: 640px) {
+        .gallery img[data-mobile-focus="top"] {
+          object-position: top center;
+        }
       }
 
       .gallery img:hover {
@@ -1930,6 +1936,45 @@
         border-color: var(--champagne);
       }
 
+      .rsvp-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .rsvp-form .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .rsvp-form input {
+        width: 100%;
+        background: #fff;
+        color: var(--ink);
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-family: Inter, ui-sans-serif;
+        font-size: 1rem;
+      }
+
+      .rsvp-form input:focus {
+        outline: 3px solid color-mix(in oklab, var(--champagne), black 10%);
+        border-color: var(--champagne);
+      }
+
+      .rsvp-hint {
+        font-size: 0.92rem;
+        color: #6b6b4b;
+        margin: -6px 0 6px;
+      }
+
+      .rsvp-form .btn-group {
+        margin-top: 4px;
+      }
+
       .wish-form .row {
         display: flex;
         align-items: center;
@@ -2039,7 +2084,7 @@
 
 
 
-       Textura (body) → Panel de sección → Tarjetitas
+       Textura (body) ? Panel de sección ? Tarjetitas
 
 
 
@@ -2225,8 +2270,10 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-        max-width: 680px;
+        max-width: clamp(260px, 92vw, 520px);
         margin: 0 auto;
+        align-items: center;
+        text-align: center;
       }
 
       .palette-block h4 {
@@ -2239,11 +2286,14 @@
 
       .palette-grid {
         list-style: none;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
         display: grid;
         gap: 6px;
-        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        justify-content: center;
+        justify-items: center;
+        width: min(100%, 360px);
       }
 
       .palette-item {
@@ -2251,13 +2301,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 6px;
-        padding: 12px 8px;
+        gap: 4px;
+        padding: 10px 8px;
         border-radius: 12px;
         border: 1px solid var(--line);
         background: rgba(245, 237, 225, 0.78);
         backdrop-filter: blur(2px);
-        min-height: 56px;
+        min-height: 48px;
+        width: 100%;
+        max-width: 116px;
       }
 
       .palette-label {
@@ -2270,9 +2322,9 @@
       }
 
       .palette-swatch {
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
         background: var(--swatch);
         border: 1px solid rgba(30, 39, 35, 0.2);
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
@@ -2303,7 +2355,8 @@
 
       @media (min-width: 600px) {
         .palette-grid {
-          grid-template-columns: repeat(3, minmax(120px, 1fr));
+          grid-template-columns: repeat(3, minmax(110px, 1fr));
+          width: min(100%, 420px);
         }
       }
 
@@ -2323,12 +2376,14 @@
         }
 
         .palette-grid {
-          grid-template-columns: repeat(6, minmax(120px, 1fr));
+          grid-template-columns: repeat(6, minmax(110px, 1fr));
+          width: min(100%, 780px);
         }
 
         .palette-item {
           padding: 16px 12px;
           gap: 10px;
+          max-width: 130px;
         }
 
         .palette-label {
@@ -3051,6 +3106,7 @@
             alt="Paseo en el parque juntos"
             loading="lazy"
             decoding="async"
+            data-mobile-focus="top"
           />
 
           <img
@@ -3100,6 +3156,7 @@
             alt="Encuentro en la escalera"
             loading="lazy"
             decoding="async"
+            data-mobile-focus="top"
           />
 
           <img
@@ -3297,7 +3354,7 @@
 
         <div id="wishList" class="wish-list">
           <div class="wish-empty">
-            Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉
+            Aún no hay mensajes. ¡Sé el primero en dejar uno! ✨
           </div>
         </div>
 
@@ -3344,28 +3401,39 @@
 
         <p class="muted">
           Nuestra wedding planner <strong>Carolina Roldán</strong> te ayudará en
-          <a href="tel:+51941496288">+51 941 496 288</a>.
+          <a href="tel:+51941496288">+51 941 496 288</a>. Completa tu nombre y apellido para que pueda reconocerte al recibir el mensaje.
         </p>
 
-        <div class="btn-group" style="margin-top: 16px">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/51941496288?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025."
-            target="_blank"
-            rel="noopener"
-          >
-            Confirmar asistencia
-          </a>
+        <form class="rsvp-form" id="rsvpForm" autocomplete="on">
+          <div class="form-field">
+            <label class="sr-only" for="rsvpName">Nombre y apellido</label>
+            <input
+              type="text"
+              id="rsvpName"
+              name="rsvpName"
+              inputmode="text"
+              autocomplete="name"
+              placeholder="Nombre y apellido"
+              required
+              aria-describedby="rsvpHint"
+              maxlength="90"
+            />
+          </div>
 
-          <a
-            class="btn btn-secondary"
-            href="https://wa.me/51941496288?text=Hola%2C%20lamentablemente%20no%20podr%C3%A9%20asistir%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025."
-            target="_blank"
-            rel="noopener"
-          >
-            No podré asistir
-          </a>
-        </div>
+          <p class="rsvp-hint" id="rsvpHint">
+            Usaremos este nombre en el mensaje enviado por WhatsApp.
+          </p>
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary" data-intent="yes">
+              Confirmar asistencia
+            </button>
+
+            <button type="button" class="btn btn-secondary" data-intent="no">
+              No podré asistir
+            </button>
+          </div>
+        </form>
 
         <p class="muted" style="margin-top: 12px">
           También puedes escribirnos directamente contándole a Carolina
@@ -3379,7 +3447,7 @@
     </footer>
     <audio
       id="bgMusic"
-      src="assets/audio/Juan%20Luis%20Guerra%20-%20A%20Pedir%20Su%20Mano.mp3"
+      src="assets/audio/Marry%20You%20-%20Bruno%20Mars%20%28violin%20cover%29%20Moe%26Mariana.mp3"
       preload="auto"
       loop
       aria-hidden="true"
@@ -3447,7 +3515,7 @@
 
     <dialog id="thanksDialog">
       <div class="thanks-box">
-        <span class="thanks-emoji" id="thanksEmoji" aria-hidden="true">💌</span>
+        <span class="thanks-emoji" id="thanksEmoji" aria-hidden="true">💛</span>
 
         <h3>¡Gracias!</h3>
 
@@ -3650,6 +3718,65 @@
       }
 
       /* Copy buttons (una sola vez) */
+
+      (function initWhatsAppRsvp() {
+        const form = document.getElementById("rsvpForm");
+        if (!form) return;
+
+        const nameInput = document.getElementById("rsvpName");
+        const phone = "51941496288";
+        const buttons = form.querySelectorAll('[data-intent]');
+
+        const isMobileDevice = () => /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(
+          navigator.userAgent || "",
+        );
+
+        const buildMessage = (intent, name) => {
+          const cleaned = name.replace(/\s+/g, ' ').trim();
+          if (!cleaned) return "";
+
+          if (intent === 'no') {
+            return `Hola, soy ${cleaned}. Lamentablemente no podré asistir a la boda de Romina y Javier el 15/11/2025.`;
+          }
+
+          return `Hola, soy ${cleaned}. Confirmo mi asistencia a la boda de Romina y Javier el 15/11/2025.`;
+        };
+
+        const openWhatsApp = (intent) => {
+          if (!nameInput) return;
+
+          const raw = nameInput.value || "";
+          const message = buildMessage(intent, raw);
+
+          if (!message) {
+            nameInput.focus({ preventScroll: true });
+            if (typeof showToast === 'function') {
+              showToast('Ingresa tu nombre y apellido');
+            }
+            return;
+          }
+
+          const encoded = encodeURIComponent(message);
+          const url = isMobileDevice()
+            ? `https://wa.me/${phone}?text=${encoded}`
+            : `https://web.whatsapp.com/send?phone=${phone}&text=${encoded}&type=phone_number&app_absent=0`;
+
+          const win = window.open(url, '_blank', 'noopener');
+          if (win) {
+            win.opener = null;
+          }
+        };
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', () => openWhatsApp(btn.dataset.intent));
+        });
+
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const confirmBtn = form.querySelector('[data-intent="yes"]');
+          confirmBtn?.click();
+        });
+      })();
 
       (function wireCopyButtons() {
         const status = document.getElementById("copyStatus");
@@ -4031,23 +4158,40 @@
 
         const AUTO_REFRESH_MS = 8000;
 
-        const ANIMAL_EMOJIS = [
+                        const ANIMAL_EMOJIS = [
+
           "🦊",
-          "🐱",
-          "🐻",
-          "🐨",
-          "🐼",
-          "🐯",
+
           "🦁",
-          "🐮",
-          "🐷",
-          "🐵",
-          "🐸",
-          "🐰",
-          "🦉",
+
           "🦄",
-          "🐥",
+
+          "🐢",
+
+          "🦋",
+
+          "🐝",
+
+          "🐞",
+
+          "🐬",
+
+          "🐘",
+
+          "🐨",
+
+          "🐼",
+
           "🐙",
+
+          "🐧",
+
+          "🕊",
+
+          "🦜",
+
+          "🦢",
+
         ];
 
         const ESC_MAP = {
@@ -4140,7 +4284,7 @@
           if (!listEl) return;
 
           if (!data?.length) {
-            listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉</div>`;
+            listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! ✨</div>`;
 
             updateCount(0);
 
@@ -4472,7 +4616,7 @@
           const now = Date.now();
 
           if (now - lastSubmit < 6000) {
-            showToast("Dale unos segundos antes de enviar otro ⏳");
+            showToast("Dale unos segundos antes de enviar otro 💌");
             return;
           }
 
@@ -4552,7 +4696,7 @@
       const musicToggle = document.getElementById("musicToggle");
 
       if (bgMusic) {
-        const START_AT = 16;
+        const START_AT = 9;
         let userPaused = false;
 
         const ensureOffset = () => {
@@ -4672,3 +4816,5 @@
     </script>
   </body>
 </html>
+
+
