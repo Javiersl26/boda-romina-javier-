@@ -1909,7 +1909,7 @@
       }
 
       .wish-status::before {
-        content: "\\23F3";
+        content: "\23F3";
         font-size: 0.9rem;
       }
 
@@ -4355,24 +4355,32 @@
         function mergeAndRender() {
           const queue = lsGet();
           const map = new Map();
+          const pendingKeys = new Set();
 
           queue.forEach((item) => {
             const normalized = normalizeMessage(item, { localOnly: true });
-            map.set(String(normalized.ts), normalized);
+            const key = String(normalized.ts);
+            map.set(key, normalized);
+            pendingKeys.add(key);
           });
+
+          let syncedCount = 0;
 
           remoteSnapshot.forEach((item) => {
             const normalized = normalizeMessage(item);
             const key = String(normalized.ts);
-            if (!map.has(key)) {
-              map.set(key, normalized);
+
+            if (pendingKeys.has(key)) {
+              syncedCount += 1;
             }
+
+            map.set(key, normalized);
           });
 
           const merged = Array.from(map.values()).sort((a, b) => (b.ts || 0) - (a.ts || 0));
           const limited = merged.slice(0, MAX_ITEMS);
           const baseTotal = remoteTotal > 0 ? remoteTotal : remoteSnapshot.length;
-          const total = baseTotal + queue.length;
+          const total = Math.max(0, baseTotal + queue.length - syncedCount);
 
           render(limited, total);
         }
