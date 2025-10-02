@@ -701,17 +701,23 @@
 
     .wish-actions{ display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 12px }
     .wish-list{ display:grid; gap:12px; margin-top:8px; max-height:340px; overflow:auto; padding-right:4px }
-    .wish-item{
-      display:grid; grid-template-columns:40px 1fr; gap:10px; align-items:start;
-      background:var(--ivory); border:1px solid var(--line); border-radius:12px; padding:10px 12px;
-    }
+    .wish-list.is-hidden{ display:none !important; }
     .wish-avatar{
-      width:40px; height:40px; border-radius:9999px;
+      min-width:56px; height:56px; border-radius:9999px;
       background:color-mix(in oklab, var(--champagne) 70%, white);
-      color:var(--pine); display:grid; place-items:center; font-weight:700
+      color:var(--pine); display:flex; align-items:center; justify-content:center; gap:6px; padding:0 10px;
+      font-weight:700; letter-spacing:.4px; text-transform:uppercase;
     }
+    .avatar-initials{ font-size:.95rem; line-height:1; }
+    .avatar-animal{ font-size:1.35rem; line-height:1; }
+
+    .wish-header-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px }
+    .wish-header-left{ display:flex; align-items:center; gap:10px; flex-wrap:wrap }
     .wish-name{ font-weight:600; color:var(--ink); line-height:1.2 }
-    .wish-meta{ font-size:.9rem; color:#6b6b6b }
+    .wish-date{ font-size:.9rem; color:#6b6b6b; white-space:nowrap; margin-left:auto }
+    .wish-item{ display:grid; grid-template-columns:minmax(56px,auto) 1fr; gap:16px; align-items:flex-start; background:var(--ivory); border:1px solid var(--line); border-radius:12px; padding:12px 16px; scroll-margin-top:110px }
+    .wish-highlight{ animation:wishGlow 2.4s ease-in-out 1 }
+    @keyframes wishGlow{ 0%{ box-shadow:0 0 0 0 rgba(239,191,187,0); } 35%{ box-shadow:0 0 0 10px rgba(239,191,187,.35); } 100%{ box-shadow:0 0 0 0 rgba(239,191,187,0); } }
     .wish-text{ margin:6px 0 0; white-space:pre-wrap }
 
     .wish-empty{
@@ -840,6 +846,14 @@
       padding: 16px !important;
       backdrop-filter: blur(2px); /* transparencia homogénea */
     }
+
+    dialog#thanksDialog{ border:none; padding:0; background:transparent }
+    dialog#thanksDialog::backdrop{ background:rgba(0,0,0,.35) }
+    .thanks-box{ background:var(--card-bg-unificado); border:1px solid var(--line); border-radius:18px; padding:24px 26px; box-shadow:var(--shadow); max-width:min(90vw,360px); text-align:center }
+    .thanks-box h3{ margin:0 0 8px; font-family:'Cormorant Garamond', ui-serif, Georgia, serif; font-size:clamp(24px,4vw,30px); color:var(--pine) }
+    .thanks-emoji{ font-size:2.4rem; line-height:1; display:block; margin-bottom:12px }
+    .thanks-message{ margin:0; color:var(--ink); font-size:1rem }
+    .thanks-close{ margin-top:18px }
 
     /* 5) Ajustes menores de ritmo/espacio visual */
     #detalles .icon-row + .icon-row,
@@ -1215,8 +1229,8 @@
       </div>
 
       <div class="wish-actions">
-        <button type="button" class="btn btn-secondary" id="wishToggle" aria-expanded="false">
-          Ver mensajes
+        <button type="button" class="btn btn-secondary" id="wishToggle" aria-expanded="true">
+          Ocultar mensajes
         </button>
         <button type="button" class="btn btn-primary" id="wishScroll">
           Escribir un mensaje
@@ -1224,14 +1238,14 @@
       </div>
 
       <!-- Lista colapsable -->
-      <div id="wishList" class="wish-list" hidden>
+      <div id="wishList" class="wish-list">
         <div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉</div>
       </div>
 
       <!-- Formulario -->
       <form id="wishForm" class="wish-form" autocomplete="on" novalidate>
         <div class="row">
-          <input id="wishName" name="name" placeholder="Tu nombre (opcional)" maxlength="60" />
+          <input id="wishName" name="name" placeholder="Tu nombre (opcional)" maxlength="99" />
           <span class="char" id="wishChar">0/500</span>
         </div>
         <textarea id="wishMsg" name="message" placeholder="Escribe tu mensaje para los novios" maxlength="500" required></textarea>
@@ -1295,6 +1309,15 @@
 
   <div id="copyStatus" class="sr-only" aria-live="polite"></div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="thanksDialog">
+    <div class="thanks-box">
+      <span class="thanks-emoji" id="thanksEmoji" aria-hidden="true">💌</span>
+      <h3>¡Gracias!</h3>
+      <p class="thanks-message" id="thanksText">Tu mensaje ya está con nosotros.</p>
+      <button type="button" class="btn btn-primary thanks-close" id="thanksClose">Cerrar</button>
+    </div>
+  </dialog>
 
   <script>
     /* Crossfade del hero */
@@ -1540,7 +1563,7 @@ cta?.addEventListener('click', openInvitation);
 splash.addEventListener('click', onSplashClick);
 document.addEventListener('keydown', onKey);
 
-  /* ==== Buenos Deseos – versión limpia con fallback local ==== */
+  /* ==== Buenos Deseos - versión limpia con fallback local ==== */
   (() => {
     const API_URL = 'https://script.google.com/macros/s/AKfycbz0CWB3g7WAWLJCmYyT_FMUgTf_gWrn4ix8V-wlyidu9QnELYsknbyZHbSDQRoogR_ZRQ/exec';
     const USE_REMOTE = !!API_URL;
@@ -1554,35 +1577,85 @@ document.addEventListener('keydown', onKey);
     const charEl   = document.getElementById('wishChar');
     const toggle   = document.getElementById('wishToggle');
     const scrollBtn= document.getElementById('wishScroll');
+    const thanksDialog = document.getElementById('thanksDialog');
+    const thanksText   = document.getElementById('thanksText');
+    const thanksEmoji  = document.getElementById('thanksEmoji');
+    const thanksClose  = document.getElementById('thanksClose');
 
-    const clamp = (n, a, b)=> Math.max(a, Math.min(b, n));
-    const esc = s => (s||'').replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const initials = (n)=> (n||'Anónimo').trim().split(/\s+/).slice(0,2).map(p=>p[0]?.toUpperCase()||'').join('') || 'A';
-    const nowISO = ()=> new Date().toISOString();
-
+    const ANIMAL_EMOJIS = ['🦊','🐱','🐻','🐨','🐼','🐯','🦁','🐮','🐷','🐵','🐸','🐰','🦉','🦄','🐥','🐙'];
+    const ESC_MAP = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    };
+    const esc = s => (s||'').replace(/[&<>"']/g, ch => ESC_MAP[ch] || ch);
     const lsGet = () => { try { return JSON.parse(localStorage.getItem(LS_KEY)||'[]'); } catch(_) { return []; } };
     const lsSet = arr => { try { localStorage.setItem(LS_KEY, JSON.stringify(arr.slice(0,300))); } catch(_){} };
 
+    let messagesVisible = true;
+    let pendingHighlight = null;
+
+    function emojiFor(name, ts){
+      const source = `${name}|${ts}`;
+      let hash = 0;
+      for(let i=0; i<source.length; i++){
+        hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
+      }
+      return ANIMAL_EMOJIS[hash % ANIMAL_EMOJIS.length];
+    }
+
+    function initialsFor(name){
+      const parts = (name || '').trim().split(/\s+/).filter(Boolean);
+      if(!parts.length) return 'A';
+      return parts.slice(0,2).map(part => part[0]?.toUpperCase() || '').join('') || 'A';
+    }
+
     function updateCount(n){ if(countEl) countEl.textContent = String(n||0); }
+
+    function setToggleLabel(visible){
+      if(!toggle) return;
+      toggle.textContent = visible ? 'Ocultar mensajes' : 'Ver mensajes';
+      toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
+    }
+    function applyVisibility(){
+      if(!listEl) return;
+      listEl.classList.toggle('is-hidden', !messagesVisible);
+    }
+    setToggleLabel(messagesVisible);
+    applyVisibility();
 
     function render(data){
       if(!listEl) return;
       if(!data?.length){
         listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉</div>`;
         updateCount(0);
+        pendingHighlight = null;
         return;
       }
       const items = data.map(w=>{
+        const ts   = Number(w.ts) || Date.now();
         const name = (w.name||'Anónimo').trim() || 'Anónimo';
         const msg  = (w.msg||'').trim();
-        const dt   = w.ts ? new Date(w.ts) : null;
-        const when = dt ? dt.toLocaleDateString('es-PE', { day:'2-digit', month:'short', year:'numeric' }) : '';
+        const emoji = emojiFor(name, ts);
+        const dt   = ts ? new Date(ts) : null;
+        const when = dt ? dt.toLocaleString('es-PE', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
+        const iso  = dt ? dt.toISOString() : '';
+        const initials = initialsFor(name);
         return `
-          <div class="wish-item">
-            <div class="wish-avatar" aria-hidden="true">${esc(initials(name))}</div>
+          <div class="wish-item" data-ts="${ts}">
+            <div class="wish-avatar" aria-hidden="true">
+              <span class="avatar-initials">${esc(initials)}</span>
+              <span class="avatar-animal">${emoji}</span>
+            </div>
             <div>
-              <div class="wish-name">${esc(name)}</div>
-              ${when ? `<div class="wish-meta">${when}</div>` : ``}
+              <div class="wish-header-row">
+                <div class="wish-header-left">
+                  <div class="wish-name">${esc(name)}</div>
+                </div>
+                ${when ? `<time class="wish-date" datetime="${iso}">${esc(when)}</time>` : ``}
+              </div>
               <p class="wish-text">${esc(msg)}</p>
             </div>
           </div>
@@ -1590,35 +1663,43 @@ document.addEventListener('keydown', onKey);
       }).join('');
       listEl.innerHTML = items;
       updateCount(data.length);
+
+      if(pendingHighlight){
+        const target = listEl.querySelector(`[data-ts="${pendingHighlight}"]`);
+        if(target){
+          target.classList.add('wish-highlight');
+          target.scrollIntoView({ behavior:'smooth', block:'center' });
+          setTimeout(()=> target.classList.remove('wish-highlight'), 2400);
+        }
+        pendingHighlight = null;
+      }
     }
 
     async function fetchAll(){
-      // 1) remoto si está configurado
       if(USE_REMOTE){
         try{
-          const r = await fetch(API_URL, { method:'GET', headers:{ 'Cache-Control':'no-cache' }});
+          const r = await fetch(API_URL, { method:'GET' });
           if(!r.ok) throw 0;
           const data = await r.json();
-          // ordena + limita
           const sorted = (Array.isArray(data)?data:[]).sort((a,b)=>(b.ts||0)-(a.ts||0)).slice(0,120);
           render(sorted);
           return true;
         }catch(_){
-          // 2) local
           const local = lsGet().sort((a,b)=> (b.ts||0)-(a.ts||0));
           render(local);
           return false;
         }
       }
-      // remoto no disponible: solo local
       render(lsGet().sort((a,b)=> (b.ts||0)-(a.ts||0)));
       return false;
     }
 
     let lastSubmit = 0;
     async function sendOne(name, msg){
-      const item = { name, msg, ts: Date.now() };
-      // remoto
+      const ts = Date.now();
+      const item = { name, msg, ts };
+      pendingHighlight = ts;
+
       if(USE_REMOTE){
         try{
           const r = await fetch(API_URL, {
@@ -1628,55 +1709,86 @@ document.addEventListener('keydown', onKey);
           });
           if(!r.ok) throw 0;
           await fetchAll();
-          return true;
+          return { ok:true, ts, synced:true };
         }catch(_){
-          // guarda local si falla
           const arr = lsGet(); arr.unshift(item); lsSet(arr);
           render(arr);
-          return false;
+          return { ok:true, ts, synced:false };
         }
       }
-      // solo local
       const arr = lsGet(); arr.unshift(item); lsSet(arr);
       render(arr);
-      return false;
+      return { ok:true, ts, local:true };
     }
 
-    // interacciones
-    toggle?.addEventListener('click', ()=>{
-      const open = listEl.hasAttribute('hidden');
-      if(open){ listEl.removeAttribute('hidden'); }
-      else     { listEl.setAttribute('hidden',''); }
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if(open) listEl.scrollTop = 0;
-    });
-    scrollBtn?.addEventListener('click', ()=> form?.scrollIntoView({ behavior:'smooth', block:'center' }));
+    function showThanks(name, ts){
+      const emoji = emojiFor(name, ts);
+      if(!thanksDialog || typeof thanksDialog.showModal !== 'function'){
+        alert(`${emoji} ¡Gracias, ${name || 'Anónimo'}! Tu mensaje ya está con nosotros.`);
+        return;
+      }
+      thanksEmoji.textContent = emoji;
+      thanksText.textContent = `Tu mensaje ya está con nosotros, ${name || 'Anónimo'}!`;
+      thanksDialog.showModal();
+      thanksClose?.focus({ preventScroll: true });
+    }
+    function closeThanks(){
+      if(thanksDialog && typeof thanksDialog.close === 'function' && thanksDialog.open){
+        thanksDialog.close();
+      }
+    }
+    thanksClose?.addEventListener('click', closeThanks);
+    thanksDialog?.addEventListener('click', e=>{ if(e.target === thanksDialog) closeThanks(); });
+    thanksDialog?.addEventListener('cancel', closeThanks);
 
-    // contador de caracteres
+    toggle?.addEventListener('click', ()=>{
+      messagesVisible = !messagesVisible;
+      setToggleLabel(messagesVisible);
+      applyVisibility();
+      if(messagesVisible && listEl){
+        listEl.scrollTop = 0;
+      }
+    });
+    scrollBtn?.addEventListener('click', ()=>{
+      if(!messagesVisible){
+        messagesVisible = true;
+        setToggleLabel(true);
+        applyVisibility();
+      }
+      form?.scrollIntoView({ behavior:'smooth', block:'center' });
+      nameEl?.focus();
+    });
+
     const updateChar = ()=> { if(charEl && msgEl){ charEl.textContent = `${msgEl.value.length}/500`; } };
     msgEl?.addEventListener('input', updateChar); updateChar();
 
-    // envío
     form?.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      const t = Date.now();
-      if(t - lastSubmit < 8000){ showToast('Dale unos segundos antes de enviar otro ⏳'); return; }
-      const name = (nameEl.value||'').trim().slice(0,60) || 'Anónimo';
+      const now = Date.now();
+      if(now - lastSubmit < 6000){ showToast('Dale unos segundos antes de enviar otro ⏳'); return; }
+      const rawName = (nameEl.value||'').trim();
+      const name = rawName ? rawName.slice(0,99) : 'Anónimo';
       const msg  = (msgEl.value||'').trim().slice(0,500);
       if(!msg){ msgEl.focus(); showToast('Escribe tu mensaje'); return; }
-      await sendOne(name, msg);
-      lastSubmit = Date.now();
-      msgEl.value = ''; updateChar();
-      showToast('¡Gracias por tu mensaje!');
-      if(listEl?.hasAttribute('hidden')){
-        listEl.removeAttribute('hidden'); toggle?.setAttribute('aria-expanded','true');
+
+      if(!messagesVisible){
+        messagesVisible = true;
+        setToggleLabel(true);
+        applyVisibility();
       }
+
+      const result = await sendOne(name, msg);
+      lastSubmit = Date.now();
+      msgEl.value = '';
+      updateChar();
+      showThanks(name, result?.ts ?? Date.now());
     });
 
     form?.addEventListener('reset', ()=> { setTimeout(updateChar, 0); });
 
     fetchAll();
   })();
+
 
   /* RSVP dinámico por WhatsApp */
   (function(){
