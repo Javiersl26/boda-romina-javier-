@@ -729,7 +729,7 @@
           box-shadow 0.2s ease;
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 768px) {
         .gallery img[data-mobile-focus="top"] {
           object-position: top center;
         }
@@ -2274,6 +2274,7 @@
         margin: 0 auto;
         align-items: center;
         text-align: center;
+        padding: 0 8px;
       }
 
       .palette-block h4 {
@@ -2289,11 +2290,11 @@
         margin: 0 auto;
         padding: 0;
         display: grid;
-        gap: 6px;
-        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        gap: 8px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         justify-content: center;
         justify-items: center;
-        width: min(100%, 360px);
+        width: min(100%, 312px);
       }
 
       .palette-item {
@@ -2301,15 +2302,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 4px;
-        padding: 10px 8px;
+        gap: 6px;
+        padding: 12px 8px;
         border-radius: 12px;
         border: 1px solid var(--line);
         background: rgba(245, 237, 225, 0.78);
         backdrop-filter: blur(2px);
-        min-height: 48px;
+        min-height: 52px;
         width: 100%;
-        max-width: 116px;
+        max-width: 96px;
       }
 
       .palette-label {
@@ -2355,8 +2356,8 @@
 
       @media (min-width: 600px) {
         .palette-grid {
-          grid-template-columns: repeat(3, minmax(110px, 1fr));
-          width: min(100%, 420px);
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          width: min(100%, 360px);
         }
       }
 
@@ -2377,13 +2378,13 @@
 
         .palette-grid {
           grid-template-columns: repeat(6, minmax(110px, 1fr));
-          width: min(100%, 780px);
+          width: min(100%, 720px);
         }
 
         .palette-item {
           padding: 16px 12px;
           gap: 10px;
-          max-width: 130px;
+          max-width: 120px;
         }
 
         .palette-label {
@@ -3109,11 +3110,12 @@
             data-mobile-focus="top"
           />
 
-          <img
+                    <img
             src="assets/gallery/2_Faro_Mirandonos.jpg"
             alt="Mirándonos junto al faro"
             loading="lazy"
             decoding="async"
+            data-mobile-focus="top"
           />
 
           <img
@@ -3354,7 +3356,7 @@
 
         <div id="wishList" class="wish-list">
           <div class="wish-empty">
-            Aún no hay mensajes. ¡Sé el primero en dejar uno! ✨
+            Aún no hay mensajes. ¡Sé el primero en dejar uno! ?
           </div>
         </div>
 
@@ -4158,40 +4160,23 @@
 
         const AUTO_REFRESH_MS = 8000;
 
-                        const ANIMAL_EMOJIS = [
-
+                                const ANIMAL_EMOJIS = [
           "🦊",
-
           "🦁",
-
           "🦄",
-
           "🐢",
-
           "🦋",
-
           "🐝",
-
           "🐞",
-
           "🐬",
-
           "🐘",
-
           "🐨",
-
           "🐼",
-
           "🐙",
-
           "🐧",
-
           "🕊",
-
           "🦜",
-
           "🦢",
-
         ];
 
         const ESC_MAP = {
@@ -4284,7 +4269,7 @@
           if (!listEl) return;
 
           if (!data?.length) {
-            listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! ✨</div>`;
+            listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! ?</div>`;
 
             updateCount(0);
 
@@ -4471,6 +4456,11 @@
 
           pendingHighlight = ts;
 
+          const current = lsGet();
+          current.unshift(item);
+          lsSet(current);
+          render(current);
+
           if (USE_REMOTE) {
             try {
               const r = await fetch(API_URL, {
@@ -4487,25 +4477,15 @@
 
               if (!r.ok) throw 0;
 
-              await fetchAll();
+              setTimeout(() => {
+                fetchAll();
+              }, 900);
 
               return { ok: true, ts, synced: true };
             } catch (_) {
-              const arr = lsGet();
-              arr.unshift(item);
-              lsSet(arr);
-
-              render(arr);
-
               return { ok: true, ts, synced: false };
             }
           }
-
-          const arr = lsGet();
-          arr.unshift(item);
-          lsSet(arr);
-
-          render(arr);
 
           return { ok: true, ts, local: true };
         }
@@ -4816,5 +4796,4 @@
     </script>
   </body>
 </html>
-
 
