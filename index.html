@@ -691,6 +691,26 @@
 
 
        ========================================================= */
+      .gallery-group {
+        display: grid;
+        gap: 18px;
+      }
+
+      .gallery-video {
+        display: block;
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #000;
+        max-height: 540px;
+        object-fit: cover;
+      }
+
+      .gallery-video:focus-visible {
+        outline: 2px solid var(--pine);
+        outline-offset: 4px;
+      }
+
       .gallery {
         display: grid;
         gap: 10px;
@@ -2143,15 +2163,14 @@
         color: var(--pine);
       }
 
-      .dress-header p {
-        margin: 0;
-      }
-
       .dress-media {
         display: grid;
         gap: 16px;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         align-items: stretch;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        grid-template-areas:
+          "img img"
+          "men women";
       }
 
       .dress-figure {
@@ -2176,13 +2195,29 @@
         font-family: Inter, ui-sans-serif;
         font-size: 1rem;
         color: var(--ink);
-        line-height: 1.45;
+        line-height: 1.4;
+      }
+
+      .dress-figure--men,
+      .dress-figure--women {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        justify-content: center;
+      }
+
+      .dress-figure--men {
+        grid-area: men;
+      }
+
+      .dress-figure--women {
+        grid-area: women;
       }
 
       .dress-emoji {
-        align-self: center;
+        grid-area: img;
         justify-self: center;
-        width: min(220px, 60%);
+        width: min(240px, 70%);
         filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
       }
 
@@ -2207,19 +2242,31 @@
         margin: 0;
         padding: 0;
         display: grid;
-        gap: 10px;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 6px;
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
       }
 
       .palette-item {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 8px;
-        padding: 8px 10px;
+        justify-content: center;
+        gap: 6px;
+        padding: 12px 8px;
         border-radius: 12px;
         border: 1px solid var(--line);
         background: rgba(245, 237, 225, 0.78);
         backdrop-filter: blur(2px);
+        min-height: 56px;
+      }
+
+      .palette-label {
+        display: none;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        color: var(--pine);
       }
 
       .palette-swatch {
@@ -2230,10 +2277,6 @@
         border: 1px solid rgba(30, 39, 35, 0.2);
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
         flex-shrink: 0;
-      }
-
-      .palette-item span:last-child {
-        font-size: 0.95rem;
       }
 
       .dress-avoid {
@@ -2257,6 +2300,13 @@
       .dress-avoid li {
         margin: 4px 0;
       }
+
+      @media (min-width: 600px) {
+        .palette-grid {
+          grid-template-columns: repeat(3, minmax(120px, 1fr));
+        }
+      }
+
       @media (min-width: 900px) {
         .dress-card {
           padding: 28px;
@@ -2264,13 +2314,28 @@
         }
 
         .dress-media {
-          grid-template-columns: repeat(3, minmax(220px, 1fr));
+          grid-template-columns: repeat(3, minmax(200px, 1fr));
+          grid-template-areas: "men img women";
         }
 
         .dress-emoji {
           width: min(260px, 70%);
         }
+
+        .palette-grid {
+          grid-template-columns: repeat(6, minmax(120px, 1fr));
+        }
+
+        .palette-item {
+          padding: 16px 12px;
+          gap: 10px;
+        }
+
+        .palette-label {
+          display: block;
+        }
       }
+
       .music-toggle {
         position: fixed;
         right: 18px;
@@ -2660,15 +2725,6 @@
             </div>
 
             <div class="dress-media">
-              <div class="dress-figure">
-                <h4>Hombres</h4>
-
-                <p>
-                  Traje formal en tonos oscuros o azul marino, camisa clara y
-                  corbata elegante.
-                </p>
-              </div>
-
               <img
                 class="dress-emoji"
                 src="assets/ui/Invitados_Juntos.png"
@@ -2677,13 +2733,16 @@
                 decoding="async"
               />
 
-              <div class="dress-figure">
+              <div class="dress-figure dress-figure--men">
+                <h4>Hombres</h4>
+
+                <p>Traje formal</p>
+              </div>
+
+              <div class="dress-figure dress-figure--women">
                 <h4>Mujeres</h4>
 
-                <p>
-                  Vestido largo o midi sofisticado en los tonos suaves o
-                  profundos de la paleta.
-                </p>
+                <p>Vestido largo o midi</p>
               </div>
             </div>
 
@@ -2691,76 +2750,53 @@
               <h4>Colores recomendados</h4>
 
               <ul class="palette-grid" role="list">
-                <li class="palette-item" style="--swatch: #f0dab8">
+                <li class="palette-item" style="--swatch: #f0dab8" aria-label="Champagne">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Champagne</span>
+                  <span class="palette-label" aria-hidden="true">Champagne</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #efbfbb">
+                <li class="palette-item" style="--swatch: #efbfbb" aria-label="Blush empolvado">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Blush empolvado</span>
+                  <span class="palette-label" aria-hidden="true">Blush empolvado</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #8d8e7c">
+                <li class="palette-item" style="--swatch: #c58569" aria-label="Terracota suave">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Verde oliva</span>
+                  <span class="palette-label" aria-hidden="true">Terracota suave</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #29392f">
+                <li class="palette-item" style="--swatch: #c9a66b" aria-label="Oro viejo">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Verde pino profundo</span>
+                  <span class="palette-label" aria-hidden="true">Oro viejo</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #0b2d4d">
+                <li class="palette-item" style="--swatch: #d9c6a5" aria-label="Arena">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Azul marino</span>
+                  <span class="palette-label" aria-hidden="true">Arena</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #5a6c8b">
+                <li class="palette-item" style="--swatch: #bdb7ad" aria-label="Gris tibio">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Azul pizarra</span>
+                  <span class="palette-label" aria-hidden="true">Gris tibio</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #7a2832">
+                <li class="palette-item" style="--swatch: #8d8e7c" aria-label="Verde oliva">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Burdeos apagado</span>
+                  <span class="palette-label" aria-hidden="true">Verde oliva</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #c58569">
+                <li class="palette-item" style="--swatch: #a9b2a1" aria-label="Verde salvia">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Terracota suave</span>
+                  <span class="palette-label" aria-hidden="true">Verde salvia</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #a9b2a1">
+                <li class="palette-item" style="--swatch: #29392f" aria-label="Verde pino profundo">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Verde salvia</span>
+                  <span class="palette-label" aria-hidden="true">Verde pino profundo</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #d9c6a5">
+                <li class="palette-item" style="--swatch: #0b2d4d" aria-label="Azul marino">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Arena</span>
+                  <span class="palette-label" aria-hidden="true">Azul marino</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #bdb7ad">
+                <li class="palette-item" style="--swatch: #5a6c8b" aria-label="Azul pizarra">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Gris tibio</span>
+                  <span class="palette-label" aria-hidden="true">Azul pizarra</span>
                 </li>
-
-                <li class="palette-item" style="--swatch: #c9a66b">
+                <li class="palette-item" style="--swatch: #7a2832" aria-label="Burdeos apagado">
                   <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Oro viejo</span>
+                  <span class="palette-label" aria-hidden="true">Burdeos apagado</span>
                 </li>
               </ul>
             </div>
@@ -2993,7 +3029,23 @@
 
         <!-- Galería -->
 
-        <div class="gallery" aria-label="Galería">
+        <div class="gallery-group">
+          <video
+            class="gallery-video"
+            controls
+            playsinline
+            preload="metadata"
+            poster="assets/gallery/1_Parque_juntos.jpg"
+            aria-label="Video de momentos especiales"
+          >
+            <source
+              src="assets/audio/Video%20de%20WhatsApp%202025-10-02%20a%20las%2000.12.20_b2ca6b7f.mp4"
+              type="video/mp4"
+            />
+            Tu navegador no soporta video HTML5.
+          </video>
+
+          <div class="gallery" aria-label="Galería">
           <img
             src="assets/gallery/1_Parque_juntos.jpg"
             alt="Paseo en el parque juntos"
@@ -3133,6 +3185,7 @@
             loading="lazy"
             decoding="async"
           />
+          </div>
         </div>
       </div>
     </section>
