@@ -1899,6 +1899,24 @@
         white-space: pre-wrap;
       }
 
+      .wish-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.82rem;
+        color: var(--olive);
+        margin-top: 4px;
+      }
+
+      .wish-status::before {
+        content: "\\23F3";
+        font-size: 0.9rem;
+      }
+
+      .wish-item--pending {
+        border-style: dashed;
+      }
+
       .wish-empty {
         text-align: center;
         padding: 18px;
@@ -3519,7 +3537,7 @@
       <div class="thanks-box">
         <span class="thanks-emoji" id="thanksEmoji" aria-hidden="true">💛</span>
 
-        <h3>¡Gracias!</h3>
+        <h3>&#161;Gracias!</h3>
 
         <p class="thanks-message" id="thanksText">
           Tu mensaje ya está con nosotros.
@@ -4116,6 +4134,7 @@
 
       document.addEventListener("keydown", onKey);
 
+
       /* ==== Buenos Deseos - versión limpia con fallback local ==== */
 
       (() => {
@@ -4125,46 +4144,31 @@
         const USE_REMOTE = !!API_URL && window.location.protocol !== "file:";
 
         const LS_KEY = "buenos_deseos_v2";
+        const AUTO_REFRESH_MS = 8000;
+        const MAX_ITEMS = 120;
+
         if (window.location.search.includes("clearWishes=1")) {
           localStorage.removeItem(LS_KEY);
         }
 
-
         const listEl = document.getElementById("wishList");
-
         const countEl = document.getElementById("wishCount");
-
         const form = document.getElementById("wishForm");
-
         const nameEl = document.getElementById("wishName");
-
         const msgEl = document.getElementById("wishMsg");
-
         const charEl = document.getElementById("wishChar");
-
         const toggle = document.getElementById("wishToggle");
-
         const scrollBtn = document.getElementById("wishScroll");
-
         const thanksDialog = document.getElementById("thanksDialog");
-
         const thanksText = document.getElementById("thanksText");
-
         const thanksEmoji = document.getElementById("thanksEmoji");
-
         const thanksClose = document.getElementById("thanksClose");
-
         const thanksUserMsg = document.getElementById("thanksUserMsg");
-
         const submitBtn = form?.querySelector('button[type="submit"]');
-
         const resetBtn = form?.querySelector('button[type="reset"]');
-
         const submitDefaultLabel = submitBtn?.textContent?.trim() || "Enviar";
 
-        const AUTO_REFRESH_MS = 8000;
-
-                                const ANIMAL_EMOJIS = [
+        const ANIMAL_EMOJIS = [
           "🦊",
           "🦁",
           "🦄",
@@ -4180,18 +4184,14 @@
           "🐧",
           "🕊",
           "🦜",
-          "🦢",
+          "🦚",
         ];
 
         const ESC_MAP = {
           "&": "&amp;",
-
           "<": "&lt;",
-
           ">": "&gt;",
-
           '"': "&quot;",
-
           "'": "&#39;",
         };
 
@@ -4200,7 +4200,11 @@
 
         const lsGet = () => {
           try {
-            return JSON.parse(localStorage.getItem(LS_KEY) || "[]");
+            const raw = JSON.parse(localStorage.getItem(LS_KEY) || "[]");
+            if (!Array.isArray(raw)) return [];
+            return raw
+              .map((entry) => normalizeMessage(entry, { localOnly: true }))
+              .sort((a, b) => (b.ts || 0) - (a.ts || 0));
           } catch (_) {
             return [];
           }
@@ -4208,37 +4212,55 @@
 
         const lsSet = (arr) => {
           try {
-            localStorage.setItem(LS_KEY, JSON.stringify(arr.slice(0, 300)));
+            const payload = arr.slice(0, 300).map((item) => ({
+              ts: item.ts,
+              name: item.name,
+              msg: item.msg,
+            }));
+            localStorage.setItem(LS_KEY, JSON.stringify(payload));
           } catch (_) {}
         };
 
         let messagesVisible = true;
-
         let pendingHighlight = null;
-
         let isFetching = false;
-
         let queuedFetch = false;
-
         let isSending = false;
+        let remoteSnapshot = [];
+        let remoteTotal = 0;
+        let lastSubmit = 0;
+
+        const cachedQueue = lsGet();
+        if (cachedQueue.length) {
+          render(cachedQueue, cachedQueue.length);
+        }
+
+        function normalizeMessage(raw, options = {}) {
+          const baseTs = Number(raw?.ts);
+          const ts = Number.isFinite(baseTs) && baseTs > 0 ? baseTs : Date.now();
+          const name = (raw?.name || "").toString().trim().slice(0, 99) || "Anónimo";
+          const msg = (raw?.msg || "").toString().trim().slice(0, 500);
+
+          return {
+            ts,
+            name,
+            msg,
+            localOnly: Boolean(options.localOnly || raw?.localOnly),
+          };
+        }
 
         function emojiFor(name, ts) {
           const source = `${name}|${ts}`;
-
           let hash = 0;
-
           for (let i = 0; i < source.length; i++) {
             hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
           }
-
           return ANIMAL_EMOJIS[hash % ANIMAL_EMOJIS.length];
         }
 
         function initialsFor(name) {
           const parts = (name || "").trim().split(/\s+/).filter(Boolean);
-
           if (!parts.length) return "A";
-
           return (
             parts
               .slice(0, 2)
@@ -4248,53 +4270,42 @@
         }
 
         function updateCount(n) {
-          if (countEl) countEl.textContent = String(n || 0);
+          if (countEl) countEl.textContent = String(Math.max(0, n || 0));
         }
 
         function setToggleLabel(visible) {
           if (!toggle) return;
-
           toggle.textContent = visible ? "Ocultar mensajes" : "Ver mensajes";
-
           toggle.setAttribute("aria-expanded", visible ? "true" : "false");
         }
 
         function applyVisibility() {
           if (!listEl) return;
-
           listEl.classList.toggle("is-hidden", !messagesVisible);
         }
 
         setToggleLabel(messagesVisible);
-
         applyVisibility();
 
-        function render(data) {
+        function render(data, totalCount) {
           if (!listEl) return;
 
-          if (!data?.length) {
-            listEl.innerHTML = `<div class="wish-empty">A\u00FAn no hay mensajes. \u00A1S\u00E9 el primero en dejar uno! \u2728</div>`;
+          const entries = Array.isArray(data) ? data : [];
+          const total = Number.isFinite(totalCount) ? totalCount : entries.length;
+          updateCount(total);
 
-            updateCount(0);
-
+          if (!entries.length) {
+            listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! ✨</div>`;
             pendingHighlight = null;
-
             return;
           }
 
-          const items = data
-            .map((w) => {
-              const ts = Number(w.ts) || Date.now();
-
-              const name = (w.name || "An\u00F3nimo").trim() || "An\u00F3nimo";
-
-              const msg = (w.msg || "").trim();
-
-              const emoji = emojiFor(name, ts);
-
-              const dt = ts ? new Date(ts) : null;
-
-              const when = dt
+          const items = entries
+            .map((item) => {
+              const entry = normalizeMessage(item, { localOnly: item.localOnly });
+              const dt = Number.isFinite(entry.ts) ? new Date(entry.ts) : null;
+              const validDate = dt && !Number.isNaN(dt.getTime());
+              const when = validDate
                 ? dt.toLocaleString("es-PE", {
                     day: "2-digit",
                     month: "short",
@@ -4303,100 +4314,72 @@
                     minute: "2-digit",
                   })
                 : "";
-
-              const iso = dt ? dt.toISOString() : "";
-
-              const initials = initialsFor(name);
+              const iso = validDate ? dt.toISOString() : "";
+              const initials = initialsFor(entry.name);
+              const emoji = emojiFor(entry.name, entry.ts);
 
               return `
-
-
-            <div class="wish-item" data-ts="${ts}">
-
-
-
+            <div class="wish-item${entry.localOnly ? " wish-item--pending" : ""}" data-ts="${entry.ts}">
               <div class="wish-avatar" aria-hidden="true">
-
-
-
                 <span class="avatar-initials">${esc(initials)}</span>
-
-
-
                 <span class="avatar-animal">${emoji}</span>
-
-
-
               </div>
-
-
-
               <div>
-
-
-
                 <div class="wish-header-row">
-
-
-
                   <div class="wish-header-left">
-
-
-
-                    <div class="wish-name">${esc(name)}</div>
-
-
-
+                    <div class="wish-name">${esc(entry.name)}</div>
                   </div>
-
-
-
                   ${when ? `<time class="wish-date" datetime="${iso}">${esc(when)}</time>` : ``}
-
-
-
                 </div>
-
-
-
-                <p class="wish-text">${esc(msg)}</p>
-
-
-
+                <p class="wish-text">${esc(entry.msg)}</p>
+                ${entry.localOnly ? `<span class="wish-status">Pendiente de enviar</span>` : ``}
               </div>
-
-
-
             </div>
-
-
-
           `;
             })
             .join("");
 
           listEl.innerHTML = items;
 
-          updateCount(data.length);
-
           if (pendingHighlight) {
             const target = listEl.querySelector(`[data-ts="${pendingHighlight}"]`);
-
             if (target) {
               target.classList.add("wish-highlight");
-
               target.scrollIntoView({ behavior: "smooth", block: "center" });
-
               setTimeout(() => target.classList.remove("wish-highlight"), 2400);
             }
-
             pendingHighlight = null;
           }
         }
+
+        function mergeAndRender() {
+          const queue = lsGet();
+          const map = new Map();
+
+          queue.forEach((item) => {
+            const normalized = normalizeMessage(item, { localOnly: true });
+            map.set(String(normalized.ts), normalized);
+          });
+
+          remoteSnapshot.forEach((item) => {
+            const normalized = normalizeMessage(item);
+            const key = String(normalized.ts);
+            if (!map.has(key)) {
+              map.set(key, normalized);
+            }
+          });
+
+          const merged = Array.from(map.values()).sort((a, b) => (b.ts || 0) - (a.ts || 0));
+          const limited = merged.slice(0, MAX_ITEMS);
+          const baseTotal = remoteTotal > 0 ? remoteTotal : remoteSnapshot.length;
+          const total = baseTotal + queue.length;
+
+          render(limited, total);
+        }
+
         async function fetchAll() {
           if (isFetching) {
             queuedFetch = true;
-
             return false;
           }
 
@@ -4419,49 +4402,50 @@
                   throw new Error("Fetch GET failed");
                 }
 
-                const data = await response.json().catch(() => []);
+                const payload = await response.json().catch(() => null);
+                const list = Array.isArray(payload)
+                  ? payload
+                  : Array.isArray(payload?.items)
+                  ? payload.items
+                  : [];
+                const total = Array.isArray(payload)
+                  ? list.length
+                  : Number(payload?.total) || list.length;
 
-                const sorted = (Array.isArray(data) ? data : [])
-                  .sort((a, b) => (b.ts || 0) - (a.ts || 0))
-                  .slice(0, 120);
+                const normalized = list
+                  .map((item) => normalizeMessage(item))
+                  .sort((a, b) => (b.ts || 0) - (a.ts || 0));
 
-                render(sorted);
+                remoteSnapshot = normalized.slice(0, MAX_ITEMS);
+                remoteTotal = total;
+                mergeAndRender();
 
                 return true;
               } catch (err) {
                 console.error("[fetchAll]", err);
-                const local = lsGet().sort((a, b) => (b.ts || 0) - (a.ts || 0));
-
-                render(local);
-
+                mergeAndRender();
                 return false;
               }
             }
 
-            const fallback = lsGet().sort((a, b) => (b.ts || 0) - (a.ts || 0));
-
-            render(fallback);
-
+            remoteSnapshot = [];
+            remoteTotal = 0;
+            mergeAndRender();
             return false;
           } finally {
             isFetching = false;
 
             if (queuedFetch) {
               queuedFetch = false;
-
               setTimeout(fetchAll, 200);
             }
           }
         }
 
-        let lastSubmit = 0;
-
         async function sendOne(name, msg) {
           const ts = Date.now();
-
-          const item = { name, msg, ts };
-
-          pendingHighlight = ts;
+          const baseItem = normalizeMessage({ name, msg, ts });
+          pendingHighlight = baseItem.ts;
 
           if (USE_REMOTE) {
             try {
@@ -4473,7 +4457,7 @@
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify(item),
+                body: JSON.stringify(baseItem),
               });
 
               const data = await response.json().catch(() => ({}));
@@ -4482,25 +4466,36 @@
                 throw new Error("Remote rejected");
               }
 
-              return { ok: true, ts, synced: true };
+              const confirmed = normalizeMessage(data?.item || baseItem);
+              pendingHighlight = confirmed.ts;
+
+              remoteSnapshot = [
+                confirmed,
+                ...remoteSnapshot.filter((entry) => entry.ts !== confirmed.ts),
+              ].slice(0, MAX_ITEMS);
+
+              remoteTotal += 1;
+              mergeAndRender();
+
+              return { ok: true, ts: confirmed.ts, synced: true };
             } catch (err) {
               console.error("[sendOne] remote", err);
               const queue = lsGet();
-              queue.unshift(item);
+              const localItem = normalizeMessage(baseItem, { localOnly: true });
+              queue.unshift(localItem);
               lsSet(queue);
-              render(queue);
-              return { ok: true, ts, synced: false, local: true };
+              mergeAndRender();
+              return { ok: true, ts: localItem.ts, synced: false, local: true };
             }
           }
 
           const queue = lsGet();
-          queue.unshift(item);
+          const localOnlyItem = normalizeMessage(baseItem, { localOnly: true });
+          queue.unshift(localOnlyItem);
           lsSet(queue);
-          render(queue);
-
-          return { ok: true, ts, local: true };
+          mergeAndRender();
+          return { ok: true, ts: localOnlyItem.ts, local: true };
         }
-
 
         async function flushLocalQueue() {
           if (!USE_REMOTE) {
@@ -4508,14 +4503,13 @@
           }
 
           const queued = lsGet();
-
           if (!queued.length) {
             return;
           }
 
           const remaining = [];
 
-          for (const entry of queued.slice().reverse()) {
+          for (const entry of [...queued].reverse()) {
             try {
               const response = await fetch(API_URL, {
                 method: "POST",
@@ -4525,7 +4519,7 @@
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify(entry),
+                body: JSON.stringify({ ts: entry.ts, name: entry.name, msg: entry.msg }),
               });
 
               const data = await response.json().catch(() => ({}));
@@ -4540,41 +4534,34 @@
           }
 
           lsSet(remaining);
+          mergeAndRender();
         }
 
         function showThanks(name, ts, message) {
           const displayName = name || "An\u00F3nimo";
-
           const emoji = emojiFor(displayName, ts);
-
           const msgText = (message || "").trim();
 
           if (!thanksDialog || typeof thanksDialog.showModal !== "function") {
             const extra = msgText ? "\n\n" + msgText : "";
-
             alert(`${emoji} \u00A1Gracias, ${displayName}!${extra}`);
-
             return;
           }
 
           thanksEmoji.textContent = emoji;
-
           thanksText.textContent = `Tu mensaje ya est\u00E1 con nosotros, ${displayName}!`;
 
           if (thanksUserMsg) {
             if (msgText) {
               thanksUserMsg.textContent = msgText;
-
               thanksUserMsg.hidden = false;
             } else {
               thanksUserMsg.textContent = "";
-
               thanksUserMsg.hidden = true;
             }
           }
 
           thanksDialog.showModal();
-
           thanksClose?.focus({ preventScroll: true });
         }
 
@@ -4589,26 +4576,20 @@
 
           if (thanksUserMsg) {
             thanksUserMsg.textContent = "";
-
             thanksUserMsg.hidden = true;
           }
         }
 
         thanksClose?.addEventListener("click", closeThanks);
-
         thanksDialog?.addEventListener("click", (e) => {
           if (e.target === thanksDialog) closeThanks();
         });
-
         thanksDialog?.addEventListener("cancel", closeThanks);
 
         toggle?.addEventListener("click", () => {
           messagesVisible = !messagesVisible;
-
           setToggleLabel(messagesVisible);
-
           applyVisibility();
-
           if (messagesVisible && listEl) {
             listEl.scrollTop = 0;
           }
@@ -4617,14 +4598,10 @@
         scrollBtn?.addEventListener("click", () => {
           if (!messagesVisible) {
             messagesVisible = true;
-
             setToggleLabel(true);
-
             applyVisibility();
           }
-
           form?.scrollIntoView({ behavior: "smooth", block: "center" });
-
           nameEl?.focus();
         });
 
@@ -4645,16 +4622,13 @@
           }
 
           const now = Date.now();
-
           if (now - lastSubmit < 6000) {
             showToast('Dale unos segundos antes de enviar otro 💌');
             return;
           }
 
           const rawName = (nameEl.value || "").trim();
-
           const name = rawName ? rawName.slice(0, 99) : "Anónimo";
-
           const msg = (msgEl.value || "").trim().slice(0, 500);
 
           if (!msg) {
@@ -4665,9 +4639,7 @@
 
           if (!messagesVisible) {
             messagesVisible = true;
-
             setToggleLabel(true);
-
             applyVisibility();
           }
 
@@ -4675,9 +4647,7 @@
 
           if (submitBtn) {
             submitBtn.disabled = true;
-
             submitBtn.setAttribute("aria-busy", "true");
-
             submitBtn.textContent = 'Enviando…';
           }
 
@@ -4685,11 +4655,8 @@
 
           try {
             const result = await sendOne(name, msg);
-
             lastSubmit = Date.now();
-
             msgEl.value = "";
-
             updateChar();
 
             if (result?.synced) {
@@ -4709,15 +4676,11 @@
             showToast('No se pudo guardar el mensaje, inténtalo otra vez.');
           } finally {
             isSending = false;
-
             submitBtn?.removeAttribute("aria-busy");
-
             if (submitBtn) {
               submitBtn.disabled = false;
-
               submitBtn.textContent = submitDefaultLabel;
             }
-
             resetBtn?.removeAttribute("disabled");
           }
         });
@@ -4727,6 +4690,8 @@
         });
 
         const init = async () => {
+          mergeAndRender();
+
           if (USE_REMOTE) {
             try {
               await flushLocalQueue();
@@ -4876,4 +4841,3 @@
     </script>
   </body>
 </html>
-
