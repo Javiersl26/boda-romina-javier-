@@ -28,9 +28,25 @@
 
     <meta property="og:type" content="website" />
 
-    <meta property="og:url" content="https://javiersl26.github.io/" />
+    <meta
+      property="og:url"
+      content="https://javiersl26.github.io/boda-romina-javier/"
+    />
 
-    <meta property="og:image" content="assets/gallery/1_Parque_juntos.jpg" />
+    <meta
+      property="og:image"
+      content="https://javiersl26.github.io/boda-romina-javier/assets/ui/Invitados_Juntos.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Ilustración de invitados listos para la boda de Romina y Javier"
+    />
+    <meta
+      name="twitter:image"
+      content="https://javiersl26.github.io/boda-romina-javier/assets/ui/Invitados_Juntos.png"
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -40,8 +56,6 @@
       name="twitter:description"
       content="Detalles, mapas, regalos, recuerdos y RSVP."
     />
-
-    <meta name="twitter:image" content="assets/gallery/1_Parque_juntos.jpg" />
 
     <!-- Favicon -->
 
@@ -2122,7 +2136,11 @@
       }
 
       .dress-header h3 {
-        margin-bottom: 6px;
+        margin: 0 0 8px;
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        font-size: clamp(36px, 5.2vw, 48px);
+        color: var(--pine);
       }
 
       .dress-header p {
@@ -2147,14 +2165,18 @@
 
       .dress-figure h4 {
         margin: 0 0 8px;
-        font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
-        font-weight: 600;
-        font-size: clamp(20px, 2.4vw, 22px);
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        font-size: clamp(28px, 4.2vw, 34px);
         color: var(--pine);
       }
 
       .dress-figure p {
         margin: 0;
+        font-family: Inter, ui-sans-serif;
+        font-size: 1rem;
+        color: var(--ink);
+        line-height: 1.45;
       }
 
       .dress-emoji {
@@ -2168,6 +2190,8 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+        max-width: 680px;
+        margin: 0 auto;
       }
 
       .palette-block h4 {
@@ -2183,15 +2207,15 @@
         margin: 0;
         padding: 0;
         display: grid;
-        gap: 12px;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       }
 
       .palette-item {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 10px 12px;
+        gap: 8px;
+        padding: 8px 10px;
         border-radius: 12px;
         border: 1px solid var(--line);
         background: rgba(245, 237, 225, 0.78);
@@ -2233,14 +2257,6 @@
       .dress-avoid li {
         margin: 4px 0;
       }
-
-      .music-control {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        z-index: 1200;
-      }
-
       @media (min-width: 900px) {
         .dress-card {
           padding: 28px;
@@ -2254,6 +2270,36 @@
         .dress-emoji {
           width: min(260px, 70%);
         }
+      }
+      .music-toggle {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 1200;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        background: rgba(41, 57, 47, 0.85);
+        color: #ffffff;
+        display: grid;
+        place-items: center;
+        font-size: 1.1rem;
+        line-height: 1;
+        padding: 0;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+        transition:
+          transform 0.12s ease,
+          background-color 0.2s ease;
+      }
+
+      .music-toggle:active {
+        transform: scale(0.94);
+      }
+
+      .music-toggle[data-state="play"] {
+        background: rgba(201, 166, 107, 0.9);
+        color: #1e2723;
       }
       dialog#thanksDialog {
         border: none;
@@ -2611,10 +2657,6 @@
           <div class="dress-card">
             <div class="dress-header">
               <h3>Dress code: Elegante</h3>
-
-              <p class="muted">
-                Nos reservamos el blanco y crema para la novia.
-              </p>
             </div>
 
             <div class="dress-media">
@@ -2649,12 +2691,6 @@
               <h4>Colores recomendados</h4>
 
               <ul class="palette-grid" role="list">
-                <li class="palette-item" style="--swatch: #f5ede1">
-                  <span class="palette-swatch" aria-hidden="true"></span>
-
-                  <span>Ivory cálido</span>
-                </li>
-
                 <li class="palette-item" style="--swatch: #f0dab8">
                   <span class="palette-swatch" aria-hidden="true"></span>
 
@@ -2730,7 +2766,7 @@
             </div>
 
             <div class="dress-avoid">
-              <h4>Evitar</h4>
+              <h4>Recomendamos evitar</h4>
 
               <ul>
                 <li>Colores neón o muy saturados.</li>
@@ -3295,15 +3331,14 @@
       loop
       aria-hidden="true"
     ></audio>
-
     <button
       type="button"
-      class="btn btn-secondary music-control"
-      aria-label="Reproducir música de fondo"
+      class="music-toggle"
+      aria-label="Detener música de fondo"
       id="musicToggle"
       hidden
     >
-      Reproducir música
+      &#10074;&#10074;
     </button>
 
     <!-- JSON-LD Evento (conjunto) -->
@@ -3402,111 +3437,111 @@
 
 
 
-      const y = base.getFullYear(), mon = base.getMonth()+m, d = base.getDate();
+        const y = base.getFullYear(), mon = base.getMonth()+m, d = base.getDate();
 
 
 
-      const last = new Date(y, mon+1, 0).getDate();
+        const last = new Date(y, mon+1, 0).getDate();
 
 
 
-      return new Date(y, mon, Math.min(d,last), base.getHours(), base.getMinutes(), base.getSeconds(), base.getMilliseconds());
+        return new Date(y, mon, Math.min(d,last), base.getHours(), base.getMinutes(), base.getSeconds(), base.getMilliseconds());
 
 
 
-    }
+      }
 
 
 
-    function diffWithMonths(from, to){
+      function diffWithMonths(from, to){
 
 
 
-      if (from >= to) return {months:0, days:0, hours:0, minutes:0, seconds:0};
+        if (from >= to) return {months:0, days:0, hours:0, minutes:0, seconds:0};
 
 
 
-      let months = 0, cur = new Date(from);
+        let months = 0, cur = new Date(from);
 
 
 
-      while(true){ const nxt = addMonths(cur,1); if(nxt<=to){ months++; cur=nxt; } else break; }
+        while(true){ const nxt = addMonths(cur,1); if(nxt<=to){ months++; cur=nxt; } else break; }
 
 
 
-      const ms = to - cur;
+        const ms = to - cur;
 
 
 
-      const days = Math.floor(ms/86400000);
+        const days = Math.floor(ms/86400000);
 
 
 
-      const hours = Math.floor((ms%86400000)/3600000);
+        const hours = Math.floor((ms%86400000)/3600000);
 
 
 
-      const minutes = Math.floor((ms%3600000)/60000);
+        const minutes = Math.floor((ms%3600000)/60000);
 
 
 
-      const seconds = Math.floor((ms%60000)/1000);
+        const seconds = Math.floor((ms%60000)/1000);
 
 
 
-      return {months, days, hours, minutes, seconds};
+        return {months, days, hours, minutes, seconds};
 
 
 
-    } 
+      }
 
 
 
-    function tick(){
+      function tick(){
 
 
 
-      const now = new Date();
+        const now = new Date();
 
 
 
-      const c = diffWithMonths(now, target);
+        const c = diffWithMonths(now, target);
 
 
 
-      if (now >= target){ countdownEl.textContent = '¡Hoy es el gran día!'; return; }
+        if (now >= target){ countdownEl.textContent = '¡Hoy es el gran día!'; return; }
 
 
 
-      const parts = [];
+        const parts = [];
 
 
 
-      if (c.months) parts.push(`${c.months} ${c.months===1?'mes':'meses'}`);
+        if (c.months) parts.push(`${c.months} ${c.months===1?'mes':'meses'}`);
 
 
 
-      if (c.days) parts.push(`${c.days}d`);
+        if (c.days) parts.push(`${c.days}d`);
 
 
 
-      if (c.hours) parts.push(`${c.hours}h`);
+        if (c.hours) parts.push(`${c.hours}h`);
 
 
 
-      if (c.minutes) parts.push(`${c.minutes}m`);
+        if (c.minutes) parts.push(`${c.minutes}m`);
 
 
 
-      if (c.seconds) parts.push(`${c.seconds}s`);
+        if (c.seconds) parts.push(`${c.seconds}s`);
 
 
 
-      countdownEl.textContent = parts.length ? `Faltan ${parts.join(' ')` : '';
+        countdownEl.textContent = parts.length ? `Faltan ${parts.join(' ')` : '';
 
 
 
-    } */
+      } */
 
       function tick() {
         const now = new Date();
@@ -3789,6 +3824,8 @@
         if (el) obs.observe(el);
       });
 
+      let requestMusicStart = () => {};
+
       /* ================= SPLASH LOGIC (v2) ================= */
 
       const splash = document.getElementById("splash");
@@ -3811,6 +3848,8 @@
       /* Apertura por click/tecla (forzada) */
 
       const openInvitation = () => {
+        requestMusicStart();
+
         // 1) “crack” del sello + sombra anticipada
 
         splash.classList.add("opening");
@@ -4087,47 +4126,19 @@
 
 
 
-          <div class="wish-item" data-ts="${ts}">
+            <div class="wish-item" data-ts="${ts}">
 
 
 
-            <div class="wish-avatar" aria-hidden="true">
+              <div class="wish-avatar" aria-hidden="true">
 
 
 
-              <span class="avatar-initials">${esc(initials)}</span>
+                <span class="avatar-initials">${esc(initials)}</span>
 
 
 
-              <span class="avatar-animal">${emoji}</span>
-
-
-
-            </div>
-
-
-
-            <div>
-
-
-
-              <div class="wish-header-row">
-
-
-
-                <div class="wish-header-left">
-
-
-
-                  <div class="wish-name">${esc(name)}</div>
-
-
-
-                </div>
-
-
-
-                ${when ? `<time class="wish-date" datetime="${iso}">${esc(when)}</time>` : ``}
+                <span class="avatar-animal">${emoji}</span>
 
 
 
@@ -4135,7 +4146,39 @@
 
 
 
-              <p class="wish-text">${esc(msg)}</p>
+              <div>
+
+
+
+                <div class="wish-header-row">
+
+
+
+                  <div class="wish-header-left">
+
+
+
+                    <div class="wish-name">${esc(name)}</div>
+
+
+
+                  </div>
+
+
+
+                  ${when ? `<time class="wish-date" datetime="${iso}">${esc(when)}</time>` : ``}
+
+
+
+                </div>
+
+
+
+                <p class="wish-text">${esc(msg)}</p>
+
+
+
+              </div>
 
 
 
@@ -4143,11 +4186,7 @@
 
 
 
-          </div>
-
-
-
-        `;
+          `;
             })
             .join("");
 
@@ -4460,7 +4499,8 @@
       const musicToggle = document.getElementById("musicToggle");
 
       if (bgMusic) {
-        const START_AT = 15;
+        const START_AT = 16;
+        let userPaused = false;
 
         const ensureOffset = () => {
           if (bgMusic.readyState >= 1 && bgMusic.duration > START_AT) {
@@ -4470,26 +4510,54 @@
           }
         };
 
-        const showToggle = () => {
-          if (musicToggle) {
-            musicToggle.hidden = false;
+        const setToggleState = (state) => {
+          if (!musicToggle) return;
+
+          musicToggle.hidden = false;
+          musicToggle.dataset.state = state;
+
+          if (state === "play") {
+            musicToggle.innerHTML = "&#9658;";
+            musicToggle.setAttribute(
+              "aria-label",
+              "Reproducir música de fondo",
+            );
+          } else {
+            musicToggle.innerHTML = "&#10074;&#10074;";
+            musicToggle.setAttribute("aria-label", "Detener música de fondo");
           }
         };
 
+        const showToggle = () => {
+          setToggleState("play");
+        };
+
         const playMusic = () => {
+          userPaused = false;
           ensureOffset();
 
           try {
             const attempt = bgMusic.play();
 
-            if (attempt?.catch) {
-              attempt.catch(() => {
-                showToggle();
-              });
+            if (attempt?.then) {
+              attempt
+                .then(() => {
+                  setToggleState("pause");
+                })
+                .catch(() => {
+                  showToggle();
+                });
+            } else {
+              setToggleState("pause");
             }
           } catch (_) {
             showToggle();
           }
+        };
+
+        const pauseMusic = () => {
+          userPaused = true;
+          bgMusic.pause();
         };
 
         bgMusic.volume = 0.7;
@@ -4500,43 +4568,53 @@
         });
 
         bgMusic.addEventListener("play", () => {
-          if (musicToggle) {
-            musicToggle.hidden = true;
-          }
+          setToggleState("pause");
         });
 
-        document.addEventListener(
-          "pointerdown",
-          () => {
-            if (bgMusic.paused) {
-              playMusic();
-            }
-          },
-          { once: true },
-        );
-
-        document.addEventListener(
-          "keydown",
-          () => {
-            if (bgMusic.paused) {
-              playMusic();
-            }
-          },
-          { once: true },
-        );
-
-        document.addEventListener("visibilitychange", () => {
-          if (!document.hidden && bgMusic.paused && musicToggle?.hidden) {
-            playMusic();
-          }
+        bgMusic.addEventListener("pause", () => {
+          setToggleState("play");
         });
 
         musicToggle?.addEventListener("click", () => {
-          musicToggle.hidden = true;
-          playMusic();
+          if (bgMusic.paused) {
+            playMusic();
+          } else {
+            pauseMusic();
+          }
         });
 
+        const attemptAutoplay = () => {
+          if (bgMusic.paused) {
+            playMusic();
+          }
+        };
+
+        document.addEventListener("pointerdown", attemptAutoplay, {
+          once: true,
+        });
+
+        document.addEventListener("keydown", attemptAutoplay, {
+          once: true,
+        });
+
+        document.addEventListener("visibilitychange", () => {
+          if (
+            !document.hidden &&
+            bgMusic.paused &&
+            musicToggle?.dataset.state === "play" &&
+            !userPaused
+          ) {
+            attemptAutoplay();
+          }
+        });
+
+        requestMusicStart = () => {
+          attemptAutoplay();
+        };
+
         playMusic();
+      } else {
+        requestMusicStart = () => {};
       }
     </script>
   </body>
