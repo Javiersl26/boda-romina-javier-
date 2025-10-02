@@ -6,11 +6,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Boda — Romina & Javier · 15 de noviembre de 2025</title>
+    <title>Boda � Romina & Javier � 15 de noviembre de 2025</title>
 
     <meta
       name="description"
-      content="Invitación de boda de Romina Gabriela Laura Rodriguez y Javier Rodrigo Manuel Sarmiento Lopez. Ceremonia, recepción, regalos, recuerdos y RSVP."
+      content="Invitaci�n de boda de Romina Gabriela Laura Rodriguez y Javier Rodrigo Manuel Sarmiento Lopez. Ceremonia, recepci�n, regalos, recuerdos y RSVP."
     />
 
     <meta name="theme-color" content="#29392F" />
@@ -19,38 +19,29 @@
 
     <!-- Open Graph / Twitter (URLs absolutas) -->
 
-    <meta property="og:title" content="Boda · Romina & Javier · 15/11/2025" />
+    <meta property="og:title" content="Boda � Romina & Javier � 15/11/2025" />
 
     <meta
       property="og:description"
-      content="Toda la información: ceremonia, recepción, regalos, recuerdos y RSVP."
+      content="Toda la informaci�n: ceremonia, recepci�n, regalos, recuerdos y RSVP."
     />
 
     <meta property="og:type" content="website" />
 
-    <meta
-      property="og:url"
-      content="https://javiersl26.github.io/boda-romina-javier/"
-    />
+    <meta property="og:url" content="https://javiersl26.github.io/boda-romina-javier/" />
 
-    <meta
-      property="og:image"
-      content="https://javiersl26.github.io/boda-romina-javier/assets/ui/Invitados_Juntos.png"
-    />
+    <meta property="og:image" content="https://javiersl26.github.io/boda-romina-javier/assets/ui/og-cover.png" />
+    <meta property="og:image:secure_url" content="https://javiersl26.github.io/boda-romina-javier/assets/ui/og-cover.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="Ilustración de invitados listos para la boda de Romina y Javier"
-    />
-    <meta
-      name="twitter:image"
-      content="https://javiersl26.github.io/boda-romina-javier/assets/ui/Invitados_Juntos.png"
-    />
+    <meta property="og:image:alt" content="Ilustraci?n de invitados listos para la boda de Romina y Javier" />
+
+    <meta name="twitter:image" content="https://javiersl26.github.io/boda-romina-javier/assets/ui/og-cover.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
 
-    <meta name="twitter:title" content="Boda · Romina & Javier · 15/11/2025" />
+    <meta name="twitter:title" content="Boda � Romina & Javier � 15/11/2025" />
 
     <meta
       name="twitter:description"
@@ -59,7 +50,7 @@
 
     <!-- Favicon -->
 
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
     <!-- Fuentes -->
 
@@ -91,7 +82,7 @@
        ========================================================= */
 
       :root {
-        --pine: #29392f; /* títulos/marca */
+        --pine: #29392f; /* t�tulos/marca */
 
         --olive: #8d8e7c; /* acentos sutiles */
 
@@ -119,7 +110,7 @@
 
         --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 
-        --surface-fallback: #f5ede1; /* igual a nav “ivory” claro */
+        --surface-fallback: #f5ede1; /* igual a nav �ivory� claro */
 
         --section-bg-fallback: #f3e8d9; /* punto medio fijo */
       }
@@ -130,15 +121,15 @@
 
           --surface: color-mix(in oklab, white 80%, var(--champagne) 20%);
 
-          /* versión translúcida para las cajitas del hero */
+          /* versi�n transl�cida para las cajitas del hero */
 
           --surface-hero: color-mix(
             in oklab,
             var(--surface) 30%,
             transparent
-          ); /* ˜ opacidad .30 */
+          ); /* � opacidad .30 */
 
-          /* “punto medio” entre ivory y champagne */
+          /* �punto medio� entre ivory y champagne */
 
           --section-bg: color-mix(
             in oklab,
@@ -275,11 +266,11 @@
         padding: 24px 20px; /* ya contiene relleno propio */
       }
 
-      /* Quita la segunda “capa” si la sección sólo tiene UNA tarjeta “envolviendo todo”.
+      /* Quita la segunda �capa� si la secci�n s�lo tiene UNA tarjeta �envolviendo todo�.
 
 
 
-       Así el fondo visible es el de la sección, no una tarjeta interior. */
+       As� el fondo visible es el de la secci�n, no una tarjeta interior. */
 
       .wrap.section > .card:only-child,
       .wrap.section > .panel:only-child,
@@ -293,7 +284,7 @@
         padding: 0;
       }
 
-      /* Caso específico de Buenos deseos (tu HTML tiene 1 solo .wish-panel en la sección) */
+      /* Caso espec�fico de Buenos deseos (tu HTML tiene 1 solo .wish-panel en la secci�n) */
 
       #deseos.wrap.section > .wish-panel {
         background: transparent;
@@ -414,7 +405,7 @@
         border-color: #dcc8a2;
       }
 
-      /* Versión avanzada con color-mix */
+      /* Versi�n avanzada con color-mix */
 
       @supports (color: color-mix(in oklab, white, black)) {
         .btn-primary:hover {
@@ -468,7 +459,7 @@
 
        ========================================================= */
 
-      /* NAV con el mismo fondo “surface” */
+      /* NAV con el mismo fondo �surface� */
 
       nav {
         background: var(--surface, var(--surface-fallback));
@@ -521,7 +512,7 @@
 
 
 
-       HERO (veladura + caja translúcida del título)
+       HERO (veladura + caja transl�cida del t�tulo)
 
 
 
@@ -579,7 +570,7 @@
         align-items: center; /* centra horizontalmente */
       }
 
-      /* Nombre en el hero — misma base, muy translúcida */
+      /* Nombre en el hero � misma base, muy transl�cida */
 
       .title-wrap {
         display: block;
@@ -597,7 +588,7 @@
         backdrop-filter: saturate(120%) blur(2px);
       }
 
-      /* separación vertical entre hijos del .inner */
+      /* separaci�n vertical entre hijos del .inner */
 
       .hero .inner > * + * {
         margin-top: 8px;
@@ -686,7 +677,7 @@
 
 
 
-       RECUERDOS (galería)
+       RECUERDOS (galer�a)
 
 
 
@@ -863,7 +854,7 @@
         perspective: 1600px; /* volumen a la solapa */
       }
 
-      /* BASE de la carta: tamaño, posición y 3D */
+      /* BASE de la carta: tama�o, posici�n y 3D */
 
       #splash .envelope {
         position: relative;
@@ -884,7 +875,7 @@
           drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
       }
 
-      /* Borde suave + viñeta para “recortar” mejor contra el fondo */
+      /* Borde suave + vi�eta para �recortar� mejor contra el fondo */
 
       .envelope-body::before {
         content: "";
@@ -903,7 +894,7 @@
           inset 0 -1.4px 0 rgba(0, 0, 0, 0.05);
       }
 
-      /* ——— Bordes y pliegues del cuerpo: más definidos ——— */
+      /* ��� Bordes y pliegues del cuerpo: m�s definidos ��� */
 
       .envelope-body {
         position: absolute;
@@ -920,7 +911,7 @@
 
         border: 2px solid #e6dcc9;
 
-        /* relieve un poco más fuerte */
+        /* relieve un poco m�s fuerte */
 
         box-shadow:
           inset 0 5px 16px rgba(0, 0, 0, 0.08),
@@ -945,7 +936,7 @@
         opacity: 0.26;
       }
 
-      /* bisel exterior más visible */
+      /* bisel exterior m�s visible */
 
       .envelope-body::before {
         content: "";
@@ -959,7 +950,7 @@
           inset 0 -1.6px 0 rgba(0, 0, 0, 0.06);
       }
 
-      /* Fisura de unión (contorno superior del triángulo) */
+      /* Fisura de uni�n (contorno superior del tri�ngulo) */
 
       .envelope-flap::after {
         content: "";
@@ -994,7 +985,7 @@
         background:
           url("assets/ui/textura-fondo.png") center/cover no-repeat,
           linear-gradient(180deg, #f7efe0 0%, #efe3cc 100%),
-          #efe3cc; /* <- respaldo sólido */
+          #efe3cc; /* <- respaldo s�lido */
 
         background-blend-mode: multiply, normal, normal;
 
@@ -1003,7 +994,7 @@
         box-shadow: inset 0 4px 14px rgba(0, 0, 0, 0.06); /* relieve sutil */
       }
 
-      /* Hoja interior (aparece al abrir): hoja limpia, oculta detrás del bolsillo hasta salir */
+      /* Hoja interior (aparece al abrir): hoja limpia, oculta detr�s del bolsillo hasta salir */
 
       .letter {
         position: absolute;
@@ -1011,7 +1002,7 @@
         right: 6%;
         top: 18%;
         bottom: 16%;
-        z-index: 2; /* más baja, detrás del bolsillo */
+        z-index: 2; /* m�s baja, detr�s del bolsillo */
 
         border-radius: 12px;
 
@@ -1028,7 +1019,7 @@
           transform 0.4s ease;
       }
 
-      /* ——— Flap (pliegue) un poco más abajo ——— */
+      /* ��� Flap (pliegue) un poco m�s abajo ��� */
 
       .envelope-flap {
         position: absolute;
@@ -1064,7 +1055,7 @@
           filter 0.7s ease;
       }
 
-      /* línea del pliegue un pelín más marcada */
+      /* l�nea del pliegue un pel�n m�s marcada */
 
       .envelope-flap::after {
         content: "";
@@ -1083,7 +1074,7 @@
         opacity: 0.85;
       }
 
-      /* ——— Bolsillo: cubre la hoja y refuerza pliegues ——— */
+      /* ��� Bolsillo: cubre la hoja y refuerza pliegues ��� */
 
       .envelope-pocket {
         position: absolute;
@@ -1103,7 +1094,7 @@
         border: 2px solid #e6dcc9;
         border-top: none;
 
-        /* V un toque más alta para “encajar” con la solapa */
+        /* V un toque m�s alta para �encajar� con la solapa */
 
         clip-path: polygon(
           0 0,
@@ -1118,7 +1109,7 @@
           inset 0 -7px 12px rgba(0, 0, 0, 0.06);
       }
 
-      /* sombras de los pliegues del bolsillo más visibles */
+      /* sombras de los pliegues del bolsillo m�s visibles */
 
       .envelope-pocket::after {
         content: "";
@@ -1138,7 +1129,7 @@
         opacity: 0.28;
       }
 
-      /* línea fina siguiendo la “V” del bolsillo (contorno) */
+      /* l�nea fina siguiendo la �V� del bolsillo (contorno) */
 
       .envelope-pocket::before {
         content: "";
@@ -1168,7 +1159,7 @@
         opacity: 0.7;
       }
 
-      /* ——— Sombra de la solapa cuando abre ——— */
+      /* ��� Sombra de la solapa cuando abre ��� */
 
       .envelope::after {
         content: "";
@@ -1194,7 +1185,7 @@
         transition: opacity 0.45s ease;
       }
 
-      /* Solapa al abrir, 1.5× más lenta */
+      /* Solapa al abrir, 1.5� m�s lenta */
 
       #splash.opening .envelope-flap {
         transform: rotateX(-155deg) translateZ(1px);
@@ -1205,14 +1196,14 @@
           transform 1.08s cubic-bezier(0.19, 0.9, 0.22, 1),
           filter 0.7s ease;
 
-        animation: flap-settle 0.7s 1.08s ease-out 1 both; /* el “settle” empieza cuando termina */
+        animation: flap-settle 0.7s 1.08s ease-out 1 both; /* el �settle� empieza cuando termina */
       }
 
       #splash.opening .envelope::after {
         opacity: 1;
       }
 
-      /* ===== Chasquido del sello (sprite + partículas) ===== */
+      /* ===== Chasquido del sello (sprite + part�culas) ===== */
 
       /* Ajustes del sello para efectos */
 
@@ -1241,7 +1232,7 @@
 
       .wax-seal .seal-crack {
         position: absolute;
-        inset: -18px; /* un poco más grande que el sello */
+        inset: -18px; /* un poco m�s grande que el sello */
 
         background: none;
 
@@ -1253,7 +1244,7 @@
         mix-blend-mode: multiply; /* la grieta se integra al relieve */
       }
 
-      /* Partículas (motas/destellos) */
+      /* Part�culas (motas/destellos) */
 
       .wax-seal::after {
         content: "";
@@ -1268,7 +1259,7 @@
         pointer-events: none;
         transform-origin: center;
 
-        /* 12 partículas en distintas direcciones (oro/champagne) */
+        /* 12 part�culas en distintas direcciones (oro/champagne) */
 
         box-shadow:
           -6px -2px 0 0 #c8a54a,
@@ -1323,7 +1314,7 @@
         }
       }
 
-      /* pequeño “pop” del sello */
+      /* peque�o �pop� del sello */
 
       @keyframes seal-pop {
         0% {
@@ -1355,7 +1346,7 @@
         }
       }
 
-      /* ——— Hoja: empieza realmente dentro ——— */
+      /* ��� Hoja: empieza realmente dentro ��� */
 
       .letter {
         position: absolute;
@@ -1363,7 +1354,7 @@
         right: 6%;
         top: 18%;
         bottom: 16%;
-        z-index: 2; /* detrás del bolsillo */
+        z-index: 2; /* detr�s del bolsillo */
 
         border-radius: 12px;
 
@@ -1423,7 +1414,7 @@
         animation: crack-burst 0.38s ease-out both;
       }
 
-      /* halo breve detrás del papel durante la apertura */
+      /* halo breve detr�s del papel durante la apertura */
 
       #splash.opening .envelope-body {
         animation: paper-halo 0.5s 0.28s ease-out 1 both;
@@ -1530,7 +1521,7 @@
         }
       }
 
-      /* pequeña grieta/plop antes de desvanecerse */
+      /* peque�a grieta/plop antes de desvanecerse */
 
       @keyframes seal-crack {
         0% {
@@ -1612,7 +1603,7 @@
         }
       }
 
-      /* Título caligráfico solo en el hero */
+      /* T�tulo caligr�fico solo en el hero */
 
       .hero .title-wrap h1 {
         font-family: "Great Vibes", cursive;
@@ -1665,7 +1656,7 @@
         display: grid;
         place-items: center;
 
-        background: transparent; /* <— transparente */
+        background: transparent; /* <� transparente */
 
         border: 1.5px solid var(--pine); /* aro fino verde */
       }
@@ -2014,7 +2005,7 @@
           22px,
           2.6vw,
           28px
-        ); /* un poco más grande para resaltar */
+        ); /* un poco m�s grande para resaltar */
 
         line-height: 1.4;
 
@@ -2032,7 +2023,7 @@
       .padres h2 {
         font-family: "Parisienne", cursive; /* misma fuente que la frase */
 
-        font-weight: 600; /* “negrita” suave */
+        font-weight: 600; /* �negrita� suave */
 
         font-size: clamp(30px, 4.8vw, 40px);
 
@@ -2071,7 +2062,7 @@
         margin: 4px 0;
       }
 
-      /* iconografía consistente (si conservas tus inline svgs) */
+      /* iconograf�a consistente (si conservas tus inline svgs) */
 
       .nav-item svg,
       .icon-badge svg,
@@ -2098,11 +2089,11 @@
 
 
 
-       FONDOS UNIFICADOS — versión final (3 niveles)
+       FONDOS UNIFICADOS � versi�n final (3 niveles)
 
 
 
-       Textura (body) ? Panel de sección ? Tarjetitas
+       Textura (body) ? Panel de secci�n ? Tarjetitas
 
 
 
@@ -2114,14 +2105,14 @@
         background: url("assets/ui/textura-fondo.png") center/cover repeat !important;
       }
 
-      /* 1) La sección NO pinta caja propia, sólo deja aire para ver textura */
+      /* 1) La secci�n NO pinta caja propia, s�lo deja aire para ver textura */
 
       .wrap.section {
         position: relative;
 
-        margin: 18px auto; /* separa entre secciones (móvil y desktop) */
+        margin: 18px auto; /* separa entre secciones (m�vil y desktop) */
 
-        padding: 26px 20px; /* colchón interno uniforme */
+        padding: 26px 20px; /* colch�n interno uniforme */
 
         background: transparent !important;
 
@@ -2130,14 +2121,14 @@
         box-shadow: none !important;
       }
 
-      /* 2) Panel amarillento uniforme dibujado por la propia sección */
+      /* 2) Panel amarillento uniforme dibujado por la propia secci�n */
 
       .wrap.section::before {
         content: "";
 
         position: absolute;
 
-        inset: 0; /* cubre toda la sección visible */
+        inset: 0; /* cubre toda la secci�n visible */
 
         border-radius: 22px;
 
@@ -2147,7 +2138,7 @@
 
         box-shadow: var(--shadow);
 
-        z-index: 0; /* queda detrás del contenido */
+        z-index: 0; /* queda detr�s del contenido */
       }
 
       /* El contenido va por encima del panel */
@@ -2157,7 +2148,7 @@
         z-index: 1;
       }
 
-      /* 3) Evita un 4º nivel: cualquier .card/panel “envolvente” de la sección se vuelve transparente */
+      /* 3) Evita un 4� nivel: cualquier .card/panel �envolvente� de la secci�n se vuelve transparente */
 
       .wrap.section > .card,
       .wrap.section > .panel,
@@ -2194,10 +2185,10 @@
 
         padding: 16px !important;
 
-        backdrop-filter: blur(2px); /* transparencia homogénea */
+        backdrop-filter: blur(2px); /* transparencia homog�nea */
       }
 
-      /* Paleta de colores y guía de vestimenta */
+      /* Paleta de colores y gu�a de vestimenta */
       .dress-card {
         margin-top: 18px;
         display: flex;
@@ -2514,7 +2505,7 @@
       aria-labelledby="splashTitle"
     >
       <p id="splashTitle" class="sr-only">
-        Bienvenida a la invitación de Romina & Javier
+        Bienvenida a la invitaci�n de Romina & Javier
       </p>
 
       <div class="envelope" aria-hidden="true">
@@ -2522,7 +2513,7 @@
 
         <div class="envelope-body"></div>
 
-        <!-- HOJA interior que “asoma” al abrir -->
+        <!-- HOJA interior que �asoma� al abrir -->
 
         <div class="letter" aria-hidden="true"></div>
 
@@ -2541,11 +2532,11 @@
         </div>
       </div>
 
-      <!-- Tooltip de instrucción -->
+      <!-- Tooltip de instrucci�n -->
 
-      <button class="splash-cta" type="button" aria-label="Abrir invitación">
+      <button class="splash-cta" type="button" aria-label="Abrir invitaci�n">
         <span class="hand" aria-hidden="true">&#x1F449;</span> Haz clic para
-        abrir tu invitación
+        abrir tu invitaci�n
       </button>
     </div>
 
@@ -2590,7 +2581,7 @@
       />
 
       <div class="inner">
-        <!-- Título con caja translúcida (sin chip dress code) -->
+        <!-- T�tulo con caja transl�cida (sin chip dress code) -->
 
         <div class="title-wrap">
           <h1>Javier y Romina</h1>
@@ -2610,7 +2601,7 @@
 
     <!-- ================= NAV (con 'Recuerdos') ================= -->
 
-    <nav aria-label="Navegación" id="nav">
+    <nav aria-label="Navegaci�n" id="nav">
       <a
         href="#detalles"
         class="nav-item"
@@ -2653,25 +2644,25 @@
         href="#recepcion"
         class="nav-item"
         data-section="recepcion"
-        title="Recepción"
+        title="Recepci�n"
       >
         <svg aria-hidden="true" viewBox="0 0 24 24">
           <path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12" />
         </svg>
-        Recepción
+        Recepci�n
       </a>
 
       <a
         href="#galeria"
         class="nav-item"
         data-section="galeria"
-        title="Galería"
+        title="Galer�a"
       >
         <svg aria-hidden="true" viewBox="0 0 24 24">
           <rect x="3" y="5" width="18" height="14" rx="2" />
           <path d="M10 9l-2 3 2 2 3-4 3 4" />
         </svg>
-        Galería
+        Galer�a
       </a>
 
       <a
@@ -2711,8 +2702,8 @@
     <section id="frase" class="wrap section">
       <div class="card" style="text-align: center">
         <p class="frase-inicial">
-          Después de un hermoso camino juntos, el momento de celebrar lo que el
-          tiempo ha construido ha llegado. ¡Acompáñanos a dar el siguiente paso
+          Despu�s de un hermoso camino juntos, el momento de celebrar lo que el
+          tiempo ha construido ha llegado. �Acomp��anos a dar el siguiente paso
           en nuestra historia!
         </p>
       </div>
@@ -2734,7 +2725,7 @@
           <div class="bloque">
             <h3>Padres del novio</h3>
 
-            <p>Martin Aldo Sarmiento Carreño</p>
+            <p>Martin Aldo Sarmiento Carre�o</p>
 
             <p>Miriam Rosa Lopez Villa</p>
           </div>
@@ -2785,9 +2776,9 @@
             </span>
 
             <div class="icon-block">
-              <span class="line-strong">Sábado 15 de noviembre de 2025</span>
+              <span class="line-strong">S�bado 15 de noviembre de 2025</span>
 
-              <span class="line-muted">Lima, Perú</span>
+              <span class="line-muted">Lima, Per�</span>
             </div>
           </div>
 
@@ -2802,7 +2793,7 @@
               <img
                 class="dress-emoji"
                 src="assets/ui/Invitados_Juntos.png"
-                alt="Ilustración de invitados vestidos elegantemente"
+                alt="Ilustraci�n de invitados vestidos elegantemente"
                 loading="lazy"
                 decoding="async"
               />
@@ -2879,8 +2870,8 @@
               <h4>Recomendamos evitar</h4>
 
               <ul>
-                <li>Colores neón o muy saturados.</li>
-                <li>Plateado espejo o frío.</li>
+                <li>Colores ne�n o muy saturados.</li>
+                <li>Plateado espejo o fr�o.</li>
               </ul>
             </div>
           </div>
@@ -2893,7 +2884,7 @@
         <h2>Itinerario</h2>
 
         <p class="muted" style="margin: 0 0 10px">
-          Hemos reservado pases para ti. ¡Te esperamos!
+          Hemos reservado pases para ti. �Te esperamos!
         </p>
 
         <div class="btn-group" style="margin: 6px 0 14px">
@@ -2920,7 +2911,7 @@
             </span>
 
             <span class="label"
-              ><strong>11:30 a. m.</strong> — Ceremonia religiosa</span
+              ><strong>11:30 a. m.</strong> � Ceremonia religiosa</span
             >
           </li>
 
@@ -2937,12 +2928,12 @@
               </svg>
             </span>
 
-            <span class="label"><strong>2:00 p. m.</strong> — Almuerzo</span>
+            <span class="label"><strong>2:00 p. m.</strong> � Almuerzo</span>
           </li>
 
           <li>
             <span class="dot" aria-hidden="true">
-              <!-- música -->
+              <!-- m�sica -->
 
               <svg viewBox="0 0 24 24">
                 <path d="M9 18V5l12-2v13"></path>
@@ -2953,7 +2944,7 @@
               </svg>
             </span>
 
-            <span class="label"><strong>4:00 p. m.</strong> — Fiesta</span>
+            <span class="label"><strong>4:00 p. m.</strong> � Fiesta</span>
           </li>
         </ul>
       </div>
@@ -2965,7 +2956,7 @@
       <div class="card">
         <h2>Ceremonia</h2>
 
-        <div class="info-list" aria-label="Información de la ceremonia">
+        <div class="info-list" aria-label="Informaci�n de la ceremonia">
           <div class="info-item">
             <span class="info-badge" aria-hidden="true">
               <!-- templo -->
@@ -2979,10 +2970,10 @@
 
             <div>
               <span class="info-title"
-                >Parroquia Nuestra Señora del Carmen</span
+                >Parroquia Nuestra Se�ora del Carmen</span
               >
 
-              <span class="info-sub">Ceremonia religiosa · 11:30 a. m.</span>
+              <span class="info-sub">Ceremonia religiosa � 11:30 a. m.</span>
             </div>
           </div>
 
@@ -2998,10 +2989,10 @@
 
             <div>
               <span class="info-title"
-                >Juan de la Fuente, Miraflores 15047, Perú</span
+                >Juan de la Fuente, Miraflores 15047, Per�</span
               >
 
-              <span class="info-sub">Ubicación</span>
+              <span class="info-sub">Ubicaci�n</span>
             </div>
           </div>
         </div>
@@ -3020,10 +3011,10 @@
             <button
               type="button"
               class="btn btn-secondary copy"
-              data-copy="Juan de la Fuente, Miraflores 15047, Perú"
-              aria-label="Copiar dirección de la iglesia"
+              data-copy="Juan de la Fuente, Miraflores 15047, Per�"
+              aria-label="Copiar direcci�n de la iglesia"
             >
-              Copiar dirección
+              Copiar direcci�n
             </button>
 
             <a
@@ -3031,20 +3022,20 @@
               target="_blank"
               rel="noopener"
               href="https://www.google.com/maps/dir/?api=1&destination=Juan%20de%20la%20Fuente%2C%20Miraflores%2015047%2C%20Per%C3%BA"
-              >Cómo llegar</a
+              >C�mo llegar</a
             >
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= RECEPCIÓN ================= -->
+    <!-- ================= RECEPCI�N ================= -->
 
     <section id="recepcion" class="wrap section">
       <div class="card">
-        <h2>Recepción</h2>
+        <h2>Recepci�n</h2>
 
-        <div class="info-list" aria-label="Información de la recepción">
+        <div class="info-list" aria-label="Informaci�n de la recepci�n">
           <div class="info-item">
             <span class="info-badge" aria-hidden="true">
               <!-- pin -->
@@ -3058,13 +3049,13 @@
             <div>
               <span class="info-title">Av. Club Golf Los Incas 222, Surco</span>
 
-              <span class="info-sub">Ubicación</span>
+              <span class="info-sub">Ubicaci�n</span>
             </div>
           </div>
         </div>
 
         <div class="loc-grid" style="margin-top: 12px">
-          <div class="map-embed" aria-label="Mapa de la recepción">
+          <div class="map-embed" aria-label="Mapa de la recepci�n">
             <iframe
               loading="lazy"
               allowfullscreen
@@ -3078,9 +3069,9 @@
               type="button"
               class="btn btn-secondary copy"
               data-copy="Av. Club Golf Los Incas 222, Surco"
-              aria-label="Copiar dirección de la recepción"
+              aria-label="Copiar direcci�n de la recepci�n"
             >
-              Copiar dirección
+              Copiar direcci�n
             </button>
 
             <a
@@ -3088,20 +3079,20 @@
               target="_blank"
               rel="noopener"
               href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Club%20Golf%20Los%20Incas%20222%2C%20Surco%2C%20Lima%2C%20Per%C3%BA"
-              >Cómo llegar</a
+              >C�mo llegar</a
             >
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= RECUERDOS (galería) ================= -->
+    <!-- ================= RECUERDOS (galer�a) ================= -->
 
     <section id="galeria" class="wrap section">
       <div class="card">
-        <h2>Galería</h2>
+        <h2>Galer�a</h2>
 
-        <!-- Galería -->
+        <!-- Galer�a -->
 
         <div class="gallery-group">
           <video
@@ -3119,7 +3110,7 @@
             Tu navegador no soporta video HTML5.
           </video>
 
-          <div class="gallery" aria-label="Galería">
+          <div class="gallery" aria-label="Galer�a">
           <img
             src="assets/gallery/1_Parque_juntos.jpg"
             alt="Paseo en el parque juntos"
@@ -3130,7 +3121,7 @@
 
                     <img
             src="assets/gallery/2_Faro_Mirandonos.jpg"
-            alt="Mirándonos junto al faro"
+            alt="Mir�ndonos junto al faro"
             loading="lazy"
             decoding="async"
             data-mobile-focus="top"
@@ -3138,7 +3129,7 @@
 
           <img
             src="assets/gallery/3_DSC6928.jpg"
-            alt="Abrazados durante la sesión"
+            alt="Abrazados durante la sesi�n"
             loading="lazy"
             decoding="async"
           />
@@ -3275,35 +3266,35 @@
 
         <p class="muted">
           Nos sentimos bendecidos de tenerte en nuestra vida y poder compartir
-          este día tan especial contigo. Si consideras hacernos un obsequio,
+          este d�a tan especial contigo. Si consideras hacernos un obsequio,
           nuestras opciones son:
         </p>
 
         <div class="grid cols-2" style="margin-top: 10px">
           <div class="card">
-            <h3>Interbank — <span class="muted">DÓLARES</span></h3>
+            <h3>Interbank � <span class="muted">D�LARES</span></h3>
 
             <p style="margin: 6px 0">
-              <strong>Cuenta</strong> ·
+              <strong>Cuenta</strong> �
 
               <button
                 type="button"
                 class="btn btn-secondary copy"
                 data-copy="898 3184906814"
-                aria-label="Copiar número de cuenta en dólares"
+                aria-label="Copiar n�mero de cuenta en d�lares"
               >
                 898 3184906814
               </button>
             </p>
 
             <p style="margin: 6px 0">
-              <strong>CCI</strong> ·
+              <strong>CCI</strong> �
 
               <button
                 type="button"
                 class="btn btn-secondary copy"
                 data-copy="00389801318490681446"
-                aria-label="Copiar CCI en dólares"
+                aria-label="Copiar CCI en d�lares"
               >
                 00389801318490681446
               </button>
@@ -3311,23 +3302,23 @@
           </div>
 
           <div class="card">
-            <h3>Interbank — <span class="muted">SOLES</span></h3>
+            <h3>Interbank � <span class="muted">SOLES</span></h3>
 
             <p style="margin: 6px 0">
-              <strong>Cuenta</strong> ·
+              <strong>Cuenta</strong> �
 
               <button
                 type="button"
                 class="btn btn-secondary copy"
                 data-copy="200 3122648627"
-                aria-label="Copiar número de cuenta en soles"
+                aria-label="Copiar n�mero de cuenta en soles"
               >
                 200 3122648627
               </button>
             </p>
 
             <p style="margin: 6px 0">
-              <strong>CCI</strong> ·
+              <strong>CCI</strong> �
 
               <button
                 type="button"
@@ -3374,7 +3365,7 @@
 
         <div id="wishList" class="wish-list">
           <div class="wish-empty">
-            Aún no hay mensajes. ¡Sé el primero en dejar uno! ✨
+            A�n no hay mensajes. �S� el primero en dejar uno! ?
           </div>
         </div>
 
@@ -3406,7 +3397,7 @@
             <button class="btn btn-secondary" type="reset">Limpiar</button>
           </div>
 
-          <!-- DEV NOTE: Se publica al instante. Si no hay internet, se guarda local (LS) y se sincroniza después. -->
+          <!-- DEV NOTE: Se publica al instante. Si no hay internet, se guarda local (LS) y se sincroniza despu�s. -->
         </form>
       </div>
     </section>
@@ -3420,7 +3411,7 @@
         <p>Por favor confirma tu asistencia por WhatsApp.</p>
 
         <p class="muted">
-          Nuestra wedding planner <strong>Carolina Roldán</strong> te ayudará en
+          Nuestra wedding planner <strong>Carolina Rold�n</strong> te ayudar� en
           <a href="tel:+51941496288">+51 941 496 288</a>. Completa tu nombre y apellido para que pueda reconocerte al recibir el mensaje.
         </p>
 
@@ -3450,20 +3441,20 @@
             </button>
 
             <button type="button" class="btn btn-secondary" data-intent="no">
-              No podré asistir
+              No podr� asistir
             </button>
           </div>
         </form>
 
         <p class="muted" style="margin-top: 12px">
-          También puedes escribirnos directamente contándole a Carolina
+          Tambi�n puedes escribirnos directamente cont�ndole a Carolina
           cualquier detalle extra.
         </p>
       </div>
     </section>
 
     <footer>
-      Hecho con &#10084; por Romina & Javier · <a href="#rsvp">Asistencia</a>
+      Hecho con &#10084; por Romina & Javier � <a href="#rsvp">Asistencia</a>
     </footer>
     <audio
       id="bgMusic"
@@ -3475,7 +3466,7 @@
     <button
       type="button"
       class="music-toggle"
-      aria-label="Detener música de fondo"
+      aria-label="Detener m�sica de fondo"
       id="musicToggle"
       hidden
     >
@@ -3502,14 +3493,14 @@
           {
             "@type": "Place",
 
-            "name": "Parroquia Nuestra Señora del Carmen",
+            "name": "Parroquia Nuestra Se�ora del Carmen",
 
-            "address": "Juan de la Fuente, Miraflores 15047, Perú"
+            "address": "Juan de la Fuente, Miraflores 15047, Per�"
           },
           {
             "@type": "Place",
 
-            "name": "Recepción",
+            "name": "Recepci�n",
 
             "address": "Av. Club Golf Los Incas 222, Surco"
           }
@@ -3523,7 +3514,7 @@
           "assets/gallery/3_DSC6928.jpg"
         ],
 
-        "description": "Invitación de boda. Dress code: Elegante con paleta sugerida en la invitación.",
+        "description": "Invitaci�n de boda. Dress code: Elegante con paleta sugerida en la invitaci�n.",
 
         "isAccessibleForFree": true
       }
@@ -3535,12 +3526,12 @@
 
     <dialog id="thanksDialog">
       <div class="thanks-box">
-        <span class="thanks-emoji" id="thanksEmoji" aria-hidden="true">💛</span>
+        <span class="thanks-emoji" id="thanksEmoji" aria-hidden="true">??</span>
 
         <h3>&#161;Gracias!</h3>
 
         <p class="thanks-message" id="thanksText">
-          Tu mensaje ya está con nosotros.
+          Tu mensaje ya est� con nosotros.
         </p>
 
         <p class="thanks-user-msg" id="thanksUserMsg" hidden></p>
@@ -3650,7 +3641,7 @@
 
 
 
-        if (now >= target){ countdownEl.textContent = '¡Hoy es el gran día!'; return; }
+        if (now >= target){ countdownEl.textContent = '�Hoy es el gran d�a!'; return; }
 
 
 
@@ -3688,7 +3679,7 @@
         const now = new Date();
 
         if (now >= target) {
-          countdownEl.textContent = "¡Hoy es el gran día!";
+          countdownEl.textContent = "�Hoy es el gran d�a!";
 
           return;
         }
@@ -3756,7 +3747,7 @@
           if (!cleaned) return "";
 
           if (intent === 'no') {
-            return `Hola, soy ${cleaned}. Lamentablemente no podré asistir a la boda de Romina y Javier el 15/11/2025.`;
+            return `Hola, soy ${cleaned}. Lamentablemente no podr� asistir a la boda de Romina y Javier el 15/11/2025.`;
           }
 
           return `Hola, soy ${cleaned}. Confirmo mi asistencia a la boda de Romina y Javier el 15/11/2025.`;
@@ -3810,7 +3801,7 @@
               await navigator.clipboard.writeText(text);
 
               if (status) {
-                status.textContent = "¡Copiado!";
+                status.textContent = "�Copiado!";
                 setTimeout(() => (status.textContent = ""), 1200);
               }
 
@@ -3861,9 +3852,9 @@
 
         "SUMMARY:Boda de Romina & Javier",
 
-        "LOCATION:Parroquia Nuestra Señora del Carmen, Juan de la Fuente, Miraflores 15047, Perú",
+        "LOCATION:Parroquia Nuestra Se�ora del Carmen, Juan de la Fuente, Miraflores 15047, Per�",
 
-        "DESCRIPTION:Ceremonia 11:30 a. m. · Almuerzo 2:00 p. m. · Fiesta 4:00 p. m. — Recepción: Av. Club Golf Los Incas 222, Surco. Dress code: Elegante (paleta sugerida en la web).",
+        "DESCRIPTION:Ceremonia 11:30 a. m. � Almuerzo 2:00 p. m. � Fiesta 4:00 p. m. � Recepci�n: Av. Club Golf Los Incas 222, Surco. Dress code: Elegante (paleta sugerida en la web).",
 
         "END:VEVENT",
 
@@ -4050,7 +4041,7 @@
       const openInvitation = () => {
         requestMusicStart();
 
-        // 1) “crack” del sello + sombra anticipada
+        // 1) �crack� del sello + sombra anticipada
 
         splash.classList.add("opening");
 
@@ -4066,12 +4057,12 @@
 
         shadowCarrier && shadowCarrier.style.setProperty("--flap-shadow", "1");
 
-        // pequeño desfase para la hoja
+        // peque�o desfase para la hoja
 
         if (letter) {
           letter.style.transitionDelay = "120ms";
 
-          /* cuando la hoja termina su “push-in”, cerramos */
+          /* cuando la hoja termina su �push-in�, cerramos */
 
           const onLetterEnd = (ev) => {
             if (ev.animationName === "letter-out") {
@@ -4135,7 +4126,7 @@
       document.addEventListener("keydown", onKey);
 
 
-      /* ==== Buenos Deseos - versión limpia con fallback local ==== */
+      /* ==== Buenos Deseos - versi�n limpia con fallback local ==== */
 
       (() => {
         const API_URL =
@@ -4169,22 +4160,22 @@
         const submitDefaultLabel = submitBtn?.textContent?.trim() || "Enviar";
 
         const ANIMAL_EMOJIS = [
-          "🦊",
-          "🦁",
-          "🦄",
-          "🐢",
-          "🦋",
-          "🐝",
-          "🐞",
-          "🐬",
-          "🐘",
-          "🐨",
-          "🐼",
-          "🐙",
-          "🐧",
-          "🕊",
-          "🦜",
-          "🦚",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
+          "??",
         ];
 
         const ESC_MAP = {
@@ -4625,7 +4616,7 @@
 
           const now = Date.now();
           if (now - lastSubmit < 6000) {
-            showToast('Dale unos segundos antes de enviar otro 💌');
+            showToast('Dale unos segundos antes de enviar otro ??');
             return;
           }
 
@@ -4650,7 +4641,7 @@
           if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.setAttribute("aria-busy", "true");
-            submitBtn.textContent = 'Enviando…';
+            submitBtn.textContent = 'Enviando�';
           }
 
           resetBtn?.setAttribute("disabled", "disabled");
@@ -4664,18 +4655,18 @@
             if (result?.synced) {
               await fetchAll();
               showThanks(name, result.ts ?? Date.now(), msg);
-              showToast('¡Gracias! Hemos registrado tu mensaje.');
+              showToast('�Gracias! Hemos registrado tu mensaje.');
             } else if (result?.local) {
               showThanks(name, result.ts ?? Date.now(), msg);
-              showToast('Guardado sin conexión. Se enviará cuando vuelva la señal.');
+              showToast('Guardado sin conexi�n. Se enviar� cuando vuelva la se�al.');
             } else if (result?.ok) {
               showThanks(name, result.ts ?? Date.now(), msg);
             } else {
-              showToast('No se pudo guardar el mensaje, inténtalo otra vez.');
+              showToast('No se pudo guardar el mensaje, int�ntalo otra vez.');
             }
           } catch (err) {
             console.error('[wishForm] submit', err);
-            showToast('No se pudo guardar el mensaje, inténtalo otra vez.');
+            showToast('No se pudo guardar el mensaje, int�ntalo otra vez.');
           } finally {
             isSending = false;
             submitBtn?.removeAttribute("aria-busy");
@@ -4718,7 +4709,7 @@
 
         init();
       })();
-      /* Música de fondo */
+      /* M�sica de fondo */
       const bgMusic = document.getElementById("bgMusic");
       const musicToggle = document.getElementById("musicToggle");
 
@@ -4744,11 +4735,11 @@
             musicToggle.innerHTML = "&#9658;";
             musicToggle.setAttribute(
               "aria-label",
-              "Reproducir música de fondo",
+              "Reproducir m�sica de fondo",
             );
           } else {
             musicToggle.innerHTML = "&#10074;&#10074;";
-            musicToggle.setAttribute("aria-label", "Detener música de fondo");
+            musicToggle.setAttribute("aria-label", "Detener m�sica de fondo");
           }
         };
 
@@ -4843,3 +4834,5 @@
     </script>
   </body>
 </html>
+
+
