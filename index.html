@@ -1,1812 +1,4543 @@
 <!doctype html>
+
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Boda — Romina & Javier · 15 de noviembre de 2025</title>
-  <meta name="description" content="Invitación de boda de Romina Gabriela Laura Rodriguez y Javier Rodrigo Manuel Sarmiento Lopez. Ceremonia, recepción, regalos, recuerdos y RSVP." />
-  <meta name="theme-color" content="#29392F" />
-  <meta name="robots" content="noindex,nofollow" />
+  <head>
+    <meta charset="utf-8" />
 
-  <!-- Open Graph / Twitter (URLs absolutas) -->
-  <meta property="og:title" content="Boda · Romina & Javier · 15/11/2025" />
-  <meta property="og:description" content="Toda la información: ceremonia, recepción, regalos, recuerdos y RSVP." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://javiersl26.github.io/" />
-  <meta property="og:image" content="assets/gallery/1_Parque_juntos.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Boda · Romina & Javier · 15/11/2025" />
-  <meta name="twitter:description" content="Detalles, mapas, regalos, recuerdos y RSVP." />
-  <meta name="twitter:image" content="assets/gallery/1_Parque_juntos.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>Boda — Romina & Javier · 15 de noviembre de 2025</title>
 
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- (Mantenemos Inter + Cormorant del refactor editorial) -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="Invitación de boda de Romina Gabriela Laura Rodriguez y Javier Rodrigo Manuel Sarmiento Lopez. Ceremonia, recepción, regalos, recuerdos y RSVP."
+    />
 
-  <style>
-    /* =========================================================
+    <meta name="theme-color" content="#29392F" />
+
+    <meta name="robots" content="noindex,nofollow" />
+
+    <!-- Open Graph / Twitter (URLs absolutas) -->
+
+    <meta property="og:title" content="Boda · Romina & Javier · 15/11/2025" />
+
+    <meta
+      property="og:description"
+      content="Toda la información: ceremonia, recepción, regalos, recuerdos y RSVP."
+    />
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:url" content="https://javiersl26.github.io/" />
+
+    <meta property="og:image" content="assets/gallery/1_Parque_juntos.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:title" content="Boda · Romina & Javier · 15/11/2025" />
+
+    <meta
+      name="twitter:description"
+      content="Detalles, mapas, regalos, recuerdos y RSVP."
+    />
+
+    <meta name="twitter:image" content="assets/gallery/1_Parque_juntos.jpg" />
+
+    <!-- Favicon -->
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <!-- Fuentes -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- (Mantenemos Inter + Cormorant del refactor editorial) -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =========================================================
+
+
+
        TOKENS (sin cambiar paleta; + mejoras de compatibilidad)
+
+
+
        ========================================================= */
-    :root{
-      --pine:#29392F;         /* títulos/marca */
-      --olive:#8D8E7C;        /* acentos sutiles */
-      --champagne:#F0DAB8;    /* paneles/bordes/focus */
-      --blush:#EFBFBB;        /* secundarios/acento */
-      --ivory:#F5EDE1;        /* fondo base */
-      --ink:#1E2723;          /* texto sobre ivory */
-      --line:#E9E2D6;         /* divisores */
 
-      /* Derivados */
-      --pine-hover: color-mix(in oklab, var(--pine) 85%, white);
-      --pine-active: color-mix(in oklab, var(--pine) 75%, black);
-      /* Mejora de contraste hover secundario solicitada */
-      --olive-hover:#6F735E;
+      :root {
+        --pine: #29392f; /* títulos/marca */
 
-      --radius:16px;
-      --shadow:0 6px 20px rgba(0,0,0,.08);
-      --surface-fallback:#F5EDE1; /* igual a nav “ivory” claro */
-      --section-bg-fallback:#F3E8D9; /* punto medio fijo */
-    }
-    @supports (color: color-mix(in oklab, white, black)){
-      :root{
-        /* barra/nav y secciones ligeramente aclaradas */
-        --surface: color-mix(in oklab, white 80%, var(--champagne) 20%);
-        /* versión translúcida para las cajitas del hero */
-        --surface-hero: color-mix(in oklab, var(--surface) 30%, transparent); /* ≈ opacidad .30 */
-        /* “punto medio” entre ivory y champagne */
-        --section-bg: color-mix(in oklab, var(--ivory) 60%, var(--champagne) 40%);
+        --olive: #8d8e7c; /* acentos sutiles */
+
+        --champagne: #f0dab8; /* paneles/bordes/focus */
+
+        --blush: #efbfbb; /* secundarios/acento */
+
+        --ivory: #f5ede1; /* fondo base */
+
+        --ink: #1e2723; /* texto sobre ivory */
+
+        --line: #e9e2d6; /* divisores */
+
+        /* Derivados */
+
+        --pine-hover: color-mix(in oklab, var(--pine) 85%, white);
+
+        --pine-active: color-mix(in oklab, var(--pine) 75%, black);
+
+        /* Mejora de contraste hover secundario solicitada */
+
+        --olive-hover: #6f735e;
+
+        --radius: 16px;
+
+        --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+        --surface-fallback: #f5ede1; /* igual a nav “ivory” claro */
+
+        --section-bg-fallback: #f3e8d9; /* punto medio fijo */
       }
-    }
 
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    html{scroll-behavior:smooth}
-    body{
-      /* Imagen de textura aplicada a todo el fondo */
-      background: url('assets/ui/textura-fondo.png') center/cover repeat;
-      color: var(--ink);
+      @supports (color: color-mix(in oklab, white, black)) {
+        :root {
+          /* barra/nav y secciones ligeramente aclaradas */
 
-      font-family:Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
-      line-height:1.6; 
-      -webkit-font-smoothing:antialiased; 
-      text-rendering:optimizeLegibility;
-      font-size:clamp(16px,1.7vw,18px);
-    }
+          --surface: color-mix(in oklab, white 80%, var(--champagne) 20%);
 
-    /* Titulares (editorial) */
-    h1,h2,h3{margin:0 0 12px; color:var(--pine); letter-spacing:.3px}
-    h1{font-family:"Cormorant Garamond", ui-serif, Georgia, serif; font-weight:700; font-size:clamp(48px,8vw,60px)}
-    h2{font-family:"Cormorant Garamond", ui-serif, Georgia, serif; font-weight:700; font-size:clamp(28px,3.4vw,32px)}
-    h3{font-family:"Cormorant Garamond", ui-serif, Georgia, serif; font-weight:600; font-size:clamp(22px,2.4vw,24px)}
+          /* versión translúcida para las cajitas del hero */
 
-    .section h2,
-    .wrap > h2,
-    #detalles h2,#itinerario h2,#ceremonia h2,#recepcion h2,#galeria h2,#regalos h2,#deseos h2,#rsvp h2{
-      font-family: "Great Vibes", cursive;
-      font-weight: 400;
-      font-size: clamp(38px,6vw,54px);
-      letter-spacing: 0;
-      color: var(--pine);
-      margin-bottom: 12px;
-    }
+          --surface-hero: color-mix(
+            in oklab,
+            var(--surface) 30%,
+            transparent
+          ); /* ≈ opacidad .30 */
 
-    a{color:var(--pine); text-decoration:none}
-    a:hover{ text-decoration:underline; text-decoration-color:var(--champagne); text-decoration-thickness:2px; text-underline-offset:3px }
-    a:focus-visible, .btn:focus-visible{ outline:3px solid color-mix(in oklab, var(--champagne), black 10%); outline-offset:3px; border-radius:12px }
+          /* “punto medio” entre ivory y champagne */
 
-    .wrap{max-width:1120px; margin:0 auto; padding:32px 20px}
+          --section-bg: color-mix(
+            in oklab,
+            var(--ivory) 60%,
+            var(--champagne) 40%
+          );
+        }
+      }
 
-    /* Fondo UNIFICADO para todas las secciones */
-    .wrap.section{
-      background: rgba(245,237,225,0.82); /* tono claro semitransparente */
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 24px 20px; /* ya contiene relleno propio */
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    /* Quita la segunda “capa” si la sección sólo tiene UNA tarjeta “envolviendo todo”.
+      html,
+      body {
+        margin: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        /* Imagen de textura aplicada a todo el fondo */
+
+        background: url("assets/ui/textura-fondo.png") center/cover repeat;
+
+        color: var(--ink);
+
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          Segoe UI,
+          Roboto,
+          Arial;
+
+        line-height: 1.6;
+
+        -webkit-font-smoothing: antialiased;
+
+        text-rendering: optimizeLegibility;
+
+        font-size: clamp(16px, 1.7vw, 18px);
+      }
+
+      /* Titulares (editorial) */
+
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 12px;
+        color: var(--pine);
+        letter-spacing: 0.3px;
+      }
+
+      h1 {
+        font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+        font-weight: 700;
+        font-size: clamp(48px, 8vw, 60px);
+      }
+
+      h2 {
+        font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+        font-weight: 700;
+        font-size: clamp(28px, 3.4vw, 32px);
+      }
+
+      h3 {
+        font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+        font-weight: 600;
+        font-size: clamp(22px, 2.4vw, 24px);
+      }
+
+      .section h2,
+      .wrap > h2,
+      #detalles h2,
+      #itinerario h2,
+      #ceremonia h2,
+      #recepcion h2,
+      #galeria h2,
+      #regalos h2,
+      #deseos h2,
+      #rsvp h2 {
+        font-family: "Great Vibes", cursive;
+
+        font-weight: 400;
+
+        font-size: clamp(38px, 6vw, 54px);
+
+        letter-spacing: 0;
+
+        color: var(--pine);
+
+        margin-bottom: 12px;
+      }
+
+      a {
+        color: var(--pine);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--champagne);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+      }
+
+      a:focus-visible,
+      .btn:focus-visible {
+        outline: 3px solid color-mix(in oklab, var(--champagne), black 10%);
+        outline-offset: 3px;
+        border-radius: 12px;
+      }
+
+      .wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 32px 20px;
+      }
+
+      /* Fondo UNIFICADO para todas las secciones */
+
+      .wrap.section {
+        background: rgba(245, 237, 225, 0.82); /* tono claro semitransparente */
+
+        border: 1px solid var(--line);
+
+        border-radius: 22px;
+
+        box-shadow: var(--shadow);
+
+        padding: 24px 20px; /* ya contiene relleno propio */
+      }
+
+      /* Quita la segunda “capa” si la sección sólo tiene UNA tarjeta “envolviendo todo”.
+
+
+
        Así el fondo visible es el de la sección, no una tarjeta interior. */
-    .wrap.section > .card:only-child,
-    .wrap.section > .panel:only-child,
-    .wrap.section > .wish-panel:only-child{
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      padding: 0;
-    }
 
-    /* Caso específico de Buenos deseos (tu HTML tiene 1 solo .wish-panel en la sección) */
-    #deseos.wrap.section > .wish-panel{
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      padding: 0;
-    }
+      .wrap.section > .card:only-child,
+      .wrap.section > .panel:only-child,
+      .wrap.section > .wish-panel:only-child {
+        background: transparent;
 
-    .grid{display:grid; gap:18px}
-    @media (min-width:768px){ .cols-2{grid-template-columns:1fr 1fr} }
+        border: 0;
 
-    /* Chips/etiquetas (se mantienen para otras zonas) */
-    .chip{
-      display:inline-block; background:var(--champagne); color:var(--pine);
-      border-radius:9999px; padding:4px 10px; font-size:.95rem; line-height:1; font-weight:500;
-    }
+        box-shadow: none;
 
-    /* TODAS las tarjetas/paneles con el mismo fondo */
-    .card,
-    .panel,
-    .wish-panel{
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(3px);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-    }
+        padding: 0;
+      }
 
-    /* =========================================================
+      /* Caso específico de Buenos deseos (tu HTML tiene 1 solo .wish-panel en la sección) */
+
+      #deseos.wrap.section > .wish-panel {
+        background: transparent;
+
+        border: 0;
+
+        box-shadow: none;
+
+        padding: 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      @media (min-width: 768px) {
+        .cols-2 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* Chips/etiquetas (se mantienen para otras zonas) */
+
+      .chip {
+        display: inline-block;
+        background: var(--champagne);
+        color: var(--pine);
+
+        border-radius: 9999px;
+        padding: 4px 10px;
+        font-size: 0.95rem;
+        line-height: 1;
+        font-weight: 500;
+      }
+
+      /* TODAS las tarjetas/paneles con el mismo fondo */
+
+      .card,
+      .panel,
+      .wish-panel {
+        background: rgba(255, 255, 255, 0.88);
+
+        backdrop-filter: blur(3px);
+
+        border: 1px solid var(--line);
+
+        border-radius: var(--radius);
+
+        padding: 18px;
+
+        box-shadow: var(--shadow);
+      }
+
+      /* =========================================================
+
+
+
        BOTONES (primario/secundario con estados + contraste)
+
+
+
        ========================================================= */
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      min-height:44px; padding:12px 20px; border-radius:9999px;
-      font-family:Inter, ui-sans-serif; font-weight:500; letter-spacing:.6px;
-      border:1px solid transparent; cursor:pointer; user-select:none;
-      transition: transform .08s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
-      text-decoration:none;
-      font-size:clamp(15px,1.5vw,16px);
-      line-height:1.1;
-      text-transform:none;
-    }
-    .btn:active{ transform: translateY(1px) }
-    .btn[disabled]{ opacity:.45; pointer-events:none }
 
-    .btn-primary{ background:var(--pine); color:var(--ivory); border:1.5px solid var(--champagne) }
-    /* Fallback sin color-mix */
-    .btn-primary:hover{ background:#E5D6B5; color:var(--pine); border-color:#DCC8A2 }
-    /* Versión avanzada con color-mix */
-    @supports (color: color-mix(in oklab, white, black)){
-      .btn-primary:hover{ background:var(--pine-hover); color:var(--ivory); border-color:var(--pine-hover) }
-    }
-    .btn-primary:active{ background:var(--pine-active); color:var(--ivory) }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
 
-    .btn-secondary{ background:var(--blush); color:var(--pine); border:1px solid color-mix(in oklab, var(--blush) 85%, var(--champagne)) }
-    .btn-secondary:hover{ background:var(--olive-hover); color:#FFFFFF; border-color:var(--olive-hover) }
+        min-height: 44px;
+        padding: 12px 20px;
+        border-radius: 9999px;
 
-    .btn-group{display:flex; gap:10px; flex-wrap:wrap}
-    .btn-group .btn{ flex:1 1 260px }
-    @media (max-width:520px){ .btn{ width:100% } }
+        font-family: Inter, ui-sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.6px;
 
-    /* =========================================================
+        border: 1px solid transparent;
+        cursor: pointer;
+        user-select: none;
+
+        transition:
+          transform 0.08s ease,
+          background-color 0.15s ease,
+          color 0.15s ease,
+          border-color 0.15s ease;
+
+        text-decoration: none;
+
+        font-size: clamp(15px, 1.5vw, 16px);
+
+        line-height: 1.1;
+
+        text-transform: none;
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btn[disabled] {
+        opacity: 0.45;
+        pointer-events: none;
+      }
+
+      .btn-primary {
+        background: var(--pine);
+        color: var(--ivory);
+        border: 1.5px solid var(--champagne);
+      }
+
+      /* Fallback sin color-mix */
+
+      .btn-primary:hover {
+        background: #e5d6b5;
+        color: var(--pine);
+        border-color: #dcc8a2;
+      }
+
+      /* Versión avanzada con color-mix */
+
+      @supports (color: color-mix(in oklab, white, black)) {
+        .btn-primary:hover {
+          background: var(--pine-hover);
+          color: var(--ivory);
+          border-color: var(--pine-hover);
+        }
+      }
+
+      .btn-primary:active {
+        background: var(--pine-active);
+        color: var(--ivory);
+      }
+
+      .btn-secondary {
+        background: var(--blush);
+        color: var(--pine);
+        border: 1px solid
+          color-mix(in oklab, var(--blush) 85%, var(--champagne));
+      }
+
+      .btn-secondary:hover {
+        background: var(--olive-hover);
+        color: #ffffff;
+        border-color: var(--olive-hover);
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn-group .btn {
+        flex: 1 1 260px;
+      }
+
+      @media (max-width: 520px) {
+        .btn {
+          width: 100%;
+        }
+      }
+
+      /* =========================================================
+
+
+
        NAV (con iconos decorativos aria-hidden)
-       ========================================================= */
-    /* NAV con el mismo fondo “surface” */
-    nav{
-      background: var(--surface, var(--surface-fallback));
-      position:sticky; top:0; z-index:20;
-      border-bottom:1px solid var(--line);
-      display:flex; gap:6px; overflow:auto; padding:8px 10px;
-      backdrop-filter:saturate(160%) blur(8px);
-    }
-    .nav-item{ display:inline-flex; align-items:center; gap:8px; color:var(--pine); padding:8px 12px; border-radius:12px; text-decoration:none; white-space:nowrap }
-    .nav-item svg{ width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round }
-    .nav-item:hover{ background: color-mix(in oklab, var(--champagne) 35%, white) }
-    .nav-item.active{ background: color-mix(in oklab, var(--champagne) 50%, white); box-shadow: inset 0 0 0 1px var(--line) }
 
-    /* =========================================================
+
+
+       ========================================================= */
+
+      /* NAV con el mismo fondo “surface” */
+
+      nav {
+        background: var(--surface, var(--surface-fallback));
+
+        position: sticky;
+        top: 0;
+        z-index: 20;
+
+        border-bottom: 1px solid var(--line);
+
+        display: flex;
+        gap: 6px;
+        overflow: auto;
+        padding: 8px 10px;
+
+        backdrop-filter: saturate(160%) blur(8px);
+      }
+
+      .nav-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--pine);
+        padding: 8px 12px;
+        border-radius: 12px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .nav-item svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .nav-item:hover {
+        background: color-mix(in oklab, var(--champagne) 35%, white);
+      }
+
+      .nav-item.active {
+        background: color-mix(in oklab, var(--champagne) 50%, white);
+        box-shadow: inset 0 0 0 1px var(--line);
+      }
+
+      /* =========================================================
+
+
+
        HERO (veladura + caja translúcida del título)
+
+
+
        ========================================================= */
-    header.hero{ position:relative; min-height:78vh; display:grid; place-items:start center; text-align:center; overflow:hidden; color:#fff; isolation:isolate; padding-top:clamp(120px,22vh,260px); padding-bottom:clamp(40px,12vh,140px) }
-    .hero .bg{ position:absolute; inset:0; object-fit:cover; object-position:center 25%; width:100%; height:100%; z-index:-2; transition:opacity 1s ease }
-    .hero .bg:not(.active){ opacity:0 }
-    header.hero::after{
-      content:""; position:absolute; inset:0; z-index:-1;
-      background: linear-gradient(to bottom,
-        color-mix(in oklab, var(--pine), transparent 65%),
-        transparent 15%);
-    }
 
-    /* Apilar en columna dentro del hero */
-    .hero .inner{
-      display:flex;
-      flex-direction:column;
-      align-items:center;          /* centra horizontalmente */
-    }
+      header.hero {
+        position: relative;
+        min-height: 78vh;
+        display: grid;
+        place-items: start center;
+        text-align: center;
+        overflow: hidden;
+        color: #fff;
+        isolation: isolate;
+        padding-top: clamp(120px, 22vh, 260px);
+        padding-bottom: clamp(40px, 12vh, 140px);
+      }
 
-    /* Nombre en el hero — misma base, muy translúcida */
-    .title-wrap{
-      display:block;
-      background: var(--surface-hero, rgba(245,237,225,.20));
-      border:1px solid rgba(228,215,189,.55);
-      border-radius:14px;
-      padding:8px 14px;
-      box-shadow:0 2px 12px rgba(41,57,47,.10);
-      backdrop-filter:saturate(120%) blur(2px);
-    }
+      .hero .bg {
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
+        object-position: center 25%;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        transition: opacity 1s ease;
+      }
 
-    /* separación vertical entre hijos del .inner */
-    .hero .inner > * + *{ margin-top:8px }
-    
-    .date-tile{
-      display:inline-grid; grid-template-columns:auto auto auto; gap:10px; align-items:center;
-      background: var(--surface-hero, rgba(245,237,225,.20));
-      color:#1f1f1f;
-      border:1px solid rgba(228,215,189,.55);
-      border-radius:16px; padding:10px 18px;
-      font-weight:600; letter-spacing:.3px;
-      box-shadow:0 2px 12px rgba(41,57,47,.10);
-    }
-    .date-tile .big{font-size:clamp(30px,6vw,46px); font-weight:700}
-    .countdown{ font-weight:700 }
+      .hero .bg:not(.active) {
+        opacity: 0;
+      }
 
-    /* legibilidad sutil */
-    .hero .title-wrap h1, .date-tile{ text-shadow: 0 1px 2px rgba(0,0,0,.08); }
+      header.hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
 
-    /* =========================================================
+        background: linear-gradient(
+          to bottom,
+
+          color-mix(in oklab, var(--pine), transparent 65%),
+          transparent 15%
+        );
+      }
+
+      /* Apilar en columna dentro del hero */
+
+      .hero .inner {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center; /* centra horizontalmente */
+      }
+
+      /* Nombre en el hero — misma base, muy translúcida */
+
+      .title-wrap {
+        display: block;
+
+        background: var(--surface-hero, rgba(245, 237, 225, 0.2));
+
+        border: 1px solid rgba(228, 215, 189, 0.55);
+
+        border-radius: 14px;
+
+        padding: 8px 14px;
+
+        box-shadow: 0 2px 12px rgba(41, 57, 47, 0.1);
+
+        backdrop-filter: saturate(120%) blur(2px);
+      }
+
+      /* separación vertical entre hijos del .inner */
+
+      .hero .inner > * + * {
+        margin-top: 8px;
+      }
+
+      .date-tile {
+        display: inline-grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        align-items: center;
+
+        background: var(--surface-hero, rgba(245, 237, 225, 0.2));
+
+        color: #1f1f1f;
+
+        border: 1px solid rgba(228, 215, 189, 0.55);
+
+        border-radius: 16px;
+        padding: 10px 18px;
+
+        font-weight: 600;
+        letter-spacing: 0.3px;
+
+        box-shadow: 0 2px 12px rgba(41, 57, 47, 0.1);
+      }
+
+      .date-tile .big {
+        font-size: clamp(30px, 6vw, 46px);
+        font-weight: 700;
+      }
+
+      .countdown {
+        font-weight: 700;
+      }
+
+      /* legibilidad sutil */
+
+      .hero .title-wrap h1,
+      .date-tile {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+
+      /* =========================================================
+
+
+
        MAPAS + ACCIONES (1 columna siempre)
-       ========================================================= */
-    .map-embed{ position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#fff }
-    .map-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0 }
-    .loc-grid{ display:grid; gap:16px; grid-template-columns:1fr; align-items:start }
-    .map-embed{ order:1 }
-    .loc-grid .btn-group{ order:2 }
 
-    /* =========================================================
-       RECUERDOS (video + galería)
-       ========================================================= */
-    .video-card video{ width:100%; border-radius:12px; border:1px solid var(--line); display:block }
-    .gallery{ display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) }
-    .gallery img{ width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:#fff; transition: transform .2s ease, box-shadow .2s ease }
-    .gallery img:hover{ transform:scale(1.01); box-shadow:var(--shadow) }
-    dialog#lightbox{ border:none; padding:0; max-width:min(95vw,1100px); background:transparent }
-    dialog#lightbox::backdrop{ background:rgba(0,0,0,.6) }
-    .lightbox-img{ max-width:95vw; max-height:85vh; border-radius:12px; border:1px solid var(--line) }
 
-    /* Paneles destacados (Regalos / RSVP) con fallback */
-    /*
+
+       ========================================================= */
+
+      .map-embed {
+        position: relative;
+        padding-top: 56.25%;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .map-embed iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .loc-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .map-embed {
+        order: 1;
+      }
+
+      .loc-grid .btn-group {
+        order: 2;
+      }
+
+      /* =========================================================
+
+
+
+       RECUERDOS (galería)
+
+
+
+       ========================================================= */
+      .gallery {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #fff;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.01);
+        box-shadow: var(--shadow);
+      }
+
+      dialog#lightbox {
+        border: none;
+        padding: 0;
+        max-width: min(95vw, 1100px);
+        background: transparent;
+      }
+
+      dialog#lightbox::backdrop {
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .lightbox-img {
+        max-width: 95vw;
+        max-height: 85vh;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+      }
+
+      /* Paneles destacados (Regalos / RSVP) con fallback */
+
+      /*
+
+
+
     .panel{ background:#F6EAD4; border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow) }
+
+
+
     @supports (color: color-mix(in oklab, white, black)){
+
+
+
       .panel{ background:color-mix(in oklab, var(--champagne) 20%, white) }
+
+
+
     }
+
+
+
     */
 
-    /* Footer oscuro */
-    footer{ padding:28px 16px; text-align:center; background:var(--pine); color:#F5F5F5 }
-    footer a{ color:#F5F5F5; text-decoration:underline; text-decoration-color:var(--champagne); text-underline-offset:3px; text-decoration-thickness:2px }
+      /* Footer oscuro */
 
-    /* Accesibilidad de movimiento/contraste */
-    @media (prefers-reduced-motion: reduce){
-      .hero .bg{ transition:none } .gallery img:hover{ transform:none; box-shadow:none }
-    }
-    @media (prefers-contrast: more){
-      .card, .panel{ border-width:2px }
-      body{ color: var(--pine-active) }
-    }
+      footer {
+        padding: 28px 16px;
+        text-align: center;
+        background: var(--pine);
+        color: #f5f5f5;
+      }
 
-    /* Utilidad para lectores de pantalla (estado de copiado) */
-    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+      footer a {
+        color: #f5f5f5;
+        text-decoration: underline;
+        text-decoration-color: var(--champagne);
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+      }
 
-    /* ================= SPLASH / BIENVENIDA (mejorado) ================= */
-    /* ===== Overlay base (imprescindible) ===== */
-    #splash{
-      position: fixed; inset: 0; z-index: 9999;
-      display: grid; place-items: center;
-      background:
-        radial-gradient(1200px 800px at 50% 40%, rgba(41,57,47,.10), transparent 60%),
-        var(--ivory);
-      transition: opacity .5s ease, visibility .5s ease;
-      perspective: 1600px; /* volumen a la solapa */
-    }
+      /* Accesibilidad de movimiento/contraste */
 
-    /* BASE de la carta: tamaño, posición y 3D */
-    #splash .envelope{
-      position: relative;
-      width: min(84vw, 640px);
-      height: min(56vw, 420px);
-      transform-origin: center;
-      transform-style: preserve-3d;
-      animation: splash-in .6s ease both;
-      /* profundidad extra */
-      filter: drop-shadow(0 22px 44px rgba(0,0,0,.20))
-              drop-shadow(0 2px 6px rgba(0,0,0,.06));
-    }
+      @media (prefers-reduced-motion: reduce) {
+        .hero .bg {
+          transition: none;
+        }
+        .gallery img:hover {
+          transform: none;
+          box-shadow: none;
+        }
+      }
 
-    /* Borde suave + viñeta para “recortar” mejor contra el fondo */
-    .envelope-body::before{
-      content:"";
-      position:absolute; inset:0;
-      border-radius:18px;
-      pointer-events:none;
-      /* fino bisel externo */
-      box-shadow:
-        inset 0 1.2px 0 rgba(255,255,255,.65),
-        inset 0 -1.4px 0 rgba(0,0,0,.05);
-    }
+      @media (prefers-contrast: more) {
+        .card,
+        .panel {
+          border-width: 2px;
+        }
 
-    /* ——— Bordes y pliegues del cuerpo: más definidos ——— */
-    .envelope-body{
-      position:absolute; inset:0; z-index:1; border-radius:18px;
-      background:
-        url('assets/ui/textura-fondo.png') center/cover no-repeat,
-        linear-gradient(180deg,#f7efe0 0%,#efe3cc 100%),
-        #efe3cc;
-      background-blend-mode:multiply,normal,normal;
-      border:2px solid #e6dcc9;
-      /* relieve un poco más fuerte */
-      box-shadow: inset 0 5px 16px rgba(0,0,0,.08), inset 0 -3px 10px rgba(0,0,0,.04);
-    }
-    /* pliegues laterales en X (sube opacidad) */
-    .envelope-body::after{
-      content:""; position:absolute; inset:0; border-radius:18px; pointer-events:none;
-      background:
-        linear-gradient(135deg, rgba(0,0,0,.16), rgba(0,0,0,0) 42%) left bottom/52% 58% no-repeat,
-        linear-gradient(225deg, rgba(0,0,0,.16), rgba(0,0,0,0) 42%) right bottom/52% 58% no-repeat;
-      opacity:.26;
-    }
-    /* bisel exterior más visible */
-    .envelope-body::before{
-      content:""; position:absolute; inset:0; border-radius:18px; pointer-events:none;
-      box-shadow:
-        inset 0 1.4px 0 rgba(255,255,255,.75),
-        inset 0 -1.6px 0 rgba(0,0,0,.06);
-    }
+        body {
+          color: var(--pine-active);
+        }
+      }
 
-    /* Fisura de unión (contorno superior del triángulo) */
-    .envelope-flap::after{
-      content:"";
-      position:absolute; inset:auto 14px -2px 14px; height:2px;
-      background: linear-gradient(90deg, transparent, rgba(0,0,0,.12), transparent);
-      border-radius:2px;
-      opacity:.7;
-    }
+      /* Utilidad para lectores de pantalla (estado de copiado) */
 
-    /* Cuerpo del sobre */
-    .envelope-body{
-      position: absolute; inset: 0; z-index: 1;
-      border-radius: 18px;
-      /* Fallback de color + textura (si la imagen falla, igual se ve) */
-      background:
-        url('assets/ui/textura-fondo.png') center/cover no-repeat,
-        linear-gradient(180deg, #f7efe0 0%, #efe3cc 100%),
-        #efe3cc; /* <- respaldo sólido */
-      background-blend-mode: multiply, normal, normal;
-      border: 2px solid #e6dcc9;
-      box-shadow: inset 0 4px 14px rgba(0,0,0,.06); /* relieve sutil */
-    }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
 
-    /* Hoja interior (aparece al abrir): hoja limpia, oculta detrás del bolsillo hasta salir */
-    .letter{
-      position:absolute; left:6%; right:6%; top:18%; bottom:16%; z-index:2; /* más baja, detrás del bolsillo */
-      border-radius:12px;
-      background: linear-gradient(180deg,#fdfbf6 0%,#f6f1e9 100%);
-      border:1px solid #e6dcc9;
-      transform: translateY(8px);
-      opacity:0;
-      transition: opacity .4s ease, transform .4s ease;
-    }
+      /* ================= SPLASH / BIENVENIDA (mejorado) ================= */
 
-    /* ——— Flap (pliegue) un poco más abajo ——— */
-    .envelope-flap{
-      position:absolute; left:0; right:0; top:0; height:60%; z-index:4;   /* antes: 56% */
-      background:
-        url('assets/ui/textura-fondo.png') bottom/cover no-repeat,
-        linear-gradient(180deg,#f3e8d6 0%,#e9dcc4 100%), #e9dcc4;
-      background-blend-mode:multiply,normal,normal;
-      clip-path: polygon(0 0,100% 0,50% 100%);
-      border-top-left-radius:18px; border-top-right-radius:18px;
-      border-bottom:2px solid color-mix(in oklab,var(--champagne),black 15%);
-      transform-origin:50% 0%;
-      transform:rotateX(0deg) translateZ(1px);
-      backface-visibility:hidden;
-      transition:transform 1.08s cubic-bezier(.19,.9,.22,1), filter .7s ease;
-    }
-    /* línea del pliegue un pelín más marcada */
-    .envelope-flap::after{
-      content:""; position:absolute; inset:auto 14px -2px 14px; height:2px;
-      background: linear-gradient(90deg, transparent, rgba(0,0,0,.18), transparent);
-      border-radius:2px; opacity:.85;
-    }
+      /* ===== Overlay base (imprescindible) ===== */
 
-    /* ——— Bolsillo: cubre la hoja y refuerza pliegues ——— */
-    .envelope-pocket{
-      position:absolute; inset:24% 0 0 0; z-index:3;                    /* antes: 22% */
-      background:
-        url('assets/ui/textura-fondo.png') center/cover no-repeat,
-        linear-gradient(180deg,#f3e8d6 0%,#e9dcc4 100%), #e9dcc4;
-      background-blend-mode:multiply,normal,normal;
-      border-bottom-left-radius:18px; border-bottom-right-radius:18px;
-      border:2px solid #e6dcc9; border-top:none;
-      /* V un toque más alta para “encajar” con la solapa */
-      clip-path: polygon(0 0, 50% 40%, 100% 0, 100% 100%, 0 100%);      /* antes: 36% */
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.55), inset 0 -7px 12px rgba(0,0,0,.06);
-    }
-    /* sombras de los pliegues del bolsillo más visibles */
-    .envelope-pocket::after{
-      content:""; position:absolute; inset:0; pointer-events:none;
-      border-bottom-left-radius:18px; border-bottom-right-radius:18px;
-      background:
-        linear-gradient(135deg, rgba(0,0,0,.18), rgba(0,0,0,0) 45%) left bottom/52% 60% no-repeat,
-        linear-gradient(225deg, rgba(0,0,0,.18), rgba(0,0,0,0) 45%) right bottom/52% 60% no-repeat;
-      opacity:.28;
-    }
-    /* línea fina siguiendo la “V” del bolsillo (contorno) */
-    .envelope-pocket::before{
-      content:""; position:absolute; left:0; right:0; top:0; height:42%; pointer-events:none;
-      background:
-        linear-gradient( to right,
-          transparent 0, rgba(0,0,0,.06) 50%, transparent 100% );
-  -webkit-mask: linear-gradient(180deg, black 0 1px, transparent 1px); /* solo borde superior */
-  mask: linear-gradient(180deg, black 0 1px, transparent 1px);
-      opacity:.7;
-    }
+      #splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
 
-    /* ——— Sombra de la solapa cuando abre ——— */
-    .envelope::after{
-      content:""; position:absolute; left:6%; right:6%; top:8%; height:24%; z-index:3;
-      border-radius:14px;
-      background: radial-gradient(120% 120% at 50% 0%, rgba(0,0,0,.32), transparent 70%);
-      filter: blur(12px);
-      opacity:0; pointer-events:none; transition:opacity .45s ease;
-    }
+        display: grid;
+        place-items: center;
 
-    /* Solapa al abrir, 1.5× más lenta */
-    #splash.opening .envelope-flap{
-      transform: rotateX(-155deg) translateZ(1px);
-      filter: drop-shadow(0 18px 24px rgba(0,0,0,.18));
-      transition: transform 1.08s cubic-bezier(.19,.9,.22,1), filter .7s ease;
-      animation: flap-settle .7s 1.08s ease-out 1 both; /* el “settle” empieza cuando termina */
-    }
+        background:
+          radial-gradient(
+            1200px 800px at 50% 40%,
+            rgba(41, 57, 47, 0.1),
+            transparent 60%
+          ),
+          var(--ivory);
 
-    #splash.opening .envelope::after{
-      opacity: 1;
-    }
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
 
-    /* ===== Chasquido del sello (sprite + partículas) ===== */
+        perspective: 1600px; /* volumen a la solapa */
+      }
 
-    /* Ajustes del sello para efectos */
-    .wax-seal{
-      position: absolute; left: 50%; top: 50%;
-      width: 122px; height: 122px; margin: -61px 0 0 -61px;
-      background: url('assets/ui/sello-cera-dorado.png') no-repeat center / contain; /* renombra sin espacios */
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,.18))
-              drop-shadow(0 10px 16px rgba(0,0,0,.16))
-              brightness(1.02) contrast(1.06) saturate(1.05);
-      z-index: 5;
-      transform-origin: 50% 50%;
-    }
+      /* BASE de la carta: tamaño, posición y 3D */
 
-    /* Capa de GRIETA (sprite 6x1) sin imagen; agrega el sprite si deseas reactivar el efecto */
-    .wax-seal .seal-crack{
-      position:absolute; inset:-18px;           /* un poco más grande que el sello */
-      background: none;
-      /* Guia: agrega aqui un PNG de 6 cuadros si quieres devolver el crack animado */
-      opacity: 0; pointer-events:none;
-      mix-blend-mode: multiply;                  /* la grieta se integra al relieve */
-    }
+      #splash .envelope {
+        position: relative;
 
-    /* Partículas (motas/destellos) */
-    .wax-seal::after{
-      content:""; position:absolute; left:50%; top:50%; width:4px; height:4px;
-      background: transparent; opacity:0; pointer-events:none; transform-origin:center;
-      /* 12 partículas en distintas direcciones (oro/champagne) */
-      box-shadow:
-        -6px -2px 0 0 #C8A54A,
-        8px -4px 0 0 #E3C975,
-        -10px 3px 0 0 #C8A54A,
-        5px 6px 0 0 #E3C975,
-        12px 1px 0 0 #C8A54A,
-        -4px 10px 0 0 #E3C975,
-        0px -10px 0 0 #C8A54A,
-        -12px -8px 0 0 #E3C975,
-        14px -10px 0 0 #C8A54A,
-        -14px 6px 0 0 #E3C975,
-        2px 12px 0 0 #C8A54A,
-        10px -12px 0 0 #E3C975;
-    }
+        width: min(84vw, 640px);
 
-    /* Animaciones */
-    @keyframes crack-frames{
-      0%   { background-position:   0% 50%; opacity: 0; }
-      1%   { opacity: 1; }
-      99%  { background-position: 100% 50%; opacity: 1; }
-      100% { opacity: 0; }
-    }
-    @keyframes crack-burst{
-      0%   { opacity: 0; transform: scale(.6) translateY(0); }
-      20%  { opacity: 1; }
-      100% { opacity: 0; transform: scale(1.7) translateY(-6px); }
-    }
-    /* pequeño “pop” del sello */
-    @keyframes seal-pop{
-      0%   { transform: scale(1); }
-      40%  { transform: scale(1.06); }
-      100% { transform: scale(1); }
-    }
+        height: min(56vw, 420px);
 
-    /* microbalanceo al final (apenas perceptible) */
-    @keyframes flap-settle{
-      0%{ transform: rotateX(-155deg) translateZ(1px); }
-      60%{ transform: rotateX(-150deg) translateZ(1px); }
-      100%{ transform: rotateX(-155deg) translateZ(1px); }
-    }
+        transform-origin: center;
 
-    /* ——— Hoja: empieza realmente dentro ——— */
-    .letter{
-      position:absolute; left:6%; right:6%; top:18%; bottom:16%; z-index:2; /* detrás del bolsillo */
-      border-radius:12px;
-      background: linear-gradient(180deg,#fdfbf6 0%,#f6f1e9 100%);
-      border:1px solid #e6dcc9;
-      transform: translateY(8px);
-      opacity:0;
-      transition: opacity .4s ease, transform .4s ease;
-    }
-    /* salida desde dentro + push-in */
-    @keyframes letter-out{
-      0%   { opacity:0; transform: translateY(8px)  scale(1);   }
-      20%  { opacity:1; transform: translateY(0)    scale(1.005);} 
-      60%  { opacity:1; transform: translateY(-110%) scale(1.07);} 
-      100% { opacity:0; transform: translateY(-150%) scale(1.12);} 
-    }
-    #splash.opening .letter{ animation: letter-out .9s .30s cubic-bezier(.18,.8,.24,1) forwards; }
+        transform-style: preserve-3d;
 
-    /* Disparo durante la apertura */
-    #splash.opening .wax-seal{ animation: seal-pop .22s ease-out both; }
-    #splash.opening .wax-seal .seal-crack{ animation: crack-frames .32s steps(5) forwards; }
-    #splash.opening .wax-seal::after{ animation: crack-burst .38s ease-out both; }
+        animation: splash-in 0.6s ease both;
 
-    /* halo breve detrás del papel durante la apertura */
-    #splash.opening .envelope-body{
-      animation: paper-halo .5s .28s ease-out 1 both;
-    }
+        /* profundidad extra */
 
-    /* CTA / Tooltip */
-    .splash-cta{
-      position: absolute; left: 50%; bottom: clamp(24px, 8vh, 60px);
-      transform: translateX(-50%);
-      display: inline-flex; align-items: center; gap: 10px;
-      background: color-mix(in oklab, var(--champagne) 70%, white 30%);
-      color: var(--pine); border: 1px solid var(--line);
-      padding: 12px 16px; border-radius: 999px;
-      font-weight: 600; letter-spacing: .3px;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      opacity: 0; pointer-events: none;
-      animation: cta-pop .6s 1.2s ease forwards, cta-pulse 1.6s 2s ease-in-out infinite;
-    }
-    .splash-cta .hand{ transform-origin: 70% 70%; display: inline-block; animation: hand-wiggle 1.2s ease-in-out infinite; }
+        filter: drop-shadow(0 22px 44px rgba(0, 0, 0, 0.2))
+          drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
+      }
 
-    #splash.opening{
-      animation: splash-out .55s .6s ease forwards;
-    }
+      /* Borde suave + viñeta para “recortar” mejor contra el fondo */
 
-    /* ===== Motion safe/less ===== */
-    @media (prefers-reduced-motion: reduce){
-      #splash, .envelope, .wax-seal, .splash-cta, .envelope-flap, .letter{ animation: none !important; transition: none !important; }
-      .wax-seal{ opacity: 1; transform: none; }
-      .splash-cta{ opacity: 1; pointer-events: auto; }
-    }
+      .envelope-body::before {
+        content: "";
 
-    /* ===== Keyframes ===== */
-    @keyframes splash-in{
-      from{ transform: translateY(12px) scale(.985); opacity: 0; }
-      to  { transform: translateY(0) scale(1); opacity: 1; }
-    }
-    @keyframes seal-drop{
-      0%   { opacity: 0; transform: translateY(-22px) scale(.85); }
-      60%  { opacity: 1; transform: translateY(0) scale(1.04); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    /* pequeña grieta/plop antes de desvanecerse */
-    @keyframes seal-crack{
-      0%   { transform: translateY(0) scale(1) rotate(0deg); }
-      50%  { transform: translateY(1px) scale(.95) rotate(-5deg); }
-      100% { transform: translateY(0) scale(1.05) rotate(6deg); }
-    }
-    @keyframes seal-fade{
-      to { opacity: 0; transform: translateY(-8px) scale(.6) rotate(10deg); filter: blur(1px); }
-    }
-    @keyframes cta-pop{
-      from{ opacity: 0; transform: translateX(-50%) translateY(6px) scale(.98); }
-      to  { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); pointer-events: auto; }
-    }
-    @keyframes cta-pulse{
-      0%,100%{ box-shadow: 0 0 0 0 rgba(239,191,187,.0); }
-      50%    { box-shadow: 0 0 0 12px rgba(239,191,187,.18); }
-    }
-    @keyframes hand-wiggle{
-      0%,100%{ transform: rotate(0deg); }
-      30%    { transform: rotate(12deg); }
-      60%    { transform: rotate(-6deg); }
-    }
-    @keyframes splash-out{ to{ opacity: 0; visibility: hidden; } }
-    @keyframes paper-halo{
-      from{ box-shadow: inset 0 0 0 rgba(0,0,0,0), 0 0 0 rgba(255,255,255,0); }
-      to  { box-shadow: inset 0 0 14px rgba(255,255,255,.25); }
-    }
-    /* Título caligráfico solo en el hero */
-    .hero .title-wrap h1{
-      font-family: "Great Vibes", cursive;
-      font-weight: 400;
-      font-size: clamp(56px, 10vw, 96px);
-      line-height: 1.05;
-      letter-spacing: 0;
-      color: var(--pine);
-      text-shadow: 0 1px 0 rgba(255,255,255,.35);
-    }
+        position: absolute;
+        inset: 0;
 
-    @media (max-width:520px){
-      .hero .title-wrap h1{ font-size: clamp(40px, 9.5vw, 56px); }
-    }
+        border-radius: 18px;
 
-    /* ===== Bloques con icono (estilo header) ===== */
-    .icon-row,
-    .info-item{
-      display:flex; align-items:center; gap:14px;
-      padding:14px 16px; margin:10px 0;
-      border-radius:18px; border:1.5px solid var(--line);
-      background: transparent; /* antes: var(--surface, var(--surface-fallback)) */
-      box-shadow:none;              /* fuera la sombra blanca */
-    }
+        pointer-events: none;
 
-    .icon-badge,
-    .info-badge{
-      flex:0 0 42px; height:42px; width:42px; border-radius:999px;
-      display:grid; place-items:center;
-      background:transparent;                 /* <— transparente */
-      border:1.5px solid var(--pine);         /* aro fino verde */
-    }
+        /* fino bisel externo */
 
-    .icon-badge svg,
-    .info-badge svg{
-      width:22px; height:22px;
-      stroke:var(--pine); fill:none; stroke-width:2.1; /* icono verde */
-    }
+        box-shadow:
+          inset 0 1.2px 0 rgba(255, 255, 255, 0.65),
+          inset 0 -1.4px 0 rgba(0, 0, 0, 0.05);
+      }
 
-    /* Texto dentro de filas */
-    .icon-block .line-strong,
-    .info-title{ display:block; font-weight:700; color:var(--ink); line-height:1.25 }
-    .icon-block .line-muted,
-    .info-sub{ display:block; color:#4b4b4b; line-height:1.25 }
+      /* ——— Bordes y pliegues del cuerpo: más definidos ——— */
 
-    /* ===== Itinerario con icono transparente ===== */
-    .itinerary{ list-style:none; padding:0; margin:6px 0 0 }
-    .itinerary li{ display:flex; align-items:center; gap:10px; padding:8px 0 }
-    .itinerary .dot{
-      flex:0 0 28px; height:28px; width:28px; border-radius:999px;
-      display:grid; place-items:center;
-      background:transparent; border:1.5px solid var(--pine);
-    }
-    .itinerary .dot svg{ width:16px; height:16px; stroke:var(--pine); fill:none; stroke-width:2 }
-    .itinerary .label{ color:var(--ink) }
+      .envelope-body {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        border-radius: 18px;
 
-    /* Chip con icono (si lo usas en otra parte) */
-    .chip.icon{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; background:var(--ivory); border:1px solid var(--line) }
-    .chip .mini{
-      flex:0 0 18px; width:18px; height:18px; border-radius:999px;
-      display:grid; place-items:center; background:transparent; border:1.5px solid var(--pine);
-    }
-    .chip .mini svg{ width:12px; height:12px; stroke:var(--pine); fill:none; stroke-width:2 }
+        background:
+          url("assets/ui/textura-fondo.png") center/cover no-repeat,
+          linear-gradient(180deg, #f7efe0 0%, #efe3cc 100%),
+          #efe3cc;
 
-    /* ===== Buenos Deseos ===== */
-    .wish-panel{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px }
-    .wish-header{ display:flex; align-items:center; gap:10px; justify-content:space-between; margin-bottom:8px }
-    #wishCount{ font-size:.95rem }
+        background-blend-mode: multiply, normal, normal;
 
-    .wish-actions{ display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 12px }
-    .wish-list{ display:grid; gap:12px; margin-top:8px; max-height:340px; overflow:auto; padding-right:4px }
-    .wish-list.is-hidden{ display:none !important; }
-    .wish-avatar{
-      min-width:56px; height:56px; border-radius:9999px;
-      background:color-mix(in oklab, var(--champagne) 70%, white);
-      color:var(--pine); display:flex; align-items:center; justify-content:center; gap:6px; padding:0 10px;
-      font-weight:700; letter-spacing:.4px; text-transform:uppercase;
-    }
-    .avatar-initials{ font-size:.95rem; line-height:1; }
-    .avatar-animal{ font-size:1.35rem; line-height:1; }
+        border: 2px solid #e6dcc9;
 
-    .wish-header-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px }
-    .wish-header-left{ display:flex; align-items:center; gap:10px; flex-wrap:wrap }
-    .wish-name{ font-weight:600; color:var(--ink); line-height:1.2 }
-    .wish-date{ font-size:.9rem; color:#6b6b6b; white-space:nowrap; margin-left:auto }
-    .wish-item{ display:grid; grid-template-columns:minmax(56px,auto) 1fr; gap:16px; align-items:flex-start; background:var(--ivory); border:1px solid var(--line); border-radius:12px; padding:12px 16px; scroll-margin-top:110px }
-    .wish-highlight{ animation:wishGlow 2.4s ease-in-out 1 }
-    @keyframes wishGlow{ 0%{ box-shadow:0 0 0 0 rgba(239,191,187,0); } 35%{ box-shadow:0 0 0 10px rgba(239,191,187,.35); } 100%{ box-shadow:0 0 0 0 rgba(239,191,187,0); } }
-    .wish-text{ margin:6px 0 0; white-space:pre-wrap }
+        /* relieve un poco más fuerte */
 
-    .wish-empty{
-      text-align:center; padding:18px; color:#6b6b6b; border:1px dashed var(--line); border-radius:12px; background:#fff
-    }
+        box-shadow:
+          inset 0 5px 16px rgba(0, 0, 0, 0.08),
+          inset 0 -3px 10px rgba(0, 0, 0, 0.04);
+      }
 
-    /* formulario */
-    .wish-form{ display:grid; gap:10px; margin-top:12px }
-    .wish-form input, .wish-form textarea{
-      width:100%; background:#fff; color:var(--ink);
-      border:1.5px solid var(--line); border-radius:12px; padding:12px 14px;
-      font-family:Inter, ui-sans-serif; font-size:1rem;
-    }
-    .wish-form input:focus, .wish-form textarea:focus{ outline:3px solid color-mix(in oklab, var(--champagne), black 10%); border-color:var(--champagne) }
-    .wish-form .row{ display:flex; align-items:center; gap:10px; }
-    .wish-form .char{ margin-left:auto; font-size:.9rem; color:#6b6b4b }
+      /* pliegues laterales en X (sube opacidad) */
 
-    .frase-inicial{
-      font-family: 'Parisienne', cursive;
-      font-weight: 500; 
-      font-size: clamp(22px, 2.6vw, 28px); /* un poco más grande para resaltar */
-      line-height: 1.4;
-      color: var(--pine);
-      margin: 6px 0 0;
-    }
+      .envelope-body::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 18px;
+        pointer-events: none;
 
-    /* ===== Nuestros padres ===== */
-    .padres{
-      text-align:center;
-    }
-    .padres h2{
-      font-family: 'Parisienne', cursive;  /* misma fuente que la frase */
-      font-weight: 600;                    /* “negrita” suave */
-      font-size: clamp(30px, 4.8vw, 40px);
-      color: var(--pine);
-      margin: 0 0 14px;
-    }
-    .padres .grid{
-      gap: 12px;
-    }
-    .padres .bloque{
-      background: var(--surface, var(--surface-fallback));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 14px;
-    }
-    .padres h3{
-      font-family: 'Parisienne', cursive;
-      font-weight: 600;
-      font-size: clamp(22px, 3.4vw, 26px);
-      color: var(--pine);
-      margin: 0 0 8px;
-    }
-    .padres p{
-      margin: 4px 0;
-    }
+        background:
+          linear-gradient(135deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0) 42%)
+            left bottom/52% 58% no-repeat,
+          linear-gradient(225deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0) 42%)
+            right bottom/52% 58% no-repeat;
 
-    /* iconografía consistente (si conservas tus inline svgs) */
-    .nav-item svg, .icon-badge svg, .info-badge svg, .itinerary .dot svg{
-      stroke-linecap:round; stroke-linejoin:round; stroke-width:1.8;
-    }
+        opacity: 0.26;
+      }
 
-    /* opcional: borde sutil cuando se desplaza la lista */
-    .wish-list::-webkit-scrollbar{ width:10px }
-    .wish-list::-webkit-scrollbar-thumb{ background: #e4dccb; border-radius:12px; border:2px solid #faf7f0 }
+      /* bisel exterior más visible */
 
-    /* =====================================================
+      .envelope-body::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 18px;
+        pointer-events: none;
+
+        box-shadow:
+          inset 0 1.4px 0 rgba(255, 255, 255, 0.75),
+          inset 0 -1.6px 0 rgba(0, 0, 0, 0.06);
+      }
+
+      /* Fisura de unión (contorno superior del triángulo) */
+
+      .envelope-flap::after {
+        content: "";
+
+        position: absolute;
+        inset: auto 14px -2px 14px;
+        height: 2px;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 0, 0, 0.12),
+          transparent
+        );
+
+        border-radius: 2px;
+
+        opacity: 0.7;
+      }
+
+      /* Cuerpo del sobre */
+
+      .envelope-body {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+
+        border-radius: 18px;
+
+        /* Fallback de color + textura (si la imagen falla, igual se ve) */
+
+        background:
+          url("assets/ui/textura-fondo.png") center/cover no-repeat,
+          linear-gradient(180deg, #f7efe0 0%, #efe3cc 100%),
+          #efe3cc; /* <- respaldo sólido */
+
+        background-blend-mode: multiply, normal, normal;
+
+        border: 2px solid #e6dcc9;
+
+        box-shadow: inset 0 4px 14px rgba(0, 0, 0, 0.06); /* relieve sutil */
+      }
+
+      /* Hoja interior (aparece al abrir): hoja limpia, oculta detrás del bolsillo hasta salir */
+
+      .letter {
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        top: 18%;
+        bottom: 16%;
+        z-index: 2; /* más baja, detrás del bolsillo */
+
+        border-radius: 12px;
+
+        background: linear-gradient(180deg, #fdfbf6 0%, #f6f1e9 100%);
+
+        border: 1px solid #e6dcc9;
+
+        transform: translateY(8px);
+
+        opacity: 0;
+
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease;
+      }
+
+      /* ——— Flap (pliegue) un poco más abajo ——— */
+
+      .envelope-flap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 60%;
+        z-index: 4; /* antes: 56% */
+
+        background:
+          url("assets/ui/textura-fondo.png") bottom/cover no-repeat,
+          linear-gradient(180deg, #f3e8d6 0%, #e9dcc4 100%),
+          #e9dcc4;
+
+        background-blend-mode: multiply, normal, normal;
+
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+
+        border-bottom: 2px solid
+          color-mix(in oklab, var(--champagne), black 15%);
+
+        transform-origin: 50% 0%;
+
+        transform: rotateX(0deg) translateZ(1px);
+
+        backface-visibility: hidden;
+
+        transition:
+          transform 1.08s cubic-bezier(0.19, 0.9, 0.22, 1),
+          filter 0.7s ease;
+      }
+
+      /* línea del pliegue un pelín más marcada */
+
+      .envelope-flap::after {
+        content: "";
+        position: absolute;
+        inset: auto 14px -2px 14px;
+        height: 2px;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 0, 0, 0.18),
+          transparent
+        );
+
+        border-radius: 2px;
+        opacity: 0.85;
+      }
+
+      /* ——— Bolsillo: cubre la hoja y refuerza pliegues ——— */
+
+      .envelope-pocket {
+        position: absolute;
+        inset: 24% 0 0 0;
+        z-index: 3; /* antes: 22% */
+
+        background:
+          url("assets/ui/textura-fondo.png") center/cover no-repeat,
+          linear-gradient(180deg, #f3e8d6 0%, #e9dcc4 100%),
+          #e9dcc4;
+
+        background-blend-mode: multiply, normal, normal;
+
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+
+        border: 2px solid #e6dcc9;
+        border-top: none;
+
+        /* V un toque más alta para “encajar” con la solapa */
+
+        clip-path: polygon(
+          0 0,
+          50% 40%,
+          100% 0,
+          100% 100%,
+          0 100%
+        ); /* antes: 36% */
+
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.55),
+          inset 0 -7px 12px rgba(0, 0, 0, 0.06);
+      }
+
+      /* sombras de los pliegues del bolsillo más visibles */
+
+      .envelope-pocket::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+
+        background:
+          linear-gradient(135deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0) 45%)
+            left bottom/52% 60% no-repeat,
+          linear-gradient(225deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0) 45%)
+            right bottom/52% 60% no-repeat;
+
+        opacity: 0.28;
+      }
+
+      /* línea fina siguiendo la “V” del bolsillo (contorno) */
+
+      .envelope-pocket::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 42%;
+        pointer-events: none;
+
+        background: linear-gradient(
+          to right,
+
+          transparent 0,
+          rgba(0, 0, 0, 0.06) 50%,
+          transparent 100%
+        );
+
+        -webkit-mask: linear-gradient(
+          180deg,
+          black 0 1px,
+          transparent 1px
+        ); /* solo borde superior */
+
+        mask: linear-gradient(180deg, black 0 1px, transparent 1px);
+
+        opacity: 0.7;
+      }
+
+      /* ——— Sombra de la solapa cuando abre ——— */
+
+      .envelope::after {
+        content: "";
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        top: 8%;
+        height: 24%;
+        z-index: 3;
+
+        border-radius: 14px;
+
+        background: radial-gradient(
+          120% 120% at 50% 0%,
+          rgba(0, 0, 0, 0.32),
+          transparent 70%
+        );
+
+        filter: blur(12px);
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.45s ease;
+      }
+
+      /* Solapa al abrir, 1.5× más lenta */
+
+      #splash.opening .envelope-flap {
+        transform: rotateX(-155deg) translateZ(1px);
+
+        filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.18));
+
+        transition:
+          transform 1.08s cubic-bezier(0.19, 0.9, 0.22, 1),
+          filter 0.7s ease;
+
+        animation: flap-settle 0.7s 1.08s ease-out 1 both; /* el “settle” empieza cuando termina */
+      }
+
+      #splash.opening .envelope::after {
+        opacity: 1;
+      }
+
+      /* ===== Chasquido del sello (sprite + partículas) ===== */
+
+      /* Ajustes del sello para efectos */
+
+      .wax-seal {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        width: 122px;
+        height: 122px;
+        margin: -61px 0 0 -61px;
+
+        background: url("assets/ui/sello-cera-dorado.png") no-repeat center /
+          contain; /* renombra sin espacios */
+
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.18))
+          drop-shadow(0 10px 16px rgba(0, 0, 0, 0.16)) brightness(1.02)
+          contrast(1.06) saturate(1.05);
+
+        z-index: 5;
+
+        transform-origin: 50% 50%;
+      }
+
+      /* Capa de GRIETA (sprite 6x1) sin imagen; agrega el sprite si deseas reactivar el efecto */
+
+      .wax-seal .seal-crack {
+        position: absolute;
+        inset: -18px; /* un poco más grande que el sello */
+
+        background: none;
+
+        /* Guia: agrega aqui un PNG de 6 cuadros si quieres devolver el crack animado */
+
+        opacity: 0;
+        pointer-events: none;
+
+        mix-blend-mode: multiply; /* la grieta se integra al relieve */
+      }
+
+      /* Partículas (motas/destellos) */
+
+      .wax-seal::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 4px;
+        height: 4px;
+
+        background: transparent;
+        opacity: 0;
+        pointer-events: none;
+        transform-origin: center;
+
+        /* 12 partículas en distintas direcciones (oro/champagne) */
+
+        box-shadow:
+          -6px -2px 0 0 #c8a54a,
+          8px -4px 0 0 #e3c975,
+          -10px 3px 0 0 #c8a54a,
+          5px 6px 0 0 #e3c975,
+          12px 1px 0 0 #c8a54a,
+          -4px 10px 0 0 #e3c975,
+          0px -10px 0 0 #c8a54a,
+          -12px -8px 0 0 #e3c975,
+          14px -10px 0 0 #c8a54a,
+          -14px 6px 0 0 #e3c975,
+          2px 12px 0 0 #c8a54a,
+          10px -12px 0 0 #e3c975;
+      }
+
+      /* Animaciones */
+
+      @keyframes crack-frames {
+        0% {
+          background-position: 0% 50%;
+          opacity: 0;
+        }
+
+        1% {
+          opacity: 1;
+        }
+
+        99% {
+          background-position: 100% 50%;
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes crack-burst {
+        0% {
+          opacity: 0;
+          transform: scale(0.6) translateY(0);
+        }
+
+        20% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: scale(1.7) translateY(-6px);
+        }
+      }
+
+      /* pequeño “pop” del sello */
+
+      @keyframes seal-pop {
+        0% {
+          transform: scale(1);
+        }
+
+        40% {
+          transform: scale(1.06);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* microbalanceo al final (apenas perceptible) */
+
+      @keyframes flap-settle {
+        0% {
+          transform: rotateX(-155deg) translateZ(1px);
+        }
+
+        60% {
+          transform: rotateX(-150deg) translateZ(1px);
+        }
+
+        100% {
+          transform: rotateX(-155deg) translateZ(1px);
+        }
+      }
+
+      /* ——— Hoja: empieza realmente dentro ——— */
+
+      .letter {
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        top: 18%;
+        bottom: 16%;
+        z-index: 2; /* detrás del bolsillo */
+
+        border-radius: 12px;
+
+        background: linear-gradient(180deg, #fdfbf6 0%, #f6f1e9 100%);
+
+        border: 1px solid #e6dcc9;
+
+        transform: translateY(8px);
+
+        opacity: 0;
+
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease;
+      }
+
+      /* salida desde dentro + push-in */
+
+      @keyframes letter-out {
+        0% {
+          opacity: 0;
+          transform: translateY(8px) scale(1);
+        }
+
+        20% {
+          opacity: 1;
+          transform: translateY(0) scale(1.005);
+        }
+
+        60% {
+          opacity: 1;
+          transform: translateY(-110%) scale(1.07);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(-150%) scale(1.12);
+        }
+      }
+
+      #splash.opening .letter {
+        animation: letter-out 0.9s 0.3s cubic-bezier(0.18, 0.8, 0.24, 1)
+          forwards;
+      }
+
+      /* Disparo durante la apertura */
+
+      #splash.opening .wax-seal {
+        animation: seal-pop 0.22s ease-out both;
+      }
+
+      #splash.opening .wax-seal .seal-crack {
+        animation: crack-frames 0.32s steps(5) forwards;
+      }
+
+      #splash.opening .wax-seal::after {
+        animation: crack-burst 0.38s ease-out both;
+      }
+
+      /* halo breve detrás del papel durante la apertura */
+
+      #splash.opening .envelope-body {
+        animation: paper-halo 0.5s 0.28s ease-out 1 both;
+      }
+
+      /* CTA / Tooltip */
+
+      .splash-cta {
+        position: absolute;
+        left: 50%;
+        bottom: clamp(24px, 8vh, 60px);
+
+        transform: translateX(-50%);
+
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+
+        background: color-mix(in oklab, var(--champagne) 70%, white 30%);
+
+        color: var(--pine);
+        border: 1px solid var(--line);
+
+        padding: 12px 16px;
+        border-radius: 999px;
+
+        font-weight: 600;
+        letter-spacing: 0.3px;
+
+        box-shadow: var(--shadow);
+
+        cursor: pointer;
+
+        opacity: 0;
+        pointer-events: none;
+
+        animation:
+          cta-pop 0.6s 1.2s ease forwards,
+          cta-pulse 1.6s 2s ease-in-out infinite;
+      }
+
+      .splash-cta .hand {
+        transform-origin: 70% 70%;
+        display: inline-block;
+        animation: hand-wiggle 1.2s ease-in-out infinite;
+      }
+
+      #splash.opening {
+        animation: splash-out 0.55s 0.6s ease forwards;
+      }
+
+      /* ===== Motion safe/less ===== */
+
+      @media (prefers-reduced-motion: reduce) {
+        #splash,
+        .envelope,
+        .wax-seal,
+        .splash-cta,
+        .envelope-flap,
+        .letter {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .wax-seal {
+          opacity: 1;
+          transform: none;
+        }
+
+        .splash-cta {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+
+      /* ===== Keyframes ===== */
+
+      @keyframes splash-in {
+        from {
+          transform: translateY(12px) scale(0.985);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes seal-drop {
+        0% {
+          opacity: 0;
+          transform: translateY(-22px) scale(0.85);
+        }
+
+        60% {
+          opacity: 1;
+          transform: translateY(0) scale(1.04);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* pequeña grieta/plop antes de desvanecerse */
+
+      @keyframes seal-crack {
+        0% {
+          transform: translateY(0) scale(1) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(1px) scale(0.95) rotate(-5deg);
+        }
+
+        100% {
+          transform: translateY(0) scale(1.05) rotate(6deg);
+        }
+      }
+
+      @keyframes seal-fade {
+        to {
+          opacity: 0;
+          transform: translateY(-8px) scale(0.6) rotate(10deg);
+          filter: blur(1px);
+        }
+      }
+
+      @keyframes cta-pop {
+        from {
+          opacity: 0;
+          transform: translateX(-50%) translateY(6px) scale(0.98);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0) scale(1);
+          pointer-events: auto;
+        }
+      }
+
+      @keyframes cta-pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(239, 191, 187, 0);
+        }
+
+        50% {
+          box-shadow: 0 0 0 12px rgba(239, 191, 187, 0.18);
+        }
+      }
+
+      @keyframes hand-wiggle {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+
+        30% {
+          transform: rotate(12deg);
+        }
+
+        60% {
+          transform: rotate(-6deg);
+        }
+      }
+
+      @keyframes splash-out {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      @keyframes paper-halo {
+        from {
+          box-shadow:
+            inset 0 0 0 rgba(0, 0, 0, 0),
+            0 0 0 rgba(255, 255, 255, 0);
+        }
+
+        to {
+          box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.25);
+        }
+      }
+
+      /* Título caligráfico solo en el hero */
+
+      .hero .title-wrap h1 {
+        font-family: "Great Vibes", cursive;
+
+        font-weight: 400;
+
+        font-size: clamp(56px, 10vw, 96px);
+
+        line-height: 1.05;
+
+        letter-spacing: 0;
+
+        color: var(--pine);
+
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+      }
+
+      @media (max-width: 520px) {
+        .hero .title-wrap h1 {
+          font-size: clamp(40px, 9.5vw, 56px);
+        }
+      }
+
+      /* ===== Bloques con icono (estilo header) ===== */
+
+      .icon-row,
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        padding: 14px 16px;
+        margin: 10px 0;
+
+        border-radius: 18px;
+        border: 1.5px solid var(--line);
+
+        background: transparent; /* antes: var(--surface, var(--surface-fallback)) */
+
+        box-shadow: none; /* fuera la sombra blanca */
+      }
+
+      .icon-badge,
+      .info-badge {
+        flex: 0 0 42px;
+        height: 42px;
+        width: 42px;
+        border-radius: 999px;
+
+        display: grid;
+        place-items: center;
+
+        background: transparent; /* <— transparente */
+
+        border: 1.5px solid var(--pine); /* aro fino verde */
+      }
+
+      .icon-badge svg,
+      .info-badge svg {
+        width: 22px;
+        height: 22px;
+
+        stroke: var(--pine);
+        fill: none;
+        stroke-width: 2.1; /* icono verde */
+      }
+
+      /* Texto dentro de filas */
+
+      .icon-block .line-strong,
+      .info-title {
+        display: block;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.25;
+      }
+
+      .icon-block .line-muted,
+      .info-sub {
+        display: block;
+        color: #4b4b4b;
+        line-height: 1.25;
+      }
+
+      /* ===== Itinerario con icono transparente ===== */
+
+      .itinerary {
+        list-style: none;
+        padding: 0;
+        margin: 6px 0 0;
+      }
+
+      .itinerary li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 0;
+      }
+
+      .itinerary .dot {
+        flex: 0 0 28px;
+        height: 28px;
+        width: 28px;
+        border-radius: 999px;
+
+        display: grid;
+        place-items: center;
+
+        background: transparent;
+        border: 1.5px solid var(--pine);
+      }
+
+      .itinerary .dot svg {
+        width: 16px;
+        height: 16px;
+        stroke: var(--pine);
+        fill: none;
+        stroke-width: 2;
+      }
+
+      .itinerary .label {
+        color: var(--ink);
+      }
+
+      /* Chip con icono (si lo usas en otra parte) */
+
+      .chip.icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        background: var(--ivory);
+        border: 1px solid var(--line);
+      }
+
+      .chip .mini {
+        flex: 0 0 18px;
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+
+        display: grid;
+        place-items: center;
+        background: transparent;
+        border: 1.5px solid var(--pine);
+      }
+
+      .chip .mini svg {
+        width: 12px;
+        height: 12px;
+        stroke: var(--pine);
+        fill: none;
+        stroke-width: 2;
+      }
+
+      /* ===== Buenos Deseos ===== */
+
+      .wish-panel {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 18px;
+      }
+
+      .wish-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+
+      #wishCount {
+        font-size: 0.95rem;
+      }
+
+      .wish-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 10px 0 12px;
+      }
+
+      .wish-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 8px;
+        max-height: 340px;
+        overflow: auto;
+        padding-right: 4px;
+      }
+
+      .wish-list.is-hidden {
+        display: none !important;
+      }
+
+      .wish-avatar {
+        min-width: 56px;
+        height: 56px;
+        border-radius: 9999px;
+
+        background: color-mix(in oklab, var(--champagne) 70%, white);
+
+        color: var(--pine);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 0 10px;
+
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .avatar-initials {
+        font-size: 0.95rem;
+        line-height: 1;
+      }
+
+      .avatar-animal {
+        font-size: 1.35rem;
+        line-height: 1;
+      }
+
+      .wish-header-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .wish-header-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .wish-name {
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.2;
+      }
+
+      .wish-date {
+        font-size: 0.9rem;
+        color: #6b6b6b;
+        white-space: nowrap;
+        margin-left: auto;
+      }
+
+      .wish-item {
+        display: grid;
+        grid-template-columns: minmax(56px, auto) 1fr;
+        gap: 16px;
+        align-items: flex-start;
+        background: var(--ivory);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 16px;
+        scroll-margin-top: 110px;
+      }
+
+      .wish-highlight {
+        animation: wishGlow 2.4s ease-in-out 1;
+      }
+
+      @keyframes wishGlow {
+        0% {
+          box-shadow: 0 0 0 0 rgba(239, 191, 187, 0);
+        }
+        35% {
+          box-shadow: 0 0 0 10px rgba(239, 191, 187, 0.35);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(239, 191, 187, 0);
+        }
+      }
+
+      .wish-text {
+        margin: 6px 0 0;
+        white-space: pre-wrap;
+      }
+
+      .wish-empty {
+        text-align: center;
+        padding: 18px;
+        color: #6b6b6b;
+        border: 1px dashed var(--line);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      /* formulario */
+
+      .wish-form {
+        display: grid;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .wish-form input,
+      .wish-form textarea {
+        width: 100%;
+        background: #fff;
+        color: var(--ink);
+
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+
+        font-family: Inter, ui-sans-serif;
+        font-size: 1rem;
+      }
+
+      .wish-form input:focus,
+      .wish-form textarea:focus {
+        outline: 3px solid color-mix(in oklab, var(--champagne), black 10%);
+        border-color: var(--champagne);
+      }
+
+      .wish-form .row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .wish-form .char {
+        margin-left: auto;
+        font-size: 0.9rem;
+        color: #6b6b4b;
+      }
+
+      .frase-inicial {
+        font-family: "Parisienne", cursive;
+
+        font-weight: 500;
+
+        font-size: clamp(
+          22px,
+          2.6vw,
+          28px
+        ); /* un poco más grande para resaltar */
+
+        line-height: 1.4;
+
+        color: var(--pine);
+
+        margin: 6px 0 0;
+      }
+
+      /* ===== Nuestros padres ===== */
+
+      .padres {
+        text-align: center;
+      }
+
+      .padres h2 {
+        font-family: "Parisienne", cursive; /* misma fuente que la frase */
+
+        font-weight: 600; /* “negrita” suave */
+
+        font-size: clamp(30px, 4.8vw, 40px);
+
+        color: var(--pine);
+
+        margin: 0 0 14px;
+      }
+
+      .padres .grid {
+        gap: 12px;
+      }
+
+      .padres .bloque {
+        background: var(--surface, var(--surface-fallback));
+
+        border: 1px solid var(--line);
+
+        border-radius: var(--radius);
+
+        padding: 14px;
+      }
+
+      .padres h3 {
+        font-family: "Parisienne", cursive;
+
+        font-weight: 600;
+
+        font-size: clamp(22px, 3.4vw, 26px);
+
+        color: var(--pine);
+
+        margin: 0 0 8px;
+      }
+
+      .padres p {
+        margin: 4px 0;
+      }
+
+      /* iconografía consistente (si conservas tus inline svgs) */
+
+      .nav-item svg,
+      .icon-badge svg,
+      .info-badge svg,
+      .itinerary .dot svg {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      /* opcional: borde sutil cuando se desplaza la lista */
+
+      .wish-list::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      .wish-list::-webkit-scrollbar-thumb {
+        background: #e4dccb;
+        border-radius: 12px;
+        border: 2px solid #faf7f0;
+      }
+
+      /* =====================================================
+
+
+
        FONDOS UNIFICADOS — versión final (3 niveles)
+
+
+
        Textura (body) → Panel de sección → Tarjetitas
+
+
+
        ===================================================== */
 
-    /* 0) Asegura textura global */
-    body{
-      background: url('assets/ui/textura-fondo.png') center/cover repeat !important;
-    }
+      /* 0) Asegura textura global */
 
-    /* 1) La sección NO pinta caja propia, sólo deja aire para ver textura */
-    .wrap.section{
-      position: relative;
-      margin: 18px auto;          /* separa entre secciones (móvil y desktop) */
-      padding: 26px 20px;         /* colchón interno uniforme */
-      background: transparent !important;
-      border: 0 !important;
-      box-shadow: none !important;
-    }
+      body {
+        background: url("assets/ui/textura-fondo.png") center/cover repeat !important;
+      }
 
-    /* 2) Panel amarillento uniforme dibujado por la propia sección */
-    .wrap.section::before{
-      content: "";
-      position: absolute;
-      inset: 0;                   /* cubre toda la sección visible */
-      border-radius: 22px;
-      background: rgba(245, 237, 225, 0.86);  /* crema/amarillento */
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      z-index: 0;                 /* queda detrás del contenido */
-    }
-    /* El contenido va por encima del panel */
-    .wrap.section > *{ position: relative; z-index: 1; }
+      /* 1) La sección NO pinta caja propia, sólo deja aire para ver textura */
 
-    /* 3) Evita un 4º nivel: cualquier .card/panel “envolvente” de la sección se vuelve transparente */
-    .wrap.section > .card,
-    .wrap.section > .panel,
-    .wrap.section > .wish-panel{
-      background: transparent !important;
-      border: 0 !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-    }
+      .wrap.section {
+        position: relative;
 
-    /* 4) Tarjetitas internas (mismo look en TODO) */
-    :root{
-      --card-bg-unificado: rgba(255,255,255,0.94);
-    }
-    .card,
-    .panel,
-    .wish-panel,
-    .padres .bloque,
-    #detalles .icon-row,
-    #ceremonia .info-item,
-    #recepcion .info-item{
-      background: var(--card-bg-unificado) !important;
-      border: 1px solid var(--line) !important;
-      border-radius: 16px !important;
-      box-shadow: var(--shadow) !important;
-      padding: 16px !important;
-      backdrop-filter: blur(2px); /* transparencia homogénea */
-    }
+        margin: 18px auto; /* separa entre secciones (móvil y desktop) */
 
-    dialog#thanksDialog{ border:none; padding:0; background:transparent }
-    dialog#thanksDialog::backdrop{ background:rgba(0,0,0,.35) }
-    .thanks-box{ background:var(--card-bg-unificado); border:1px solid var(--line); border-radius:18px; padding:24px 26px; box-shadow:var(--shadow); max-width:min(90vw,360px); text-align:center }
-    .thanks-box h3{ margin:0 0 8px; font-family:'Cormorant Garamond', ui-serif, Georgia, serif; font-size:clamp(24px,4vw,30px); color:var(--pine) }
-    .thanks-emoji{ font-size:2.4rem; line-height:1; display:block; margin-bottom:12px }
-    .thanks-message{ margin:0; color:var(--ink); font-size:1rem }
-    .thanks-close{ margin-top:18px }
+        padding: 26px 20px; /* colchón interno uniforme */
 
-    /* 5) Ajustes menores de ritmo/espacio visual */
-    #detalles .icon-row + .icon-row,
-    #ceremonia .info-item + .info-item,
-    #recepcion .info-item + .info-item{ margin-top: 10px; }
+        background: transparent !important;
 
-    .section h2{ margin-top: 6px; }        /* respira dentro del panel */
-  </style>
-</head>
-<body>
-<!-- ================= SPLASH / PANTALLA DE BIENVENIDA ================ -->
-<div id="splash" role="dialog" aria-modal="true" aria-labelledby="splashTitle">
-  <p id="splashTitle" class="sr-only">Bienvenida a la invitación de Romina & Javier</p>
+        border: 0 !important;
 
-  <div class="envelope" aria-hidden="true">
-    <!-- Cuerpo del sobre -->
-    <div class="envelope-body"></div>
+        box-shadow: none !important;
+      }
 
-    <!-- HOJA interior que “asoma” al abrir -->
-    <div class="letter" aria-hidden="true"></div>
+      /* 2) Panel amarillento uniforme dibujado por la propia sección */
 
-    <!-- BOLSILLO FRONTAL que oculta la hoja hasta que sale -->
-    <div class="envelope-pocket" aria-hidden="true"></div>
+      .wrap.section::before {
+        content: "";
 
-    <!-- Solapa del sobre (abre en 3D) -->
-    <div class="envelope-flap"></div>
+        position: absolute;
 
-    <!-- Sello de cera con relieve -->
-    <div class="wax-seal" aria-hidden="true">
-      <span class="seal-crack" aria-hidden="true"></span>
-    </div>
-  </div>
+        inset: 0; /* cubre toda la sección visible */
 
-  <!-- Tooltip de instrucción -->
-  <button class="splash-cta" type="button" aria-label="Abrir invitación">
+        border-radius: 22px;
 
-    <span class="hand" aria-hidden="true">&#x1F449;</span> Haz clic para abrir tu invitación
+        background: rgba(245, 237, 225, 0.86); /* crema/amarillento */
 
-  </button>
-</div>
-  <!-- ================= HERO ================= -->
-  <header class="hero" id="hero" aria-label="Portada">
+        border: 1px solid var(--line);
 
-    <img class="bg active" src="assets/gallery/1_Parque_juntos.jpg" alt="" width="1600" height="1066" decoding="async" fetchpriority="high" />
-    <img class="bg" src="assets/gallery/2_Faro_Mirandonos.jpg" alt="" width="1600" height="1066" decoding="async" />
-    <img class="bg" src="assets/gallery/3_DSC6928.jpg" alt="" width="1600" height="1066" decoding="async" />
-    <img class="bg" src="assets/gallery/4_Juntos_Playa.jpg" alt="" width="1600" height="1066" decoding="async" />
-    <div class="inner">
-      <!-- Título con caja translúcida (sin chip dress code) -->
-      <div class="title-wrap">
-        <h1>Javier y Romina</h1>
+        box-shadow: var(--shadow);
+
+        z-index: 0; /* queda detrás del contenido */
+      }
+
+      /* El contenido va por encima del panel */
+
+      .wrap.section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* 3) Evita un 4º nivel: cualquier .card/panel “envolvente” de la sección se vuelve transparente */
+
+      .wrap.section > .card,
+      .wrap.section > .panel,
+      .wrap.section > .wish-panel {
+        background: transparent !important;
+
+        border: 0 !important;
+
+        box-shadow: none !important;
+
+        padding: 0 !important;
+      }
+
+      /* 4) Tarjetitas internas (mismo look en TODO) */
+
+      :root {
+        --card-bg-unificado: rgba(255, 255, 255, 0.94);
+      }
+
+      .card,
+      .panel,
+      .wish-panel,
+      .padres .bloque,
+      #detalles .icon-row,
+      #ceremonia .info-item,
+      #recepcion .info-item {
+        background: var(--card-bg-unificado) !important;
+
+        border: 1px solid var(--line) !important;
+
+        border-radius: 16px !important;
+
+        box-shadow: var(--shadow) !important;
+
+        padding: 16px !important;
+
+        backdrop-filter: blur(2px); /* transparencia homogénea */
+      }
+
+      /* Paleta de colores y guía de vestimenta */
+      .dress-card {
+        margin-top: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+        background: linear-gradient(
+          135deg,
+          rgba(41, 57, 47, 0.08),
+          rgba(201, 166, 107, 0.18)
+        );
+        border: 1px solid rgba(41, 57, 47, 0.18);
+        border-radius: 18px;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+      }
+
+      .dress-header {
+        text-align: center;
+      }
+
+      .dress-header h3 {
+        margin-bottom: 6px;
+      }
+
+      .dress-header p {
+        margin: 0;
+      }
+
+      .dress-media {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        align-items: stretch;
+      }
+
+      .dress-figure {
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(41, 57, 47, 0.18);
+        border-radius: 14px;
+        padding: 18px 20px;
+        text-align: center;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      }
+
+      .dress-figure h4 {
+        margin: 0 0 8px;
+        font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+        font-weight: 600;
+        font-size: clamp(20px, 2.4vw, 22px);
+        color: var(--pine);
+      }
+
+      .dress-figure p {
+        margin: 0;
+      }
+
+      .dress-emoji {
+        align-self: center;
+        justify-self: center;
+        width: min(220px, 60%);
+        filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+      }
+
+      .palette-block {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .palette-block h4 {
+        margin: 0;
+        font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+        font-weight: 600;
+        font-size: clamp(22px, 2.6vw, 24px);
+        color: var(--pine);
+      }
+
+      .palette-grid {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .palette-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: rgba(245, 237, 225, 0.78);
+        backdrop-filter: blur(2px);
+      }
+
+      .palette-swatch {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: var(--swatch);
+        border: 1px solid rgba(30, 39, 35, 0.2);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+        flex-shrink: 0;
+      }
+
+      .palette-item span:last-child {
+        font-size: 0.95rem;
+      }
+
+      .dress-avoid {
+        border-top: 1px solid rgba(41, 57, 47, 0.18);
+        padding-top: 12px;
+      }
+
+      .dress-avoid h4 {
+        margin: 0 0 6px;
+        font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+        font-weight: 600;
+        font-size: clamp(20px, 2.4vw, 22px);
+        color: var(--pine);
+      }
+
+      .dress-avoid ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .dress-avoid li {
+        margin: 4px 0;
+      }
+
+      .music-control {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 1200;
+      }
+
+      @media (min-width: 900px) {
+        .dress-card {
+          padding: 28px;
+          gap: 28px;
+        }
+
+        .dress-media {
+          grid-template-columns: repeat(3, minmax(220px, 1fr));
+        }
+
+        .dress-emoji {
+          width: min(260px, 70%);
+        }
+      }
+      dialog#thanksDialog {
+        border: none;
+        padding: 0;
+        background: transparent;
+      }
+      dialog#thanksDialog::backdrop {
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .thanks-box {
+        background: var(--card-bg-unificado);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 24px 26px;
+        box-shadow: var(--shadow);
+        max-width: min(90vw, 360px);
+        text-align: center;
+      }
+
+      .thanks-box h3 {
+        margin: 0 0 8px;
+        font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+        font-size: clamp(24px, 4vw, 30px);
+        color: var(--pine);
+      }
+
+      .thanks-emoji {
+        font-size: 2.4rem;
+        line-height: 1;
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .thanks-message {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1rem;
+      }
+
+      .thanks-user-msg {
+        margin: 12px 0 0;
+        color: #4b4b4b;
+        font-size: 0.95rem;
+        white-space: pre-wrap;
+      }
+
+      .thanks-close {
+        margin-top: 18px;
+      }
+
+      /* 5) Ajustes menores de ritmo/espacio visual */
+
+      #detalles .icon-row + .icon-row,
+      #ceremonia .info-item + .info-item,
+      #recepcion .info-item + .info-item {
+        margin-top: 10px;
+      }
+
+      .section h2 {
+        margin-top: 6px;
+      } /* respira dentro del panel */
+    </style>
+  </head>
+
+  <body>
+    <!-- ================= SPLASH / PANTALLA DE BIENVENIDA ================ -->
+
+    <div
+      id="splash"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="splashTitle"
+    >
+      <p id="splashTitle" class="sr-only">
+        Bienvenida a la invitación de Romina & Javier
+      </p>
+
+      <div class="envelope" aria-hidden="true">
+        <!-- Cuerpo del sobre -->
+
+        <div class="envelope-body"></div>
+
+        <!-- HOJA interior que “asoma” al abrir -->
+
+        <div class="letter" aria-hidden="true"></div>
+
+        <!-- BOLSILLO FRONTAL que oculta la hoja hasta que sale -->
+
+        <div class="envelope-pocket" aria-hidden="true"></div>
+
+        <!-- Solapa del sobre (abre en 3D) -->
+
+        <div class="envelope-flap"></div>
+
+        <!-- Sello de cera con relieve -->
+
+        <div class="wax-seal" aria-hidden="true">
+          <span class="seal-crack" aria-hidden="true"></span>
+        </div>
       </div>
+
+      <!-- Tooltip de instrucción -->
+
+      <button class="splash-cta" type="button" aria-label="Abrir invitación">
+        <span class="hand" aria-hidden="true">&#x1F449;</span> Haz clic para
+        abrir tu invitación
+      </button>
+    </div>
+
+    <!-- ================= HERO ================= -->
+
+    <header class="hero" id="hero" aria-label="Portada">
+      <img
+        class="bg active"
+        src="assets/gallery/1_Parque_juntos.jpg"
+        alt=""
+        width="1600"
+        height="1066"
+        decoding="async"
+        fetchpriority="high"
+      />
+
+      <img
+        class="bg"
+        src="assets/gallery/2_Faro_Mirandonos.jpg"
+        alt=""
+        width="1600"
+        height="1066"
+        decoding="async"
+      />
+
+      <img
+        class="bg"
+        src="assets/gallery/3_DSC6928.jpg"
+        alt=""
+        width="1600"
+        height="1066"
+        decoding="async"
+      />
+
+      <img
+        class="bg"
+        src="assets/gallery/4_Juntos_Playa.jpg"
+        alt=""
+        width="1600"
+        height="1066"
+        decoding="async"
+      />
+
+      <div class="inner">
+        <!-- Título con caja translúcida (sin chip dress code) -->
+
+        <div class="title-wrap">
+          <h1>Javier y Romina</h1>
+        </div>
+
         <div class="date-tile" aria-label="Fecha del evento">
           <span class="muted">NOV</span>
+
           <span class="big">15</span>
+
           <span class="muted">2025</span>
         </div>
-      
-    
-      <div class="countdown" id="countdown" aria-live="polite"></div>
-    </div>
-  </header>
 
-  <!-- ================= NAV (con 'Recuerdos') ================= -->
-  <nav aria-label="Navegación" id="nav">
-    <a href="#detalles" class="nav-item" data-section="detalles" title="Detalles">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"/></svg> Detalles
-    </a>
-    <a href="#itinerario" class="nav-item" data-section="itinerario" title="Itinerario">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Itinerario
-    </a>
-    <a href="#ceremonia" class="nav-item" data-section="ceremonia" title="Ceremonia">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg> Ceremonia
-    </a>
-    <a href="#recepcion" class="nav-item" data-section="recepcion" title="Recepción">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12"/></svg> Recepción
-    </a>
-    <a href="#galeria" class="nav-item" data-section="galeria" title="Galería">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l-2 3 2 2 3-4 3 4"/></svg> Galería
-    </a>
-    <a href="#regalos" class="nav-item" data-section="regalos" title="Regalos">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M2 7h20M12 22V7"/><path d="M12 7H7a2 2 0 0 1 0-4c3 0 5 4 5 4Z"/><path d="M12 7h5a2 2 0 0 0 0-4c-3 0-5 4-5 4Z"/></svg> Regalos
-    </a>
-    <a href="#deseos" class="nav-item" data-section="deseos" title="Buenos Deseos">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5c3.5-4 10 1 0 9C2 6 8.5 1 12 5Z"/></svg> Buenos Deseos
-    </a>
-    <a href="#rsvp" class="nav-item" data-section="rsvp" title="Asistencia">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Asistencia
-    </a>
-  </nav>
-
-  <section id="frase" class="wrap section">
-    <div class="card" style="text-align:center">
-      <p class="frase-inicial">
-        Después de un hermoso camino juntos, el momento de celebrar lo que el tiempo ha construido ha llegado.
-        ¡Acompáñanos a dar el siguiente paso en nuestra historia!
-      </p>
-    </div>
-  </section>
-
-  <section id="padres" class="wrap section padres">
-    <div class="card">
-      <h2>Nuestros padres</h2>
-      <div class="grid cols-2">
-        <div class="bloque">
-          <h3>Padres de la novia</h3>
-          <p>Luis Richard Laura Carlos</p>
-          <p>Maria Luz Rodriguez Matos</p>
-        </div>
-        <div class="bloque">
-          <h3>Padres del novio</h3>
-          <p>Martin Aldo Sarmiento Carreño</p>
-          <p>Miriam Rosa Lopez Villa</p>
-        </div>
+        <div class="countdown" id="countdown" aria-live="polite"></div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ================= DETALLES (incluye Guardar fecha) ================= -->
-  <section id="detalles" class="wrap section">
-    <div class="card">
-      <div>
-        <h2>Detalles</h2>
+    <!-- ================= NAV (con 'Recuerdos') ================= -->
 
-        <!-- Novios (ambos en negrita + icono visible) -->
-        <div class="icon-row" aria-label="Novios">
-          <span class="icon-badge" aria-hidden="true">
-            <!-- anillos -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="8" cy="14" r="5"></circle>
-              <circle cx="16" cy="10" r="5"></circle>
-              <path d="M12 4l2-2 2 2M14 2v3"></path>
-            </svg>
-          </span>
-          <div class="icon-block">
-            <span class="line-strong">Romina Gabriela Laura Rodriguez</span>
-            <span class="line-strong">Javier Rodrigo M. Sarmiento Lopez</span>
-          </div>
-        </div>
+    <nav aria-label="Navegación" id="nav">
+      <a
+        href="#detalles"
+        class="nav-item"
+        data-section="detalles"
+        title="Detalles"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4M12 8h.01" />
+        </svg>
+        Detalles
+      </a>
 
-        <!-- Fecha -->
-        <div class="icon-row" aria-label="Fecha del evento">
-          <span class="icon-badge" aria-hidden="true">
-            <!-- calendario -->
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
-              <path d="M16 3v4M8 3v4M3 11h18"></path>
-            </svg>
-          </span>
-          <div class="icon-block">
-            <span class="line-strong">Sábado 15 de noviembre de 2025</span>
-            <span class="line-muted">Lima, Perú</span>
-          </div>
-        </div>
+      <a
+        href="#itinerario"
+        class="nav-item"
+        data-section="itinerario"
+        title="Itinerario"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </svg>
+        Itinerario
+      </a>
 
-        <!-- Dress code (misma fila que Novios/Fecha) -->
-        <div class="icon-row" aria-label="Dress code">
-          <span class="icon-badge" aria-hidden="true">
-            <!-- percha -->
-            <svg viewBox="0 0 24 24">
-              <path d="M8 8a4 4 0 1 1 8 0c0 1.5-1 2-2 2l-2 2"></path>
-              <path d="M3 17l9-5 9 5"></path>
-            </svg>
-          </span>
-          <div class="icon-block">
-            <span class="line-strong">Dress code: Elegante</span>
-            <span class="line-muted">Sugerencia de vestimenta</span>
-          </div>
-        </div>
+      <a
+        href="#ceremonia"
+        class="nav-item"
+        data-section="ceremonia"
+        title="Ceremonia"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6" />
+        </svg>
+        Ceremonia
+      </a>
 
+      <a
+        href="#recepcion"
+        class="nav-item"
+        data-section="recepcion"
+        title="Recepción"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M8 7h8l-1 4a5 5 0 0 1-6 0L8 7Zm4 8v6M6 21h12" />
+        </svg>
+        Recepción
+      </a>
+
+      <a
+        href="#galeria"
+        class="nav-item"
+        data-section="galeria"
+        title="Galería"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M10 9l-2 3 2 2 3-4 3 4" />
+        </svg>
+        Galería
+      </a>
+
+      <a
+        href="#regalos"
+        class="nav-item"
+        data-section="regalos"
+        title="Regalos"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M2 7h20M12 22V7" />
+          <path d="M12 7H7a2 2 0 0 1 0-4c3 0 5 4 5 4Z" />
+          <path d="M12 7h5a2 2 0 0 0 0-4c-3 0-5 4-5 4Z" />
+        </svg>
+        Regalos
+      </a>
+
+      <a
+        href="#deseos"
+        class="nav-item"
+        data-section="deseos"
+        title="Buenos Deseos"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M12 5c3.5-4 10 1 0 9C2 6 8.5 1 12 5Z" />
+        </svg>
+        Buenos Deseos
+      </a>
+
+      <a href="#rsvp" class="nav-item" data-section="rsvp" title="Asistencia">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M20 6 9 17l-5-5" />
+        </svg>
+        Asistencia
+      </a>
+    </nav>
+
+    <section id="frase" class="wrap section">
+      <div class="card" style="text-align: center">
+        <p class="frase-inicial">
+          Después de un hermoso camino juntos, el momento de celebrar lo que el
+          tiempo ha construido ha llegado. ¡Acompáñanos a dar el siguiente paso
+          en nuestra historia!
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="itinerario" class="wrap section">
-    <div class="card">
-      <h2>Itinerario</h2>
-      <p class="muted" style="margin:0 0 10px">Hemos reservado pases para ti. ¡Te esperamos!</p>
-      <div class="btn-group" style="margin:6px 0 14px">
-        <a class="btn btn-secondary" id="addCal" download="Boda-Romina-Javier.ics" href="" rel="noopener">Guardar la fecha (.ics)</a>
-      </div>
-      <ul class="itinerary">
-        <li>
-          <span class="dot" aria-hidden="true">
-            <!-- iglesia -->
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"></path>
-            </svg>
-          </span>
-          <span class="label"><strong>11:30 a. m.</strong> — Ceremonia religiosa</span>
-        </li>
-        <li>
-          <span class="dot" aria-hidden="true">
-            <!-- cubiertos -->
-            <svg viewBox="0 0 24 24">
-              <path d="M4 3v8a2 2 0 0 0 2 2v8"></path>
-              <path d="M10 3v6"></path>
-              <path d="M20 3c0 4-3 5-3 9v9"></path>
-            </svg>
-          </span>
-          <span class="label"><strong>2:00 p. m.</strong> — Almuerzo</span>
-        </li>
-        <li>
-          <span class="dot" aria-hidden="true">
-            <!-- música -->
-            <svg viewBox="0 0 24 24">
-              <path d="M9 18V5l12-2v13"></path>
-              <circle cx="6" cy="18" r="3"></circle>
-              <circle cx="18" cy="16" r="3"></circle>
-            </svg>
-          </span>
-          <span class="label"><strong>4:00 p. m.</strong> — Fiesta</span>
-        </li>
-      </ul>
-    </div>
-  </section>
+    <section id="padres" class="wrap section padres">
+      <div class="card">
+        <h2>Nuestros padres</h2>
 
-  <!-- ================= CEREMONIA ================= -->
-  <section id="ceremonia" class="wrap section">
-    <div class="card">
-      <h2>Ceremonia</h2>
+        <div class="grid cols-2">
+          <div class="bloque">
+            <h3>Padres de la novia</h3>
 
-      <div class="info-list" aria-label="Información de la ceremonia">
-        <div class="info-item">
-          <span class="info-badge" aria-hidden="true">
-            <!-- templo -->
-            <svg viewBox="0 0 24 24"><path d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"/></svg>
-          </span>
-          <div>
-            <span class="info-title">Parroquia Nuestra Señora del Carmen</span>
-            <span class="info-sub">Ceremonia religiosa · 11:30 a. m.</span>
+            <p>Luis Richard Laura Carlos</p>
+
+            <p>Maria Luz Rodriguez Matos</p>
           </div>
-        </div>
 
-        <div class="info-item">
-          <span class="info-badge" aria-hidden="true">
-            <!-- pin -->
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          </span>
-          <div>
-            <span class="info-title">Juan de la Fuente, Miraflores 15047, Perú</span>
-            <span class="info-sub">Ubicación</span>
+          <div class="bloque">
+            <h3>Padres del novio</h3>
+
+            <p>Martin Aldo Sarmiento Carreño</p>
+
+            <p>Miriam Rosa Lopez Villa</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="loc-grid" style="margin-top:12px">
-        <div class="map-embed" aria-label="Mapa de la iglesia">
-          <iframe loading="lazy" allowfullscreen
-            src="https://maps.google.com/maps?q=Juan%20de%20la%20Fuente,%20Miraflores%2015047,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
-          </iframe>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-secondary copy" data-copy="Juan de la Fuente, Miraflores 15047, Perú" aria-label="Copiar dirección de la iglesia">Copiar dirección</button>
-          <a class="btn btn-secondary" target="_blank" rel="noopener"
-            href="https://www.google.com/maps/dir/?api=1&destination=Juan%20de%20la%20Fuente%2C%20Miraflores%2015047%2C%20Per%C3%BA">Cómo llegar</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ================= DETALLES (incluye Guardar fecha) ================= -->
 
-  <!-- ================= RECEPCIÓN ================= -->
-  <section id="recepcion" class="wrap section">
-    <div class="card">
-      <h2>Recepción</h2>
+    <section id="detalles" class="wrap section">
+      <div class="card">
+        <div>
+          <h2>Detalles</h2>
 
-      <div class="info-list" aria-label="Información de la recepción">
+          <!-- Novios (ambos en negrita + icono visible) -->
 
-        <div class="info-item">
-          <span class="info-badge" aria-hidden="true">
-            <!-- pin -->
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          </span>
-          <div>
-            <span class="info-title">Av. Club Golf Los Incas 222, Surco</span>
-            <span class="info-sub">Ubicación</span>
+          <div class="icon-row" aria-label="Novios">
+            <span class="icon-badge" aria-hidden="true">
+              <!-- anillos -->
+
+              <svg viewBox="0 0 24 24">
+                <circle cx="8" cy="14" r="5"></circle>
+
+                <circle cx="16" cy="10" r="5"></circle>
+
+                <path d="M12 4l2-2 2 2M14 2v3"></path>
+              </svg>
+            </span>
+
+            <div class="icon-block">
+              <span class="line-strong">Romina Gabriela Laura Rodriguez</span>
+
+              <span class="line-strong">Javier Rodrigo M. Sarmiento Lopez</span>
+            </div>
+          </div>
+
+          <!-- Fecha -->
+
+          <div class="icon-row" aria-label="Fecha del evento">
+            <span class="icon-badge" aria-hidden="true">
+              <!-- calendario -->
+
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+
+                <path d="M16 3v4M8 3v4M3 11h18"></path>
+              </svg>
+            </span>
+
+            <div class="icon-block">
+              <span class="line-strong">Sábado 15 de noviembre de 2025</span>
+
+              <span class="line-muted">Lima, Perú</span>
+            </div>
+          </div>
+
+          <!-- Dress code -->
+
+          <div class="dress-card">
+            <div class="dress-header">
+              <h3>Dress code: Elegante</h3>
+
+              <p class="muted">
+                Nos reservamos el blanco y crema para la novia.
+              </p>
+            </div>
+
+            <div class="dress-media">
+              <div class="dress-figure">
+                <h4>Hombres</h4>
+
+                <p>
+                  Traje formal en tonos oscuros o azul marino, camisa clara y
+                  corbata elegante.
+                </p>
+              </div>
+
+              <img
+                class="dress-emoji"
+                src="assets/ui/Invitados_Juntos.png"
+                alt="Ilustración de invitados vestidos elegantemente"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <div class="dress-figure">
+                <h4>Mujeres</h4>
+
+                <p>
+                  Vestido largo o midi sofisticado en los tonos suaves o
+                  profundos de la paleta.
+                </p>
+              </div>
+            </div>
+
+            <div class="palette-block">
+              <h4>Colores recomendados</h4>
+
+              <ul class="palette-grid" role="list">
+                <li class="palette-item" style="--swatch: #f5ede1">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Ivory cálido</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #f0dab8">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Champagne</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #efbfbb">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Blush empolvado</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #8d8e7c">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Verde oliva</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #29392f">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Verde pino profundo</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #0b2d4d">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Azul marino</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #5a6c8b">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Azul pizarra</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #7a2832">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Burdeos apagado</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #c58569">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Terracota suave</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #a9b2a1">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Verde salvia</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #d9c6a5">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Arena</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #bdb7ad">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Gris tibio</span>
+                </li>
+
+                <li class="palette-item" style="--swatch: #c9a66b">
+                  <span class="palette-swatch" aria-hidden="true"></span>
+
+                  <span>Oro viejo</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="dress-avoid">
+              <h4>Evitar</h4>
+
+              <ul>
+                <li>Colores neón o muy saturados.</li>
+                <li>Plateado espejo o frío.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="loc-grid" style="margin-top:12px">
-        <div class="map-embed" aria-label="Mapa de la recepción">
-          <iframe loading="lazy" allowfullscreen
-            src="https://maps.google.com/maps?q=Av.%20Club%20Golf%20Los%20Incas%20222,%20Surco,%20Lima,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near">
-          </iframe>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-secondary copy" data-copy="Av. Club Golf Los Incas 222, Surco" aria-label="Copiar dirección de la recepción">Copiar dirección</button>
-          <a class="btn btn-secondary" target="_blank" rel="noopener"
-            href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Club%20Golf%20Los%20Incas%20222%2C%20Surco%2C%20Lima%2C%20Per%C3%BA">Cómo llegar</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="itinerario" class="wrap section">
+      <div class="card">
+        <h2>Itinerario</h2>
 
-  <!-- ================= RECUERDOS (video + fotos) ================= -->
-  <section id="galeria" class="wrap section">
-    <div class="card">
-      <h2>Galería</h2>
+        <p class="muted" style="margin: 0 0 10px">
+          Hemos reservado pases para ti. ¡Te esperamos!
+        </p>
 
-      <!-- Video (opcional) -->
-      <div class="video-card" style="margin-bottom:18px">
-        <video controls playsinline preload="metadata" poster="assets/gallery/1_Parque_juntos.jpg">
-          <source src="media/video.mp4" type="video/mp4">
-          Tu navegador no soporta video HTML5.
-        </video>
-        <p class="muted dev-note" hidden>Sugerido: 15–30 segundos, MP4 (H.24), 1080p, &lt; 20&nbsp;MB.</p>
-      </div>
-
-      <!-- Galería -->
-      <div class="gallery" aria-label="Galería">
-        <img src="assets/gallery/1_Parque_juntos.jpg" alt="Paseo en el parque juntos" loading="lazy" decoding="async">
-        <img src="assets/gallery/2_Faro_Mirandonos.jpg" alt="Mirándonos junto al faro" loading="lazy" decoding="async">
-        <img src="assets/gallery/3_DSC6928.jpg" alt="Abrazados durante la sesión" loading="lazy" decoding="async">
-        <img src="assets/gallery/4_Juntos_Playa.jpg" alt="Juntos en la playa" loading="lazy" decoding="async">
-        <img src="assets/gallery/Anillo.jpg" alt="Nuestros anillos" loading="lazy" decoding="async">
-        <img src="assets/gallery/Bosque_Caminando.jpg" alt="Caminando en el bosque" loading="lazy" decoding="async">
-        <img src="assets/gallery/Disney.jpg" alt="Recuerdo en Disney" loading="lazy" decoding="async">
-        <img src="assets/gallery/Escalera Fix.png" alt="Encuentro en la escalera" loading="lazy" decoding="async">
-        <img src="assets/gallery/Faro_Juntos.jpg" alt="Recuerdo juntos en el faro" loading="lazy" decoding="async">
-        <img src="assets/gallery/Huaca.jpg" alt="Abrazados en la huaca" loading="lazy" decoding="async">
-        <img src="assets/gallery/Huaca_Escalera.jpg" alt="Escalera en la huaca" loading="lazy" decoding="async">
-        <img src="assets/gallery/Mirador_Cerca.jpg" alt="Mirador con nosotros cerca" loading="lazy" decoding="async">
-        <img src="assets/gallery/Mirador_Medio.jpg" alt="Vista desde el mirador" loading="lazy" decoding="async">
-        <img src="assets/gallery/Playa_Cerca.jpg" alt="Sonrisas en la playa" loading="lazy" decoding="async">
-        <img src="assets/gallery/Playa_Espalda.jpg" alt="Mirando el mar de espaldas" loading="lazy" decoding="async">
-        <img src="assets/gallery/Playa_Lejos.jpg" alt="Postal playera a lo lejos" loading="lazy" decoding="async">
-        <img src="assets/gallery/Pozo_BN.jpg" alt="Pozo en blanco y negro" loading="lazy" decoding="async">
-        <img src="assets/gallery/Puente_Cerca.jpg" alt="Puente a la vista cercana" loading="lazy" decoding="async">
-        <img src="assets/gallery/Puente_Cruce_2.jpg" alt="Cruzando el puente" loading="lazy" decoding="async">
-        <img src="assets/gallery/Puente_Medio.jpg" alt="Encuentro en el puente" loading="lazy" decoding="async">
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= REGALOS ================= -->
-  <section id="regalos" class="wrap section">
-    <div class="panel">
-      <h2>Cuenta para regalos</h2>
-      <p class="muted">Nos sentimos bendecidos de tenerte en nuestra vida y poder compartir este día tan especial contigo. Si consideras hacernos un obsequio, nuestras opciones son:</p>
-
-      <div class="grid cols-2" style="margin-top:10px">
-        <div class="card">
-          <h3>Interbank — <span class="muted">DÓLARES</span></h3>
-          <p style="margin:6px 0"><strong>Cuenta</strong> ·
-            <button type="button" class="btn btn-secondary copy" data-copy="898 3184906814" aria-label="Copiar número de cuenta en dólares">898 3184906814</button>
-          </p>
-          <p style="margin:6px 0"><strong>CCI</strong> ·
-            <button type="button" class="btn btn-secondary copy" data-copy="00389801318490681446" aria-label="Copiar CCI en dólares">00389801318490681446</button>
-          </p>
+        <div class="btn-group" style="margin: 6px 0 14px">
+          <a
+            class="btn btn-secondary"
+            id="addCal"
+            download="Boda-Romina-Javier.ics"
+            href=""
+            rel="noopener"
+            >Guardar la fecha (.ics)</a
+          >
         </div>
 
-        <div class="card">
-          <h3>Interbank — <span class="muted">SOLES</span></h3>
-          <p style="margin:6px 0"><strong>Cuenta</strong> ·
-            <button type="button" class="btn btn-secondary copy" data-copy="200 3122648627" aria-label="Copiar número de cuenta en soles">200 3122648627</button>
-          </p>
-          <p style="margin:6px 0"><strong>CCI</strong> ·
-            <button type="button" class="btn btn-secondary copy" data-copy="00320001312264862735" aria-label="Copiar CCI en soles">00320001312264862735</button>
-          </p>
+        <ul class="itinerary">
+          <li>
+            <span class="dot" aria-hidden="true">
+              <!-- iglesia -->
+
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"
+                ></path>
+              </svg>
+            </span>
+
+            <span class="label"
+              ><strong>11:30 a. m.</strong> — Ceremonia religiosa</span
+            >
+          </li>
+
+          <li>
+            <span class="dot" aria-hidden="true">
+              <!-- cubiertos -->
+
+              <svg viewBox="0 0 24 24">
+                <path d="M4 3v8a2 2 0 0 0 2 2v8"></path>
+
+                <path d="M10 3v6"></path>
+
+                <path d="M20 3c0 4-3 5-3 9v9"></path>
+              </svg>
+            </span>
+
+            <span class="label"><strong>2:00 p. m.</strong> — Almuerzo</span>
+          </li>
+
+          <li>
+            <span class="dot" aria-hidden="true">
+              <!-- música -->
+
+              <svg viewBox="0 0 24 24">
+                <path d="M9 18V5l12-2v13"></path>
+
+                <circle cx="6" cy="18" r="3"></circle>
+
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+            </span>
+
+            <span class="label"><strong>4:00 p. m.</strong> — Fiesta</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= CEREMONIA ================= -->
+
+    <section id="ceremonia" class="wrap section">
+      <div class="card">
+        <h2>Ceremonia</h2>
+
+        <div class="info-list" aria-label="Información de la ceremonia">
+          <div class="info-item">
+            <span class="info-badge" aria-hidden="true">
+              <!-- templo -->
+
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2v6M9 5h6M4 22V12l8-4 8 4v10M9 22v-6a3 3 0 0 1 6 0v6"
+                />
+              </svg>
+            </span>
+
+            <div>
+              <span class="info-title"
+                >Parroquia Nuestra Señora del Carmen</span
+              >
+
+              <span class="info-sub">Ceremonia religiosa · 11:30 a. m.</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-badge" aria-hidden="true">
+              <!-- pin -->
+
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </span>
+
+            <div>
+              <span class="info-title"
+                >Juan de la Fuente, Miraflores 15047, Perú</span
+              >
+
+              <span class="info-sub">Ubicación</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="loc-grid" style="margin-top: 12px">
+          <div class="map-embed" aria-label="Mapa de la iglesia">
+            <iframe
+              loading="lazy"
+              allowfullscreen
+              src="https://maps.google.com/maps?q=Juan%20de%20la%20Fuente,%20Miraflores%2015047,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near"
+            >
+            </iframe>
+          </div>
+
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-secondary copy"
+              data-copy="Juan de la Fuente, Miraflores 15047, Perú"
+              aria-label="Copiar dirección de la iglesia"
+            >
+              Copiar dirección
+            </button>
+
+            <a
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/dir/?api=1&destination=Juan%20de%20la%20Fuente%2C%20Miraflores%2015047%2C%20Per%C3%BA"
+              >Cómo llegar</a
+            >
+          </div>
         </div>
       </div>
+    </section>
 
-      <p class="muted" style="margin-top:10px">A nombre de <strong>Javier Sarmiento</strong>.</p>
-    </div>
-  </section>
+    <!-- ================= RECEPCIÓN ================= -->
 
-  <section id="deseos" class="wrap section">
-    <div class="wish-panel">
-      <div class="wish-header">
-        <h2>Buenos deseos</h2>
-        <span id="wishCount" class="chip">0</span>
-      </div>
+    <section id="recepcion" class="wrap section">
+      <div class="card">
+        <h2>Recepción</h2>
 
-      <div class="wish-actions">
-        <button type="button" class="btn btn-secondary" id="wishToggle" aria-expanded="true">
-          Ocultar mensajes
-        </button>
-        <button type="button" class="btn btn-primary" id="wishScroll">
-          Escribir un mensaje
-        </button>
-      </div>
+        <div class="info-list" aria-label="Información de la recepción">
+          <div class="info-item">
+            <span class="info-badge" aria-hidden="true">
+              <!-- pin -->
 
-      <!-- Lista colapsable -->
-      <div id="wishList" class="wish-list">
-        <div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉</div>
-      </div>
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </span>
 
-      <!-- Formulario -->
-      <form id="wishForm" class="wish-form" autocomplete="on" novalidate>
-        <div class="row">
-          <input id="wishName" name="name" placeholder="Tu nombre (opcional)" maxlength="99" />
-          <span class="char" id="wishChar">0/500</span>
+            <div>
+              <span class="info-title">Av. Club Golf Los Incas 222, Surco</span>
+
+              <span class="info-sub">Ubicación</span>
+            </div>
+          </div>
         </div>
-        <textarea id="wishMsg" name="message" placeholder="Escribe tu mensaje para los novios" maxlength="500" required></textarea>
-        <div class="btn-group">
-          <button class="btn btn-primary" type="submit">Enviar</button>
-          <button class="btn btn-secondary" type="reset">Limpiar</button>
+
+        <div class="loc-grid" style="margin-top: 12px">
+          <div class="map-embed" aria-label="Mapa de la recepción">
+            <iframe
+              loading="lazy"
+              allowfullscreen
+              src="https://maps.google.com/maps?q=Av.%20Club%20Golf%20Los%20Incas%20222,%20Surco,%20Lima,%20Per%C3%BA&t=m&z=17&output=embed&iwloc=near"
+            >
+            </iframe>
+          </div>
+
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-secondary copy"
+              data-copy="Av. Club Golf Los Incas 222, Surco"
+              aria-label="Copiar dirección de la recepción"
+            >
+              Copiar dirección
+            </button>
+
+            <a
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Club%20Golf%20Los%20Incas%20222%2C%20Surco%2C%20Lima%2C%20Per%C3%BA"
+              >Cómo llegar</a
+            >
+          </div>
         </div>
-        <!-- DEV NOTE: Se publica al instante. Si no hay internet, se guarda local (LS) y se sincroniza después. -->
-      </form>
-    </div>
-  </section>
-
-  <!-- ================= RSVP ================= -->
-  <section id="rsvp" class="wrap section">
-    <div class="card">
-      <h2>Asistencia</h2>
-      <p>Por favor confirma tu asistencia.</p>
-      <p class="muted">Si necesitas coordinar detalles, nuestra wedding planner controla las asistencias en <a href="tel:+51941496288">+51 941 496 288</a>.</p>
-      <div class="btn-group" style="margin-top:10px">
-        <a class="btn btn-primary" href="https://docs.google.com/forms/d/ID_DE_TU_FORM/viewform" target="_blank" rel="noopener">Abrir formulario</a>
-        <a class="btn btn-secondary" href="https://wa.me/51941496288?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
       </div>
-      <div class="btn-group" style="margin-top:10px">
-        <button type="button" class="btn btn-primary" id="rsvpYes">Asistiré</button>
-        <button type="button" class="btn btn-secondary" id="rsvpNo">No podré ir</button>
+    </section>
+
+    <!-- ================= RECUERDOS (galería) ================= -->
+
+    <section id="galeria" class="wrap section">
+      <div class="card">
+        <h2>Galería</h2>
+
+        <!-- Galería -->
+
+        <div class="gallery" aria-label="Galería">
+          <img
+            src="assets/gallery/1_Parque_juntos.jpg"
+            alt="Paseo en el parque juntos"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/2_Faro_Mirandonos.jpg"
+            alt="Mirándonos junto al faro"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/3_DSC6928.jpg"
+            alt="Abrazados durante la sesión"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/4_Juntos_Playa.jpg"
+            alt="Juntos en la playa"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Anillo.jpg"
+            alt="Nuestros anillos"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Bosque_Caminando.jpg"
+            alt="Caminando en el bosque"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Disney.jpg"
+            alt="Recuerdo en Disney"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Escalera Fix.png"
+            alt="Encuentro en la escalera"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Faro_Juntos.jpg"
+            alt="Recuerdo juntos en el faro"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Huaca.jpg"
+            alt="Abrazados en la huaca"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Huaca_Escalera.jpg"
+            alt="Escalera en la huaca"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Mirador_Cerca.jpg"
+            alt="Mirador con nosotros cerca"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Mirador_Medio.jpg"
+            alt="Vista desde el mirador"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Playa_Cerca.jpg"
+            alt="Sonrisas en la playa"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Playa_Espalda.jpg"
+            alt="Mirando el mar de espaldas"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Playa_Lejos.jpg"
+            alt="Postal playera a lo lejos"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Pozo_BN.jpg"
+            alt="Pozo en blanco y negro"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Puente_Cerca.jpg"
+            alt="Puente a la vista cercana"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Puente_Cruce_2.jpg"
+            alt="Cruzando el puente"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="assets/gallery/Puente_Medio.jpg"
+            alt="Encuentro en el puente"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    Hecho con &#10084; por Romina & Javier · <a href="#rsvp">Asistencia</a>
-  </footer>
+    <!-- ================= REGALOS ================= -->
 
-  <!-- JSON-LD Evento (conjunto) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Boda de Romina & Javier",
-  "startDate": "2025-11-15T11:30:00-05:00",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "location": [{
-      "@type": "Place",
-      "name": "Parroquia Nuestra Señora del Carmen",
-      "address": "Juan de la Fuente, Miraflores 15047, Perú"
-    },{
-      "@type": "Place",
-      "name": "Recepción",
-      "address": "Av. Club Golf Los Incas 222, Surco"
-    }],
-    "image": [
-      "assets/gallery/1_Parque_juntos.jpg",
-      "assets/gallery/2_Faro_Mirandonos.jpg",
-      "assets/gallery/3_DSC6928.jpg"
-    ],
-    "description": "Invitación de boda. Dress code: Elegante.",
-    "isAccessibleForFree": true
-  }
-  </script>
+    <section id="regalos" class="wrap section">
+      <div class="panel">
+        <h2>Cuenta para regalos</h2>
 
-  <div id="copyStatus" class="sr-only" aria-live="polite"></div>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+        <p class="muted">
+          Nos sentimos bendecidos de tenerte en nuestra vida y poder compartir
+          este día tan especial contigo. Si consideras hacernos un obsequio,
+          nuestras opciones son:
+        </p>
 
-  <dialog id="thanksDialog">
-    <div class="thanks-box">
-      <span class="thanks-emoji" id="thanksEmoji" aria-hidden="true">💌</span>
-      <h3>¡Gracias!</h3>
-      <p class="thanks-message" id="thanksText">Tu mensaje ya está con nosotros.</p>
-      <button type="button" class="btn btn-primary thanks-close" id="thanksClose">Cerrar</button>
-    </div>
-  </dialog>
+        <div class="grid cols-2" style="margin-top: 10px">
+          <div class="card">
+            <h3>Interbank — <span class="muted">DÓLARES</span></h3>
 
-  <script>
-    /* Crossfade del hero */
-    const heroImgs = Array.from(document.querySelectorAll('.hero .bg'));
-    let hi = 0;
-    setInterval(()=>{ heroImgs[hi].classList.remove('active'); hi=(hi+1)%heroImgs.length; heroImgs[hi].classList.add('active'); }, 6000);
+            <p style="margin: 6px 0">
+              <strong>Cuenta</strong> ·
 
-    /* CountDown con meses + segundos; oculta unidades = 0 */
-    const countdownEl = document.getElementById('countdown');
-  const target = new Date('2025-11-15T11:30:00-05:00');
-    /*function addMonths(base, m){
-      const y = base.getFullYear(), mon = base.getMonth()+m, d = base.getDate();
-      const last = new Date(y, mon+1, 0).getDate();
-      return new Date(y, mon, Math.min(d,last), base.getHours(), base.getMinutes(), base.getSeconds(), base.getMilliseconds());
-    }
-    function diffWithMonths(from, to){
-      if (from >= to) return {months:0, days:0, hours:0, minutes:0, seconds:0};
-      let months = 0, cur = new Date(from);
-      while(true){ const nxt = addMonths(cur,1); if(nxt<=to){ months++; cur=nxt; } else break; }
-      const ms = to - cur;
-      const days = Math.floor(ms/86400000);
-      const hours = Math.floor((ms%86400000)/3600000);
-      const minutes = Math.floor((ms%3600000)/60000);
-      const seconds = Math.floor((ms%60000)/1000);
-      return {months, days, hours, minutes, seconds};
-    } 
-    function tick(){
-      const now = new Date();
-      const c = diffWithMonths(now, target);
-      if (now >= target){ countdownEl.textContent = '¡Hoy es el gran día!'; return; }
-      const parts = [];
-      if (c.months) parts.push(`${c.months} ${c.months===1?'mes':'meses'}`);
-      if (c.days) parts.push(`${c.days}d`);
-      if (c.hours) parts.push(`${c.hours}h`);
-      if (c.minutes) parts.push(`${c.minutes}m`);
-      if (c.seconds) parts.push(`${c.seconds}s`);
-      countdownEl.textContent = parts.length ? `Faltan ${parts.join(' ')` : '';
-    } */
-    function tick(){
-      const now = new Date();
-      if (now >= target){
-        countdownEl.textContent = '¡Hoy es el gran día!';
-        return;
+              <button
+                type="button"
+                class="btn btn-secondary copy"
+                data-copy="898 3184906814"
+                aria-label="Copiar número de cuenta en dólares"
+              >
+                898 3184906814
+              </button>
+            </p>
+
+            <p style="margin: 6px 0">
+              <strong>CCI</strong> ·
+
+              <button
+                type="button"
+                class="btn btn-secondary copy"
+                data-copy="00389801318490681446"
+                aria-label="Copiar CCI en dólares"
+              >
+                00389801318490681446
+              </button>
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Interbank — <span class="muted">SOLES</span></h3>
+
+            <p style="margin: 6px 0">
+              <strong>Cuenta</strong> ·
+
+              <button
+                type="button"
+                class="btn btn-secondary copy"
+                data-copy="200 3122648627"
+                aria-label="Copiar número de cuenta en soles"
+              >
+                200 3122648627
+              </button>
+            </p>
+
+            <p style="margin: 6px 0">
+              <strong>CCI</strong> ·
+
+              <button
+                type="button"
+                class="btn btn-secondary copy"
+                data-copy="00320001312264862735"
+                aria-label="Copiar CCI en soles"
+              >
+                00320001312264862735
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top: 10px">
+          A nombre de <strong>Javier Sarmiento y Romina Laura</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section id="deseos" class="wrap section">
+      <div class="wish-panel">
+        <div class="wish-header">
+          <h2>Buenos deseos</h2>
+
+          <span id="wishCount" class="chip">0</span>
+        </div>
+
+        <div class="wish-actions">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="wishToggle"
+            aria-expanded="true"
+          >
+            Ocultar mensajes
+          </button>
+
+          <button type="button" class="btn btn-primary" id="wishScroll">
+            Escribir un mensaje
+          </button>
+        </div>
+
+        <!-- Lista colapsable -->
+
+        <div id="wishList" class="wish-list">
+          <div class="wish-empty">
+            Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉
+          </div>
+        </div>
+
+        <!-- Formulario -->
+
+        <form id="wishForm" class="wish-form" autocomplete="on" novalidate>
+          <div class="row">
+            <input
+              id="wishName"
+              name="name"
+              placeholder="Tu nombre (opcional)"
+              maxlength="99"
+            />
+
+            <span class="char" id="wishChar">0/500</span>
+          </div>
+
+          <textarea
+            id="wishMsg"
+            name="message"
+            placeholder="Escribe tu mensaje para los novios"
+            maxlength="500"
+            required
+          ></textarea>
+
+          <div class="btn-group">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+
+            <button class="btn btn-secondary" type="reset">Limpiar</button>
+          </div>
+
+          <!-- DEV NOTE: Se publica al instante. Si no hay internet, se guarda local (LS) y se sincroniza después. -->
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= RSVP ================= -->
+
+    <section id="rsvp" class="wrap section">
+      <div class="card">
+        <h2>Asistencia</h2>
+
+        <p>Por favor confirma tu asistencia por WhatsApp.</p>
+
+        <p class="muted">
+          Nuestra wedding planner <strong>Carolina Roldán</strong> te ayudará en
+          <a href="tel:+51941496288">+51 941 496 288</a>.
+        </p>
+
+        <div class="btn-group" style="margin-top: 16px">
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/51941496288?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025."
+            target="_blank"
+            rel="noopener"
+          >
+            Confirmar asistencia
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="https://wa.me/51941496288?text=Hola%2C%20lamentablemente%20no%20podr%C3%A9%20asistir%20a%20la%20boda%20de%20Romina%20y%20Javier%20el%2015%2F11%2F2025."
+            target="_blank"
+            rel="noopener"
+          >
+            No podré asistir
+          </a>
+        </div>
+
+        <p class="muted" style="margin-top: 12px">
+          También puedes escribirnos directamente contándole a Carolina
+          cualquier detalle extra.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      Hecho con &#10084; por Romina & Javier · <a href="#rsvp">Asistencia</a>
+    </footer>
+    <audio
+      id="bgMusic"
+      src="assets/audio/Juan%20Luis%20Guerra%20-%20A%20Pedir%20Su%20Mano.mp3"
+      preload="auto"
+      loop
+      aria-hidden="true"
+    ></audio>
+
+    <button
+      type="button"
+      class="btn btn-secondary music-control"
+      aria-label="Reproducir música de fondo"
+      id="musicToggle"
+      hidden
+    >
+      Reproducir música
+    </button>
+
+    <!-- JSON-LD Evento (conjunto) -->
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+
+        "@type": "Event",
+
+        "name": "Boda de Romina & Javier",
+
+        "startDate": "2025-11-15T11:30:00-05:00",
+
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+
+        "eventStatus": "https://schema.org/EventScheduled",
+
+        "location": [
+          {
+            "@type": "Place",
+
+            "name": "Parroquia Nuestra Señora del Carmen",
+
+            "address": "Juan de la Fuente, Miraflores 15047, Perú"
+          },
+          {
+            "@type": "Place",
+
+            "name": "Recepción",
+
+            "address": "Av. Club Golf Los Incas 222, Surco"
+          }
+        ],
+
+        "image": [
+          "assets/gallery/1_Parque_juntos.jpg",
+
+          "assets/gallery/2_Faro_Mirandonos.jpg",
+
+          "assets/gallery/3_DSC6928.jpg"
+        ],
+
+        "description": "Invitación de boda. Dress code: Elegante con paleta sugerida en la invitación.",
+
+        "isAccessibleForFree": true
       }
-      const ms = target - now;
+    </script>
 
-      const days = Math.floor(ms / 86400000);
-      const hours = Math.floor((ms % 86400000) / 3600000);
-      const minutes = Math.floor((ms % 3600000) / 60000);
-      const seconds = Math.floor((ms % 60000) / 1000);
+    <div id="copyStatus" class="sr-only" aria-live="polite"></div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <dialog id="thanksDialog">
+      <div class="thanks-box">
+        <span class="thanks-emoji" id="thanksEmoji" aria-hidden="true">💌</span>
+
+        <h3>¡Gracias!</h3>
+
+        <p class="thanks-message" id="thanksText">
+          Tu mensaje ya está con nosotros.
+        </p>
+
+        <p class="thanks-user-msg" id="thanksUserMsg" hidden></p>
+
+        <button
+          type="button"
+          class="btn btn-primary thanks-close"
+          id="thanksClose"
+        >
+          Cerrar
+        </button>
+      </div>
+    </dialog>
+
+    <script>
+      /* Crossfade del hero */
+
+      const heroImgs = Array.from(document.querySelectorAll(".hero .bg"));
+
+      let hi = 0;
+
+      setInterval(() => {
+        heroImgs[hi].classList.remove("active");
+        hi = (hi + 1) % heroImgs.length;
+        heroImgs[hi].classList.add("active");
+      }, 6000);
+
+      /* CountDown con meses + segundos; oculta unidades = 0 */
+
+      const countdownEl = document.getElementById("countdown");
+
+      const target = new Date("2025-11-15T11:30:00-05:00");
+
+      /*function addMonths(base, m){
+
+
+
+      const y = base.getFullYear(), mon = base.getMonth()+m, d = base.getDate();
+
+
+
+      const last = new Date(y, mon+1, 0).getDate();
+
+
+
+      return new Date(y, mon, Math.min(d,last), base.getHours(), base.getMinutes(), base.getSeconds(), base.getMilliseconds());
+
+
+
+    }
+
+
+
+    function diffWithMonths(from, to){
+
+
+
+      if (from >= to) return {months:0, days:0, hours:0, minutes:0, seconds:0};
+
+
+
+      let months = 0, cur = new Date(from);
+
+
+
+      while(true){ const nxt = addMonths(cur,1); if(nxt<=to){ months++; cur=nxt; } else break; }
+
+
+
+      const ms = to - cur;
+
+
+
+      const days = Math.floor(ms/86400000);
+
+
+
+      const hours = Math.floor((ms%86400000)/3600000);
+
+
+
+      const minutes = Math.floor((ms%3600000)/60000);
+
+
+
+      const seconds = Math.floor((ms%60000)/1000);
+
+
+
+      return {months, days, hours, minutes, seconds};
+
+
+
+    } 
+
+
+
+    function tick(){
+
+
+
+      const now = new Date();
+
+
+
+      const c = diffWithMonths(now, target);
+
+
+
+      if (now >= target){ countdownEl.textContent = '¡Hoy es el gran día!'; return; }
+
+
 
       const parts = [];
-      if (days) parts.push(`${days}d`);
-      if (hours) parts.push(`${hours}h`);
-      if (minutes) parts.push(`${minutes}m`);
-      if (seconds) parts.push(`${seconds}s`);
 
-      countdownEl.textContent = parts.length ? `Faltan ${parts.join(' ')}` : '';
-    }
-    
-    tick(); setInterval(tick, 1000);
 
-    /* Toast */
-    function showToast(msg){
-      const t = document.getElementById('toast');
-      if (!t) return;
-      t.textContent = msg;
-      t.classList.add('show');
-      clearTimeout(t._h);
-      t._h = setTimeout(()=> t.classList.remove('show'), 1600);
-    }
 
-    /* Copy buttons (una sola vez) */
-    (function wireCopyButtons(){
-      const status = document.getElementById('copyStatus');
-      document.querySelectorAll('.copy').forEach(btn=>{
-        btn.addEventListener('click', async ()=>{
-          const text = btn.getAttribute('data-copy') || btn.textContent.trim();
-          try{
-            await navigator.clipboard.writeText(text);
-            if(status){ status.textContent = '¡Copiado!'; setTimeout(()=> status.textContent='', 1200); }
-            showToast('Copiado al portapapeles');
-          }catch(e){
-            // fallback: crear input temporal
-            const i=document.createElement('input'); i.value=text; document.body.appendChild(i); i.select();
-            try{ document.execCommand('copy'); showToast('Copiado'); }catch(_){ showToast('No se pudo copiar'); }
-            i.remove();
+      if (c.months) parts.push(`${c.months} ${c.months===1?'mes':'meses'}`);
+
+
+
+      if (c.days) parts.push(`${c.days}d`);
+
+
+
+      if (c.hours) parts.push(`${c.hours}h`);
+
+
+
+      if (c.minutes) parts.push(`${c.minutes}m`);
+
+
+
+      if (c.seconds) parts.push(`${c.seconds}s`);
+
+
+
+      countdownEl.textContent = parts.length ? `Faltan ${parts.join(' ')` : '';
+
+
+
+    } */
+
+      function tick() {
+        const now = new Date();
+
+        if (now >= target) {
+          countdownEl.textContent = "¡Hoy es el gran día!";
+
+          return;
+        }
+
+        const ms = target - now;
+
+        const days = Math.floor(ms / 86400000);
+
+        const hours = Math.floor((ms % 86400000) / 3600000);
+
+        const minutes = Math.floor((ms % 3600000) / 60000);
+
+        const seconds = Math.floor((ms % 60000) / 1000);
+
+        const parts = [];
+
+        if (days) parts.push(`${days}d`);
+
+        if (hours) parts.push(`${hours}h`);
+
+        if (minutes) parts.push(`${minutes}m`);
+
+        if (seconds) parts.push(`${seconds}s`);
+
+        countdownEl.textContent = parts.length
+          ? `Faltan ${parts.join(" ")}`
+          : "";
+      }
+
+      tick();
+      setInterval(tick, 1000);
+
+      /* Toast */
+
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+
+        if (!t) return;
+
+        t.textContent = msg;
+
+        t.classList.add("show");
+
+        clearTimeout(t._h);
+
+        t._h = setTimeout(() => t.classList.remove("show"), 1600);
+      }
+
+      /* Copy buttons (una sola vez) */
+
+      (function wireCopyButtons() {
+        const status = document.getElementById("copyStatus");
+
+        document.querySelectorAll(".copy").forEach((btn) => {
+          btn.addEventListener("click", async () => {
+            const text =
+              btn.getAttribute("data-copy") || btn.textContent.trim();
+
+            try {
+              await navigator.clipboard.writeText(text);
+
+              if (status) {
+                status.textContent = "¡Copiado!";
+                setTimeout(() => (status.textContent = ""), 1200);
+              }
+
+              showToast("Copiado al portapapeles");
+            } catch (e) {
+              // fallback: crear input temporal
+
+              const i = document.createElement("input");
+              i.value = text;
+              document.body.appendChild(i);
+              i.select();
+
+              try {
+                document.execCommand("copy");
+                showToast("Copiado");
+              } catch (_) {
+                showToast("No se pudo copiar");
+              }
+
+              i.remove();
+            }
+          });
+        });
+      })();
+
+      /* Enlace .ics (UTC + METHOD + DTEND) */
+
+      const ics = [
+        "BEGIN:VCALENDAR",
+
+        "VERSION:2.0",
+
+        "PRODID:-//RominaJavier//Boda//ES",
+
+        "CALSCALE:GREGORIAN",
+
+        "METHOD:PUBLISH",
+
+        "BEGIN:VEVENT",
+
+        "UID:boda-romina-javier-20251115@javiersl26.github.io",
+
+        "DTSTAMP:20250101T120000Z",
+
+        "DTSTART:20251115T163000Z" /* 11:30 -05:00 */,
+
+        "DTEND:20251116T040000Z" /* 23:00 -05:00 (ajustable) */,
+
+        "SUMMARY:Boda de Romina & Javier",
+
+        "LOCATION:Parroquia Nuestra Señora del Carmen, Juan de la Fuente, Miraflores 15047, Perú",
+
+        "DESCRIPTION:Ceremonia 11:30 a. m. · Almuerzo 2:00 p. m. · Fiesta 4:00 p. m. — Recepción: Av. Club Golf Los Incas 222, Surco. Dress code: Elegante (paleta sugerida en la web).",
+
+        "END:VEVENT",
+
+        "END:VCALENDAR",
+      ].join("\\r\\n");
+
+      const addCal = document.getElementById("addCal");
+
+      if (addCal) {
+        addCal.href =
+          "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+
+        addCal.setAttribute("type", "text/calendar");
+      }
+
+      /* Lightbox para Fotos */
+
+      const dlg = document.createElement("dialog");
+      dlg.id = "lightbox";
+
+      dlg.innerHTML =
+        '<img class="lightbox-img" alt=""><form method="dialog"><button style="display:none">x</button></form>';
+
+      document.body.appendChild(dlg);
+
+      const lbImg = dlg.querySelector(".lightbox-img");
+
+      const galleryImages = Array.from(
+        document.querySelectorAll(".gallery img"),
+      );
+
+      let currentImageIndex = -1;
+
+      function showLightboxImage(index) {
+        if (!galleryImages.length) return;
+
+        currentImageIndex =
+          (index + galleryImages.length) % galleryImages.length;
+
+        const active = galleryImages[currentImageIndex];
+
+        lbImg.src = active.src;
+
+        lbImg.alt = active.alt || "";
+      }
+
+      function openLightbox(index) {
+        if (!galleryImages.length) return;
+
+        showLightboxImage(index);
+
+        if (typeof dlg.showModal === "function" && !dlg.open) {
+          dlg.showModal();
+        }
+      }
+
+      function showNext(delta) {
+        if (currentImageIndex < 0) return;
+
+        showLightboxImage(currentImageIndex + delta);
+      }
+
+      galleryImages.forEach((img, idx) => {
+        img.addEventListener("click", () => openLightbox(idx));
+      });
+
+      let touchStartX = null;
+
+      const TOUCH_THRESHOLD = 40;
+
+      lbImg.addEventListener(
+        "touchstart",
+        (e) => {
+          if (e.touches.length) {
+            touchStartX = e.touches[0].clientX;
+          }
+        },
+        { passive: true },
+      );
+
+      lbImg.addEventListener("touchend", (e) => {
+        if (touchStartX === null || !e.changedTouches.length) return;
+
+        const deltaX = e.changedTouches[0].clientX - touchStartX;
+
+        if (Math.abs(deltaX) > TOUCH_THRESHOLD) {
+          showNext(deltaX > 0 ? -1 : 1);
+        }
+
+        touchStartX = null;
+      });
+
+      lbImg.addEventListener("touchcancel", () => {
+        touchStartX = null;
+      });
+
+      dlg.addEventListener("click", (e) => {
+        if (e.target === dlg) dlg.close();
+      });
+
+      dlg.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          showNext(1);
+        }
+
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          showNext(-1);
+        }
+      });
+
+      /* Nav activa on scroll + aria-current="page" */
+
+      const nav = document.getElementById("nav");
+
+      const links = Array.from(nav.querySelectorAll(".nav-item"));
+
+      const idToLink = Object.fromEntries(
+        links.map((a) => [a.dataset.section, a]),
+      );
+
+      const setActive = (id) => {
+        links.forEach((l) => {
+          l.classList.remove("active");
+          l.removeAttribute("aria-current");
+        });
+
+        const el = idToLink[id];
+        if (el) {
+          el.classList.add("active");
+          el.setAttribute("aria-current", "page");
+        }
+      };
+
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActive(entry.target.id);
+            }
+          });
+        },
+        { rootMargin: "-50% 0px -45% 0px" },
+      );
+
+      [
+        "detalles",
+        "itinerario",
+        "ceremonia",
+        "recepcion",
+        "galeria",
+        "regalos",
+        "deseos",
+        "rsvp",
+      ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) obs.observe(el);
+      });
+
+      /* ================= SPLASH LOGIC (v2) ================= */
+
+      const splash = document.getElementById("splash");
+
+      const cta = splash?.querySelector(".splash-cta");
+
+      const supportsInert = "inert" in HTMLElement.prototype;
+
+      /* Bloqueo inicial */
+
+      document.body.classList.add("noscroll");
+
+      [...document.body.children].forEach((el) => {
+        if (el.id !== "splash")
+          supportsInert
+            ? (el.inert = true)
+            : el.setAttribute("aria-hidden", "true");
+      });
+
+      /* Apertura por click/tecla (forzada) */
+
+      const openInvitation = () => {
+        // 1) “crack” del sello + sombra anticipada
+
+        splash.classList.add("opening");
+
+        // 2) leve retardo para que el ojo lea el movimiento de la solapa y luego la hoja
+
+        const letter = splash.querySelector(".letter");
+
+        const flap = splash.querySelector(".envelope-flap");
+
+        const shadowCarrier = splash.querySelector(".envelope");
+
+        // activa sombra inmediatamente para marcar volumen
+
+        shadowCarrier && shadowCarrier.style.setProperty("--flap-shadow", "1");
+
+        // pequeño desfase para la hoja
+
+        if (letter) {
+          letter.style.transitionDelay = "120ms";
+
+          /* cuando la hoja termina su “push-in”, cerramos */
+
+          const onLetterEnd = (ev) => {
+            if (ev.animationName === "letter-out") {
+              letter.removeEventListener("animationend", onLetterEnd);
+
+              finish();
+            }
+          };
+
+          letter.addEventListener("animationend", onLetterEnd);
+        }
+
+        if (flap) {
+          flap.style.transitionDuration = "1080ms";
+        }
+
+        const finish = () => {
+          splash.style.display = "none";
+
+          document.body.classList.remove("noscroll");
+
+          [...document.body.children].forEach((el) => {
+            if (el.id !== "splash")
+              supportsInert
+                ? (el.inert = false)
+                : el.removeAttribute("aria-hidden");
+          });
+
+          const hero = document.getElementById("hero");
+
+          if (hero) {
+            hero.setAttribute("tabindex", "-1");
+            hero.focus({ preventScroll: false });
+          }
+
+          cta?.removeEventListener("click", openInvitation);
+
+          splash.removeEventListener("click", onSplashClick);
+
+          document.removeEventListener("keydown", onKey);
+        };
+      };
+
+      const onSplashClick = (e) => {
+        e.stopPropagation();
+
+        openInvitation();
+      };
+
+      const onKey = (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openInvitation();
+        }
+      };
+
+      cta?.addEventListener("click", openInvitation);
+
+      splash.addEventListener("click", onSplashClick);
+
+      document.addEventListener("keydown", onKey);
+
+      /* ==== Buenos Deseos - versión limpia con fallback local ==== */
+
+      (() => {
+        const API_URL =
+          "https://script.google.com/macros/s/AKfycbz0CWB3g7WAWLJCmYyT_FMUgTf_gWrn4ix8V-wlyidu9QnELYsknbyZHbSDQRoogR_ZRQ/exec";
+
+        const USE_REMOTE = !!API_URL && window.location.protocol !== "file:";
+
+        const LS_KEY = "buenos_deseos_v2";
+
+        const listEl = document.getElementById("wishList");
+
+        const countEl = document.getElementById("wishCount");
+
+        const form = document.getElementById("wishForm");
+
+        const nameEl = document.getElementById("wishName");
+
+        const msgEl = document.getElementById("wishMsg");
+
+        const charEl = document.getElementById("wishChar");
+
+        const toggle = document.getElementById("wishToggle");
+
+        const scrollBtn = document.getElementById("wishScroll");
+
+        const thanksDialog = document.getElementById("thanksDialog");
+
+        const thanksText = document.getElementById("thanksText");
+
+        const thanksEmoji = document.getElementById("thanksEmoji");
+
+        const thanksClose = document.getElementById("thanksClose");
+
+        const thanksUserMsg = document.getElementById("thanksUserMsg");
+
+        const submitBtn = form?.querySelector('button[type="submit"]');
+
+        const resetBtn = form?.querySelector('button[type="reset"]');
+
+        const submitDefaultLabel = submitBtn?.textContent?.trim() || "Enviar";
+
+        const AUTO_REFRESH_MS = 8000;
+
+        const ANIMAL_EMOJIS = [
+          "🦊",
+          "🐱",
+          "🐻",
+          "🐨",
+          "🐼",
+          "🐯",
+          "🦁",
+          "🐮",
+          "🐷",
+          "🐵",
+          "🐸",
+          "🐰",
+          "🦉",
+          "🦄",
+          "🐥",
+          "🐙",
+        ];
+
+        const ESC_MAP = {
+          "&": "&amp;",
+
+          "<": "&lt;",
+
+          ">": "&gt;",
+
+          '"': "&quot;",
+
+          "'": "&#39;",
+        };
+
+        const esc = (s) =>
+          (s || "").replace(/[&<>"']/g, (ch) => ESC_MAP[ch] || ch);
+
+        const lsGet = () => {
+          try {
+            return JSON.parse(localStorage.getItem(LS_KEY) || "[]");
+          } catch (_) {
+            return [];
+          }
+        };
+
+        const lsSet = (arr) => {
+          try {
+            localStorage.setItem(LS_KEY, JSON.stringify(arr.slice(0, 300)));
+          } catch (_) {}
+        };
+
+        let messagesVisible = true;
+
+        let pendingHighlight = null;
+
+        let isFetching = false;
+
+        let queuedFetch = false;
+
+        let isSending = false;
+
+        function emojiFor(name, ts) {
+          const source = `${name}|${ts}`;
+
+          let hash = 0;
+
+          for (let i = 0; i < source.length; i++) {
+            hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
+          }
+
+          return ANIMAL_EMOJIS[hash % ANIMAL_EMOJIS.length];
+        }
+
+        function initialsFor(name) {
+          const parts = (name || "").trim().split(/\s+/).filter(Boolean);
+
+          if (!parts.length) return "A";
+
+          return (
+            parts
+              .slice(0, 2)
+              .map((part) => part[0]?.toUpperCase() || "")
+              .join("") || "A"
+          );
+        }
+
+        function updateCount(n) {
+          if (countEl) countEl.textContent = String(n || 0);
+        }
+
+        function setToggleLabel(visible) {
+          if (!toggle) return;
+
+          toggle.textContent = visible ? "Ocultar mensajes" : "Ver mensajes";
+
+          toggle.setAttribute("aria-expanded", visible ? "true" : "false");
+        }
+
+        function applyVisibility() {
+          if (!listEl) return;
+
+          listEl.classList.toggle("is-hidden", !messagesVisible);
+        }
+
+        setToggleLabel(messagesVisible);
+
+        applyVisibility();
+
+        function render(data) {
+          if (!listEl) return;
+
+          if (!data?.length) {
+            listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉</div>`;
+
+            updateCount(0);
+
+            pendingHighlight = null;
+
+            return;
+          }
+
+          const items = data
+            .map((w) => {
+              const ts = Number(w.ts) || Date.now();
+
+              const name = (w.name || "Anónimo").trim() || "Anónimo";
+
+              const msg = (w.msg || "").trim();
+
+              const emoji = emojiFor(name, ts);
+
+              const dt = ts ? new Date(ts) : null;
+
+              const when = dt
+                ? dt.toLocaleString("es-PE", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
+                : "";
+
+              const iso = dt ? dt.toISOString() : "";
+
+              const initials = initialsFor(name);
+
+              return `
+
+
+
+          <div class="wish-item" data-ts="${ts}">
+
+
+
+            <div class="wish-avatar" aria-hidden="true">
+
+
+
+              <span class="avatar-initials">${esc(initials)}</span>
+
+
+
+              <span class="avatar-animal">${emoji}</span>
+
+
+
+            </div>
+
+
+
+            <div>
+
+
+
+              <div class="wish-header-row">
+
+
+
+                <div class="wish-header-left">
+
+
+
+                  <div class="wish-name">${esc(name)}</div>
+
+
+
+                </div>
+
+
+
+                ${when ? `<time class="wish-date" datetime="${iso}">${esc(when)}</time>` : ``}
+
+
+
+              </div>
+
+
+
+              <p class="wish-text">${esc(msg)}</p>
+
+
+
+            </div>
+
+
+
+          </div>
+
+
+
+        `;
+            })
+            .join("");
+
+          listEl.innerHTML = items;
+
+          updateCount(data.length);
+
+          if (pendingHighlight) {
+            const target = listEl.querySelector(
+              `[data-ts="${pendingHighlight}"]`,
+            );
+
+            if (target) {
+              target.classList.add("wish-highlight");
+
+              target.scrollIntoView({ behavior: "smooth", block: "center" });
+
+              setTimeout(() => target.classList.remove("wish-highlight"), 2400);
+            }
+
+            pendingHighlight = null;
+          }
+        }
+
+        async function fetchAll() {
+          if (isFetching) {
+            queuedFetch = true;
+
+            return false;
+          }
+
+          isFetching = true;
+
+          try {
+            if (USE_REMOTE) {
+              try {
+                const r = await fetch(API_URL, {
+                  method: "GET",
+                  mode: "cors",
+                  headers: { Accept: "application/json" },
+                });
+
+                if (!r.ok) throw 0;
+
+                const data = await r.json();
+
+                const sorted = (Array.isArray(data) ? data : [])
+                  .sort((a, b) => (b.ts || 0) - (a.ts || 0))
+                  .slice(0, 120);
+
+                render(sorted);
+
+                lsSet(sorted);
+
+                return true;
+              } catch (_) {
+                const local = lsGet().sort((a, b) => (b.ts || 0) - (a.ts || 0));
+
+                render(local);
+
+                return false;
+              }
+            }
+
+            render(lsGet().sort((a, b) => (b.ts || 0) - (a.ts || 0)));
+
+            return false;
+          } finally {
+            isFetching = false;
+
+            if (queuedFetch) {
+              queuedFetch = false;
+
+              setTimeout(fetchAll, 200);
+            }
+          }
+        }
+
+        let lastSubmit = 0;
+
+        async function sendOne(name, msg) {
+          const ts = Date.now();
+
+          const item = { name, msg, ts };
+
+          pendingHighlight = ts;
+
+          if (USE_REMOTE) {
+            try {
+              const r = await fetch(API_URL, {
+                method: "POST",
+
+                mode: "cors",
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                },
+
+                body: JSON.stringify(item),
+              });
+
+              if (!r.ok) throw 0;
+
+              await fetchAll();
+
+              return { ok: true, ts, synced: true };
+            } catch (_) {
+              const arr = lsGet();
+              arr.unshift(item);
+              lsSet(arr);
+
+              render(arr);
+
+              return { ok: true, ts, synced: false };
+            }
+          }
+
+          const arr = lsGet();
+          arr.unshift(item);
+          lsSet(arr);
+
+          render(arr);
+
+          return { ok: true, ts, local: true };
+        }
+
+        function showThanks(name, ts, message) {
+          const displayName = name || "Anónimo";
+
+          const emoji = emojiFor(displayName, ts);
+
+          const msgText = (message || "").trim();
+
+          if (!thanksDialog || typeof thanksDialog.showModal !== "function") {
+            const extra = msgText ? "\n\n" + msgText : "";
+
+            alert(emoji + " ¡Gracias, " + displayName + "!" + extra);
+
+            return;
+          }
+
+          thanksEmoji.textContent = emoji;
+
+          thanksText.textContent =
+            "Tu mensaje ya está con nosotros, " + displayName + "!";
+
+          if (thanksUserMsg) {
+            if (msgText) {
+              thanksUserMsg.textContent = msgText;
+
+              thanksUserMsg.hidden = false;
+            } else {
+              thanksUserMsg.textContent = "";
+
+              thanksUserMsg.hidden = true;
+            }
+          }
+
+          thanksDialog.showModal();
+
+          thanksClose?.focus({ preventScroll: true });
+        }
+
+        function closeThanks() {
+          if (
+            thanksDialog &&
+            typeof thanksDialog.close === "function" &&
+            thanksDialog.open
+          ) {
+            thanksDialog.close();
+          }
+
+          if (thanksUserMsg) {
+            thanksUserMsg.textContent = "";
+
+            thanksUserMsg.hidden = true;
+          }
+        }
+
+        thanksClose?.addEventListener("click", closeThanks);
+
+        thanksDialog?.addEventListener("click", (e) => {
+          if (e.target === thanksDialog) closeThanks();
+        });
+
+        thanksDialog?.addEventListener("cancel", closeThanks);
+
+        toggle?.addEventListener("click", () => {
+          messagesVisible = !messagesVisible;
+
+          setToggleLabel(messagesVisible);
+
+          applyVisibility();
+
+          if (messagesVisible && listEl) {
+            listEl.scrollTop = 0;
           }
         });
-      });
-    })();
 
-    /* Enlace .ics (UTC + METHOD + DTEND) */
-    const ics = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//RominaJavier//Boda//ES',
-      'CALSCALE:GREGORIAN',
-      'METHOD:PUBLISH',
-      'BEGIN:VEVENT',
-      'UID:boda-romina-javier-20251115@javiersl26.github.io',
-  'DTSTAMP:20250101T120000Z',
-  'DTSTART:20251115T163000Z', /* 11:30 -05:00 */
-  'DTEND:20251116T040000Z',   /* 23:00 -05:00 (ajustable) */
-      'SUMMARY:Boda de Romina & Javier',
-      'LOCATION:Parroquia Nuestra Señora del Carmen, Juan de la Fuente, Miraflores 15047, Perú',
-  'DESCRIPTION:Ceremonia 11:30 a. m. · Almuerzo 2:00 p. m. · Fiesta 4:00 p. m. — Recepción: Av. Club Golf Los Incas 222, Surco. Dress code: Elegante.',
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].join('\\r\\n');
-    const addCal = document.getElementById('addCal');
-    if (addCal){
-      addCal.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
-      addCal.setAttribute('type','text/calendar');
-    }
+        scrollBtn?.addEventListener("click", () => {
+          if (!messagesVisible) {
+            messagesVisible = true;
 
-    /* Lightbox para Fotos */
-    const dlg = document.createElement('dialog'); dlg.id='lightbox';
-    dlg.innerHTML = '<img class="lightbox-img" alt=""><form method="dialog"><button style="display:none">x</button></form>';
-    document.body.appendChild(dlg);
-    const lbImg = dlg.querySelector('.lightbox-img');
-    const galleryImages = Array.from(document.querySelectorAll('.gallery img'));
-    let currentImageIndex = -1;
-    function showLightboxImage(index){
-      if(!galleryImages.length) return;
-      currentImageIndex = (index + galleryImages.length) % galleryImages.length;
-      const active = galleryImages[currentImageIndex];
-      lbImg.src = active.src;
-      lbImg.alt = active.alt || '';
-    }
-    function openLightbox(index){
-      if(!galleryImages.length) return;
-      showLightboxImage(index);
-      if(typeof dlg.showModal === 'function' && !dlg.open){ dlg.showModal(); }
-    }
-    function showNext(delta){
-      if(currentImageIndex < 0) return;
-      showLightboxImage(currentImageIndex + delta);
-    }
-    galleryImages.forEach((img, idx)=>{
-      img.addEventListener('click', ()=> openLightbox(idx));
-    });
-    let touchStartX = null;
-    const TOUCH_THRESHOLD = 40;
-    lbImg.addEventListener('touchstart', (e)=>{
-      if(e.touches.length){ touchStartX = e.touches[0].clientX; }
-    }, { passive: true });
-    lbImg.addEventListener('touchend', (e)=>{
-      if(touchStartX === null || !e.changedTouches.length) return;
-      const deltaX = e.changedTouches[0].clientX - touchStartX;
-      if(Math.abs(deltaX) > TOUCH_THRESHOLD){
-        showNext(deltaX > 0 ? -1 : 1);
-      }
-      touchStartX = null;
-    });
-    lbImg.addEventListener('touchcancel', ()=>{ touchStartX = null; });
-    dlg.addEventListener('click', e=>{ if(e.target === dlg) dlg.close(); });
-    dlg.addEventListener('keydown', e=>{
-      if(e.key === 'ArrowRight'){ e.preventDefault(); showNext(1); }
-      if(e.key === 'ArrowLeft'){ e.preventDefault(); showNext(-1); }
-    });
+            setToggleLabel(true);
 
-    /* Nav activa on scroll + aria-current="page" */
-    const nav = document.getElementById('nav');
-    const links = Array.from(nav.querySelectorAll('.nav-item'));
-    const idToLink = Object.fromEntries(links.map(a=>[a.dataset.section, a]));
-    const setActive = (id)=>{
-     
-     
-      links.forEach(l=>{ l.classList.remove('active'); l.removeAttribute('aria-current'); });
-      const el = idToLink[id]; if(el){ el.classList.add('active'); el.setAttribute('aria-current','page'); }
-    };
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if (entry.isIntersecting){ setActive(entry.target.id); }
-      });
-    }, {rootMargin:'-50% 0px -45% 0px'});
+            applyVisibility();
+          }
 
-    ['detalles','itinerario','ceremonia','recepcion','galeria','regalos','deseos','rsvp'].forEach(id=>{
-      const el=document.getElementById(id); if(el) obs.observe(el);
-    });
+          form?.scrollIntoView({ behavior: "smooth", block: "center" });
 
-/* ================= SPLASH LOGIC (v2) ================= */
-const splash = document.getElementById('splash');
-const cta = splash?.querySelector('.splash-cta');
-const supportsInert = 'inert' in HTMLElement.prototype;
+          nameEl?.focus();
+        });
 
-/* Bloqueo inicial */
-document.body.classList.add('noscroll');
-[...document.body.children].forEach(el=>{
-  if (el.id !== 'splash') (supportsInert ? el.inert = true : el.setAttribute('aria-hidden','true'));
-});
+        const updateChar = () => {
+          if (charEl && msgEl) {
+            charEl.textContent = `${msgEl.value.length}/500`;
+          }
+        };
 
-/* Apertura por click/tecla (forzada) */
-const openInvitation = ()=>{
-  // 1) “crack” del sello + sombra anticipada
-  splash.classList.add('opening');
-  // 2) leve retardo para que el ojo lea el movimiento de la solapa y luego la hoja
-  const letter = splash.querySelector('.letter');
-  const flap = splash.querySelector('.envelope-flap');
-  const shadowCarrier = splash.querySelector('.envelope');
+        msgEl?.addEventListener("input", updateChar);
+        updateChar();
 
-  // activa sombra inmediatamente para marcar volumen
-  shadowCarrier && (shadowCarrier.style.setProperty('--flap-shadow','1'));
+        form?.addEventListener("submit", async (e) => {
+          e.preventDefault();
 
-  // pequeño desfase para la hoja
-  if (letter){
-    letter.style.transitionDelay = '120ms';
-    /* cuando la hoja termina su “push-in”, cerramos */
-    const onLetterEnd = (ev)=>{
-      if (ev.animationName === 'letter-out'){
-        letter.removeEventListener('animationend', onLetterEnd);
-        finish();
-      }
-    };
-    letter.addEventListener('animationend', onLetterEnd);
-  }
-  if (flap){ flap.style.transitionDuration = '1080ms'; }
+          if (isSending) {
+            return;
+          }
 
-  const finish = () => {
-    splash.style.display = 'none';
-    document.body.classList.remove('noscroll');
-    [...document.body.children].forEach(el=>{
-      if (el.id !== 'splash') (supportsInert ? el.inert = false : el.removeAttribute('aria-hidden'));
-    });
-    const hero = document.getElementById('hero');
-    if (hero) { hero.setAttribute('tabindex','-1'); hero.focus({ preventScroll:false }); }
-    cta?.removeEventListener('click', openInvitation);
-    splash.removeEventListener('click', onSplashClick);
-    document.removeEventListener('keydown', onKey);
-  };
-};
+          const now = Date.now();
 
-const onSplashClick = (e) => {
-  e.stopPropagation();
-  openInvitation();
-};
-const onKey = (e) => {
-  if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openInvitation(); }
-};
+          if (now - lastSubmit < 6000) {
+            showToast("Dale unos segundos antes de enviar otro ⏳");
+            return;
+          }
 
-cta?.addEventListener('click', openInvitation);
-splash.addEventListener('click', onSplashClick);
-document.addEventListener('keydown', onKey);
+          const rawName = (nameEl.value || "").trim();
 
-  /* ==== Buenos Deseos - versión limpia con fallback local ==== */
-  (() => {
-    const API_URL = 'https://script.google.com/macros/s/AKfycbz0CWB3g7WAWLJCmYyT_FMUgTf_gWrn4ix8V-wlyidu9QnELYsknbyZHbSDQRoogR_ZRQ/exec';
-    const USE_REMOTE = !!API_URL;
-    const LS_KEY = 'buenos_deseos_v2';
+          const name = rawName ? rawName.slice(0, 99) : "Anónimo";
 
-    const listEl   = document.getElementById('wishList');
-    const countEl  = document.getElementById('wishCount');
-    const form     = document.getElementById('wishForm');
-    const nameEl   = document.getElementById('wishName');
-    const msgEl    = document.getElementById('wishMsg');
-    const charEl   = document.getElementById('wishChar');
-    const toggle   = document.getElementById('wishToggle');
-    const scrollBtn= document.getElementById('wishScroll');
-    const thanksDialog = document.getElementById('thanksDialog');
-    const thanksText   = document.getElementById('thanksText');
-    const thanksEmoji  = document.getElementById('thanksEmoji');
-    const thanksClose  = document.getElementById('thanksClose');
+          const msg = (msgEl.value || "").trim().slice(0, 500);
 
-    const ANIMAL_EMOJIS = ['🦊','🐱','🐻','🐨','🐼','🐯','🦁','🐮','🐷','🐵','🐸','🐰','🦉','🦄','🐥','🐙'];
-    const ESC_MAP = {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#39;'
-    };
-    const esc = s => (s||'').replace(/[&<>"']/g, ch => ESC_MAP[ch] || ch);
-    const lsGet = () => { try { return JSON.parse(localStorage.getItem(LS_KEY)||'[]'); } catch(_) { return []; } };
-    const lsSet = arr => { try { localStorage.setItem(LS_KEY, JSON.stringify(arr.slice(0,300))); } catch(_){} };
+          if (!msg) {
+            msgEl.focus();
+            showToast("Escribe tu mensaje");
+            return;
+          }
 
-    let messagesVisible = true;
-    let pendingHighlight = null;
+          if (!messagesVisible) {
+            messagesVisible = true;
 
-    function emojiFor(name, ts){
-      const source = `${name}|${ts}`;
-      let hash = 0;
-      for(let i=0; i<source.length; i++){
-        hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
-      }
-      return ANIMAL_EMOJIS[hash % ANIMAL_EMOJIS.length];
-    }
+            setToggleLabel(true);
 
-    function initialsFor(name){
-      const parts = (name || '').trim().split(/\s+/).filter(Boolean);
-      if(!parts.length) return 'A';
-      return parts.slice(0,2).map(part => part[0]?.toUpperCase() || '').join('') || 'A';
-    }
+            applyVisibility();
+          }
 
-    function updateCount(n){ if(countEl) countEl.textContent = String(n||0); }
+          isSending = true;
 
-    function setToggleLabel(visible){
-      if(!toggle) return;
-      toggle.textContent = visible ? 'Ocultar mensajes' : 'Ver mensajes';
-      toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-    }
-    function applyVisibility(){
-      if(!listEl) return;
-      listEl.classList.toggle('is-hidden', !messagesVisible);
-    }
-    setToggleLabel(messagesVisible);
-    applyVisibility();
+          if (submitBtn) {
+            submitBtn.disabled = true;
 
-    function render(data){
-      if(!listEl) return;
-      if(!data?.length){
-        listEl.innerHTML = `<div class="wish-empty">Aún no hay mensajes. ¡Sé el primero en dejar uno! 🎉</div>`;
-        updateCount(0);
-        pendingHighlight = null;
-        return;
-      }
-      const items = data.map(w=>{
-        const ts   = Number(w.ts) || Date.now();
-        const name = (w.name||'Anónimo').trim() || 'Anónimo';
-        const msg  = (w.msg||'').trim();
-        const emoji = emojiFor(name, ts);
-        const dt   = ts ? new Date(ts) : null;
-        const when = dt ? dt.toLocaleString('es-PE', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
-        const iso  = dt ? dt.toISOString() : '';
-        const initials = initialsFor(name);
-        return `
-          <div class="wish-item" data-ts="${ts}">
-            <div class="wish-avatar" aria-hidden="true">
-              <span class="avatar-initials">${esc(initials)}</span>
-              <span class="avatar-animal">${emoji}</span>
-            </div>
-            <div>
-              <div class="wish-header-row">
-                <div class="wish-header-left">
-                  <div class="wish-name">${esc(name)}</div>
-                </div>
-                ${when ? `<time class="wish-date" datetime="${iso}">${esc(when)}</time>` : ``}
-              </div>
-              <p class="wish-text">${esc(msg)}</p>
-            </div>
-          </div>
-        `;
-      }).join('');
-      listEl.innerHTML = items;
-      updateCount(data.length);
+            submitBtn.setAttribute("aria-busy", "true");
 
-      if(pendingHighlight){
-        const target = listEl.querySelector(`[data-ts="${pendingHighlight}"]`);
-        if(target){
-          target.classList.add('wish-highlight');
-          target.scrollIntoView({ behavior:'smooth', block:'center' });
-          setTimeout(()=> target.classList.remove('wish-highlight'), 2400);
+            submitBtn.textContent = "Enviando…";
+          }
+
+          resetBtn?.setAttribute("disabled", "disabled");
+
+          try {
+            const result = await sendOne(name, msg);
+
+            lastSubmit = Date.now();
+
+            msgEl.value = "";
+
+            updateChar();
+
+            showThanks(name, result?.ts ?? Date.now(), msg);
+          } catch (_) {
+            showToast("No se pudo guardar el mensaje, inténtalo otra vez.");
+          } finally {
+            isSending = false;
+
+            submitBtn?.removeAttribute("aria-busy");
+
+            if (submitBtn) {
+              submitBtn.disabled = false;
+
+              submitBtn.textContent = submitDefaultLabel;
+            }
+
+            resetBtn?.removeAttribute("disabled");
+          }
+        });
+
+        form?.addEventListener("reset", () => {
+          setTimeout(updateChar, 0);
+        });
+
+        fetchAll();
+
+        if (USE_REMOTE) {
+          setInterval(() => {
+            fetchAll();
+          }, AUTO_REFRESH_MS);
         }
-        pendingHighlight = null;
+      })();
+      /* Música de fondo */
+      const bgMusic = document.getElementById("bgMusic");
+      const musicToggle = document.getElementById("musicToggle");
+
+      if (bgMusic) {
+        const START_AT = 15;
+
+        const ensureOffset = () => {
+          if (bgMusic.readyState >= 1 && bgMusic.duration > START_AT) {
+            try {
+              bgMusic.currentTime = START_AT;
+            } catch (_) {}
+          }
+        };
+
+        const showToggle = () => {
+          if (musicToggle) {
+            musicToggle.hidden = false;
+          }
+        };
+
+        const playMusic = () => {
+          ensureOffset();
+
+          try {
+            const attempt = bgMusic.play();
+
+            if (attempt?.catch) {
+              attempt.catch(() => {
+                showToggle();
+              });
+            }
+          } catch (_) {
+            showToggle();
+          }
+        };
+
+        bgMusic.volume = 0.7;
+        bgMusic.loop = true;
+
+        bgMusic.addEventListener("loadedmetadata", ensureOffset, {
+          once: true,
+        });
+
+        bgMusic.addEventListener("play", () => {
+          if (musicToggle) {
+            musicToggle.hidden = true;
+          }
+        });
+
+        document.addEventListener(
+          "pointerdown",
+          () => {
+            if (bgMusic.paused) {
+              playMusic();
+            }
+          },
+          { once: true },
+        );
+
+        document.addEventListener(
+          "keydown",
+          () => {
+            if (bgMusic.paused) {
+              playMusic();
+            }
+          },
+          { once: true },
+        );
+
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden && bgMusic.paused && musicToggle?.hidden) {
+            playMusic();
+          }
+        });
+
+        musicToggle?.addEventListener("click", () => {
+          musicToggle.hidden = true;
+          playMusic();
+        });
+
+        playMusic();
       }
-    }
-
-    async function fetchAll(){
-      if(USE_REMOTE){
-        try{
-          const r = await fetch(API_URL, { method:'GET' });
-          if(!r.ok) throw 0;
-          const data = await r.json();
-          const sorted = (Array.isArray(data)?data:[]).sort((a,b)=>(b.ts||0)-(a.ts||0)).slice(0,120);
-          render(sorted);
-          return true;
-        }catch(_){
-          const local = lsGet().sort((a,b)=> (b.ts||0)-(a.ts||0));
-          render(local);
-          return false;
-        }
-      }
-      render(lsGet().sort((a,b)=> (b.ts||0)-(a.ts||0)));
-      return false;
-    }
-
-    let lastSubmit = 0;
-    async function sendOne(name, msg){
-      const ts = Date.now();
-      const item = { name, msg, ts };
-      pendingHighlight = ts;
-
-      if(USE_REMOTE){
-        try{
-          const r = await fetch(API_URL, {
-            method:'POST',
-            headers:{ 'Content-Type':'text/plain;charset=utf-8' },
-            body: JSON.stringify(item)
-          });
-          if(!r.ok) throw 0;
-          await fetchAll();
-          return { ok:true, ts, synced:true };
-        }catch(_){
-          const arr = lsGet(); arr.unshift(item); lsSet(arr);
-          render(arr);
-          return { ok:true, ts, synced:false };
-        }
-      }
-      const arr = lsGet(); arr.unshift(item); lsSet(arr);
-      render(arr);
-      return { ok:true, ts, local:true };
-    }
-
-    function showThanks(name, ts){
-      const emoji = emojiFor(name, ts);
-      if(!thanksDialog || typeof thanksDialog.showModal !== 'function'){
-        alert(`${emoji} ¡Gracias, ${name || 'Anónimo'}! Tu mensaje ya está con nosotros.`);
-        return;
-      }
-      thanksEmoji.textContent = emoji;
-      thanksText.textContent = `Tu mensaje ya está con nosotros, ${name || 'Anónimo'}!`;
-      thanksDialog.showModal();
-      thanksClose?.focus({ preventScroll: true });
-    }
-    function closeThanks(){
-      if(thanksDialog && typeof thanksDialog.close === 'function' && thanksDialog.open){
-        thanksDialog.close();
-      }
-    }
-    thanksClose?.addEventListener('click', closeThanks);
-    thanksDialog?.addEventListener('click', e=>{ if(e.target === thanksDialog) closeThanks(); });
-    thanksDialog?.addEventListener('cancel', closeThanks);
-
-    toggle?.addEventListener('click', ()=>{
-      messagesVisible = !messagesVisible;
-      setToggleLabel(messagesVisible);
-      applyVisibility();
-      if(messagesVisible && listEl){
-        listEl.scrollTop = 0;
-      }
-    });
-    scrollBtn?.addEventListener('click', ()=>{
-      if(!messagesVisible){
-        messagesVisible = true;
-        setToggleLabel(true);
-        applyVisibility();
-      }
-      form?.scrollIntoView({ behavior:'smooth', block:'center' });
-      nameEl?.focus();
-    });
-
-    const updateChar = ()=> { if(charEl && msgEl){ charEl.textContent = `${msgEl.value.length}/500`; } };
-    msgEl?.addEventListener('input', updateChar); updateChar();
-
-    form?.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const now = Date.now();
-      if(now - lastSubmit < 6000){ showToast('Dale unos segundos antes de enviar otro ⏳'); return; }
-      const rawName = (nameEl.value||'').trim();
-      const name = rawName ? rawName.slice(0,99) : 'Anónimo';
-      const msg  = (msgEl.value||'').trim().slice(0,500);
-      if(!msg){ msgEl.focus(); showToast('Escribe tu mensaje'); return; }
-
-      if(!messagesVisible){
-        messagesVisible = true;
-        setToggleLabel(true);
-        applyVisibility();
-      }
-
-      const result = await sendOne(name, msg);
-      lastSubmit = Date.now();
-      msgEl.value = '';
-      updateChar();
-      showThanks(name, result?.ts ?? Date.now());
-    });
-
-    form?.addEventListener('reset', ()=> { setTimeout(updateChar, 0); });
-
-    fetchAll();
-  })();
-
-
-  /* RSVP dinámico por WhatsApp */
-  (function(){
-    const yes  = document.getElementById('rsvpYes');
-    const no   = document.getElementById('rsvpNo');
-    const base = 'https://wa.me/51941496288';
-    const fecha = '15/11/2025';
-    function openWA(txt){
-      const url = `${base}?text=${encodeURIComponent(txt)}`;
-      window.open(url, '_blank', 'noopener');
-    }
-    yes?.addEventListener('click', ()=>{
-      openWA(`Hola, confirmo mi asistencia a la boda de Romina y Javier el ${fecha}.`);
-    });
-    no?.addEventListener('click', ()=>{
-      openWA(`Hola, lamentablemente NO podré asistir a la boda de Romina y Javier el ${fecha}. Gracias por la invitación.`);
-    });
-  })();
-  </script>
-</body>
+    </script>
+  </body>
 </html>
